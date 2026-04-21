@@ -8,6 +8,7 @@ import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import Home from './pages/Home';
 import About from './pages/About';
 import Dashboard from './pages/Dashboard';
+import WorkspaceSetup from './pages/WorkspaceSetup';
 import { Navigate } from 'react-router-dom';
 
 const AuthenticatedApp = () => {
@@ -40,6 +41,7 @@ const AuthenticatedApp = () => {
       <Route path="/Home" element={<Home />} />
       <Route path="/About" element={<About />} />
       <Route path="/Dashboard" element={<Dashboard />} />
+      <Route path="/WorkspaceSetup" element={<WorkspaceSetup />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
