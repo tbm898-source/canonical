@@ -9,6 +9,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Dashboard from './pages/Dashboard';
 import WorkspaceSetup from './pages/WorkspaceSetup';
+import ProgramHelper from './pages/ProgramHelper';
 import { Navigate } from 'react-router-dom';
 
 const AuthenticatedApp = () => {
@@ -37,7 +38,8 @@ const AuthenticatedApp = () => {
   // Render the main app
   return (
     <Routes>
-      <Route path="/" element={<Navigate to="/Home" replace />} />
+      <Route path="/" element={<Navigate to="/ProgramHelper" replace />} />
+      <Route path="/ProgramHelper" element={<ProgramHelper />} />
       <Route path="/Home" element={<Home />} />
       <Route path="/About" element={<About />} />
       <Route path="/Dashboard" element={<Dashboard />} />

@@ -1,0 +1,578 @@
+import React, { useMemo, useState } from "react";
+import { motion } from "framer-motion";
+import {
+  BookOpen,
+  CheckCircle2,
+  Eye,
+  Lock,
+  Play,
+  RefreshCcw,
+  Shield,
+  Sparkles,
+} from "lucide-react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { portalData } from "@/data/instructionalSampleData";
+
+const demoScopes = new Set(["demo_safe", "aya_safe", "prism_curated"]);
+
+const fadeUp = {
+  hidden: { opacity: 1, y: 0 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.06, duration: 0.45, ease: [0.22, 1, 0.36, 1] },
+  }),
+};
+
+function getProgram(programId) {
+  return portalData.programs.find((item) => item.id === programId);
+}
+
+function getModuleForProgram(program) {
+  return portalData.modules.find((item) => item.program_id === program.id);
+}
+
+function getBrief(briefId) {
+  return portalData.session_briefs.find((item) => item.id === briefId);
+}
+
+function getBundle(briefId) {
+  return portalData.session_bundles.find((item) => item.session_brief_id === briefId);
+}
+
+function safeArtifact(mode, artifact) {
+  if (mode === "owner") return true;
+  return demoScopes.has(artifact.visibility_scope);
+}
+
+function normalizeInput(rawInput, session) {
+  const lines = rawInput
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter(Boolean);
+
+  const sections = {
+    completed: [],
+    remaining: [],
+    blocked: [],
+    student_learning: [],
+    evidence_captured: [],
+  };
+  const aliases = {
+    completed: ["completed", "what was completed"],
+    remaining: ["remaining", "what remains"],
+    blocked: ["blocked", "blockers"],
+    student_learning: ["student learning", "what did students learn"],
+    evidence_captured: ["evidence captured", "evidence"],
+    next_step: ["next step", "what should happen first next class"],
+    actual_stage: ["actual stage"],
+    session_title: ["session title"],
+    session_date: ["date", "session date"],
+  };
+
+  let current = null;
+  const normalized = {
+    program_key: session.program_key,
+    module_key: session.module_key,
+    session_key: session.session_key,
+    session_title: session.session_title,
+    session_date: session.session_date,
+    actual_stage: session.actual_stage,
+    next_step: session.next_step,
+  };
+
+  const findAlias = (heading) => {
+    const token = heading.toLowerCase().replace(/[:\-]/g, "").trim();
+    return Object.keys(aliases).find((key) => aliases[key].includes(token)) ?? null;
+  };
+
+  for (const line of lines) {
+    const headingOnly = line.match(/^([A-Za-z0-9 ?'\/]+):$/);
+    if (headingOnly) {
+      current = findAlias(headingOnly[1]);
+      continue;
+    }
+
+    const inline = line.match(/^([A-Za-z0-9 ?'\/]+):\s*(.+)$/);
+    if (inline) {
+      const key = findAlias(inline[1]);
+      if (key) {
+        if (Array.isArray(sections[key])) {
+          sections[key].push(inline[2].trim());
+        } else {
+          normalized[key] = inline[2].trim();
+        }
+        current = key;
+        continue;
+      }
+    }
+
+    if (/^[-*]\s+/.test(line)) {
+      const item = line.replace(/^[-*]\s+/, "").trim();
+      if (current && Array.isArray(sections[current])) {
+        sections[current].push(item);
+      }
+    }
+  }
+
+  return { ...normalized, ...sections };
+}
+
+function prepareBundle(brief) {
+  const token = brief.session_title.replace(/[^A-Za-z0-9]+/g, "_").replace(/^_+|_+$/g, "");
+  const moduleToken = brief.module_key.replace(/[^A-Za-z0-9]+/g, "_");
+  const date = brief.session_date;
+  return {
+    aya: [
+      `AYA_CTS_${moduleToken}_${token}_Shop_Instructions_${date}.pdf`,
+      `AYA_CTS_${moduleToken}_${token}_Student_Build_Log_${date}.pdf`,
+      `AYA_CTS_${moduleToken}_${token}_Final_QC_and_Evidence_Card_${date}.pdf`,
+      "AYA_CTS_Adaptive_Daily_Template_v1.pdf",
+    ],
+    prism: [
+      `PRISM_${moduleToken}_${token}_Facilitator_Overlay_${date}.pdf`,
+      `PRISM_${moduleToken}_${token}_Framework_Packet_${date}.pdf`,
+      "PRISM_AYA_AI_Continuity_Prompt_Template_v1.txt",
+    ],
+    downstream: [
+      `${moduleToken}_${token}_Slides_${date}.pptx`,
+      `${moduleToken}_${token}_Google_Classroom_Post_${date}.txt`,
+      `${moduleToken}_${token}_Complete_Filed_Package_${date}.zip`,
+    ],
+  };
+}
+
+function BrandMark({ small = false }) {
+  return (
+    <div
+      className={`${small ? "h-7 w-7 rounded-lg" : "h-10 w-10 rounded-xl"} flex items-center justify-center bg-[#0a0a0a]`}
+    >
+      <span className={`${small ? "text-xs" : "text-sm"} font-bold tracking-tight text-white`}>C</span>
+    </div>
+  );
+}
+
+function MetricTile({ label, value }) {
+  return (
+    <div className="rounded-2xl border border-black/5 bg-white p-5 shadow-sm">
+      <div className="text-[11px] font-semibold uppercase tracking-wide text-[#0a0a0a]/35">
+        {label}
+      </div>
+      <div className="mt-2 text-sm font-semibold text-[#0a0a0a]">{value}</div>
+    </div>
+  );
+}
+
+function Surface({ children, className = "" }) {
+  return (
+    <section className={`rounded-2xl border border-black/5 bg-white p-6 shadow-sm ${className}`}>
+      {children}
+    </section>
+  );
+}
+
+function SectionTitle({ eyebrow, title, icon: Icon }) {
+  return (
+    <div className="mb-5 flex items-center gap-3">
+      {Icon && (
+        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-50">
+          <Icon className="h-4 w-4 text-indigo-600" />
+        </div>
+      )}
+      <div>
+        <div className="text-[11px] font-semibold uppercase tracking-wide text-indigo-600">
+          {eyebrow}
+        </div>
+        <h3 className="mt-1 text-lg font-semibold tracking-tight text-[#0a0a0a]">
+          {title}
+        </h3>
+      </div>
+    </div>
+  );
+}
+
+function ArtifactCard({ artifact, mode }) {
+  const owner = mode === "owner";
+  const scopeLabel = {
+    owner_private: "Owner",
+    prism_private: "PRISM",
+    prism_curated: "Curated",
+    aya_safe: "AYA",
+    demo_safe: "Demo",
+  }[artifact.visibility_scope] ?? "Item";
+
+  return (
+    <article className="rounded-xl border border-black/5 bg-[#fafafa] p-4">
+      <div className="flex items-start justify-between gap-3">
+        <div>
+          <h4 className="text-sm font-semibold text-[#0a0a0a]">{artifact.title}</h4>
+          <p className="mt-1 text-sm leading-6 text-[#0a0a0a]/45">
+            {owner ? artifact.notes : artifact.demo_summary || artifact.notes}
+          </p>
+        </div>
+        <span className="shrink-0 rounded-full bg-indigo-50 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-indigo-600">
+          {scopeLabel}
+        </span>
+      </div>
+      <div className="mt-3 text-[11px] font-semibold uppercase tracking-wide text-[#0a0a0a]/30">
+        {artifact.artifact_type.replace(/_/g, " ")}
+      </div>
+      {owner ? (
+        <pre className="mt-3 max-h-24 overflow-auto rounded-xl bg-white p-3 text-xs leading-5 text-[#0a0a0a]/55">
+          {artifact.archive_member
+            ? `${artifact.file_path}\n> ${artifact.archive_member}`
+            : artifact.file_path}
+        </pre>
+      ) : (
+        <div className="mt-3 rounded-xl bg-white px-3 py-2 text-xs font-semibold text-[#0a0a0a]/45">
+          Approved preview only
+        </div>
+      )}
+    </article>
+  );
+}
+
+function BundleList({ title, items }) {
+  return (
+    <div className="rounded-xl border border-black/5 bg-[#fafafa] p-4">
+      <h4 className="text-sm font-semibold text-[#0a0a0a]">{title}</h4>
+      <ul className="mt-3 space-y-2 text-sm leading-5 text-[#0a0a0a]/45">
+        {items.map((item) => (
+          <li key={item} className="break-words">
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default function ProgramHelper() {
+  const query = new URLSearchParams(window.location.search);
+  const initialMode = query.get("mode") === "demo" ? "demo" : "owner";
+  const [mode, setMode] = useState(initialMode);
+  const [entered, setEntered] = useState(query.has("mode"));
+  const [helperInput, setHelperInput] = useState(portalData.helper_seed_input);
+  const [runStatus, setRunStatus] = useState("draft_ready");
+
+  const program = getProgram(portalData.programs[0].id);
+  const module = getModuleForProgram(program);
+  const brief = getBrief(module.session_ids[0]);
+  const bundle = getBundle(brief.id);
+  const owner = mode === "owner";
+
+  const normalized = useMemo(() => normalizeInput(helperInput, brief), [helperInput, brief]);
+  const bundlePlan = useMemo(() => prepareBundle(normalized), [normalized]);
+  const artifacts = portalData.artifacts
+    .filter((artifact) => artifact.session_bundle_id === bundle.id)
+    .filter((artifact) => safeArtifact(mode, artifact))
+    .sort((a, b) => a.sort_order - b.sort_order);
+  const ayaArtifacts = artifacts.filter((artifact) => artifact.rail === "aya" || artifact.rail === "shared");
+  const prismArtifacts = artifacts.filter((artifact) => artifact.rail === "prism");
+  const agentRun = portalData.agent_runs?.[0];
+
+  if (!entered) {
+    return (
+      <div className="min-h-screen overflow-hidden bg-[#fafafa]">
+        <nav className="fixed left-0 right-0 top-0 z-50 border-b border-black/5 bg-[#fafafa]/80 backdrop-blur-xl">
+          <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
+            <div className="flex items-center gap-2">
+              <BrandMark small />
+              <span className="text-[15px] font-semibold tracking-tight text-[#0a0a0a]">
+                CANONICAL
+              </span>
+            </div>
+            <div className="flex items-center gap-6">
+              <Link to="/Home" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
+                Home
+              </Link>
+              <Link to="/Dashboard" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
+                Dashboard
+              </Link>
+            </div>
+          </div>
+        </nav>
+
+        <main className="mx-auto grid min-h-screen max-w-6xl grid-cols-1 items-center gap-12 px-6 pt-28 lg:grid-cols-[1.05fr_0.85fr]">
+          <motion.section initial="hidden" animate="visible" className="max-w-3xl">
+            <motion.div
+              variants={fadeUp}
+              custom={0}
+              className="mb-8 inline-flex items-center gap-2 rounded-full border border-indigo-100 bg-indigo-50 px-3 py-1.5"
+            >
+              <div className="h-1.5 w-1.5 animate-pulse rounded-full bg-indigo-500" />
+              <span className="text-xs font-medium tracking-wide text-indigo-600">
+                PRISM HELPER
+              </span>
+            </motion.div>
+
+            <motion.h1
+              variants={fadeUp}
+              custom={1}
+              className="text-5xl font-bold leading-[1.05] tracking-tight text-[#0a0a0a] sm:text-7xl"
+            >
+              PRISM Program
+              <br />
+              <span className="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">
+                Helper.
+              </span>
+            </motion.h1>
+
+            <motion.p
+              variants={fadeUp}
+              custom={2}
+              className="mt-8 max-w-xl text-lg leading-relaxed text-[#0a0a0a]/50"
+            >
+              CANONICAL instructional memory, owner-side draft generation, and a curated demo view for showing the system without opening the private rails.
+            </motion.p>
+          </motion.section>
+
+          <section className="rounded-3xl border border-black/5 bg-white p-5 shadow-2xl shadow-black/[0.04]">
+            <h2 className="text-lg font-semibold tracking-tight text-[#0a0a0a]">Choose access</h2>
+            <button
+              type="button"
+              onClick={() => {
+                setMode("owner");
+                setEntered(true);
+              }}
+              className="mt-5 block w-full rounded-2xl border border-black/5 bg-[#fafafa] p-5 text-left transition-all hover:-translate-y-0.5 hover:border-indigo-200 hover:bg-indigo-50"
+            >
+              <span className="font-semibold text-[#0a0a0a]">Owner preview</span>
+              <span className="mt-1 block text-sm text-[#0a0a0a]/45">
+                Full workbench, PRISM-private view, local draft review.
+              </span>
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                setMode("demo");
+                setEntered(true);
+              }}
+              className="mt-3 block w-full rounded-2xl border border-black/5 bg-[#fafafa] p-5 text-left transition-all hover:-translate-y-0.5 hover:border-indigo-200 hover:bg-indigo-50"
+            >
+              <span className="font-semibold text-[#0a0a0a]">Demo viewer</span>
+              <span className="mt-1 block text-sm text-[#0a0a0a]/45">
+                Read-only presentation mode with curated artifacts.
+              </span>
+            </button>
+          </section>
+        </main>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-[#fafafa]">
+      <nav className="fixed left-0 right-0 top-0 z-50 border-b border-black/5 bg-[#fafafa]/80 backdrop-blur-xl">
+        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
+          <div className="flex items-center gap-2">
+            <BrandMark small />
+            <span className="text-[15px] font-semibold tracking-tight text-[#0a0a0a]">
+              CANONICAL
+            </span>
+          </div>
+          <div className="flex items-center gap-5">
+            <Link to="/Home" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
+              Home
+            </Link>
+            <Link to="/Dashboard" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
+              Dashboard
+            </Link>
+            <Link to="/WorkspaceSetup" className="hidden text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a] sm:block">
+              Workspace
+            </Link>
+          </div>
+        </div>
+      </nav>
+
+      <main className="mx-auto max-w-7xl px-6 pb-20 pt-28">
+        {!owner && (
+          <div className="mb-6 rounded-2xl border border-indigo-100 bg-indigo-50 p-4 text-sm font-medium text-indigo-700">
+            Demo mode is active. Drafts, approvals, raw PRISM notes, local paths, and agent logs are hidden.
+          </div>
+        )}
+
+        <motion.header
+          initial="hidden"
+          animate="visible"
+          className="mb-8 grid gap-8 lg:grid-cols-[minmax(0,1fr)_26rem]"
+        >
+          <div>
+            <motion.div
+              variants={fadeUp}
+              custom={0}
+              className="mb-5 inline-flex items-center gap-2 rounded-full border border-indigo-100 bg-indigo-50 px-3 py-1.5"
+            >
+              <div className="h-1.5 w-1.5 rounded-full bg-indigo-500" />
+              <span className="text-xs font-medium tracking-wide text-indigo-600">
+                {owner ? "OWNER WORKBENCH" : "DEMO VIEWER"}
+              </span>
+            </motion.div>
+            <motion.h1
+              variants={fadeUp}
+              custom={1}
+              className="max-w-4xl text-4xl font-bold leading-[1.05] tracking-tight text-[#0a0a0a] sm:text-6xl"
+            >
+              {program.title}
+              <br />
+              <span className="text-[#0a0a0a]/20">
+                {owner ? "owner workbench." : "demo viewer."}
+              </span>
+            </motion.h1>
+            <motion.p
+              variants={fadeUp}
+              custom={2}
+              className="mt-6 max-w-2xl text-lg leading-relaxed text-[#0a0a0a]/50"
+            >
+              {module.description}
+            </motion.p>
+          </div>
+
+          <motion.div variants={fadeUp} custom={3} className="rounded-3xl border border-black/5 bg-white p-5 shadow-sm">
+            <div className="flex items-center justify-between gap-4">
+              <div>
+                <div className="text-xs font-medium uppercase tracking-wide text-[#0a0a0a]/35">
+                  Access mode
+                </div>
+                <div className="mt-1 text-lg font-semibold text-[#0a0a0a]">
+                  {owner ? "Owner preview" : "Demo viewer"}
+                </div>
+              </div>
+              <span className="rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-600">
+                {owner ? "Private" : "Read-only"}
+              </span>
+            </div>
+            {owner ? (
+              <div className="mt-5 grid grid-cols-2 gap-3">
+                <Button className="bg-[#0a0a0a] text-white hover:bg-[#1a1a1a]" onClick={() => setMode("owner")}>
+                  Owner
+                </Button>
+                <Button variant="outline" onClick={() => setMode("demo")}>
+                  Demo
+                </Button>
+              </div>
+            ) : (
+              <p className="mt-5 text-sm leading-6 text-[#0a0a0a]/50">
+                This view only shows approved AYA-safe and curated PRISM materials.
+              </p>
+            )}
+            <Button variant="ghost" className="mt-3 w-full text-[#0a0a0a]/55" onClick={() => setEntered(false)}>
+              Return to login
+            </Button>
+          </motion.div>
+        </motion.header>
+
+        <section className="mb-6 grid gap-4 sm:grid-cols-3">
+          <MetricTile label="Source of truth" value="CANONICAL file spine" />
+          <MetricTile label="Session" value={brief.session_key} />
+          <MetricTile label="Helper stance" value="Draft then approve" />
+        </section>
+
+        <section className="mb-6 grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
+          <Surface>
+            <SectionTitle eyebrow="Current session" title={brief.session_title} icon={Sparkles} />
+            {[
+              ["Session date", brief.session_date],
+              ["Actual stage", brief.actual_stage],
+              ["Delivery status", bundle.delivery_status],
+              ["Slides", bundle.slide_status],
+              ["Classroom", bundle.classroom_status],
+              ["AYA export", bundle.aya_export_status],
+            ].map(([label, value]) => (
+              <div key={label} className="flex justify-between border-b border-black/5 py-3 text-sm">
+                <span className="text-[#0a0a0a]">{label}</span>
+                <span className="text-right text-[#0a0a0a]/45">{value}</span>
+              </div>
+            ))}
+          </Surface>
+
+          <Surface>
+            <SectionTitle eyebrow="Session brief" title="Canonical bridge artifact" icon={BookOpen} />
+            <pre className="max-h-96 overflow-auto whitespace-pre-wrap rounded-2xl bg-[#fafafa] p-4 text-xs leading-5 text-[#0a0a0a]/60">
+              {owner
+                ? `${brief.brief_markdown}\n\n## PRISM private guidance\n${brief.prism_guidance}`
+                : `${brief.brief_markdown}\n\n## Curated PRISM framing\n${bundle.demo_summary}`}
+            </pre>
+          </Surface>
+        </section>
+
+        <section className="mb-6 grid gap-6 lg:grid-cols-2">
+          <Surface>
+            <SectionTitle eyebrow="AYA rail" title="Delivery-facing outputs" icon={BookOpen} />
+            <div className="grid gap-3">
+              {ayaArtifacts.map((artifact) => (
+                <ArtifactCard key={artifact.id} artifact={artifact} mode={mode} />
+              ))}
+            </div>
+          </Surface>
+          <Surface>
+            <SectionTitle
+              eyebrow="PRISM rail"
+              title={owner ? "Private facilitator intelligence" : "Curated PRISM framing"}
+              icon={owner ? Lock : Eye}
+            />
+            <div className="grid gap-3">
+              {prismArtifacts.map((artifact) => (
+                <ArtifactCard key={artifact.id} artifact={artifact} mode={mode} />
+              ))}
+            </div>
+          </Surface>
+        </section>
+
+        {owner && (
+          <section className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
+            <Surface>
+              <SectionTitle eyebrow="Program helper" title="Hybrid notes to bundle plan" icon={Sparkles} />
+              <label className="text-xs font-medium uppercase tracking-wide text-[#0a0a0a]/35">
+                Raw classflow input
+              </label>
+              <textarea
+                value={helperInput}
+                onChange={(event) => setHelperInput(event.target.value)}
+                className="mt-3 min-h-64 w-full resize-y rounded-2xl border border-black/5 bg-[#fafafa] p-4 text-sm leading-6 text-[#0a0a0a]/70 outline-none transition focus:border-indigo-200 focus:bg-white"
+              />
+              <div className="mt-4 grid gap-4 lg:grid-cols-2">
+                <pre className="max-h-96 overflow-auto rounded-2xl bg-[#fafafa] p-4 text-xs leading-5 text-[#0a0a0a]/60">
+                  {JSON.stringify(normalized, null, 2)}
+                </pre>
+                <div className="grid gap-3">
+                  <BundleList title="AYA rail" items={bundlePlan.aya} />
+                  <BundleList title="PRISM rail" items={bundlePlan.prism} />
+                  <BundleList title="Slides + Classroom" items={bundlePlan.downstream} />
+                </div>
+              </div>
+            </Surface>
+
+            <Surface>
+              <SectionTitle eyebrow="Cursor SDK helper" title="Local draft run review" icon={Shield} />
+              <div className="grid gap-3 sm:grid-cols-3">
+                <MetricTile label="Status" value={runStatus.replace(/_/g, " ")} />
+                <MetricTile label="Approval" value={agentRun.approval_status.replace(/_/g, " ")} />
+                <MetricTile label="Runtime" value={agentRun.runtime} />
+              </div>
+              <p className="mt-5 text-sm leading-6 text-[#0a0a0a]/50">{agentRun.summary}</p>
+              <pre className="mt-4 max-h-28 overflow-auto rounded-2xl bg-[#fafafa] p-4 text-xs text-[#0a0a0a]/55">
+                {agentRun.draft_path}
+              </pre>
+              <div className="mt-5 flex flex-wrap gap-3">
+                <Button className="gap-2 bg-[#0a0a0a] hover:bg-[#1a1a1a]" onClick={() => setRunStatus("queued")}>
+                  <Play className="h-4 w-4" />
+                  Start draft run
+                </Button>
+                <Button variant="outline" className="gap-2" onClick={() => setRunStatus("approved")}>
+                  <CheckCircle2 className="h-4 w-4" />
+                  Approve selected draft
+                </Button>
+                <Button variant="ghost" className="gap-2 text-[#0a0a0a]/55" onClick={() => setRunStatus("draft_ready")}>
+                  <RefreshCcw className="h-4 w-4" />
+                  Reset preview
+                </Button>
+              </div>
+            </Surface>
+          </section>
+        )}
+      </main>
+    </div>
+  );
+}
