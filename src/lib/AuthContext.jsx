@@ -21,6 +21,18 @@ export const AuthProvider = ({ children }) => {
     try {
       setIsLoadingPublicSettings(true);
       setAuthError(null);
+
+      const previewPath = ['/', '/ProgramHelper'].includes(window.location.pathname);
+      if (previewPath && !appParams.token) {
+        setAppPublicSettings({
+          id: appParams.appId || 'canonical_program_helper_preview',
+          public_settings: { auth_required: false }
+        });
+        setIsAuthenticated(false);
+        setIsLoadingAuth(false);
+        setIsLoadingPublicSettings(false);
+        return;
+      }
       
       // First, check app public settings (with token if available)
       // This will tell us if auth is required, user not registered, etc.

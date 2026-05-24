@@ -24,10 +24,71 @@ export const portalData = {
     }
   ],
   source_of_truth: {
-    canonical_root: "C:/Users/Tim Milkewicz/Dropbox/CANONICAL",
+    canonical_root: "CANONICAL://",
     mirror_mode: "CANONICAL files remain authoritative; Base44 mirrors structured instructional records.",
     portal_scope: "Owner workbench with curated demo viewer and future AYA export surface."
   },
+  demo_story: [
+    {
+      label: "01",
+      title: "Capture reality",
+      body: "The helper starts from messy classflow notes, not an idealized pacing guide."
+    },
+    {
+      label: "02",
+      title: "Normalize the brief",
+      body: "Completed, remaining, blocked, learning, evidence, and next step become the Session Brief."
+    },
+    {
+      label: "03",
+      title: "Split the rails",
+      body: "AYA stays student/institution-safe while PRISM keeps facilitator intelligence private or curated."
+    },
+    {
+      label: "04",
+      title: "File the bundle",
+      body: "Approved artifacts point back to CANONICAL packages so the portal does not drift from the file spine."
+    }
+  ],
+  brief_quality_checks: [
+    {
+      label: "Actual stage named",
+      detail: "The session records where the build really is instead of pretending the calendar is correct.",
+      status: "ready"
+    },
+    {
+      label: "Blockers are explicit",
+      detail: "Amp availability is captured as a condition, not hidden inside the plan.",
+      status: "ready"
+    },
+    {
+      label: "Evidence is part of instruction",
+      detail: "Photos, build logs, QC cards, and continuity prompts are treated as build artifacts.",
+      status: "ready"
+    },
+    {
+      label: "Next action is concrete",
+      detail: "The next helper run starts from QC and evidence, not from a blank prompt.",
+      status: "ready"
+    }
+  ],
+  export_adapters: [
+    {
+      label: "AYA / CTS",
+      status: "Ready as curated source",
+      scope: "AYA-safe packets, classroom copy, evidence prompts, and package metadata."
+    },
+    {
+      label: "ClickUp / Staff Ops",
+      status: "Future adapter",
+      scope: "Approved task summaries only; no raw PRISM notes or local draft paths."
+    },
+    {
+      label: "Google Classroom",
+      status: "Prepared from bundle",
+      scope: "Student-facing instructions, logs, reflection prompts, and upload structure."
+    }
+  ],
   programs: [
     {
       id: "program_aya_cts",
@@ -99,8 +160,8 @@ export const portalData = {
         "Use QC results, evidence, and blocker status to generate the next session bundle from actual build state rather than calendar assumptions.",
       source_mode: "assistant",
       source_paths: [
-        "C:/Users/Tim Milkewicz/Dropbox/CANONICAL/00_INBOX/Downloads/PRISM_AYA_AI_Continuity_Prompt_Template_v1.txt",
-        "C:/Users/Tim Milkewicz/Dropbox/CANONICAL/00_INBOX/Downloads/EDM101_Day13_Complete_Filed_Package_2026-04-22.zip"
+        "CANONICAL://00_INBOX/Downloads/PRISM_AYA_AI_Continuity_Prompt_Template_v1.txt",
+        "CANONICAL://00_INBOX/Downloads/EDM101_Day13_Complete_Filed_Package_2026-04-22.zip"
       ],
       brief_markdown: `# EDM101 Day 13 — Near-final build day
 
@@ -150,7 +211,7 @@ Use QC results, evidence, and blocker status to generate the next session bundle
       prism_prefix: "PRISM_EDM101_Day13",
       delivery_status: "generated",
       primary_package_path:
-        "C:/Users/Tim Milkewicz/Dropbox/CANONICAL/00_INBOX/Downloads/EDM101_Day13_Complete_Filed_Package_2026-04-22.zip",
+        "CANONICAL://00_INBOX/Downloads/EDM101_Day13_Complete_Filed_Package_2026-04-22.zip",
       filing_readme_member: "EDM101_Day13_Filing_README_2026-04-22.txt",
       slide_status: "prepared",
       classroom_status: "prepared",
@@ -180,7 +241,7 @@ Use QC results, evidence, and blocker status to generate the next session bundle
       rail: "aya",
       source_kind: "archive",
       file_path:
-        "C:/Users/Tim Milkewicz/Dropbox/CANONICAL/00_INBOX/Downloads/EDM101_Day13_Complete_Filed_Package_2026-04-22.zip",
+        "CANONICAL://00_INBOX/Downloads/EDM101_Day13_Complete_Filed_Package_2026-04-22.zip",
       archive_member:
         "AYA_CTS_EDM101_Day13_2026-04-22/AYA_CTS_EDM101_Day13_and_Template_Print_Packet_2026-04-22.pdf",
       visible_to_staff: true,
@@ -199,7 +260,7 @@ Use QC results, evidence, and blocker status to generate the next session bundle
       rail: "aya",
       source_kind: "archive",
       file_path:
-        "C:/Users/Tim Milkewicz/Dropbox/CANONICAL/00_INBOX/Downloads/EDM101_Day13_Complete_Filed_Package_2026-04-22.zip",
+        "CANONICAL://00_INBOX/Downloads/EDM101_Day13_Complete_Filed_Package_2026-04-22.zip",
       archive_member:
         "AYA_CTS_EDM101_Day13_2026-04-22/AYA_CTS_EDM101_Day13_Final_QC_and_Evidence_Card_2026-04-22.pdf",
       visible_to_staff: true,
@@ -218,7 +279,7 @@ Use QC results, evidence, and blocker status to generate the next session bundle
       rail: "aya",
       source_kind: "archive",
       file_path:
-        "C:/Users/Tim Milkewicz/Dropbox/CANONICAL/00_INBOX/Downloads/EDM101_Day13_Complete_Filed_Package_2026-04-22.zip",
+        "CANONICAL://00_INBOX/Downloads/EDM101_Day13_Complete_Filed_Package_2026-04-22.zip",
       archive_member:
         "AYA_CTS_EDM101_Day13_2026-04-22/AYA_CTS_EDM101_Day13_Student_Build_Log_2026-04-22.pdf",
       visible_to_staff: true,
@@ -237,7 +298,7 @@ Use QC results, evidence, and blocker status to generate the next session bundle
       rail: "aya",
       source_kind: "archive",
       file_path:
-        "C:/Users/Tim Milkewicz/Dropbox/CANONICAL/00_INBOX/Downloads/EDM101_Day13_Complete_Filed_Package_2026-04-22.zip",
+        "CANONICAL://00_INBOX/Downloads/EDM101_Day13_Complete_Filed_Package_2026-04-22.zip",
       archive_member:
         "AYA_CTS_EDM101_Day13_2026-04-22/AYA_CTS_Google_Classroom_Program_Template_Map_v1.pdf",
       visible_to_staff: true,
@@ -256,7 +317,7 @@ Use QC results, evidence, and blocker status to generate the next session bundle
       rail: "prism",
       source_kind: "file",
       file_path:
-        "C:/Users/Tim Milkewicz/Dropbox/CANONICAL/00_INBOX/Downloads/PRISM_AYA_AI_Continuity_Prompt_Template_v1.txt",
+        "CANONICAL://00_INBOX/Downloads/PRISM_AYA_AI_Continuity_Prompt_Template_v1.txt",
       archive_member: "",
       visible_to_staff: false,
       visibility_scope: "prism_private",
@@ -274,7 +335,7 @@ Use QC results, evidence, and blocker status to generate the next session bundle
       rail: "prism",
       source_kind: "archive",
       file_path:
-        "C:/Users/Tim Milkewicz/Dropbox/CANONICAL/00_INBOX/Downloads/EDM101_Day13_Complete_Filed_Package_2026-04-22.zip",
+        "CANONICAL://00_INBOX/Downloads/EDM101_Day13_Complete_Filed_Package_2026-04-22.zip",
       archive_member:
         "PRISM_Framework_EDM101_Day13_2026-04-22/PRISM_EDM101_Day13_Facilitator_Overlay_2026-04-22.pdf",
       visible_to_staff: true,
@@ -293,7 +354,7 @@ Use QC results, evidence, and blocker status to generate the next session bundle
       rail: "prism",
       source_kind: "archive",
       file_path:
-        "C:/Users/Tim Milkewicz/Dropbox/CANONICAL/00_INBOX/Downloads/EDM101_Day13_Complete_Filed_Package_2026-04-22.zip",
+        "CANONICAL://00_INBOX/Downloads/EDM101_Day13_Complete_Filed_Package_2026-04-22.zip",
       archive_member:
         "PRISM_Framework_EDM101_Day13_2026-04-22/PRISM_EDM101_Framework_Packet_2026-04-22.pdf",
       visible_to_staff: false,
@@ -311,7 +372,7 @@ Use QC results, evidence, and blocker status to generate the next session bundle
       rail: "shared",
       source_kind: "file",
       file_path:
-        "C:/Users/Tim Milkewicz/Dropbox/CANONICAL/00_INBOX/Downloads/EDM101_Day13_Complete_Filed_Package_2026-04-22.zip",
+        "CANONICAL://00_INBOX/Downloads/EDM101_Day13_Complete_Filed_Package_2026-04-22.zip",
       archive_member: "",
       visible_to_staff: false,
       visibility_scope: "owner_private",
@@ -328,7 +389,7 @@ Use QC results, evidence, and blocker status to generate the next session bundle
       rail: "shared",
       source_kind: "archive",
       file_path:
-        "C:/Users/Tim Milkewicz/Dropbox/CANONICAL/00_INBOX/Downloads/EDM101_Day13_Complete_Filed_Package_2026-04-22.zip",
+        "CANONICAL://00_INBOX/Downloads/EDM101_Day13_Complete_Filed_Package_2026-04-22.zip",
       archive_member: "EDM101_Day13_Filing_README_2026-04-22.txt",
       visible_to_staff: true,
       visibility_scope: "demo_safe",
@@ -348,7 +409,7 @@ Use QC results, evidence, and blocker status to generate the next session bundle
       status: "draft_ready",
       approval_status: "waiting_review",
       draft_path:
-        "C:/Users/Tim Milkewicz/Dropbox/CANONICAL/00_INBOX/AI_DRAFTS/INSTRUCTIONAL/EDM101_DAY13_2026-04-22_DEMO_DRAFT",
+        "CANONICAL://00_INBOX/AI_DRAFTS/INSTRUCTIONAL/EDM101_DAY13_2026-04-22_DEMO_DRAFT",
       summary:
         "Sample local helper run showing the draft-then-approve workflow. Owner mode can review it; demo mode cannot see draft paths or logs.",
       started_at: "2026-04-22T09:00:00-07:00",

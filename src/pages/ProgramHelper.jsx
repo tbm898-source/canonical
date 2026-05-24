@@ -1,14 +1,21 @@
 import React, { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import {
+  ArrowRight,
+  Ban,
   BookOpen,
   CheckCircle2,
+  ClipboardCheck,
   Eye,
+  FileText,
+  GitBranch,
   Lock,
+  PackageCheck,
   Play,
+  Presentation,
   RefreshCcw,
   Shield,
-  Sparkles,
+  Wand2,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -248,9 +255,144 @@ function BundleList({ title, items }) {
   );
 }
 
+function StoryRail({ items }) {
+  return (
+    <section className="mb-6 rounded-3xl border border-black/5 bg-white p-4 shadow-sm">
+      <div className="grid gap-3 md:grid-cols-4">
+        {items.map((item, index) => (
+          <div key={item.title} className="relative rounded-2xl bg-[#fafafa] p-4">
+            {index < items.length - 1 && (
+              <ArrowRight className="absolute -right-4 top-1/2 z-10 hidden h-5 w-5 -translate-y-1/2 text-indigo-300 md:block" />
+            )}
+            <div className="text-[11px] font-bold uppercase tracking-wide text-indigo-600">
+              {item.label}
+            </div>
+            <h3 className="mt-3 text-sm font-semibold text-[#0a0a0a]">{item.title}</h3>
+            <p className="mt-2 text-sm leading-6 text-[#0a0a0a]/45">{item.body}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function DemoPresentationPanel({ owner, bundle }) {
+  return (
+    <Surface className="bg-gradient-to-br from-white to-indigo-50/60">
+      <SectionTitle
+        eyebrow={owner ? "Showable layer" : "Presentation mode"}
+        title={owner ? "Curated demo narrative" : "What this portal is demonstrating"}
+        icon={Presentation}
+      />
+      <div className="grid gap-3 text-sm leading-6 text-[#0a0a0a]/55">
+        <p>
+          {owner
+            ? "This is the safe walkthrough layer: it explains the system without exposing raw PRISM internals, draft folders, API keys, or local file paths."
+            : bundle.demo_summary}
+        </p>
+        <div className="rounded-2xl border border-indigo-100 bg-white/70 p-4">
+          <div className="text-xs font-semibold uppercase tracking-wide text-indigo-600">
+            Demo script
+          </div>
+          <ol className="mt-3 space-y-2">
+            <li>1. Start with real session status.</li>
+            <li>2. Show the normalized Session Brief.</li>
+            <li>3. Show AYA-safe outputs and curated PRISM framing.</li>
+            <li>4. Explain that CANONICAL files remain authoritative.</li>
+          </ol>
+        </div>
+      </div>
+    </Surface>
+  );
+}
+
+function BriefQualityPanel({ checks }) {
+  return (
+    <Surface>
+      <SectionTitle eyebrow="Brief quality" title="Session Brief readiness checks" icon={ClipboardCheck} />
+      <div className="grid gap-3">
+        {checks.map((check) => (
+          <div key={check.label} className="flex gap-3 rounded-2xl bg-[#fafafa] p-4">
+            <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
+            <div>
+              <div className="text-sm font-semibold text-[#0a0a0a]">{check.label}</div>
+              <p className="mt-1 text-sm leading-6 text-[#0a0a0a]/45">{check.detail}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </Surface>
+  );
+}
+
+function ModeGuardrails({ owner }) {
+  const visibleItems = owner
+    ? ["PRISM-private artifacts", "Local draft run status", "Approval controls"]
+    : ["Approved session summaries", "AYA-safe artifacts", "Curated PRISM overview"];
+  const hiddenItems = owner
+    ? ["Nothing is hidden in owner preview"]
+    : ["Raw PRISM notes", "Agent logs and draft paths", "Approval and publish controls"];
+
+  return (
+    <section className="mb-6 grid gap-4 lg:grid-cols-2">
+      <div className="rounded-2xl border border-emerald-100 bg-emerald-50 p-4">
+        <div className="flex items-center gap-2 text-sm font-semibold text-emerald-800">
+          <Eye className="h-4 w-4" />
+          Visible in this mode
+        </div>
+        <div className="mt-3 flex flex-wrap gap-2">
+          {visibleItems.map((item) => (
+            <span key={item} className="rounded-full bg-white px-3 py-1 text-xs font-medium text-emerald-800">
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
+      <div className="rounded-2xl border border-rose-100 bg-rose-50 p-4">
+        <div className="flex items-center gap-2 text-sm font-semibold text-rose-800">
+          <Ban className="h-4 w-4" />
+          Protected from this mode
+        </div>
+        <div className="mt-3 flex flex-wrap gap-2">
+          {hiddenItems.map((item) => (
+            <span key={item} className="rounded-full bg-white px-3 py-1 text-xs font-medium text-rose-800">
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ExportAdapterPanel({ adapters }) {
+  return (
+    <Surface className="mb-6">
+      <SectionTitle eyebrow="Future adapters" title="Approved bundle can feed other systems" icon={GitBranch} />
+      <div className="grid gap-3 md:grid-cols-3">
+        {adapters.map((adapter) => (
+          <article key={adapter.label} className="rounded-2xl border border-black/5 bg-[#fafafa] p-4">
+            <div className="flex items-start justify-between gap-3">
+              <div>
+                <h4 className="text-sm font-semibold text-[#0a0a0a]">{adapter.label}</h4>
+                <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-indigo-600">
+                  {adapter.status}
+                </p>
+              </div>
+              <PackageCheck className="h-4 w-4 text-indigo-500" />
+            </div>
+            <p className="mt-3 text-sm leading-6 text-[#0a0a0a]/45">{adapter.scope}</p>
+          </article>
+        ))}
+      </div>
+    </Surface>
+  );
+}
+
 export default function ProgramHelper() {
   const query = new URLSearchParams(window.location.search);
-  const initialMode = query.get("mode") === "demo" ? "demo" : "owner";
+  const ownerPreviewAllowed = ["localhost", "127.0.0.1", "::1"].includes(window.location.hostname);
+  const initialMode = ownerPreviewAllowed && query.get("mode") !== "demo" ? "owner" : "demo";
   const [mode, setMode] = useState(initialMode);
   const [entered, setEntered] = useState(query.has("mode"));
   const [helperInput, setHelperInput] = useState(portalData.helper_seed_input);
@@ -260,7 +402,7 @@ export default function ProgramHelper() {
   const module = getModuleForProgram(program);
   const brief = getBrief(module.session_ids[0]);
   const bundle = getBundle(brief.id);
-  const owner = mode === "owner";
+  const owner = ownerPreviewAllowed && mode === "owner";
 
   const normalized = useMemo(() => normalizeInput(helperInput, brief), [helperInput, brief]);
   const bundlePlan = useMemo(() => prepareBundle(normalized), [normalized]);
@@ -333,14 +475,19 @@ export default function ProgramHelper() {
             <button
               type="button"
               onClick={() => {
-                setMode("owner");
-                setEntered(true);
+                if (ownerPreviewAllowed) {
+                  setMode("owner");
+                  setEntered(true);
+                }
               }}
-              className="mt-5 block w-full rounded-2xl border border-black/5 bg-[#fafafa] p-5 text-left transition-all hover:-translate-y-0.5 hover:border-indigo-200 hover:bg-indigo-50"
+              disabled={!ownerPreviewAllowed}
+              className="mt-5 block w-full rounded-2xl border border-black/5 bg-[#fafafa] p-5 text-left transition-all hover:-translate-y-0.5 hover:border-indigo-200 hover:bg-indigo-50 disabled:cursor-not-allowed disabled:opacity-55 disabled:hover:translate-y-0 disabled:hover:border-black/5 disabled:hover:bg-[#fafafa]"
             >
               <span className="font-semibold text-[#0a0a0a]">Owner preview</span>
               <span className="mt-1 block text-sm text-[#0a0a0a]/45">
-                Full workbench, PRISM-private view, local draft review.
+                {ownerPreviewAllowed
+                  ? "Full workbench, PRISM-private view, local draft review."
+                  : "Local-only until real owner authentication is connected."}
               </span>
             </button>
             <button
@@ -455,6 +602,7 @@ export default function ProgramHelper() {
             ) : (
               <p className="mt-5 text-sm leading-6 text-[#0a0a0a]/50">
                 This view only shows approved AYA-safe and curated PRISM materials.
+                {!ownerPreviewAllowed && " Owner preview is disabled on the public frontend prototype."}
               </p>
             )}
             <Button variant="ghost" className="mt-3 w-full text-[#0a0a0a]/55" onClick={() => setEntered(false)}>
@@ -463,15 +611,23 @@ export default function ProgramHelper() {
           </motion.div>
         </motion.header>
 
+        <StoryRail items={portalData.demo_story} />
+        <ModeGuardrails owner={owner} />
+
         <section className="mb-6 grid gap-4 sm:grid-cols-3">
           <MetricTile label="Source of truth" value="CANONICAL file spine" />
           <MetricTile label="Session" value={brief.session_key} />
           <MetricTile label="Helper stance" value="Draft then approve" />
         </section>
 
+        <section className="mb-6 grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+          <DemoPresentationPanel owner={owner} bundle={bundle} />
+          <BriefQualityPanel checks={portalData.brief_quality_checks} />
+        </section>
+
         <section className="mb-6 grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
           <Surface>
-            <SectionTitle eyebrow="Current session" title={brief.session_title} icon={Sparkles} />
+            <SectionTitle eyebrow="Current session" title={brief.session_title} icon={FileText} />
             {[
               ["Session date", brief.session_date],
               ["Actual stage", brief.actual_stage],
@@ -520,10 +676,12 @@ export default function ProgramHelper() {
           </Surface>
         </section>
 
+        <ExportAdapterPanel adapters={portalData.export_adapters} />
+
         {owner && (
           <section className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
             <Surface>
-              <SectionTitle eyebrow="Program helper" title="Hybrid notes to bundle plan" icon={Sparkles} />
+              <SectionTitle eyebrow="Program helper" title="Hybrid notes to bundle plan" icon={Wand2} />
               <label className="text-xs font-medium uppercase tracking-wide text-[#0a0a0a]/35">
                 Raw classflow input
               </label>
