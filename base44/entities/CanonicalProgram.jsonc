@@ -1,0 +1,59 @@
+{
+  "name": "CanonicalProgram",
+  "type": "object",
+  "title": "Canonical Program",
+  "description": "Top-level instructional or framework program record. Private PRISM Core programs must remain demo-summary-only unless curated.",
+  "properties": {
+    "program_key": { "type": "string", "maxLength": 100 },
+    "title": { "type": "string", "maxLength": 200 },
+    "program_family": { "type": "string", "maxLength": 120 },
+    "ownership_rail": {
+      "type": "string",
+      "enum": ["PRISM_CORE", "AYA_IMPLEMENTATION", "PRIVATE_OPERATOR", "CANONICAL"]
+    },
+    "visibility_scope": {
+      "type": "string",
+      "enum": ["public_demo", "canonical_internal", "aya_classroom", "prism_private"]
+    },
+    "status": { "type": "string", "maxLength": 100 },
+    "description": { "type": "string", "maxLength": 4000 },
+    "demo_summary": { "type": "string", "maxLength": 2000 },
+    "canonical_path": { "type": "string", "maxLength": 500 },
+    "source_version": { "type": "string", "maxLength": 80 },
+    "evidence_status": {
+      "type": "string",
+      "enum": [
+        "verified",
+        "mixed_requires_review",
+        "needs_verification",
+        "demo_seed"
+      ]
+    },
+    "allowed_exports": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": []
+    },
+    "default_demo_behavior": {
+      "type": "string",
+      "enum": ["full_demo", "curated_preview", "public_demo_summary_only", "hidden"],
+      "default": "curated_preview"
+    },
+    "owner_only_notes_path": { "type": "string", "maxLength": 500 },
+    "created_from_import_id": { "type": "string", "maxLength": 160 },
+    "created_at": { "type": "string" },
+    "updated_at": { "type": "string" }
+  },
+  "required": [
+    "program_key",
+    "title",
+    "ownership_rail",
+    "visibility_scope"
+  ],
+  "rls": {
+    "create": { "user_condition": { "role": "admin" } },
+    "read": { "user_condition": { "role": "admin" } },
+    "update": { "user_condition": { "role": "admin" } },
+    "delete": { "user_condition": { "role": "admin" } }
+  }
+}
