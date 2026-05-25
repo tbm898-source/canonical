@@ -103,7 +103,7 @@ export default function Dashboard() {
               A public preview of what the private dashboard tracks.
             </h1>
             <p className="mt-5 text-sm leading-6 text-[#0a0a0a]/50">
-              This page shows dashboard categories, not private data. Live connector status, raw files, source internals, and approval actions stay inside owner mode.
+              Track inbox, requests, generated artifacts, review status, connector health, and rail separation. This page shows dashboard categories, not private data; live status, raw files, source internals, and approval actions stay inside owner mode.
             </p>
           </motion.header>
 

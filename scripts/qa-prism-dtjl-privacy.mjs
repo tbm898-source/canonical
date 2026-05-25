@@ -70,6 +70,14 @@ const liveIntegrationsSource = readFileSync(
   new URL("../src/components/program-helper/LiveIntegrationsPanel.jsx", import.meta.url),
   "utf8",
 );
+const authContextSource = readFileSync(
+  new URL("../src/lib/AuthContext.jsx", import.meta.url),
+  "utf8",
+);
+const programHelperSource = readFileSync(
+  new URL("../src/pages/ProgramHelper.jsx", import.meta.url),
+  "utf8",
+);
 
 assert(
   !/import\s+\{\s*base44\s*\}\s+from\s+["']@\/api\/base44Client["']/.test(liveIntegrationsSource),
@@ -79,6 +87,21 @@ assert(
 assert(
   /await import\(["']@\/api\/base44Client["']\)/.test(liveIntegrationsSource),
   "LiveIntegrationsPanel should lazy-load the Base44 client only inside owner-triggered integration actions.",
+);
+
+assert(
+  /previewPath\s*&&\s*isLocalPreviewHost\(\)/.test(authContextSource),
+  "AuthContext must keep anonymous preview bypass limited to localhost only.",
+);
+
+assert(
+  /requestedMode\s*===\s*["']owner["']\s*&&\s*ownerAccessAllowed/.test(programHelperSource),
+  "ProgramHelper must only honor requested owner mode when owner access is allowed.",
+);
+
+assert(
+  /!ownerAccessAllowed\s*&&\s*mode\s*===\s*["']owner["']/.test(programHelperSource),
+  "ProgramHelper must downgrade unauthorized owner mode back to demo.",
 );
 
 console.log("PRISM_DTJL privacy QA passed.");

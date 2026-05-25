@@ -69,7 +69,7 @@ export default function About() {
               A stable spine for work that keeps trying to scatter.
             </h1>
             <p className="mt-8 text-lg leading-8 text-[#0a0a0a]/50">
-              CANONICAL was built to solve a practical problem: important work gets scattered across chats, drives, folders, classrooms, dashboards, agent outputs, and human memory. CANONICAL gives that work a stable spine.
+              CANONICAL was built to solve a practical problem: work gets scattered, memory decays, tools fragment, and institutions lose continuity unless the system preserves it. CANONICAL gives that work a stable spine across chats, drives, folders, classrooms, dashboards, agent outputs, and human memory.
             </p>
           </motion.div>
 

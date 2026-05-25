@@ -89,7 +89,7 @@ export default function WorkspaceSetup() {
               Build the spine before turning on the machine.
             </h1>
             <p className="mt-5 text-sm leading-6 text-[#0a0a0a]/50">
-              This setup path keeps CANONICAL from becoming another sacred junk drawer with an API key taped to it. Start with structure, use dry-run adapters, and approve live writes only after review.
+              Connect folders, agents, templates, and review queues before enabling live writes. Start with structure, use dry-run adapters, and approve live writes only after review.
             </p>
           </motion.header>
 

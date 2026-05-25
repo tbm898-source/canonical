@@ -63,6 +63,56 @@ const rails = [
   },
 ];
 
+const systemTiles = [
+  {
+    title: "Material Requests",
+    text: "Intake prompts, notes, and messy starts.",
+  },
+  {
+    title: "Class Packets",
+    text: "Packets, handouts, quizzes, and print sets.",
+  },
+  {
+    title: "Rail Separation",
+    text: "AYA-safe, PRISM-private, and demo-safe routing.",
+  },
+  {
+    title: "Review Queue",
+    text: "Drafts pause before becoming official memory.",
+  },
+  {
+    title: "Evidence Notes",
+    text: "What happened, what changed, and what remains.",
+  },
+  {
+    title: "Connector Health",
+    text: "Dropbox, Classroom, ClickUp, and dry-run status.",
+  },
+];
+
+const workflowSteps = [
+  {
+    title: "Request",
+    text: "Submit a material request or paste rough class notes into the workbench.",
+  },
+  {
+    title: "Generate",
+    text: "Create classroom or operator assets from the selected program context.",
+  },
+  {
+    title: "Review",
+    text: "Check rail separation, visibility, evidence, and export safety before filing.",
+  },
+  {
+    title: "File",
+    text: "Attach manifests and place approved work into the CANONICAL spine.",
+  },
+  {
+    title: "Export",
+    text: "Prepare PDF, DOCX, slides, ZIP, Classroom, ClickUp, or Dropbox outputs.",
+  },
+];
+
 function BrandMark() {
   return (
     <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#0a0a0a]">
@@ -124,16 +174,12 @@ export default function Home() {
 
       <main>
         <section className="relative px-6 pb-24 pt-36 sm:pt-44">
-          <div className="absolute right-0 top-20 hidden h-96 w-1/2 pointer-events-none lg:block">
-            <div className="grid grid-cols-4 gap-3 opacity-[0.04]">
-              {Array.from({ length: 16 }).map((_, i) => (
-                <div key={i} className="aspect-square rounded-2xl bg-[#0a0a0a]" />
-              ))}
-            </div>
-          </div>
-
-          <motion.div initial="hidden" animate="visible" className="mx-auto max-w-6xl">
-            <motion.div variants={fadeUp} custom={0} className="max-w-4xl">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            className="mx-auto grid max-w-6xl gap-12 xl:grid-cols-[minmax(0,1.05fr)_minmax(420px,0.95fr)] xl:items-center"
+          >
+            <motion.div variants={fadeUp} custom={0} className="max-w-4xl xl:max-w-none">
               <h1 className="text-5xl font-bold leading-[1.05] tracking-tight text-[#0a0a0a] sm:text-7xl">
                 Project memory,
                 <br />
@@ -143,10 +189,10 @@ export default function Home() {
                   AI workflow infrastructure.
                 </span>
               </h1>
-              <p className="mt-8 max-w-2xl text-lg leading-relaxed text-[#0a0a0a]/55">
+              <p className="mt-8 max-w-2xl text-lg leading-relaxed text-[#0a0a0a]/65">
                 CANONICAL is a structured operating system for turning scattered projects, class materials, AI outputs, files, workflows, and institutional memory into one coherent working spine.
               </p>
-              <p className="mt-4 max-w-2xl text-base leading-7 text-[#0a0a0a]/45">
+              <p className="mt-4 max-w-2xl text-base leading-7 text-[#0a0a0a]/55">
                 Built for educators, operators, builders, and small organizations that need their work to survive across tools, people, devices, and time.
               </p>
               <div className="mt-10 flex flex-col gap-3 sm:flex-row">
@@ -158,9 +204,31 @@ export default function Home() {
                 </Link>
                 <Link to="/WorkspaceSetup">
                   <Button variant="outline" className="h-12 rounded-xl px-6 text-sm font-medium">
-                    View setup path
+                    View Setup Path
                   </Button>
                 </Link>
+              </div>
+            </motion.div>
+            <motion.div variants={fadeUp} custom={1} className="hidden xl:block">
+              <div className="grid grid-cols-2 gap-3">
+                {systemTiles.map((tile, i) => (
+                  <div
+                    key={tile.title}
+                    className={`rounded-3xl border border-black/5 bg-white/75 p-4 shadow-sm backdrop-blur ${
+                      i === 2 ? "col-span-2 border-indigo-200 bg-indigo-50/80" : ""
+                    }`}
+                  >
+                    <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#0a0a0a]/35">
+                      0{i + 1}
+                    </div>
+                    <div className="mt-3 text-sm font-semibold text-[#0a0a0a]">
+                      {tile.title}
+                    </div>
+                    <p className="mt-1 text-xs leading-5 text-[#0a0a0a]/55">
+                      {tile.text}
+                    </p>
+                  </div>
+                ))}
               </div>
             </motion.div>
           </motion.div>
@@ -172,7 +240,7 @@ export default function Home() {
               <h2 className="text-3xl font-bold tracking-tight text-[#0a0a0a]">
                 What CANONICAL does
               </h2>
-              <p className="mt-3 text-sm leading-6 text-[#0a0a0a]/50">
+              <p className="mt-3 text-base leading-7 text-[#0a0a0a]/60">
                 It is not a generic metrics dashboard. It is a practical control surface for making important work findable, reusable, reviewable, and exportable.
               </p>
             </div>
@@ -191,7 +259,44 @@ export default function Home() {
                     <item.icon className="h-5 w-5 text-indigo-600" />
                   </div>
                   <h3 className="text-base font-semibold text-[#0a0a0a]">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-[#0a0a0a]/50">{item.text}</p>
+                  <p className="mt-3 text-sm leading-6 text-[#0a0a0a]/60">{item.text}</p>
+                </motion.article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="px-6 py-20">
+          <div className="mx-auto max-w-6xl">
+            <div className="mb-10 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+              <div className="max-w-2xl">
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-indigo-600">
+                  Request -&gt; Generate -&gt; Review -&gt; File -&gt; Export
+                </p>
+                <h2 className="mt-3 text-3xl font-bold tracking-tight text-[#0a0a0a]">
+                  The operating loop stays visible.
+                </h2>
+              </div>
+              <p className="max-w-xl text-sm leading-6 text-[#0a0a0a]/60">
+                Every useful output moves through the same spine: request the work, generate the draft, review the boundary, file the record, and export only what is approved.
+              </p>
+            </div>
+            <div className="grid gap-3 md:grid-cols-5">
+              {workflowSteps.map((step, i) => (
+                <motion.article
+                  key={step.title}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-80px" }}
+                  variants={fadeUp}
+                  custom={i}
+                  className="rounded-3xl border border-black/5 bg-white p-5 shadow-sm"
+                >
+                  <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-2xl bg-[#0a0a0a] text-sm font-semibold text-white">
+                    {i + 1}
+                  </div>
+                  <h3 className="text-base font-semibold text-[#0a0a0a]">{step.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-[#0a0a0a]/60">{step.text}</p>
                 </motion.article>
               ))}
             </div>
@@ -219,7 +324,7 @@ export default function Home() {
                         {rail.label}
                       </span>
                     </div>
-                    <p className="mt-3 text-sm leading-6 text-[#0a0a0a]/50">{rail.text}</p>
+                    <p className="mt-3 text-sm leading-6 text-[#0a0a0a]/60">{rail.text}</p>
                   </article>
                 ))}
               </div>
@@ -238,7 +343,7 @@ export default function Home() {
                   See the current Program Helper prototype.
                 </h2>
                 <p className="mt-4 max-w-2xl text-sm leading-6 text-white/50">
-                  The demo view shows safe sample material. The owner workbench opens private scaffolds and integration controls only in local owner preview.
+                  The demo view shows safe sample material. The owner workbench opens private scaffolds and integration controls only for an authenticated owner/admin.
                 </p>
               </div>
               <Link to="/ProgramHelper?mode=demo">

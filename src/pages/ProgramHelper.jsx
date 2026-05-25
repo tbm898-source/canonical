@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -25,6 +25,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { portalData } from "@/data/instructionalSampleData";
 import LiveIntegrationsPanel from "@/components/program-helper/LiveIntegrationsPanel";
+import { useAuth } from "@/lib/AuthContext";
 import {
   CONNECTOR_MODES,
   buildExportManifest,
@@ -39,6 +40,28 @@ import {
 } from "@/lib/programAccessPolicy";
 
 const demoScopes = new Set(["demo_safe", "aya_safe", "prism_curated"]);
+
+const ownerRoles = new Set(["admin", "owner"]);
+
+function isLocalPreviewHost() {
+  return ["localhost", "127.0.0.1", "::1"].includes(window.location.hostname);
+}
+
+function userHasOwnerAccess(user) {
+  if (!user) return false;
+  const possibleRoles = [
+    user.role,
+    user.portal_role,
+    user.app_role,
+    user.user_role,
+    user.metadata?.portal_role,
+    user.metadata?.role,
+    user.public_metadata?.portal_role,
+    user.public_metadata?.role,
+  ];
+
+  return possibleRoles.some((role) => ownerRoles.has(String(role || "").toLowerCase()));
+}
 
 const fadeUp = {
   hidden: { opacity: 1, y: 0 },
@@ -603,7 +626,7 @@ function SectionTitle({ eyebrow, title, icon: Icon }) {
   );
 }
 
-function AccessModeSwitcher({ owner, ownerPreviewAllowed, onOwner, onDemo }) {
+function AccessModeSwitcher({ owner, ownerAccessAllowed, onOwner, onDemo }) {
   return (
     <div data-testid="access-mode-switcher">
       <div className="flex items-start justify-between gap-4">
@@ -626,7 +649,7 @@ function AccessModeSwitcher({ owner, ownerPreviewAllowed, onOwner, onDemo }) {
           variant={owner ? "default" : "outline"}
           className={owner ? "bg-[#0a0a0a] text-white hover:bg-[#1a1a1a]" : ""}
           onClick={onOwner}
-          disabled={!ownerPreviewAllowed}
+          disabled={!ownerAccessAllowed}
         >
           Owner
         </Button>
@@ -644,7 +667,7 @@ function AccessModeSwitcher({ owner, ownerPreviewAllowed, onOwner, onDemo }) {
         {owner
           ? "Owner Workbench shows private scaffolds, approval controls, connector previews, and draft-review lanes."
           : "Demo Viewer is presentation-safe: curated program cards, PV102 sample generation, and no private payloads or connector calls."}
-        {!ownerPreviewAllowed && " Owner Workbench stays locked on the public prototype until real owner authentication is connected."}
+        {!ownerAccessAllowed && " Owner Workbench requires an authenticated owner/admin login."}
       </p>
     </div>
   );
@@ -789,7 +812,7 @@ function ModeGuardrails({ owner, summaryOnly = false }) {
       ? ["Live connector writes until explicit approval"]
       : ["Private scaffold details", "Owner review material", "Operational controls"]
     : owner
-      ? ["Nothing is hidden in owner preview"]
+      ? ["Demo restrictions are lifted only inside the authenticated owner workbench"]
       : ["Raw PRISM notes", "Agent logs and draft paths", "Approval and publish controls"];
 
   return (
@@ -1055,7 +1078,7 @@ function DemoAgentWorkbench({
             Generate a whole day packet from rough notes
           </h3>
           <p className="mt-2 max-w-3xl text-sm leading-6 text-[#0a0a0a]/50">
-            This mirrors the Base44 agent's seed-pack behavior in the browser for demo use. It prepares a Session Brief, AYA/CTS outputs, slide copy, Classroom copy, and curated PRISM framing without calling private runner endpoints or reading local files.
+            Generate class packets, facilitator overlays, handouts, quizzes, export bundles, and canonical filing plans while keeping AYA and PRISM rails separate. Demo mode prepares the preview without calling private runner endpoints or reading local files.
           </p>
         </div>
         <span className="shrink-0 rounded-full border border-indigo-100 bg-white px-3 py-1 text-xs font-semibold text-indigo-600">
@@ -1157,8 +1180,12 @@ function DemoAgentWorkbench({
 
 export default function ProgramHelper() {
   const query = new URLSearchParams(window.location.search);
-  const ownerPreviewAllowed = ["localhost", "127.0.0.1", "::1"].includes(window.location.hostname);
-  const initialMode = ownerPreviewAllowed && query.get("mode") !== "demo" ? "owner" : "demo";
+  const { user, isAuthenticated } = useAuth();
+  const localOwnerAccess = isLocalPreviewHost();
+  const liveOwnerAccess = isAuthenticated && userHasOwnerAccess(user);
+  const ownerAccessAllowed = localOwnerAccess || liveOwnerAccess;
+  const requestedMode = query.get("mode");
+  const initialMode = requestedMode === "owner" && ownerAccessAllowed ? "owner" : "demo";
   const [mode, setMode] = useState(initialMode);
   const [entered, setEntered] = useState(query.has("mode"));
   const [selectedProgramId, setSelectedProgramId] = useState(query.get("program") || portalData.programs[0].id);
@@ -1168,7 +1195,13 @@ export default function ProgramHelper() {
   const [copyStatus, setCopyStatus] = useState("");
   const [runStatus, setRunStatus] = useState("draft_ready");
 
-  const owner = ownerPreviewAllowed && mode === "owner";
+  useEffect(() => {
+    if (!ownerAccessAllowed && mode === "owner") {
+      setMode("demo");
+    }
+  }, [mode, ownerAccessAllowed]);
+
+  const owner = ownerAccessAllowed && mode === "owner";
   const viewMode = owner ? PROGRAM_VIEW_MODES.OWNER : PROGRAM_VIEW_MODES.DEMO;
   const visiblePrograms = useMemo(() => getVisiblePrograms(portalData.programs, viewMode), [viewMode]);
   const program = visiblePrograms.find((item) => item.id === selectedProgramId) ?? visiblePrograms[0];
@@ -1231,7 +1264,7 @@ export default function ProgramHelper() {
   };
 
   const showOwnerWorkbench = () => {
-    if (!ownerPreviewAllowed) return;
+    if (!ownerAccessAllowed) return;
     setMode("owner");
     setEntered(true);
   };
@@ -1302,7 +1335,7 @@ export default function ProgramHelper() {
             </h2>
             <AccessModeSwitcher
               owner={owner}
-              ownerPreviewAllowed={ownerPreviewAllowed}
+              ownerAccessAllowed={ownerAccessAllowed}
               onOwner={showOwnerWorkbench}
               onDemo={showDemoViewer}
             />
@@ -1397,7 +1430,7 @@ export default function ProgramHelper() {
           <motion.div variants={fadeUp} custom={3} className="rounded-3xl border border-black/5 bg-white p-5 shadow-sm">
             <AccessModeSwitcher
               owner={owner}
-              ownerPreviewAllowed={ownerPreviewAllowed}
+              ownerAccessAllowed={ownerAccessAllowed}
               onOwner={showOwnerWorkbench}
               onDemo={showDemoViewer}
             />

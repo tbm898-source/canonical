@@ -3,6 +3,12 @@ import { appParams } from '@/lib/app-params';
 
 const AuthContext = createContext();
 
+const publicPreviewPaths = ['/', '/ProgramHelper', '/Home', '/About', '/Dashboard', '/WorkspaceSetup'];
+
+function isLocalPreviewHost() {
+  return ['localhost', '127.0.0.1', '::1'].includes(window.location.hostname);
+}
+
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -20,8 +26,8 @@ export const AuthProvider = ({ children }) => {
       setIsLoadingPublicSettings(true);
       setAuthError(null);
 
-      const previewPath = ['/', '/ProgramHelper', '/Home', '/About', '/Dashboard', '/WorkspaceSetup'].includes(window.location.pathname);
-      if (previewPath) {
+      const previewPath = publicPreviewPaths.includes(window.location.pathname);
+      if (previewPath && isLocalPreviewHost()) {
         setAppPublicSettings({
           id: appParams.appId || 'canonical_program_helper_preview',
           public_settings: { auth_required: false }
@@ -47,10 +53,20 @@ export const AuthProvider = ({ children }) => {
       try {
         const publicSettings = await appClient.get(`/prod/public-settings/by-id/${appParams.appId}`);
         setAppPublicSettings(publicSettings);
+        const authRequired = Boolean(
+          publicSettings?.public_settings?.auth_required ?? publicSettings?.auth_required,
+        );
         
         // If we got the app public settings successfully, check if user is authenticated
         if (appParams.token) {
           await checkUserAuth();
+        } else if (authRequired) {
+          setAuthError({
+            type: 'auth_required',
+            message: 'Authentication required'
+          });
+          setIsLoadingAuth(false);
+          setIsAuthenticated(false);
         } else {
           setIsLoadingAuth(false);
           setIsAuthenticated(false);
