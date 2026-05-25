@@ -421,8 +421,27 @@ CANONICAL remains the authoritative file spine. This demo preview prepares struc
     export_manifest: exportManifest,
     warnings,
   };
+  const packetMetadataMarkdown = `# ${safeBrief.session_title}
+
+## Metadata
+- Module: ${classification.module_key}
+- Session: ${classification.session_key}
+- Date: ${classification.session_date}
+- Rail: ${classification.rail}
+- Visibility: ${classification.visibility_scope}
+- Artifact Type: ${classification.artifact_type}
+- Generator Version: ${exportManifest.generator_version}
+
+## Export Manifest
+\`\`\`json
+${JSON.stringify(exportManifest, null, 2)}
+\`\`\`
+
+## Warnings
+${markdownList(warnings, "No warnings.")}`;
 
   const packetMarkdown = [
+    packetMetadataMarkdown,
     sessionBriefMarkdown,
     ayaDailyPlan,
     studentBuildLog,
