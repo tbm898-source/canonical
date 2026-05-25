@@ -1,0 +1,81 @@
+{
+  "name": "CanonicalGeneratedArtifact",
+  "type": "object",
+  "title": "CANONICAL Generated Artifact",
+  "description": "Generated instructional packet metadata and safe export output. Never stores connector secrets.",
+  "properties": {
+    "artifact_id": { "type": "string" },
+    "module_key": { "type": "string" },
+    "session_key": { "type": "string" },
+    "session_title": { "type": "string" },
+    "session_date": { "type": "string" },
+    "rail": {
+      "type": "string",
+      "enum": ["canonical", "aya", "prism"]
+    },
+    "visibility_scope": {
+      "type": "string",
+      "enum": ["public_demo", "canonical_internal", "aya_classroom", "prism_private"]
+    },
+    "artifact_type": {
+      "type": "string",
+      "enum": [
+        "lesson_plan",
+        "student_packet",
+        "instructor_guide",
+        "quiz",
+        "answer_key",
+        "slide_outline",
+        "classroom_post",
+        "clickup_task_batch",
+        "evidence_note",
+        "facilitator_overlay",
+        "ai_continuity_prompt",
+        "manifest",
+        "template",
+        "SOP",
+        "export_index",
+        "packet_metadata"
+      ]
+    },
+    "generated_json": { "type": "object" },
+    "generated_markdown": { "type": "string" },
+    "export_manifest": { "type": "object" },
+    "dropbox_path": { "type": "string" },
+    "manifest_path": { "type": "string" },
+    "classroom_draft": { "type": "object" },
+    "clickup_task_candidates": {
+      "type": "array",
+      "items": { "type": "object" },
+      "default": []
+    },
+    "connector_mode": { "type": "string" },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "prepared", "saved", "blocked", "error"],
+      "default": "draft"
+    },
+    "warnings": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": []
+    },
+    "created_at": { "type": "string" },
+    "updated_at": { "type": "string" }
+  },
+  "required": [
+    "artifact_id",
+    "module_key",
+    "session_key",
+    "rail",
+    "visibility_scope",
+    "artifact_type",
+    "status"
+  ],
+  "rls": {
+    "create": { "user_condition": { "role": "admin" } },
+    "read": { "user_condition": { "role": "admin" } },
+    "update": { "user_condition": { "role": "admin" } },
+    "delete": { "user_condition": { "role": "admin" } }
+  }
+}

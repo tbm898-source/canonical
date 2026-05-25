@@ -1,0 +1,35 @@
+{
+  "name": "CanonicalTemplateProfile",
+  "type": "object",
+  "title": "CANONICAL Template Profile",
+  "description": "Reusable generation template and separation rules for CANONICAL, AYA/CTS, and PRISM rails.",
+  "properties": {
+    "template_key": { "type": "string" },
+    "rail": {
+      "type": "string",
+      "enum": ["canonical", "aya", "prism"]
+    },
+    "visibility_scope": {
+      "type": "string",
+      "enum": ["public_demo", "canonical_internal", "aya_classroom", "prism_private"]
+    },
+    "module_type": { "type": "string" },
+    "output_types": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": []
+    },
+    "style_rules": { "type": "object" },
+    "forbidden_content_rules": { "type": "object" },
+    "default_export_behavior": { "type": "object" },
+    "created_at": { "type": "string" },
+    "updated_at": { "type": "string" }
+  },
+  "required": ["template_key", "rail", "visibility_scope"],
+  "rls": {
+    "create": { "user_condition": { "role": "admin" } },
+    "read": { "user_condition": { "role": "admin" } },
+    "update": { "user_condition": { "role": "admin" } },
+    "delete": { "user_condition": { "role": "admin" } }
+  }
+}
