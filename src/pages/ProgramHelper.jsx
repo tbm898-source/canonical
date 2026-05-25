@@ -30,6 +30,13 @@ import {
   buildExportManifest,
   createDefaultClassification,
 } from "@/lib/canonicalConnectorPolicy";
+import {
+  PROGRAM_VIEW_MODES,
+  getAccessibleModuleForProgram,
+  getSafeProgramSeed,
+  getVisiblePrograms,
+  isDemoSummaryOnly,
+} from "@/lib/programAccessPolicy";
 
 const demoScopes = new Set(["demo_safe", "aya_safe", "prism_curated"]);
 
@@ -46,15 +53,17 @@ function getProgram(programId) {
   return portalData.programs.find((item) => item.id === programId);
 }
 
-function getModuleForProgram(program) {
-  return portalData.modules.find((item) => item.program_id === program.id);
+function getModuleForProgram(program, mode) {
+  return getAccessibleModuleForProgram(program, portalData.modules, mode);
 }
 
 function getBrief(briefId) {
+  if (!briefId) return null;
   return portalData.session_briefs.find((item) => item.id === briefId);
 }
 
 function getBundle(briefId) {
+  if (!briefId) return null;
   return portalData.session_bundles.find((item) => item.session_brief_id === briefId);
 }
 
@@ -720,13 +729,21 @@ function BriefQualityPanel({ checks }) {
   );
 }
 
-function ModeGuardrails({ owner }) {
-  const visibleItems = owner
-    ? ["PRISM-private artifacts", "Local draft run status", "Approval controls"]
-    : ["Approved session summaries", "AYA-safe artifacts", "Curated PRISM overview"];
-  const hiddenItems = owner
-    ? ["Nothing is hidden in owner preview"]
-    : ["Raw PRISM notes", "Agent logs and draft paths", "Approval and publish controls"];
+function ModeGuardrails({ owner, summaryOnly = false }) {
+  const visibleItems = summaryOnly
+    ? owner
+      ? ["Private framework summary", "Import metadata", "Source structure names"]
+      : ["Polished high-level overview only"]
+    : owner
+      ? ["PRISM-private artifacts", "Local draft run status", "Approval controls"]
+      : ["Approved session summaries", "AYA-safe artifacts", "Curated PRISM overview"];
+  const hiddenItems = summaryOnly
+    ? owner
+      ? ["Live connector writes until explicit approval"]
+      : ["Private scaffold details", "Owner review material", "Operational controls"]
+    : owner
+      ? ["Nothing is hidden in owner preview"]
+      : ["Raw PRISM notes", "Agent logs and draft paths", "Approval and publish controls"];
 
   return (
     <section className="mb-6 grid gap-4 lg:grid-cols-2">
@@ -803,6 +820,121 @@ function BoundaryPanel({ boundaries }) {
         ))}
       </div>
     </Surface>
+  );
+}
+
+function ProgramLibraryPanel({ programs, selectedProgramId, owner, onSelect }) {
+  return (
+    <Surface className="mb-6">
+      <SectionTitle eyebrow="Program library" title="Choose the work surface" icon={BookOpen} />
+      <div className="grid gap-3 lg:grid-cols-2">
+        {programs.map((program) => {
+          const selected = selectedProgramId === program.id;
+          const summaryOnly = isDemoSummaryOnly(program, owner ? PROGRAM_VIEW_MODES.OWNER : PROGRAM_VIEW_MODES.DEMO);
+          return (
+            <button
+              key={program.id}
+              type="button"
+              onClick={() => onSelect(program.id)}
+              className={`rounded-2xl border p-4 text-left transition-all ${
+                selected
+                  ? "border-indigo-200 bg-indigo-50 shadow-sm"
+                  : "border-black/5 bg-[#fafafa] hover:-translate-y-0.5 hover:border-indigo-100 hover:bg-white"
+              }`}
+            >
+              <div className="flex items-start justify-between gap-3">
+                <div>
+                  <div className="text-[11px] font-semibold uppercase tracking-wide text-indigo-600">
+                    {program.program_family || program.ownership_rail}
+                  </div>
+                  <h3 className="mt-2 text-base font-semibold text-[#0a0a0a]">{program.title}</h3>
+                </div>
+                <span className="shrink-0 rounded-full bg-white px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-[#0a0a0a]/45">
+                  {summaryOnly ? "Overview only" : owner ? "Owner" : "Demo"}
+                </span>
+              </div>
+              <p className="mt-3 text-sm leading-6 text-[#0a0a0a]/50">
+                {program.demo_summary || program.description}
+              </p>
+            </button>
+          );
+        })}
+      </div>
+    </Surface>
+  );
+}
+
+function ProgramOverviewPanel({ program, module, owner }) {
+  const sourceStructure = owner && Array.isArray(module?.source_structure) ? module.source_structure : [];
+  const summaryOnly = isDemoSummaryOnly(program, owner ? PROGRAM_VIEW_MODES.OWNER : PROGRAM_VIEW_MODES.DEMO);
+
+  return (
+    <section className="mb-6 grid gap-6 lg:grid-cols-[1fr_0.9fr]">
+      <Surface className="bg-gradient-to-br from-white to-indigo-50/60">
+        <SectionTitle
+          eyebrow={summaryOnly ? "Demo-safe overview" : "Private framework"}
+          title={program.title}
+          icon={owner ? Lock : Eye}
+        />
+        <div className="grid gap-4 text-sm leading-6 text-[#0a0a0a]/55">
+          <p>{program.demo_summary || program.description}</p>
+          <div className="rounded-2xl border border-indigo-100 bg-white/70 p-4">
+            <div className="text-xs font-semibold uppercase tracking-wide text-indigo-600">
+              {owner ? "Boundary" : "Demo boundary"}
+            </div>
+            <p className="mt-2 text-sm leading-6 text-[#0a0a0a]/55">
+              {owner
+                ? program.boundary_statement ||
+                  "PRISM_DTJL is PRISM Core, private-first, demo-summary-only, and not AYA implementation."
+                : "This view is intentionally limited to a polished overview. The full framework scaffold remains owner-only until deliberately curated."}
+            </p>
+          </div>
+          {!owner && (
+            <div className="rounded-2xl border border-rose-100 bg-rose-50 p-4 text-rose-900">
+              Demo mode shows only this polished overview. Deeper private material is withheld before render.
+            </div>
+          )}
+        </div>
+      </Surface>
+
+      <Surface>
+        <SectionTitle
+          eyebrow={owner ? "Owner source structure" : "Protected material"}
+          title={owner ? "Imported scaffold" : "Private by default"}
+          icon={Shield}
+        />
+        {owner ? (
+          <div className="grid gap-4">
+            <div className="grid gap-3 sm:grid-cols-2">
+              <MetricTile label="Program key" value={program.program_key} />
+              <MetricTile label="Module key" value={module?.module_key || "Not opened"} />
+              <MetricTile label="Evidence" value={program.evidence_status || "Not tagged"} />
+              <MetricTile label="Demo behavior" value={program.default_demo_behavior || "Not set"} />
+            </div>
+            <div className="rounded-2xl border border-black/5 bg-[#fafafa] p-4">
+              <div className="text-xs font-semibold uppercase tracking-wide text-[#0a0a0a]/35">
+                Canonical pointer
+              </div>
+              <p className="mt-2 break-words text-sm text-[#0a0a0a]/55">{program.canonical_path}</p>
+            </div>
+            <div className="rounded-2xl border border-black/5 bg-[#fafafa] p-4">
+              <div className="text-xs font-semibold uppercase tracking-wide text-[#0a0a0a]/35">
+                Source structure
+              </div>
+              <ul className="mt-3 grid gap-2 text-sm text-[#0a0a0a]/55">
+                {sourceStructure.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ) : (
+          <p className="text-sm leading-6 text-[#0a0a0a]/50">
+            Detailed private material is not loaded into the demo path. This prevents accidental leakage through reused session, artifact, or helper components.
+          </p>
+        )}
+      </Surface>
+    </section>
   );
 }
 
@@ -969,30 +1101,54 @@ export default function ProgramHelper() {
   const initialMode = ownerPreviewAllowed && query.get("mode") !== "demo" ? "owner" : "demo";
   const [mode, setMode] = useState(initialMode);
   const [entered, setEntered] = useState(query.has("mode"));
+  const [selectedProgramId, setSelectedProgramId] = useState(query.get("program") || portalData.programs[0].id);
   const [helperInput, setHelperInput] = useState(portalData.helper_seed_input);
   const [demoAgentInput, setDemoAgentInput] = useState(portalData.helper_seed_input);
   const [generatedPackage, setGeneratedPackage] = useState(null);
   const [copyStatus, setCopyStatus] = useState("");
   const [runStatus, setRunStatus] = useState("draft_ready");
 
-  const program = getProgram(portalData.programs[0].id);
-  const module = getModuleForProgram(program);
-  const brief = getBrief(module.session_ids[0]);
-  const bundle = getBundle(brief.id);
   const owner = ownerPreviewAllowed && mode === "owner";
+  const viewMode = owner ? PROGRAM_VIEW_MODES.OWNER : PROGRAM_VIEW_MODES.DEMO;
+  const visiblePrograms = useMemo(() => getVisiblePrograms(portalData.programs, viewMode), [viewMode]);
+  const program = visiblePrograms.find((item) => item.id === selectedProgramId) ?? visiblePrograms[0];
+  const module = getModuleForProgram(program, viewMode);
+  const brief = getBrief(module?.session_ids?.[0]);
+  const bundle = getBundle(brief?.id);
+  const summaryOnly = isDemoSummaryOnly(program, viewMode) || !brief || !bundle;
 
-  const normalized = useMemo(() => normalizeInput(helperInput, brief), [helperInput, brief]);
-  const demoNormalized = useMemo(() => normalizeInput(demoAgentInput, brief), [demoAgentInput, brief]);
-  const bundlePlan = useMemo(() => prepareBundle(normalized), [normalized]);
-  const artifacts = portalData.artifacts
-    .filter((artifact) => artifact.session_bundle_id === bundle.id)
-    .filter((artifact) => safeArtifact(mode, artifact))
-    .sort((a, b) => a.sort_order - b.sort_order);
+  const normalized = useMemo(() => (brief ? normalizeInput(helperInput, brief) : null), [helperInput, brief]);
+  const demoNormalized = useMemo(() => (brief ? normalizeInput(demoAgentInput, brief) : null), [demoAgentInput, brief]);
+  const bundlePlan = useMemo(() => (normalized ? prepareBundle(normalized) : null), [normalized]);
+  const artifacts = bundle
+    ? portalData.artifacts
+        .filter((artifact) => artifact.session_bundle_id === bundle.id)
+        .filter((artifact) => safeArtifact(mode, artifact))
+        .sort((a, b) => a.sort_order - b.sort_order)
+    : [];
   const ayaArtifacts = artifacts.filter((artifact) => artifact.rail === "aya" || artifact.rail === "shared");
   const prismArtifacts = artifacts.filter((artifact) => artifact.rail === "prism");
-  const agentRun = portalData.agent_runs?.[0];
+  const agentRun = brief
+    ? portalData.agent_runs?.find((run) => run.session_key === brief.session_key) ?? portalData.agent_runs?.[0]
+    : null;
+
+  const handleSelectProgram = (programId) => {
+    const nextRawProgram = getProgram(programId);
+    const nextProgram = getVisiblePrograms(portalData.programs, viewMode).find((item) => item.id === programId) ?? nextRawProgram;
+    const nextSeed = getSafeProgramSeed(nextProgram, portalData.helper_seed_input, viewMode);
+    setSelectedProgramId(programId);
+    setHelperInput(nextSeed);
+    setDemoAgentInput(nextSeed);
+    setGeneratedPackage(null);
+    setRunStatus("draft_ready");
+  };
 
   const handleGenerateDemoPackage = () => {
+    if (!demoNormalized) {
+      setCopyStatus("This program is overview-only in the current mode.");
+      window.setTimeout(() => setCopyStatus(""), 1800);
+      return;
+    }
     setGeneratedPackage(
       buildGeneratedDayPackage(
         demoNormalized,
@@ -1122,19 +1278,26 @@ export default function ProgramHelper() {
             </span>
           </div>
           <div className="flex items-center gap-5">
-            <a href="#session" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
-              Session
+            <a href="#program-library" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
+              Programs
             </a>
-            <a href="#artifacts" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
-              Artifacts
-            </a>
-            <a href="#agent-demo" className="hidden text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a] sm:block">
-              Agent Demo
-            </a>
-            <a href="#integrations" className="hidden text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a] md:block">
-              Integrations
-            </a>
-            {owner && (
+            {!summaryOnly && (
+              <>
+                <a href="#session" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
+                  Session
+                </a>
+                <a href="#artifacts" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
+                  Artifacts
+                </a>
+                <a href="#agent-demo" className="hidden text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a] sm:block">
+                  Agent Demo
+                </a>
+                <a href="#integrations" className="hidden text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a] md:block">
+                  Integrations
+                </a>
+              </>
+            )}
+            {owner && !summaryOnly && (
               <a href="#helper" className="hidden text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a] sm:block">
                 Helper
               </a>
@@ -1182,7 +1345,7 @@ export default function ProgramHelper() {
               custom={2}
               className="mt-6 max-w-2xl text-lg leading-relaxed text-[#0a0a0a]/50"
             >
-              {module.description}
+              {module?.description || program.description}
             </motion.p>
           </div>
 
@@ -1211,7 +1374,9 @@ export default function ProgramHelper() {
               </div>
             ) : (
               <p className="mt-5 text-sm leading-6 text-[#0a0a0a]/50">
-                This view only shows approved AYA-safe and curated PRISM materials.
+                {summaryOnly
+                  ? "This read-only overview does not open private framework material."
+                  : "This view only shows approved AYA-safe and curated PRISM materials."}
                 {!ownerPreviewAllowed && " Owner preview is disabled on the public frontend prototype."}
               </p>
             )}
@@ -1221,6 +1386,22 @@ export default function ProgramHelper() {
           </motion.div>
         </motion.header>
 
+        <div id="program-library" className="scroll-mt-24">
+          <ProgramLibraryPanel
+            programs={summaryOnly && !owner ? [program] : visiblePrograms}
+            selectedProgramId={program.id}
+            owner={owner}
+            onSelect={handleSelectProgram}
+          />
+        </div>
+
+        {summaryOnly ? (
+          <>
+            <ModeGuardrails owner={owner} summaryOnly />
+            <ProgramOverviewPanel program={program} module={module} owner={owner} />
+          </>
+        ) : (
+          <>
         <StoryRail items={portalData.demo_story} />
         <BoundaryPanel boundaries={portalData.boundary_model} />
         <ModeGuardrails owner={owner} />
@@ -1353,6 +1534,8 @@ export default function ProgramHelper() {
               </div>
             </Surface>
           </section>
+        )}
+          </>
         )}
       </main>
     </div>
