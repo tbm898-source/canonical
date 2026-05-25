@@ -1,45 +1,91 @@
 {
   "name": "CanonicalGeneratedArtifact",
   "type": "object",
-  "title": "CANONICAL Generated Artifact",
-  "description": "Generated instructional packet metadata and safe export output. Never stores connector secrets.",
+  "title": "Canonical Generated Artifact",
+  "description": "Generated curriculum, packet, slide, quiz, manifest, operator, and connector-safe artifact metadata. Never stores connector secrets.",
   "properties": {
     "artifact_id": { "type": "string" },
+    "request_id": { "type": "string" },
     "module_key": { "type": "string" },
     "session_key": { "type": "string" },
     "session_title": { "type": "string" },
     "session_date": { "type": "string" },
+    "title": {
+      "type": "string",
+      "maxLength": 200
+    },
     "rail": {
       "type": "string",
-      "enum": ["canonical", "aya", "prism"]
+      "enum": [
+        "canonical",
+        "aya",
+        "prism",
+        "AYA_Classroom",
+        "PRISM_Framework",
+        "CTS_RCS_Public_or_Open_Source",
+        "Mixed"
+      ]
     },
     "visibility_scope": {
       "type": "string",
-      "enum": ["public_demo", "canonical_internal", "aya_classroom", "prism_private"]
+      "enum": [
+        "public_demo",
+        "canonical_internal",
+        "aya_classroom",
+        "prism_private"
+      ]
+    },
+    "privacy_level": {
+      "type": "string",
+      "enum": [
+        "public",
+        "internal",
+        "restricted"
+      ],
+      "default": "internal"
+    },
+    "audience": {
+      "type": "string",
+      "enum": [
+        "student",
+        "instructor",
+        "facilitator",
+        "operator",
+        "admin",
+        "public",
+        "mixed"
+      ],
+      "default": "instructor"
     },
     "artifact_type": {
       "type": "string",
+      "maxLength": 100
+    },
+    "filename": {
+      "type": "string",
+      "maxLength": 240
+    },
+    "format": {
+      "type": "string",
       "enum": [
-        "lesson_plan",
-        "student_packet",
-        "instructor_guide",
-        "quiz",
-        "answer_key",
+        "markdown",
+        "pdf",
+        "docx",
+        "pptx",
         "slide_outline",
-        "classroom_post",
-        "clickup_task_batch",
-        "evidence_note",
-        "facilitator_overlay",
-        "ai_continuity_prompt",
-        "manifest",
-        "template",
-        "SOP",
-        "export_index",
-        "packet_metadata"
-      ]
+        "json",
+        "zip",
+        "text"
+      ],
+      "default": "markdown"
+    },
+    "content": {
+      "type": "string",
+      "maxLength": 60000
     },
     "generated_json": { "type": "object" },
     "generated_markdown": { "type": "string" },
+    "manifest": { "type": "object" },
     "export_manifest": { "type": "object" },
     "dropbox_path": { "type": "string" },
     "manifest_path": { "type": "string" },
@@ -50,9 +96,27 @@
       "default": []
     },
     "connector_mode": { "type": "string" },
+    "owner_attribution": {
+      "type": "string",
+      "maxLength": 300
+    },
+    "version": {
+      "type": "string",
+      "default": "v1"
+    },
     "status": {
       "type": "string",
-      "enum": ["draft", "prepared", "saved", "blocked", "error"],
+      "enum": [
+        "draft",
+        "prepared",
+        "review",
+        "approved",
+        "published",
+        "saved",
+        "blocked",
+        "error",
+        "archived"
+      ],
       "default": "draft"
     },
     "warnings": {
@@ -64,13 +128,8 @@
     "updated_at": { "type": "string" }
   },
   "required": [
-    "artifact_id",
-    "module_key",
-    "session_key",
     "rail",
-    "visibility_scope",
-    "artifact_type",
-    "status"
+    "artifact_type"
   ],
   "rls": {
     "create": { "user_condition": { "role": "admin" } },

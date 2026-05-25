@@ -1,0 +1,65 @@
+{
+  "name": "CanonicalEvidenceNote",
+  "type": "object",
+  "title": "Canonical Evidence Note",
+  "description": "A structured note for documenting class evidence, observations, build progress, reflections, or admin context.",
+  "properties": {
+    "session_id": {
+      "type": "string"
+    },
+    "rail": {
+      "type": "string",
+      "enum": [
+        "AYA_Classroom",
+        "PRISM_Framework",
+        "CTS_RCS_Public_or_Open_Source",
+        "Mixed"
+      ],
+      "default": "AYA_Classroom"
+    },
+    "note_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "student_work",
+        "safety",
+        "build_progress",
+        "attendance",
+        "reflection",
+        "admin",
+        "incident",
+        "improvement"
+      ],
+      "default": "reflection"
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000
+    },
+    "details": {
+      "type": "string",
+      "maxLength": 12000
+    },
+    "followup_needed": {
+      "type": "boolean",
+      "default": false
+    },
+    "privacy_level": {
+      "type": "string",
+      "enum": [
+        "public",
+        "internal",
+        "restricted"
+      ],
+      "default": "internal"
+    }
+  },
+  "required": [
+    "note_date",
+    "summary"
+  ]
+}

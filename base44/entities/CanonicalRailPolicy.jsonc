@@ -1,0 +1,40 @@
+{
+  "name": "CanonicalRailPolicy",
+  "type": "object",
+  "title": "Canonical Rail Policy",
+  "description": "A durable policy record defining rail separation, attribution, and allowed artifact behavior.",
+  "properties": {
+    "policy_name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "rail": {
+      "type": "string",
+      "enum": [
+        "AYA_Classroom",
+        "PRISM_Framework",
+        "CTS_RCS_Public_or_Open_Source",
+        "Mixed"
+      ]
+    },
+    "policy_text": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20000
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    },
+    "version": {
+      "type": "string",
+      "default": "v1"
+    }
+  },
+  "required": [
+    "policy_name",
+    "rail",
+    "policy_text"
+  ]
+}
