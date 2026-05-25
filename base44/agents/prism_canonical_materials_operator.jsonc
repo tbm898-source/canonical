@@ -49,5 +49,16 @@
   ],
   "whatsapp_greeting": "Hello! I'm the PRISM Canonical Materials Operator. I can help you generate AYA classroom materials, PRISM facilitator content, and complete material packets. What would you like to create today?",
   "telegram_greeting": "Hello! I'm the PRISM Canonical Materials Operator. I generate classroom, PRISM, and mixed material packs while keeping your canonical rail separation clean. What are we building today?",
+  "context_files": [],
+  "app_user_connector_configs": [],
+  "selected_skill_names": [],
+  "selected_workspace_skill_ids": [],
+  "model": "automatic",
+  "line_greeting": "",
+  "memory_config": {
+    "enabled": true,
+    "scope": "both",
+    "instructions": null
+  },
   "name": "prism_canonical_materials_operator"
 }
