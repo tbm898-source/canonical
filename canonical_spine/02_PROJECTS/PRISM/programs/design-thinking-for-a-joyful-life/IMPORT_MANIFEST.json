@@ -1,0 +1,14 @@
+{
+  "source_zip_name": "design-thinking-for-a-joyful-life_CANONICAL_v0_1.zip",
+  "source_zip_sha256": "790acacb95d91a10e85467d9d33c892df3dd273108f0bfd9460f922b1563abbd",
+  "import_date": "2026-05-25T11:51:54.6622359-07:00",
+  "program_key": "PRISM_DTJL",
+  "module_key": "CATALYST_BLUEPRINT_V0_1",
+  "canonical_destination_path": "CANONICAL://02_PROJECTS/PRISM/programs/design-thinking-for-a-joyful-life",
+  "scope": "PRISM_CORE",
+  "visibility": "prism_private",
+  "evidence_status": "mixed_requires_review",
+  "live_connector_writes": false,
+  "created_from_import_id": "import_prism_dtjl_2026_05_25_v0_1",
+  "boundary_statement": "PRISM_DTJL is PRISM Core, private-first, demo-summary-only, and not AYA implementation."
+}

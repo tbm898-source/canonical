@@ -1,0 +1,26 @@
+{
+  "version": "0.1",
+  "rubric": [
+    {
+      "belief_area": "failure",
+      "level_1": "Failure is treated as proof of personal defect.",
+      "level_2": "Student can sometimes separate failure from identity with support.",
+      "level_3": "Student describes failure as data in familiar situations.",
+      "level_4": "Student independently uses failure as feedback and chooses a next action."
+    },
+    {
+      "belief_area": "future_path",
+      "level_1": "Student believes there is one correct path and they are late.",
+      "level_2": "Student can name more than one possible path with support.",
+      "level_3": "Student generates multiple futures and one prototype.",
+      "level_4": "Student actively tests multiple futures through conversations or experiences."
+    },
+    {
+      "belief_area": "agency",
+      "level_1": "Student sees current state as fixed.",
+      "level_2": "Student identifies one designable part of the situation.",
+      "level_3": "Student takes small action to change a designable variable.",
+      "level_4": "Student uses design cycles independently."
+    }
+  ]
+}
