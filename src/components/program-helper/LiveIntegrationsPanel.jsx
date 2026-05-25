@@ -11,7 +11,6 @@ import {
   ShieldAlert,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { base44 } from "@/api/base44Client";
 import {
   CONNECTOR_MODES,
   validateClassification,
@@ -19,6 +18,11 @@ import {
 
 function unwrapResponse(response) {
   return response?.data ?? response;
+}
+
+async function invokeBase44Function(functionName, payload) {
+  const { base44 } = await import("@/api/base44Client");
+  return base44.functions.invoke(functionName, payload);
 }
 
 function StatusPill({ state }) {
@@ -122,7 +126,7 @@ export default function LiveIntegrationsPanel({ owner, generatedPackage }) {
     setHealthState("checking");
     safeCall(
       setHealthState,
-      () => base44.functions.invoke("canonicalConnectorHealth", {}),
+      () => invokeBase44Function("canonicalConnectorHealth", {}),
       (result) => {
         setHealth(result);
         setHealthState(result.success ? "ready" : "error");
@@ -134,7 +138,7 @@ export default function LiveIntegrationsPanel({ owner, generatedPackage }) {
     setSpineState("checking");
     safeCall(
       setSpineState,
-      () => base44.functions.invoke("canonicalSpineDiscovery", { accept_discovered_map: false }),
+      () => invokeBase44Function("canonicalSpineDiscovery", { accept_discovered_map: false }),
       (result) => {
         setSpine(result);
         setSpineState(result.success ? "needs_owner_approval" : "error");
@@ -147,7 +151,7 @@ export default function LiveIntegrationsPanel({ owner, generatedPackage }) {
     safeCall(
       setSpineState,
       () =>
-        base44.functions.invoke("canonicalSpineDiscovery", {
+        invokeBase44Function("canonicalSpineDiscovery", {
           accept_discovered_map: true,
           selected_root_path: spine?.candidate_roots?.[0]?.root_path || "",
         }),
@@ -168,7 +172,7 @@ export default function LiveIntegrationsPanel({ owner, generatedPackage }) {
     safeCall(
       setDropboxState,
       () =>
-        base44.functions.invoke("saveInstructionalPacketToDropbox", {
+        invokeBase44Function("saveInstructionalPacketToDropbox", {
           session_key: classification.session_key,
           module_key: classification.module_key,
           session_title: classification.session_title,
@@ -199,7 +203,7 @@ export default function LiveIntegrationsPanel({ owner, generatedPackage }) {
     safeCall(
       setClassroomState,
       () =>
-        base44.functions.invoke("prepareClassroomExport", {
+        invokeBase44Function("prepareClassroomExport", {
           packet_json: generatedPackage.packetJson,
           target_course_id: "",
           classroom_topic_hint: generatedPackage.brief.module_key,
@@ -221,7 +225,7 @@ export default function LiveIntegrationsPanel({ owner, generatedPackage }) {
     safeCall(
       setClickUpState,
       () =>
-        base44.functions.invoke("prepareClickUpExport", {
+        invokeBase44Function("prepareClickUpExport", {
           packet_json: generatedPackage.packetJson,
           target_list_id: "",
           dry_run: true,
