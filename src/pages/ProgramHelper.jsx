@@ -603,6 +603,53 @@ function SectionTitle({ eyebrow, title, icon: Icon }) {
   );
 }
 
+function AccessModeSwitcher({ owner, ownerPreviewAllowed, onOwner, onDemo }) {
+  return (
+    <div data-testid="access-mode-switcher">
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <div className="text-xs font-medium uppercase tracking-wide text-[#0a0a0a]/35">
+            Access mode
+          </div>
+          <div className="mt-1 text-lg font-semibold text-[#0a0a0a]">
+            {owner ? "Owner Workbench" : "Demo Viewer"}
+          </div>
+        </div>
+        <span className="shrink-0 rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-600">
+          {owner ? "Private controls" : "Read-only"}
+        </span>
+      </div>
+
+      <div className="mt-5 grid grid-cols-2 gap-3">
+        <Button
+          data-testid="owner-workbench-button"
+          variant={owner ? "default" : "outline"}
+          className={owner ? "bg-[#0a0a0a] text-white hover:bg-[#1a1a1a]" : ""}
+          onClick={onOwner}
+          disabled={!ownerPreviewAllowed}
+        >
+          Owner
+        </Button>
+        <Button
+          data-testid="demo-viewer-button"
+          variant={owner ? "outline" : "default"}
+          className={!owner ? "bg-[#0a0a0a] text-white hover:bg-[#1a1a1a]" : ""}
+          onClick={onDemo}
+        >
+          Demo
+        </Button>
+      </div>
+
+      <p className="mt-5 text-sm leading-6 text-[#0a0a0a]/50">
+        {owner
+          ? "Owner Workbench shows private scaffolds, approval controls, connector previews, and draft-review lanes."
+          : "Demo Viewer is presentation-safe: curated program cards, PV102 sample generation, and no private payloads or connector calls."}
+        {!ownerPreviewAllowed && " Owner Workbench stays locked on the public prototype until real owner authentication is connected."}
+      </p>
+    </div>
+  );
+}
+
 function ArtifactCard({ artifact, mode }) {
   const owner = mode === "owner";
   const scopeLabel = {
@@ -827,14 +874,27 @@ function ProgramLibraryPanel({ programs, selectedProgramId, owner, onSelect }) {
   return (
     <Surface className="mb-6">
       <SectionTitle eyebrow="Program library" title="Choose the work surface" icon={BookOpen} />
+      <p className="-mt-2 mb-5 text-sm leading-6 text-[#0a0a0a]/50">
+        {owner
+          ? "Owner Workbench can open private PRISM scaffolds and delivery samples for review."
+          : "Demo Viewer keeps PV102 usable while private PRISM programs appear only as polished overview cards."}
+      </p>
       <div className="grid gap-3 lg:grid-cols-2">
         {programs.map((program) => {
           const selected = selectedProgramId === program.id;
           const summaryOnly = isDemoSummaryOnly(program, owner ? PROGRAM_VIEW_MODES.OWNER : PROGRAM_VIEW_MODES.DEMO);
+          const accessLabel = summaryOnly
+            ? "Overview only"
+            : owner && program.visibility_scope === "prism_private"
+              ? "Owner private"
+              : owner
+                ? "Owner rail"
+                : "Demo ready";
           return (
             <button
               key={program.id}
               type="button"
+              data-testid={`program-card-${program.program_key}`}
               onClick={() => onSelect(program.id)}
               className={`rounded-2xl border p-4 text-left transition-all ${
                 selected
@@ -850,7 +910,7 @@ function ProgramLibraryPanel({ programs, selectedProgramId, owner, onSelect }) {
                   <h3 className="mt-2 text-base font-semibold text-[#0a0a0a]">{program.title}</h3>
                 </div>
                 <span className="shrink-0 rounded-full bg-white px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-[#0a0a0a]/45">
-                  {summaryOnly ? "Overview only" : owner ? "Owner" : "Demo"}
+                  {accessLabel}
                 </span>
               </div>
               <p className="mt-3 text-sm leading-6 text-[#0a0a0a]/50">
@@ -1170,6 +1230,17 @@ export default function ProgramHelper() {
     window.setTimeout(() => setCopyStatus(""), 1800);
   };
 
+  const showOwnerWorkbench = () => {
+    if (!ownerPreviewAllowed) return;
+    setMode("owner");
+    setEntered(true);
+  };
+
+  const showDemoViewer = () => {
+    setMode("demo");
+    setEntered(true);
+  };
+
   if (!entered) {
     return (
       <div className="min-h-screen overflow-hidden bg-[#fafafa]">
@@ -1183,13 +1254,10 @@ export default function ProgramHelper() {
             </div>
             <button
               type="button"
-              onClick={() => {
-                setMode("demo");
-                setEntered(true);
-              }}
+              onClick={showDemoViewer}
               className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]"
             >
-              Open demo
+              Open Demo Viewer
             </button>
           </div>
         </nav>
@@ -1212,7 +1280,7 @@ export default function ProgramHelper() {
               custom={1}
               className="text-5xl font-bold leading-[1.05] tracking-tight text-[#0a0a0a] sm:text-7xl"
             >
-              PRISM Program
+              CANONICAL Program
               <br />
               <span className="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">
                 Helper.
@@ -1224,43 +1292,20 @@ export default function ProgramHelper() {
               custom={2}
               className="mt-8 max-w-xl text-lg leading-relaxed text-[#0a0a0a]/50"
             >
-              CANONICAL instructional memory, owner-side draft generation, and a curated demo view for showing the system without opening the private rails.
+              A two-view instructional workbench: Owner Workbench for private PRISM/CANONICAL operations, and Demo Viewer for safe presentation access.
             </motion.p>
           </motion.section>
 
           <section className="rounded-3xl border border-black/5 bg-white p-5 shadow-2xl shadow-black/[0.04]">
-            <h2 className="text-lg font-semibold tracking-tight text-[#0a0a0a]">Choose access</h2>
-            <button
-              type="button"
-              onClick={() => {
-                if (ownerPreviewAllowed) {
-                  setMode("owner");
-                  setEntered(true);
-                }
-              }}
-              disabled={!ownerPreviewAllowed}
-              className="mt-5 block w-full rounded-2xl border border-black/5 bg-[#fafafa] p-5 text-left transition-all hover:-translate-y-0.5 hover:border-indigo-200 hover:bg-indigo-50 disabled:cursor-not-allowed disabled:opacity-55 disabled:hover:translate-y-0 disabled:hover:border-black/5 disabled:hover:bg-[#fafafa]"
-            >
-              <span className="font-semibold text-[#0a0a0a]">Owner preview</span>
-              <span className="mt-1 block text-sm text-[#0a0a0a]/45">
-                {ownerPreviewAllowed
-                  ? "Full workbench, PRISM-private view, local draft review."
-                  : "Local-only until real owner authentication is connected."}
-              </span>
-            </button>
-            <button
-              type="button"
-              onClick={() => {
-                setMode("demo");
-                setEntered(true);
-              }}
-              className="mt-3 block w-full rounded-2xl border border-black/5 bg-[#fafafa] p-5 text-left transition-all hover:-translate-y-0.5 hover:border-indigo-200 hover:bg-indigo-50"
-            >
-              <span className="font-semibold text-[#0a0a0a]">Demo viewer</span>
-              <span className="mt-1 block text-sm text-[#0a0a0a]/45">
-                Read-only presentation mode with curated artifacts.
-              </span>
-            </button>
+            <h2 className="mb-4 text-lg font-semibold tracking-tight text-[#0a0a0a]">
+              Choose presentation view
+            </h2>
+            <AccessModeSwitcher
+              owner={owner}
+              ownerPreviewAllowed={ownerPreviewAllowed}
+              onOwner={showOwnerWorkbench}
+              onDemo={showDemoViewer}
+            />
           </section>
         </main>
       </div>
@@ -1350,36 +1395,12 @@ export default function ProgramHelper() {
           </div>
 
           <motion.div variants={fadeUp} custom={3} className="rounded-3xl border border-black/5 bg-white p-5 shadow-sm">
-            <div className="flex items-center justify-between gap-4">
-              <div>
-                <div className="text-xs font-medium uppercase tracking-wide text-[#0a0a0a]/35">
-                  Access mode
-                </div>
-                <div className="mt-1 text-lg font-semibold text-[#0a0a0a]">
-                  {owner ? "Owner preview" : "Demo viewer"}
-                </div>
-              </div>
-              <span className="rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-600">
-                {owner ? "Private" : "Read-only"}
-              </span>
-            </div>
-            {owner ? (
-              <div className="mt-5 grid grid-cols-2 gap-3">
-                <Button className="bg-[#0a0a0a] text-white hover:bg-[#1a1a1a]" onClick={() => setMode("owner")}>
-                  Owner
-                </Button>
-                <Button variant="outline" onClick={() => setMode("demo")}>
-                  Demo
-                </Button>
-              </div>
-            ) : (
-              <p className="mt-5 text-sm leading-6 text-[#0a0a0a]/50">
-                {summaryOnly
-                  ? "This read-only overview does not open private framework material."
-                  : "This view only shows approved AYA-safe and curated PRISM materials."}
-                {!ownerPreviewAllowed && " Owner preview is disabled on the public frontend prototype."}
-              </p>
-            )}
+            <AccessModeSwitcher
+              owner={owner}
+              ownerPreviewAllowed={ownerPreviewAllowed}
+              onOwner={showOwnerWorkbench}
+              onDemo={showDemoViewer}
+            />
             <Button variant="ghost" className="mt-3 w-full text-[#0a0a0a]/55" onClick={() => setEntered(false)}>
               Return to login
             </Button>
@@ -1388,7 +1409,7 @@ export default function ProgramHelper() {
 
         <div id="program-library" className="scroll-mt-24">
           <ProgramLibraryPanel
-            programs={summaryOnly && !owner ? [program] : visiblePrograms}
+            programs={visiblePrograms}
             selectedProgramId={program.id}
             owner={owner}
             onSelect={handleSelectProgram}

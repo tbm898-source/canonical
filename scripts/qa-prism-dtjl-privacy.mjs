@@ -1,4 +1,5 @@
 import { portalData } from "../src/data/instructionalSampleData.js";
+import { readFileSync } from "node:fs";
 import {
   PROGRAM_VIEW_MODES,
   assertNoPrivateDemoFields,
@@ -64,6 +65,21 @@ const leaks = blockedPatterns
   .map(({ label }) => label);
 
 assert(leaks.length === 0, `PRISM_DTJL demo overview leaked: ${leaks.join(", ")}`);
+
+const liveIntegrationsSource = readFileSync(
+  new URL("../src/components/program-helper/LiveIntegrationsPanel.jsx", import.meta.url),
+  "utf8",
+);
+
+assert(
+  !/import\s+\{\s*base44\s*\}\s+from\s+["']@\/api\/base44Client["']/.test(liveIntegrationsSource),
+  "LiveIntegrationsPanel must not statically import the Base44 client because demo mode must not preload backend SDK calls.",
+);
+
+assert(
+  /await import\(["']@\/api\/base44Client["']\)/.test(liveIntegrationsSource),
+  "LiveIntegrationsPanel should lazy-load the Base44 client only inside owner-triggered integration actions.",
+);
 
 console.log("PRISM_DTJL privacy QA passed.");
 console.log("Demo view: summary-only, no private module/source payload.");
