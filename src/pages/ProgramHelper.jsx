@@ -21,11 +21,15 @@ import {
   RefreshCcw,
   Shield,
   Wand2,
-  CloudUpload,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { portalData } from "@/data/instructionalSampleData";
-import { base44 } from "@/api/base44Client";
+import LiveIntegrationsPanel from "@/components/program-helper/LiveIntegrationsPanel";
+import {
+  CONNECTOR_MODES,
+  buildExportManifest,
+  createDefaultClassification,
+} from "@/lib/canonicalConnectorPolicy";
 
 const demoScopes = new Set(["demo_safe", "aya_safe", "prism_curated"]);
 
@@ -135,14 +139,15 @@ function normalizeInput(rawInput, session) {
 }
 
 function prepareBundle(brief) {
-  const token = brief.session_title.replace(/[^A-Za-z0-9]+/g, "_").replace(/^_+|_+$/g, "");
   const moduleToken = brief.module_key.replace(/[^A-Za-z0-9]+/g, "_");
+  const sessionTitle = titleWithoutModulePrefix(brief.session_title, brief.module_key);
+  const token = sessionTitle.replace(/[^A-Za-z0-9]+/g, "_").replace(/^_+|_+$/g, "");
   const date = brief.session_date;
   return {
     aya: [
-      `AYA_CTS_${moduleToken}_${token}_Shop_Instructions_${date}.pdf`,
-      `AYA_CTS_${moduleToken}_${token}_Student_Build_Log_${date}.pdf`,
-      `AYA_CTS_${moduleToken}_${token}_Final_QC_and_Evidence_Card_${date}.pdf`,
+      `AYA_CTS_${moduleToken}_${token}_Session_Instructions_${date}.pdf`,
+      `AYA_CTS_${moduleToken}_${token}_Student_Work_Log_${date}.pdf`,
+      `AYA_CTS_${moduleToken}_${token}_QC_and_Evidence_Card_${date}.pdf`,
       "AYA_CTS_Adaptive_Daily_Template_v1.pdf",
     ],
     prism: [
@@ -174,6 +179,17 @@ function slugify(value, fallback = "session") {
     .replace(/[^A-Za-z0-9]+/g, "_")
     .replace(/^_+|_+$/g, "");
   return token || fallback;
+}
+
+function escapeRegExp(value) {
+  return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function titleWithoutModulePrefix(title, moduleKey) {
+  if (!moduleKey) return title;
+  const trimmed = String(title || "").trim();
+  const pattern = new RegExp(`^${escapeRegExp(moduleKey)}\\s*[-–—:]?\\s*`, "i");
+  return trimmed.replace(pattern, "") || trimmed;
 }
 
 function listOrFallback(items, fallback) {
@@ -215,11 +231,11 @@ ${markdownList(brief.evidence_captured)}
 ${brief.next_step || "Not provided in the rough notes."}`;
 }
 
-function buildGeneratedDayPackage(brief) {
+function buildGeneratedDayPackage(brief, connectorMode = CONNECTOR_MODES.DEMO) {
   const safeBrief = {
     program_key: brief.program_key || "AYA_CTS",
-    module_key: brief.module_key || "EDM101",
-    session_key: brief.session_key || `${brief.module_key || "EDM101"}_${slugify(brief.session_title)}`,
+    module_key: brief.module_key || "MODULE_PENDING",
+    session_key: brief.session_key || `${brief.module_key || "MODULE_PENDING"}_${slugify(brief.session_title)}`,
     session_title: brief.session_title || "Untitled instructional session",
     session_date: brief.session_date || "date_pending",
     actual_stage: brief.actual_stage || "Actual stage not provided",
@@ -231,8 +247,12 @@ function buildGeneratedDayPackage(brief) {
     next_step: brief.next_step || "Not provided in the rough notes.",
   };
   const bundlePlan = prepareBundle(safeBrief);
-  const token = slugify(`${safeBrief.module_key}_${safeBrief.session_title}_${safeBrief.session_date}`, "daily_packet");
+  const token = slugify(
+    `${safeBrief.module_key}_${titleWithoutModulePrefix(safeBrief.session_title, safeBrief.module_key)}_${safeBrief.session_date}`,
+    "daily_packet",
+  );
   const sessionBriefMarkdown = buildSessionBriefMarkdown(safeBrief);
+  const classification = createDefaultClassification(safeBrief, connectorMode);
 
   const ayaDailyPlan = `# ${safeBrief.session_title} - AYA/CTS Daily Plan
 
@@ -240,17 +260,17 @@ function buildGeneratedDayPackage(brief) {
 ${safeBrief.actual_stage}
 
 ## Opening huddle
-- State the actual build/session stage plainly.
+- State the actual class/session stage plainly.
 - Name the top targets for today.
 - Confirm safety, tools, roles, and evidence expectations.
 
-## Build targets
+## Session targets
 ${markdownList(safeBrief.remaining)}
 
 ## Suggested flow
 1. Opening huddle and safety reset.
 2. Task block tied to the highest-priority remaining work.
-3. QC pause before any finish, upload, or demo step.
+3. Quality/safety pause before any submission, upload, lab, or demo step.
 4. Evidence capture: photos, student notes, and carry-forward details.
 5. Cleanup and next-session handoff.
 
@@ -260,7 +280,7 @@ ${markdownList(safeBrief.evidence_captured)}
 ## First next step
 ${safeBrief.next_step}`;
 
-  const studentBuildLog = `# Student Build Log - ${safeBrief.session_title}
+  const studentBuildLog = `# Student Work Log - ${safeBrief.session_title}
 
 ## Name / role
 - Name:
@@ -280,7 +300,7 @@ ${markdownList(safeBrief.student_learning)}
 
   const qcEvidenceCard = `# QC and Evidence Card - ${safeBrief.session_title}
 
-## Completion checks
+## Completion / readiness checks
 ${markdownList(safeBrief.remaining.map((item) => `${item} - complete / partial / not started`))}
 
 ## Known blockers
@@ -347,7 +367,96 @@ ${markdownList(bundlePlan.downstream)}
 ## Source-of-truth note
 CANONICAL remains the authoritative file spine. This demo preview prepares structured content and package metadata without writing private files.`;
 
+  const classroomDraft = {
+    title: `${safeBrief.session_title} - AYA/CTS Session Materials`,
+    body: `Today we are working from the real project status: ${safeBrief.actual_stage}. Complete the assigned work, evidence capture, and reflection prompts.`,
+    topic: safeBrief.module_key,
+    materials: bundlePlan.aya,
+    due_date: null,
+    visibility_scope: "aya_classroom",
+  };
+  const clickupTaskCandidates = [
+    ...safeBrief.remaining.map((item, index) => ({
+      id: `remaining_${index + 1}`,
+      name: `Complete: ${item}`,
+      description: item,
+      tags: ["aya", "review"],
+    })),
+    ...safeBrief.blocked.map((item, index) => ({
+      id: `blocker_${index + 1}`,
+      name: `Resolve blocker: ${item}`,
+      description: item,
+      tags: ["admin", "blocked"],
+    })),
+    {
+      id: "evidence_capture",
+      name: "Confirm evidence capture",
+      description: safeBrief.evidence_captured.join("; "),
+      tags: ["evidence", "canonical"],
+    },
+  ];
+  const warnings = [
+    ...classification.warnings,
+    "Dropbox writes require read-only spine discovery and owner-approved destination.",
+    "Classroom and ClickUp adapters are dry-run only in V1.",
+  ];
+  const exportManifest = buildExportManifest({
+    artifact_id: `${classification.session_key}_${classification.artifact_type}`,
+    classification,
+    saved_at: null,
+    destination_path: "",
+    saved_files: [],
+    classroom_draft_status: "prepared",
+    clickup_draft_status: "prepared",
+    warnings,
+  });
+  const packetJson = {
+    packet_metadata: {
+      ...classification,
+      version: "canonical-connector-spine-v2",
+      generated_at: exportManifest.generated_at,
+    },
+    student_materials: [
+      studentBuildLog,
+      qcEvidenceCard,
+    ],
+    instructor_materials: [
+      ayaDailyPlan,
+      filingPlan,
+    ],
+    quiz_materials: [],
+    answer_key_materials: [],
+    slide_outline: slideOutline.split("\n").filter(Boolean),
+    classroom_draft: classroomDraft,
+    clickup_task_candidates: clickupTaskCandidates,
+    facilitator_overlay:
+      classification.visibility_scope === "prism_private" ? prismCurated : null,
+    ai_continuity_notes:
+      classification.visibility_scope === "prism_private" ? safeBrief.next_step : null,
+    export_manifest: exportManifest,
+    warnings,
+  };
+  const packetMetadataMarkdown = `# ${safeBrief.session_title}
+
+## Metadata
+- Module: ${classification.module_key}
+- Session: ${classification.session_key}
+- Date: ${classification.session_date}
+- Rail: ${classification.rail}
+- Visibility: ${classification.visibility_scope}
+- Artifact Type: ${classification.artifact_type}
+- Generator Version: ${exportManifest.generator_version}
+
+## Export Manifest
+\`\`\`json
+${JSON.stringify(exportManifest, null, 2)}
+\`\`\`
+
+## Warnings
+${markdownList(warnings, "No warnings.")}`;
+
   const packetMarkdown = [
+    packetMetadataMarkdown,
     sessionBriefMarkdown,
     ayaDailyPlan,
     studentBuildLog,
@@ -372,16 +481,23 @@ CANONICAL remains the authoritative file spine. This demo preview prepares struc
     prismCurated,
     filingPlan,
     packetMarkdown,
+    packetJson,
+    classification,
+    exportManifest,
+    warnings,
     exportJson: JSON.stringify(
       {
         export_type: "demo_safe_instructional_packet",
         generated_by: "CANONICAL demo agent preview",
         privacy_note:
           "This export is demo-safe. It does not include raw PRISM private notes, local paths, API keys, draft logs, or approval controls.",
-        session_brief: safeBrief,
+        classification,
+        packet_json: packetJson,
+        export_manifest: exportManifest,
+          session_brief: safeBrief,
         outputs: {
           aya_daily_plan: ayaDailyPlan,
-          student_build_log: studentBuildLog,
+          student_work_log: studentBuildLog,
           qc_evidence_card: qcEvidenceCard,
           google_classroom_copy: classroomCopy,
           slide_outline: slideOutline,
@@ -721,26 +837,12 @@ function DemoAgentWorkbench({
   copyStatus,
   capabilities,
 }) {
-  const [dropboxStatus, setDropboxStatus] = useState("");
-
-  const handleSaveToDropbox = async () => {
-    if (!generatedPackage) return;
-    setDropboxStatus("Saving to Dropbox...");
-    try {
-      const path = `/CANONICAL/${generatedPackage.markdownFilename}`;
-      await base44.functions.invoke('dropboxSave', { path, content: generatedPackage.packetMarkdown });
-      setDropboxStatus("Saved to Dropbox!");
-    } catch (err) {
-      setDropboxStatus("Dropbox save failed: " + err.message);
-    }
-    setTimeout(() => setDropboxStatus(""), 3000);
-  };
   const owner = mode === "owner";
   const outputCards = generatedPackage
     ? [
         ["Session Brief", generatedPackage.sessionBriefMarkdown],
         ["AYA Daily Plan", generatedPackage.ayaDailyPlan],
-        ["Student Build Log", generatedPackage.studentBuildLog],
+        ["Student Work Log", generatedPackage.studentBuildLog],
         ["QC / Evidence Card", generatedPackage.qcEvidenceCard],
         ["Google Classroom Copy", generatedPackage.classroomCopy],
         ["Slide / Deck Outline", generatedPackage.slideOutline],
@@ -811,18 +913,9 @@ function DemoAgentWorkbench({
               <Printer className="h-4 w-4" />
               Print packet
             </Button>
-            <Button
-              variant="outline"
-              className="gap-2 border-indigo-200 text-indigo-700 hover:bg-indigo-50"
-              onClick={handleSaveToDropbox}
-              disabled={!generatedPackage}
-            >
-              <CloudUpload className="h-4 w-4" />
-              Save to Dropbox
-            </Button>
           </div>
-          {(copyStatus || dropboxStatus) && (
-            <p className="mt-3 text-xs font-semibold text-emerald-700">{dropboxStatus || copyStatus}</p>
+          {copyStatus && (
+            <p className="mt-3 text-xs font-semibold text-emerald-700">{copyStatus}</p>
           )}
           <div className="mt-4 rounded-2xl border border-amber-100 bg-amber-50 p-4 text-sm leading-6 text-amber-900">
             Demo guardrail: generated previews are temporary browser state. They do not create official CANONICAL files or expose raw PRISM notes until the owner approves and files them.
@@ -900,7 +993,12 @@ export default function ProgramHelper() {
   const agentRun = portalData.agent_runs?.[0];
 
   const handleGenerateDemoPackage = () => {
-    setGeneratedPackage(buildGeneratedDayPackage(demoNormalized));
+    setGeneratedPackage(
+      buildGeneratedDayPackage(
+        demoNormalized,
+        owner ? CONNECTOR_MODES.OWNER_PREVIEW : CONNECTOR_MODES.DEMO,
+      ),
+    );
     setCopyStatus("Demo packet generated. Exports are ready.");
     window.setTimeout(() => setCopyStatus(""), 1800);
   };
@@ -1032,6 +1130,9 @@ export default function ProgramHelper() {
             </a>
             <a href="#agent-demo" className="hidden text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a] sm:block">
               Agent Demo
+            </a>
+            <a href="#integrations" className="hidden text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a] md:block">
+              Integrations
             </a>
             {owner && (
               <a href="#helper" className="hidden text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a] sm:block">
@@ -1198,6 +1299,8 @@ export default function ProgramHelper() {
           copyStatus={copyStatus}
           capabilities={portalData.demo_agent_capabilities}
         />
+
+        <LiveIntegrationsPanel owner={owner} generatedPackage={generatedPackage} />
 
         {owner && (
           <section id="helper" className="grid scroll-mt-24 gap-6 lg:grid-cols-[1.05fr_0.95fr]">

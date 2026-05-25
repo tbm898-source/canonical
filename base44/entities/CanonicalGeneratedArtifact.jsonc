@@ -2,28 +2,47 @@
   "name": "CanonicalGeneratedArtifact",
   "type": "object",
   "title": "Canonical Generated Artifact",
-  "description": "A generated curriculum, PRISM, slide, handout, quiz, manifest, or operator artifact.",
+  "description": "Generated curriculum, packet, slide, quiz, manifest, operator, and connector-safe artifact metadata. Never stores connector secrets.",
   "properties": {
-    "request_id": {
-      "type": "string"
-    },
+    "artifact_id": { "type": "string" },
+    "request_id": { "type": "string" },
+    "module_key": { "type": "string" },
+    "session_key": { "type": "string" },
+    "session_title": { "type": "string" },
+    "session_date": { "type": "string" },
     "title": {
       "type": "string",
-      "minLength": 1,
       "maxLength": 200
     },
     "rail": {
       "type": "string",
       "enum": [
+        "canonical",
+        "aya",
+        "prism",
         "AYA_Classroom",
         "PRISM_Framework",
         "CTS_RCS_Public_or_Open_Source",
         "Mixed"
       ]
     },
-    "artifact_type": {
+    "visibility_scope": {
       "type": "string",
-      "maxLength": 100
+      "enum": [
+        "public_demo",
+        "canonical_internal",
+        "aya_classroom",
+        "prism_private"
+      ]
+    },
+    "privacy_level": {
+      "type": "string",
+      "enum": [
+        "public",
+        "internal",
+        "restricted"
+      ],
+      "default": "internal"
     },
     "audience": {
       "type": "string",
@@ -37,6 +56,10 @@
         "mixed"
       ],
       "default": "instructor"
+    },
+    "artifact_type": {
+      "type": "string",
+      "maxLength": 100
     },
     "filename": {
       "type": "string",
@@ -60,42 +83,58 @@
       "type": "string",
       "maxLength": 60000
     },
-    "manifest": {
-      "type": "object"
+    "generated_json": { "type": "object" },
+    "generated_markdown": { "type": "string" },
+    "manifest": { "type": "object" },
+    "export_manifest": { "type": "object" },
+    "dropbox_path": { "type": "string" },
+    "manifest_path": { "type": "string" },
+    "classroom_draft": { "type": "object" },
+    "clickup_task_candidates": {
+      "type": "array",
+      "items": { "type": "object" },
+      "default": []
     },
+    "connector_mode": { "type": "string" },
     "owner_attribution": {
       "type": "string",
       "maxLength": 300
-    },
-    "status": {
-      "type": "string",
-      "enum": [
-        "draft",
-        "review",
-        "approved",
-        "published",
-        "archived"
-      ],
-      "default": "draft"
     },
     "version": {
       "type": "string",
       "default": "v1"
     },
-    "privacy_level": {
+    "status": {
       "type": "string",
       "enum": [
-        "public",
-        "internal",
-        "restricted"
+        "draft",
+        "prepared",
+        "review",
+        "approved",
+        "published",
+        "saved",
+        "blocked",
+        "error",
+        "archived"
       ],
-      "default": "internal"
-    }
+      "default": "draft"
+    },
+    "warnings": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": []
+    },
+    "created_at": { "type": "string" },
+    "updated_at": { "type": "string" }
   },
   "required": [
-    "title",
     "rail",
-    "artifact_type",
-    "content"
-  ]
+    "artifact_type"
+  ],
+  "rls": {
+    "create": { "user_condition": { "role": "admin" } },
+    "read": { "user_condition": { "role": "admin" } },
+    "update": { "user_condition": { "role": "admin" } },
+    "delete": { "user_condition": { "role": "admin" } }
+  }
 }

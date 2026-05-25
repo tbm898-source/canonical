@@ -27,6 +27,20 @@ Do not expect it to unlock:
 - Local Cursor SDK runner endpoints hosted by Base44.
 - Real owner/staff authentication policy.
 
+## Connector Spine v2 Update
+
+The app now includes backend resource definitions under `base44/entities` and `base44/functions` for the CANONICAL connector spine.
+
+Important:
+
+- Dropbox is treated as the discovered CANONICAL spine, not generic storage.
+- The first live Dropbox task is read-only spine discovery, not writing files.
+- Dropbox writes are blocked until an owner-approved `CanonicalSpineMap` exists.
+- Google Classroom and ClickUp are dry-run adapters only in V1.
+- Gmail/email is future-disabled in V1.
+
+If the current GitHub sync lane does not deploy backend resources for this app, create or link a backend-capable Base44 project before expecting these functions/entities to run live.
+
 ## Long-Term Lane
 
 For the real CANONICAL owner workbench, use a separate Backend Platform project or an ejected CLI-managed Base44 app.

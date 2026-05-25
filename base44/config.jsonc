@@ -1,5 +1,8 @@
 {
   "name": "CANONICAL",
+  "entitiesDir": "./entities",
+  "functionsDir": "./functions",
+  "agentsDir": "./agents",
   "site": {
     "installCommand": "npm install",
     "buildCommand": "npm run build",
