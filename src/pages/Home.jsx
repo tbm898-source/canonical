@@ -238,7 +238,7 @@ export default function Home() {
                   See the current Program Helper prototype.
                 </h2>
                 <p className="mt-4 max-w-2xl text-sm leading-6 text-white/50">
-                  The demo view shows safe sample material. The owner workbench opens private scaffolds and integration controls only in local owner preview.
+                  The demo view shows safe sample material. The owner workbench opens private scaffolds and integration controls only for an authenticated owner/admin.
                 </p>
               </div>
               <Link to="/ProgramHelper?mode=demo">
