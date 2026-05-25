@@ -5,10 +5,6 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
-import Home from './pages/Home';
-import About from './pages/About';
-import Dashboard from './pages/Dashboard';
-import WorkspaceSetup from './pages/WorkspaceSetup';
 import ProgramHelper from './pages/ProgramHelper';
 import { Navigate } from 'react-router-dom';
 
@@ -40,10 +36,10 @@ const AuthenticatedApp = () => {
     <Routes>
       <Route path="/" element={<Navigate to="/ProgramHelper" replace />} />
       <Route path="/ProgramHelper" element={<ProgramHelper />} />
-      <Route path="/Home" element={<Home />} />
-      <Route path="/About" element={<About />} />
-      <Route path="/Dashboard" element={<Dashboard />} />
-      <Route path="/WorkspaceSetup" element={<WorkspaceSetup />} />
+      <Route path="/Home" element={<Navigate to="/ProgramHelper?mode=demo" replace />} />
+      <Route path="/About" element={<Navigate to="/ProgramHelper?mode=demo" replace />} />
+      <Route path="/Dashboard" element={<Navigate to="/ProgramHelper?mode=demo" replace />} />
+      <Route path="/WorkspaceSetup" element={<Navigate to="/ProgramHelper?mode=demo" replace />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );

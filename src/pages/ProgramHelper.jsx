@@ -17,7 +17,6 @@ import {
   Shield,
   Wand2,
 } from "lucide-react";
-import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { portalData } from "@/data/instructionalSampleData";
 
@@ -425,14 +424,16 @@ export default function ProgramHelper() {
                 CANONICAL
               </span>
             </div>
-            <div className="flex items-center gap-6">
-              <Link to="/Home" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
-                Home
-              </Link>
-              <Link to="/Dashboard" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
-                Dashboard
-              </Link>
-            </div>
+            <button
+              type="button"
+              onClick={() => {
+                setMode("demo");
+                setEntered(true);
+              }}
+              className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]"
+            >
+              Open demo
+            </button>
           </div>
         </nav>
 
@@ -520,15 +521,17 @@ export default function ProgramHelper() {
             </span>
           </div>
           <div className="flex items-center gap-5">
-            <Link to="/Home" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
-              Home
-            </Link>
-            <Link to="/Dashboard" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
-              Dashboard
-            </Link>
-            <Link to="/WorkspaceSetup" className="hidden text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a] sm:block">
-              Workspace
-            </Link>
+            <a href="#session" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
+              Session
+            </a>
+            <a href="#artifacts" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
+              Artifacts
+            </a>
+            {owner && (
+              <a href="#helper" className="hidden text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a] sm:block">
+                Helper
+              </a>
+            )}
           </div>
         </div>
       </nav>
@@ -625,7 +628,7 @@ export default function ProgramHelper() {
           <BriefQualityPanel checks={portalData.brief_quality_checks} />
         </section>
 
-        <section className="mb-6 grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
+        <section id="session" className="mb-6 grid scroll-mt-24 gap-6 lg:grid-cols-[0.85fr_1.15fr]">
           <Surface>
             <SectionTitle eyebrow="Current session" title={brief.session_title} icon={FileText} />
             {[
@@ -653,7 +656,7 @@ export default function ProgramHelper() {
           </Surface>
         </section>
 
-        <section className="mb-6 grid gap-6 lg:grid-cols-2">
+        <section id="artifacts" className="mb-6 grid scroll-mt-24 gap-6 lg:grid-cols-2">
           <Surface>
             <SectionTitle eyebrow="AYA rail" title="Delivery-facing outputs" icon={BookOpen} />
             <div className="grid gap-3">
@@ -679,7 +682,7 @@ export default function ProgramHelper() {
         <ExportAdapterPanel adapters={portalData.export_adapters} />
 
         {owner && (
-          <section className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
+          <section id="helper" className="grid scroll-mt-24 gap-6 lg:grid-cols-[1.05fr_0.95fr]">
             <Surface>
               <SectionTitle eyebrow="Program helper" title="Hybrid notes to bundle plan" icon={Wand2} />
               <label className="text-xs font-medium uppercase tracking-wide text-[#0a0a0a]/35">

@@ -1,7 +1,5 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
-import { base44 } from '@/api/base44Client';
 import { appParams } from '@/lib/app-params';
-import { createAxiosClient } from '@base44/sdk/dist/utils/axios-client';
 
 const AuthContext = createContext();
 
@@ -22,8 +20,8 @@ export const AuthProvider = ({ children }) => {
       setIsLoadingPublicSettings(true);
       setAuthError(null);
 
-      const previewPath = ['/', '/ProgramHelper'].includes(window.location.pathname);
-      if (previewPath && !appParams.token) {
+      const previewPath = ['/', '/ProgramHelper', '/Home', '/About', '/Dashboard', '/WorkspaceSetup'].includes(window.location.pathname);
+      if (previewPath) {
         setAppPublicSettings({
           id: appParams.appId || 'canonical_program_helper_preview',
           public_settings: { auth_required: false }
@@ -36,6 +34,7 @@ export const AuthProvider = ({ children }) => {
       
       // First, check app public settings (with token if available)
       // This will tell us if auth is required, user not registered, etc.
+      const { createAxiosClient } = await import('@base44/sdk/dist/utils/axios-client');
       const appClient = createAxiosClient({
         baseURL: `/api/apps/public`,
         headers: {
@@ -103,6 +102,7 @@ export const AuthProvider = ({ children }) => {
     try {
       // Now check if the user is authenticated
       setIsLoadingAuth(true);
+      const { base44 } = await import('@/api/base44Client');
       const currentUser = await base44.auth.me();
       setUser(currentUser);
       setIsAuthenticated(true);
@@ -128,16 +128,16 @@ export const AuthProvider = ({ children }) => {
     
     if (shouldRedirect) {
       // Use the SDK's logout method which handles token cleanup and redirect
-      base44.auth.logout(window.location.href);
+      import('@/api/base44Client').then(({ base44 }) => base44.auth.logout(window.location.href));
     } else {
       // Just remove the token without redirect
-      base44.auth.logout();
+      import('@/api/base44Client').then(({ base44 }) => base44.auth.logout());
     }
   };
 
   const navigateToLogin = () => {
     // Use the SDK's redirectToLogin method
-    base44.auth.redirectToLogin(window.location.href);
+    import('@/api/base44Client').then(({ base44 }) => base44.auth.redirectToLogin(window.location.href));
   };
 
   return (
