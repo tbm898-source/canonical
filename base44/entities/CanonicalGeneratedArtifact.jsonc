@@ -2,47 +2,28 @@
   "name": "CanonicalGeneratedArtifact",
   "type": "object",
   "title": "Canonical Generated Artifact",
-  "description": "Generated curriculum, packet, slide, quiz, manifest, operator, and connector-safe artifact metadata. Never stores connector secrets.",
+  "description": "A generated curriculum, PRISM, slide, handout, quiz, manifest, or operator artifact.",
   "properties": {
-    "artifact_id": { "type": "string" },
-    "request_id": { "type": "string" },
-    "module_key": { "type": "string" },
-    "session_key": { "type": "string" },
-    "session_title": { "type": "string" },
-    "session_date": { "type": "string" },
+    "request_id": {
+      "type": "string"
+    },
     "title": {
       "type": "string",
+      "minLength": 1,
       "maxLength": 200
     },
     "rail": {
       "type": "string",
       "enum": [
-        "canonical",
-        "aya",
-        "prism",
         "AYA_Classroom",
         "PRISM_Framework",
         "CTS_RCS_Public_or_Open_Source",
         "Mixed"
       ]
     },
-    "visibility_scope": {
+    "artifact_type": {
       "type": "string",
-      "enum": [
-        "public_demo",
-        "canonical_internal",
-        "aya_classroom",
-        "prism_private"
-      ]
-    },
-    "privacy_level": {
-      "type": "string",
-      "enum": [
-        "public",
-        "internal",
-        "restricted"
-      ],
-      "default": "internal"
+      "maxLength": 100
     },
     "audience": {
       "type": "string",
@@ -56,10 +37,6 @@
         "mixed"
       ],
       "default": "instructor"
-    },
-    "artifact_type": {
-      "type": "string",
-      "maxLength": 100
     },
     "filename": {
       "type": "string",
@@ -83,58 +60,95 @@
       "type": "string",
       "maxLength": 60000
     },
-    "generated_json": { "type": "object" },
-    "generated_markdown": { "type": "string" },
-    "manifest": { "type": "object" },
-    "export_manifest": { "type": "object" },
-    "dropbox_path": { "type": "string" },
-    "manifest_path": { "type": "string" },
-    "classroom_draft": { "type": "object" },
-    "clickup_task_candidates": {
-      "type": "array",
-      "items": { "type": "object" },
-      "default": []
+    "manifest": {
+      "type": "object"
     },
-    "connector_mode": { "type": "string" },
     "owner_attribution": {
       "type": "string",
       "maxLength": 300
-    },
-    "version": {
-      "type": "string",
-      "default": "v1"
     },
     "status": {
       "type": "string",
       "enum": [
         "draft",
-        "prepared",
         "review",
         "approved",
         "published",
-        "saved",
-        "blocked",
-        "error",
         "archived"
       ],
       "default": "draft"
     },
-    "warnings": {
-      "type": "array",
-      "items": { "type": "string" },
-      "default": []
+    "version": {
+      "type": "string",
+      "default": "v1"
     },
-    "created_at": { "type": "string" },
-    "updated_at": { "type": "string" }
+    "privacy_level": {
+      "type": "string",
+      "enum": [
+        "public",
+        "internal",
+        "restricted"
+      ],
+      "default": "internal"
+    }
   },
   "required": [
+    "title",
     "rail",
-    "artifact_type"
+    "artifact_type",
+    "content"
   ],
   "rls": {
-    "create": { "user_condition": { "role": "admin" } },
-    "read": { "user_condition": { "role": "admin" } },
-    "update": { "user_condition": { "role": "admin" } },
-    "delete": { "user_condition": { "role": "admin" } }
+    "create": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "read": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "data.privacy_level": "public"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
   }
 }
