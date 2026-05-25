@@ -61,7 +61,7 @@ export const portalData = {
   demo_agent_capabilities: [
     "Normalize rough daily class notes into a Session Brief",
     "Prepare an AYA/CTS daily instruction packet outline",
-    "Prepare student build-log and QC/evidence prompts",
+    "Prepare student work-log and QC/evidence prompts",
     "Prepare Google Classroom copy and a slide/deck outline",
     "Summarize PRISM as curated framing without exposing private notes",
     "Export demo-safe JSON/Markdown and print a packet preview"
@@ -91,22 +91,22 @@ export const portalData = {
   brief_quality_checks: [
     {
       label: "Actual stage named",
-      detail: "The session records where the build really is instead of pretending the calendar is correct.",
+      detail: "The session records where the class really is instead of pretending the calendar is correct.",
       status: "ready"
     },
     {
       label: "Blockers are explicit",
-      detail: "Amp availability is captured as a condition, not hidden inside the plan.",
+      detail: "Materials, time, and lab-readiness constraints are captured as conditions, not hidden inside the plan.",
       status: "ready"
     },
     {
       label: "Evidence is part of instruction",
-      detail: "Photos, build logs, QC cards, and continuity prompts are treated as build artifacts.",
+      detail: "Student guides, practice checks, quizzes, answer keys, and continuity prompts are treated as instructional artifacts.",
       status: "ready"
     },
     {
       label: "Next action is concrete",
-      detail: "The next helper run starts from QC and evidence, not from a blank prompt.",
+      detail: "The next helper run starts from real class status and evidence, not from a blank prompt.",
       status: "ready"
     }
   ],
@@ -138,131 +138,135 @@ export const portalData = {
       portal_status: "active",
       description:
         "Institutional delivery rail for Alternative Youth Activities CTS instruction, packets, classroom-facing assets, and reusable program continuity.",
-      module_ids: ["module_edm101"]
+      module_ids: ["module_pv102"]
     }
   ],
   modules: [
     {
-      id: "module_edm101",
+      id: "module_pv102",
       program_id: "program_aya_cts",
-      module_key: "EDM101",
-      title: "EDM101 Capstone Subwoofer Build",
-      course_code: "EDM101",
+      module_key: "PV102",
+      title: "PV102 Applied Solar Systems",
+      course_code: "PV102",
       cohort_label: "AYA / CTS",
       status: "active",
       description:
-        "Capstone build sequence where hybrid classflow is normalized into a Session Brief, then emitted as AYA and PRISM rails plus downstream delivery artifacts.",
+        "Applied photovoltaics sequence where hybrid classflow is normalized into a Session Brief, then emitted as AYA and PRISM rails plus downstream delivery artifacts.",
       summary_boxes: [
         { label: "Hierarchy", value: "Program → Module → Session" },
         { label: "Portal role", value: "Owner workbench + demo viewer" },
         { label: "Helper mode", value: "Cursor SDK drafts, approval before canonical" }
       ],
-      session_ids: ["brief_edm101_day13"]
+      session_ids: ["brief_pv102_day5"]
     }
   ],
   session_briefs: [
     {
-      id: "brief_edm101_day13",
-      module_id: "module_edm101",
+      id: "brief_pv102_day5",
+      module_id: "module_pv102",
       program_id: "program_aya_cts",
       program_key: "AYA_CTS",
-      module_key: "EDM101",
-      session_key: "EDM101_DAY13_2026-04-22",
-      session_title: "EDM101 Day 13 — Near-final build day",
-      session_date: "2026-04-22",
-      actual_stage: "Near-final build day",
+      module_key: "PV102",
+      session_key: "PV102_DAY5_2026-03-26",
+      session_title: "PV102 Day 5 — System sizing and safety checks",
+      session_date: "2026-03-26",
+      actual_stage: "Applied solar review day with sizing practice, safety checks, and quiz readiness",
       completed: [
-        "Yesterday's handle openings were cut and ready for installation prep",
-        "Cabinet assembly reached final hopeful build-day stage"
+        "Students completed prior PV fundamentals and component-identification work",
+        "Day 5 packet set was generated with instructor, student, practice, quiz, and answer-key artifacts"
       ],
       remaining: [
-        "Install remaining faceplate-cover rails",
-        "Mount handles in the openings cut yesterday",
-        "Complete final paint and finish work",
-        "Document the build honestly and clearly"
+        "Review voltage, current, power, and energy relationships in a solar context",
+        "Practice basic PV system-sizing decisions using realistic loads",
+        "Complete the Day 5 practice sheet and quiz",
+        "Capture evidence of student reasoning and misconceptions for the next session"
       ],
       blocked: [
-        "Borrowed amp availability determines whether a first break-in demo can happen"
+        "Hands-on lab depth depends on available PV components, meters, and safe demonstration space"
       ],
       student_learning: [
-        "Finish discipline matters as much as large build milestones",
-        "Evidence capture and QC are part of real build completion"
+        "PV sizing depends on load, sunlight assumptions, voltage, current, and safety constraints",
+        "A safe solar plan must explain why each component and protection step belongs in the system"
       ],
       evidence_captured: [
-        "QC card/checklist",
-        "Student build log",
-        "Progress photos",
-        "Continuity prompt"
+        "Student guide",
+        "Practice sheet",
+        "Quiz",
+        "Answer key with rationale",
+        "Instructor packet"
       ],
       next_step:
-        "Use QC results, evidence, and blocker status to generate the next session bundle from actual build state rather than calendar assumptions.",
+        "Use quiz results, practice-sheet evidence, and lab-readiness constraints to generate the next PV102 session from actual student understanding.",
       source_mode: "assistant",
       source_paths: [
-        "CANONICAL://00_INBOX/Downloads/PRISM_AYA_AI_Continuity_Prompt_Template_v1.txt",
-        "CANONICAL://00_INBOX/Downloads/EDM101_Day13_Complete_Filed_Package_2026-04-22.zip"
+        "CANONICAL://00_INBOX/Downloads/PV102_Day5_Print_Packet_2026-03-26.zip",
+        "CANONICAL://00_INBOX/Downloads/PV102_Day5_Instructor_Packet_2026-03-26.pdf"
       ],
-      brief_markdown: `# EDM101 Day 13 — Near-final build day
+      brief_markdown: `# PV102 Day 5 — System sizing and safety checks
 
-- Date: 2026-04-22
+- Date: 2026-03-26
 - Program: AYA_CTS
-- Module: EDM101
-- Actual stage: Near-final build day
+- Module: PV102
+- Actual stage: Applied solar review day with sizing practice, safety checks, and quiz readiness
 
 ## Completed
-- Yesterday's handle openings were cut and ready for installation prep
-- Cabinet assembly reached final hopeful build-day stage
+- Students completed prior PV fundamentals and component-identification work
+- Day 5 packet set was generated with instructor, student, practice, quiz, and answer-key artifacts
 
 ## Remaining
-- Install remaining faceplate-cover rails
-- Mount handles in the openings cut yesterday
-- Complete final paint and finish work
-- Document the build honestly and clearly
+- Review voltage, current, power, and energy relationships in a solar context
+- Practice basic PV system-sizing decisions using realistic loads
+- Complete the Day 5 practice sheet and quiz
+- Capture evidence of student reasoning and misconceptions for the next session
 
 ## Blocked
-- Borrowed amp availability determines whether a first break-in demo can happen
+- Hands-on lab depth depends on available PV components, meters, and safe demonstration space
 
 ## Student learning
-- Finish discipline matters as much as large build milestones
-- Evidence capture and QC are part of real build completion
+- PV sizing depends on load, sunlight assumptions, voltage, current, and safety constraints
+- A safe solar plan must explain why each component and protection step belongs in the system
 
 ## Evidence captured
-- QC card/checklist
-- Student build log
-- Progress photos
-- Continuity prompt
+- Student guide
+- Practice sheet
+- Quiz
+- Answer key with rationale
+- Instructor packet
 
 ## First next step
-Use QC results, evidence, and blocker status to generate the next session bundle from actual build state rather than calendar assumptions.`,
+Use quiz results, practice-sheet evidence, and lab-readiness constraints to generate the next PV102 session from actual student understanding.`,
       prism_guidance:
-        "Today is a coherence day. Preserve quality, truthful documentation, and adaptive sequencing. If the build finishes early, pivot to demo, reflection, and continuity capture instead of filler."
+        "Today is a coherence day. Keep electrical safety, student reasoning, and evidence capture connected. If students move quickly, deepen the sizing scenario and reflection rather than adding filler."
     }
   ],
   session_bundles: [
     {
-      id: "bundle_edm101_day13",
-      session_brief_id: "brief_edm101_day13",
-      module_id: "module_edm101",
+      id: "bundle_pv102_day5",
+      session_brief_id: "brief_pv102_day5",
+      module_id: "module_pv102",
       program_id: "program_aya_cts",
-      session_key: "EDM101_DAY13_2026-04-22",
-      session_date: "2026-04-22",
-      aya_prefix: "AYA_CTS_EDM101_Day13",
-      prism_prefix: "PRISM_EDM101_Day13",
+      session_key: "PV102_DAY5_2026-03-26",
+      session_date: "2026-03-26",
+      aya_prefix: "AYA_CTS_PV102_Day5",
+      prism_prefix: "PRISM_PV102_Day5",
       delivery_status: "generated",
       primary_package_path:
-        "CANONICAL://00_INBOX/Downloads/EDM101_Day13_Complete_Filed_Package_2026-04-22.zip",
-      filing_readme_member: "EDM101_Day13_Filing_README_2026-04-22.txt",
+        "CANONICAL://00_INBOX/Downloads/PV102_Day5_Print_Packet_2026-03-26.zip",
+      filing_readme_member: "PV102_Day5_Print_Packet_2026-03-26.zip",
       slide_status: "prepared",
       classroom_status: "prepared",
       aya_export_status: "prepared",
       print_order: [
-        "AYA_CTS_EDM101_Day13_and_Template_Print_Packet_2026-04-22.pdf",
-        "AYA_CTS_EDM101_Day13_Final_QC_and_Evidence_Card_2026-04-22.pdf",
-        "AYA_CTS_EDM101_Day13_Student_Build_Log_2026-04-22.pdf"
+        "PV102_Day5_Instructor_Packet_2026-03-26.pdf",
+        "PV102_Day5_Student_Guide_2026-03-26.pdf",
+        "PV102_Day5_Practice_Sheet_2026-03-26.pdf",
+        "PV102_Day5_Quiz_2026-03-26.pdf",
+        "PV102_Day5_Answer_Key_with_Rationale_2026-03-26.pdf"
       ],
       owner_summary:
         "This is the owner-facing sample bundle. It keeps the full package, local paths, PRISM private rail, and generation context available for review.",
       demo_summary:
-        "Day 13 shows the system converting real class status into a clean AYA packet, evidence prompts, and a curated PRISM framing layer.",
+        "PV102 Day 5 shows the system converting solar class status into a clean AYA packet, practice/quiz materials, and a curated PRISM framing layer.",
       staff_summary:
         "This session bundle is the sample record for the portal prototype. It mirrors the complete filed package and keeps the continuity prompt as the canonical bridge artifact.",
       prism_private_summary:
@@ -272,90 +276,109 @@ Use QC results, evidence, and blocker status to generate the next session bundle
   artifacts: [
     {
       id: "artifact_aya_packet",
-      session_bundle_id: "bundle_edm101_day13",
-      session_key: "EDM101_DAY13_2026-04-22",
-      title: "AYA Print + Template Packet",
+      session_bundle_id: "bundle_pv102_day5",
+      session_key: "PV102_DAY5_2026-03-26",
+      title: "PV102 Day 5 Print Packet",
       artifact_type: "aya_packet",
       rail: "aya",
       source_kind: "archive",
       file_path:
-        "CANONICAL://00_INBOX/Downloads/EDM101_Day13_Complete_Filed_Package_2026-04-22.zip",
+        "CANONICAL://00_INBOX/Downloads/PV102_Day5_Print_Packet_2026-03-26.zip",
       archive_member:
-        "AYA_CTS_EDM101_Day13_2026-04-22/AYA_CTS_EDM101_Day13_and_Template_Print_Packet_2026-04-22.pdf",
+        "PV102_Day5_Instructor_Packet_2026-03-26.pdf",
       visible_to_staff: true,
       visibility_scope: "aya_safe",
       is_primary: true,
       sort_order: 1,
-      notes: "Combined AYA print packet.",
-      demo_summary: "The student/institution-facing packet for the session."
+      notes: "Combined PV102 instructor-facing print packet.",
+      demo_summary: "The instructor packet anchors the safe classroom-facing session."
     },
     {
-      id: "artifact_qc_card",
-      session_bundle_id: "bundle_edm101_day13",
-      session_key: "EDM101_DAY13_2026-04-22",
-      title: "AYA Final QC and Evidence Card",
+      id: "artifact_student_guide",
+      session_bundle_id: "bundle_pv102_day5",
+      session_key: "PV102_DAY5_2026-03-26",
+      title: "PV102 Day 5 Student Guide",
       artifact_type: "aya_document",
       rail: "aya",
       source_kind: "archive",
       file_path:
-        "CANONICAL://00_INBOX/Downloads/EDM101_Day13_Complete_Filed_Package_2026-04-22.zip",
+        "CANONICAL://00_INBOX/Downloads/PV102_Day5_Print_Packet_2026-03-26.zip",
       archive_member:
-        "AYA_CTS_EDM101_Day13_2026-04-22/AYA_CTS_EDM101_Day13_Final_QC_and_Evidence_Card_2026-04-22.pdf",
+        "PV102_Day5_Student_Guide_2026-03-26.pdf",
       visible_to_staff: true,
       visibility_scope: "aya_safe",
       is_primary: false,
       sort_order: 2,
-      notes: "Truthful end-stage documentation and evidence capture.",
-      demo_summary: "The evidence card makes completion visible and reusable."
+      notes: "Student-facing guide for the PV102 Day 5 session.",
+      demo_summary: "The student guide gives learners the safe, classroom-ready work surface."
     },
     {
-      id: "artifact_build_log",
-      session_bundle_id: "bundle_edm101_day13",
-      session_key: "EDM101_DAY13_2026-04-22",
-      title: "AYA Student Build Log",
+      id: "artifact_practice_sheet",
+      session_bundle_id: "bundle_pv102_day5",
+      session_key: "PV102_DAY5_2026-03-26",
+      title: "PV102 Day 5 Practice Sheet",
       artifact_type: "aya_document",
       rail: "aya",
       source_kind: "archive",
       file_path:
-        "CANONICAL://00_INBOX/Downloads/EDM101_Day13_Complete_Filed_Package_2026-04-22.zip",
+        "CANONICAL://00_INBOX/Downloads/PV102_Day5_Print_Packet_2026-03-26.zip",
       archive_member:
-        "AYA_CTS_EDM101_Day13_2026-04-22/AYA_CTS_EDM101_Day13_Student_Build_Log_2026-04-22.pdf",
+        "PV102_Day5_Practice_Sheet_2026-03-26.pdf",
       visible_to_staff: true,
       visibility_scope: "aya_safe",
       is_primary: false,
       sort_order: 3,
-      notes: "Student role, work, and reflection capture.",
-      demo_summary: "Student reflection and contribution capture."
+      notes: "Sizing and reasoning practice for the session.",
+      demo_summary: "The practice sheet captures reasoning before quiz or next-day generation."
     },
     {
-      id: "artifact_gc_map",
-      session_bundle_id: "bundle_edm101_day13",
-      session_key: "EDM101_DAY13_2026-04-22",
-      title: "AYA Google Classroom Program Template Map",
-      artifact_type: "classroom_copy",
+      id: "artifact_quiz",
+      session_bundle_id: "bundle_pv102_day5",
+      session_key: "PV102_DAY5_2026-03-26",
+      title: "PV102 Day 5 Quiz",
+      artifact_type: "quiz",
       rail: "aya",
       source_kind: "archive",
       file_path:
-        "CANONICAL://00_INBOX/Downloads/EDM101_Day13_Complete_Filed_Package_2026-04-22.zip",
+        "CANONICAL://00_INBOX/Downloads/PV102_Day5_Print_Packet_2026-03-26.zip",
       archive_member:
-        "AYA_CTS_EDM101_Day13_2026-04-22/AYA_CTS_Google_Classroom_Program_Template_Map_v1.pdf",
+        "PV102_Day5_Quiz_2026-03-26.pdf",
       visible_to_staff: true,
       visibility_scope: "aya_safe",
       is_primary: false,
       sort_order: 4,
-      notes: "Program-side classroom structure guide.",
-      demo_summary: "Classroom organization pattern for reuse."
+      notes: "Student-facing check for understanding.",
+      demo_summary: "The quiz gives the helper evidence for the next PV102 session."
+    },
+    {
+      id: "artifact_answer_key",
+      session_bundle_id: "bundle_pv102_day5",
+      session_key: "PV102_DAY5_2026-03-26",
+      title: "PV102 Day 5 Answer Key with Rationale",
+      artifact_type: "answer_key",
+      rail: "aya",
+      source_kind: "archive",
+      file_path:
+        "CANONICAL://00_INBOX/Downloads/PV102_Day5_Print_Packet_2026-03-26.zip",
+      archive_member:
+        "PV102_Day5_Answer_Key_with_Rationale_2026-03-26.pdf",
+      visible_to_staff: true,
+      visibility_scope: "aya_safe",
+      is_primary: false,
+      sort_order: 5,
+      notes: "Instructor-facing answer key with rationale.",
+      demo_summary: "The answer key keeps the assessment reusable and instructor-safe."
     },
     {
       id: "artifact_prism_prompt",
-      session_bundle_id: "bundle_edm101_day13",
-      session_key: "EDM101_DAY13_2026-04-22",
+      session_bundle_id: "bundle_pv102_day5",
+      session_key: "PV102_DAY5_2026-03-26",
       title: "PRISM / AYA Continuity Prompt",
       artifact_type: "continuity_prompt",
       rail: "prism",
       source_kind: "file",
       file_path:
-        "CANONICAL://00_INBOX/Downloads/PRISM_AYA_AI_Continuity_Prompt_Template_v1.txt",
+        "CANONICAL://00_INBOX/Downloads/PV102_Day5_Print_Packet_2026-03-26.zip",
       archive_member: "",
       visible_to_staff: false,
       visibility_scope: "prism_private",
@@ -366,35 +389,31 @@ Use QC results, evidence, and blocker status to generate the next session bundle
     },
     {
       id: "artifact_prism_overlay",
-      session_bundle_id: "bundle_edm101_day13",
-      session_key: "EDM101_DAY13_2026-04-22",
-      title: "PRISM Facilitator Overlay",
+      session_bundle_id: "bundle_pv102_day5",
+      session_key: "PV102_DAY5_2026-03-26",
+      title: "PV102 Curated PRISM Framing",
       artifact_type: "prism_document",
       rail: "prism",
-      source_kind: "archive",
-      file_path:
-        "CANONICAL://00_INBOX/Downloads/EDM101_Day13_Complete_Filed_Package_2026-04-22.zip",
-      archive_member:
-        "PRISM_Framework_EDM101_Day13_2026-04-22/PRISM_EDM101_Day13_Facilitator_Overlay_2026-04-22.pdf",
+      source_kind: "generated_summary",
+      file_path: "",
+      archive_member: "",
       visible_to_staff: true,
       visibility_scope: "prism_curated",
       is_primary: false,
       sort_order: 11,
-      notes: "Private facilitator logic.",
-      demo_summary: "Curated PRISM view: this day emphasized coherence, finish discipline, evidence, and adaptive sequencing."
+      notes: "Curated, demo-safe framing only.",
+      demo_summary: "Curated PRISM view: this session emphasizes safety coherence, sizing reasoning, evidence, and adaptive sequencing."
     },
     {
       id: "artifact_prism_packet",
-      session_bundle_id: "bundle_edm101_day13",
-      session_key: "EDM101_DAY13_2026-04-22",
+      session_bundle_id: "bundle_pv102_day5",
+      session_key: "PV102_DAY5_2026-03-26",
       title: "PRISM Framework Packet",
       artifact_type: "prism_packet",
       rail: "prism",
-      source_kind: "archive",
-      file_path:
-        "CANONICAL://00_INBOX/Downloads/EDM101_Day13_Complete_Filed_Package_2026-04-22.zip",
-      archive_member:
-        "PRISM_Framework_EDM101_Day13_2026-04-22/PRISM_EDM101_Framework_Packet_2026-04-22.pdf",
+      source_kind: "private_framework",
+      file_path: "",
+      archive_member: "",
       visible_to_staff: false,
       visibility_scope: "prism_private",
       is_primary: false,
@@ -403,14 +422,14 @@ Use QC results, evidence, and blocker status to generate the next session bundle
     },
     {
       id: "artifact_complete_package",
-      session_bundle_id: "bundle_edm101_day13",
-      session_key: "EDM101_DAY13_2026-04-22",
+      session_bundle_id: "bundle_pv102_day5",
+      session_key: "PV102_DAY5_2026-03-26",
       title: "Complete Filed Package",
       artifact_type: "zip_package",
       rail: "shared",
       source_kind: "file",
       file_path:
-        "CANONICAL://00_INBOX/Downloads/EDM101_Day13_Complete_Filed_Package_2026-04-22.zip",
+        "CANONICAL://00_INBOX/Downloads/PV102_Day5_Print_Packet_2026-03-26.zip",
       archive_member: "",
       visible_to_staff: false,
       visibility_scope: "owner_private",
@@ -420,15 +439,15 @@ Use QC results, evidence, and blocker status to generate the next session bundle
     },
     {
       id: "artifact_filing_readme",
-      session_bundle_id: "bundle_edm101_day13",
-      session_key: "EDM101_DAY13_2026-04-22",
-      title: "Filing README",
-      artifact_type: "readme",
+      session_bundle_id: "bundle_pv102_day5",
+      session_key: "PV102_DAY5_2026-03-26",
+      title: "PV102 Day 5 Package Index",
+      artifact_type: "manifest",
       rail: "shared",
       source_kind: "archive",
       file_path:
-        "CANONICAL://00_INBOX/Downloads/EDM101_Day13_Complete_Filed_Package_2026-04-22.zip",
-      archive_member: "EDM101_Day13_Filing_README_2026-04-22.txt",
+        "CANONICAL://00_INBOX/Downloads/PV102_Day5_Print_Packet_2026-03-26.zip",
+      archive_member: "",
       visible_to_staff: true,
       visibility_scope: "demo_safe",
       is_primary: false,
@@ -439,46 +458,48 @@ Use QC results, evidence, and blocker status to generate the next session bundle
   ],
   agent_runs: [
     {
-      id: "agentrun_edm101_day13_draft",
-      run_key: "EDM101_DAY13_2026-04-22_DEMO_DRAFT",
-      session_brief_id: "brief_edm101_day13",
-      session_key: "EDM101_DAY13_2026-04-22",
+      id: "agentrun_pv102_day5_draft",
+      run_key: "PV102_DAY5_2026-03-26_DEMO_DRAFT",
+      session_brief_id: "brief_pv102_day5",
+      session_key: "PV102_DAY5_2026-03-26",
       runtime: "local_cursor_sdk",
       status: "draft_ready",
       approval_status: "waiting_review",
       draft_path:
-        "CANONICAL://00_INBOX/AI_DRAFTS/INSTRUCTIONAL/EDM101_DAY13_2026-04-22_DEMO_DRAFT",
+        "CANONICAL://00_INBOX/AI_DRAFTS/INSTRUCTIONAL/PV102_DAY5_2026-03-26_DEMO_DRAFT",
       summary:
         "Sample local helper run showing the draft-then-approve workflow. Owner mode can review it; demo mode cannot see draft paths or logs.",
-      started_at: "2026-04-22T09:00:00-07:00",
-      finished_at: "2026-04-22T09:08:00-07:00"
+      started_at: "2026-03-26T09:00:00-07:00",
+      finished_at: "2026-03-26T09:08:00-07:00"
     }
   ],
-  helper_seed_input: `Session title: EDM101 Day 13 — Near-final build day
-Date: 2026-04-22
-Actual stage: Near-final build day
+  helper_seed_input: `Session title: PV102 Day 5 — System sizing and safety checks
+Date: 2026-03-26
+Actual stage: Applied solar review day with sizing practice, safety checks, and quiz readiness
 
 Completed:
-- Cabinet assembly reached final hopeful build-day stage
-- Yesterday's handle openings were cut and ready for installation prep
+- Students completed prior PV fundamentals and component-identification work
+- Day 5 packet set was generated with instructor, student, practice, quiz, and answer-key artifacts
 
 Remaining:
-- Install remaining faceplate-cover rails
-- Mount handles in the openings cut yesterday
-- Complete final paint and finish work
-- Document the build honestly and clearly
+- Review voltage, current, power, and energy relationships in a solar context
+- Practice basic PV system-sizing decisions using realistic loads
+- Complete the Day 5 practice sheet and quiz
+- Capture evidence of student reasoning and misconceptions for the next session
 
 Blocked:
-- Borrowed amp availability determines whether a first break-in demo can happen
+- Hands-on lab depth depends on available PV components, meters, and safe demonstration space
 
 Student learning:
-- Finish discipline matters as much as large build milestones
-- Evidence capture and QC are part of real build completion
+- PV sizing depends on load, sunlight assumptions, voltage, current, and safety constraints
+- A safe solar plan must explain why each component and protection step belongs in the system
 
 Evidence captured:
-- QC card/checklist
-- Student build log
-- Progress photos
+- Student guide
+- Practice sheet
+- Quiz
+- Answer key with rationale
+- Instructor packet
 
-Next step: Use QC results, evidence, and blocker status to generate the next session bundle from actual build state rather than calendar assumptions.`
+Next step: Use quiz results, practice-sheet evidence, and lab-readiness constraints to generate the next PV102 session from actual student understanding.`
 };

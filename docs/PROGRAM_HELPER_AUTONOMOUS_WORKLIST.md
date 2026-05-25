@@ -9,7 +9,7 @@ Working rule while Tim is away: do useful, fun, reversible frontend and document
 - Add a guided story rail that explains Program -> Module -> Session -> Session Brief -> Bundle.
 - Improve the helper workspace so hybrid notes visibly become a normalized Session Brief and downstream bundle plan.
 - Add safe export/readout copy for AYA, PRISM curated overview, and future AYA/ClickUp/Classroom adapters.
-- Keep sample EDM101 Day 13 data structured and reusable without exposing raw private paths to demo viewers.
+- Keep sample PV102 Day 5 data structured and reusable without exposing raw private paths to demo viewers.
 - Add frontend-only guardrails that disable draft/approval actions in demo mode.
 - Add small UX delights that make the portal feel alive without turning it into noise.
 - Run local build, lint, and rendered smoke checks after changes.

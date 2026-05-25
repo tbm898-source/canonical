@@ -139,14 +139,15 @@ function normalizeInput(rawInput, session) {
 }
 
 function prepareBundle(brief) {
-  const token = brief.session_title.replace(/[^A-Za-z0-9]+/g, "_").replace(/^_+|_+$/g, "");
   const moduleToken = brief.module_key.replace(/[^A-Za-z0-9]+/g, "_");
+  const sessionTitle = titleWithoutModulePrefix(brief.session_title, brief.module_key);
+  const token = sessionTitle.replace(/[^A-Za-z0-9]+/g, "_").replace(/^_+|_+$/g, "");
   const date = brief.session_date;
   return {
     aya: [
-      `AYA_CTS_${moduleToken}_${token}_Shop_Instructions_${date}.pdf`,
-      `AYA_CTS_${moduleToken}_${token}_Student_Build_Log_${date}.pdf`,
-      `AYA_CTS_${moduleToken}_${token}_Final_QC_and_Evidence_Card_${date}.pdf`,
+      `AYA_CTS_${moduleToken}_${token}_Session_Instructions_${date}.pdf`,
+      `AYA_CTS_${moduleToken}_${token}_Student_Work_Log_${date}.pdf`,
+      `AYA_CTS_${moduleToken}_${token}_QC_and_Evidence_Card_${date}.pdf`,
       "AYA_CTS_Adaptive_Daily_Template_v1.pdf",
     ],
     prism: [
@@ -178,6 +179,17 @@ function slugify(value, fallback = "session") {
     .replace(/[^A-Za-z0-9]+/g, "_")
     .replace(/^_+|_+$/g, "");
   return token || fallback;
+}
+
+function escapeRegExp(value) {
+  return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function titleWithoutModulePrefix(title, moduleKey) {
+  if (!moduleKey) return title;
+  const trimmed = String(title || "").trim();
+  const pattern = new RegExp(`^${escapeRegExp(moduleKey)}\\s*[-–—:]?\\s*`, "i");
+  return trimmed.replace(pattern, "") || trimmed;
 }
 
 function listOrFallback(items, fallback) {
@@ -222,8 +234,8 @@ ${brief.next_step || "Not provided in the rough notes."}`;
 function buildGeneratedDayPackage(brief, connectorMode = CONNECTOR_MODES.DEMO) {
   const safeBrief = {
     program_key: brief.program_key || "AYA_CTS",
-    module_key: brief.module_key || "EDM101",
-    session_key: brief.session_key || `${brief.module_key || "EDM101"}_${slugify(brief.session_title)}`,
+    module_key: brief.module_key || "MODULE_PENDING",
+    session_key: brief.session_key || `${brief.module_key || "MODULE_PENDING"}_${slugify(brief.session_title)}`,
     session_title: brief.session_title || "Untitled instructional session",
     session_date: brief.session_date || "date_pending",
     actual_stage: brief.actual_stage || "Actual stage not provided",
@@ -235,7 +247,10 @@ function buildGeneratedDayPackage(brief, connectorMode = CONNECTOR_MODES.DEMO) {
     next_step: brief.next_step || "Not provided in the rough notes.",
   };
   const bundlePlan = prepareBundle(safeBrief);
-  const token = slugify(`${safeBrief.module_key}_${safeBrief.session_title}_${safeBrief.session_date}`, "daily_packet");
+  const token = slugify(
+    `${safeBrief.module_key}_${titleWithoutModulePrefix(safeBrief.session_title, safeBrief.module_key)}_${safeBrief.session_date}`,
+    "daily_packet",
+  );
   const sessionBriefMarkdown = buildSessionBriefMarkdown(safeBrief);
   const classification = createDefaultClassification(safeBrief, connectorMode);
 
@@ -245,17 +260,17 @@ function buildGeneratedDayPackage(brief, connectorMode = CONNECTOR_MODES.DEMO) {
 ${safeBrief.actual_stage}
 
 ## Opening huddle
-- State the actual build/session stage plainly.
+- State the actual class/session stage plainly.
 - Name the top targets for today.
 - Confirm safety, tools, roles, and evidence expectations.
 
-## Build targets
+## Session targets
 ${markdownList(safeBrief.remaining)}
 
 ## Suggested flow
 1. Opening huddle and safety reset.
 2. Task block tied to the highest-priority remaining work.
-3. QC pause before any finish, upload, or demo step.
+3. Quality/safety pause before any submission, upload, lab, or demo step.
 4. Evidence capture: photos, student notes, and carry-forward details.
 5. Cleanup and next-session handoff.
 
@@ -265,7 +280,7 @@ ${markdownList(safeBrief.evidence_captured)}
 ## First next step
 ${safeBrief.next_step}`;
 
-  const studentBuildLog = `# Student Build Log - ${safeBrief.session_title}
+  const studentBuildLog = `# Student Work Log - ${safeBrief.session_title}
 
 ## Name / role
 - Name:
@@ -285,7 +300,7 @@ ${markdownList(safeBrief.student_learning)}
 
   const qcEvidenceCard = `# QC and Evidence Card - ${safeBrief.session_title}
 
-## Completion checks
+## Completion / readiness checks
 ${markdownList(safeBrief.remaining.map((item) => `${item} - complete / partial / not started`))}
 
 ## Known blockers
@@ -479,10 +494,10 @@ ${markdownList(warnings, "No warnings.")}`;
         classification,
         packet_json: packetJson,
         export_manifest: exportManifest,
-        session_brief: safeBrief,
+          session_brief: safeBrief,
         outputs: {
           aya_daily_plan: ayaDailyPlan,
-          student_build_log: studentBuildLog,
+          student_work_log: studentBuildLog,
           qc_evidence_card: qcEvidenceCard,
           google_classroom_copy: classroomCopy,
           slide_outline: slideOutline,
@@ -827,7 +842,7 @@ function DemoAgentWorkbench({
     ? [
         ["Session Brief", generatedPackage.sessionBriefMarkdown],
         ["AYA Daily Plan", generatedPackage.ayaDailyPlan],
-        ["Student Build Log", generatedPackage.studentBuildLog],
+        ["Student Work Log", generatedPackage.studentBuildLog],
         ["QC / Evidence Card", generatedPackage.qcEvidenceCard],
         ["Google Classroom Copy", generatedPackage.classroomCopy],
         ["Slide / Deck Outline", generatedPackage.slideOutline],

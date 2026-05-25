@@ -20,8 +20,8 @@ Represents a reusable instructional unit or course sequence inside a program.
 
 Current sample:
 
-- `EDM101`
-- Capstone subwoofer build
+- `PV102`
+- Applied solar systems
 - Owns the session timeline
 
 ## SessionBrief

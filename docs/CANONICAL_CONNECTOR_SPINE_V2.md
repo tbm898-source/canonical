@@ -35,6 +35,7 @@ The app must discover Dropbox before writing. It must not assume `/CANONICAL/INS
 ## Backend Functions
 
 - `canonicalConnectorHealth`: safe availability check for Dropbox, Google Classroom, ClickUp, and Gmail.
+- `canonicalDropboxFileOps`: owner-only Dropbox metadata list helper following Base44 Deno connector-token guidance. V1 intentionally blocks generic upload/download so approved packet saves cannot be bypassed.
 - `canonicalSpineDiscovery`: read-only Dropbox discovery and optional owner-approved spine map creation.
 - `saveInstructionalPacketToDropbox`: saves JSON, Markdown, and manifest to an approved Dropbox destination.
 - `prepareClassroomExport`: dry-run Google Classroom draft only.

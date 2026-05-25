@@ -100,7 +100,7 @@ export function createDefaultClassification(brief, mode = CONNECTOR_MODES.DEMO) 
     rail: "canonical",
     visibility_scope: demo ? "public_demo" : "canonical_internal",
     artifact_type: "lesson_plan",
-    module_key: brief.module_key || "EDM101",
+    module_key: brief.module_key || "MODULE_PENDING",
     session_key: brief.session_key || "",
     session_title: brief.session_title || "Untitled instructional session",
     session_date: brief.session_date || "",
