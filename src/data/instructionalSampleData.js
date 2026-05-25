@@ -132,13 +132,51 @@ export const portalData = {
       id: "program_aya_cts",
       program_key: "AYA_CTS",
       title: "AYA / CTS Instructional Delivery",
+      program_family: "AYA / CTS classroom delivery",
+      ownership_rail: "AYA_IMPLEMENTATION",
+      visibility_scope: "aya_classroom",
       institutional_owner: "Alternative Youth Activities",
       delivery_rail: "AYA / CTS",
       framework_rail: "PRISM",
       portal_status: "active",
+      status: "active",
       description:
         "Institutional delivery rail for Alternative Youth Activities CTS instruction, packets, classroom-facing assets, and reusable program continuity.",
+      demo_summary:
+        "AYA / CTS shows how the portal turns real class status into safe instructional packets, evidence prompts, classroom copy, and reusable program records.",
+      canonical_path: "CANONICAL://02_PROJECTS/CTS_Cohort_Current",
+      source_version: "demo_seed_v1",
+      evidence_status: "demo_seed",
+      allowed_exports: ["json", "markdown", "print_preview", "classroom_dry_run", "clickup_dry_run"],
+      default_demo_behavior: "curated_preview",
+      owner_only_notes_path: "",
+      created_from_import_id: "seed_pv102_demo_2026_05_24",
       module_ids: ["module_pv102"]
+    },
+    {
+      id: "program_prism_dtjl",
+      program_key: "PRISM_DTJL",
+      title: "Design Thinking for a Joyful Life",
+      program_family: "PRISM Core framework",
+      ownership_rail: "PRISM_CORE",
+      visibility_scope: "prism_private",
+      status: "private_source_ingested",
+      description:
+        "Private-first PRISM Core framework for life design, self-mastery, critical thinking, and action-based confidence work with youth ages 18-24.",
+      demo_summary:
+        "A PRISM-owned framework for helping young adults turn stuckness, information overload, and future uncertainty into clear design questions, prototype actions, and safer learning artifacts. Demo mode shows only this high-level overview.",
+      canonical_path: "CANONICAL://02_PROJECTS/PRISM/programs/design-thinking-for-a-joyful-life",
+      source_version: "v0.1",
+      evidence_status: "mixed_requires_review",
+      allowed_exports: ["owner_json", "owner_markdown", "future_curated_demo"],
+      default_demo_behavior: "public_demo_summary_only",
+      owner_only_notes_path: "CANONICAL://02_PROJECTS/PRISM/programs/design-thinking-for-a-joyful-life/90_REVIEW/NEXT_ACTIONS.md",
+      created_from_import_id: "import_prism_dtjl_2026_05_25_v0_1",
+      owner_visibility: "prism_private",
+      demo_visibility: "public_demo_summary_only",
+      boundary_statement:
+        "PRISM_DTJL is PRISM Core, private-first, demo-summary-only, and not AYA implementation.",
+      module_ids: ["module_prism_dtjl_catalyst"]
     }
   ],
   modules: [
@@ -158,6 +196,40 @@ export const portalData = {
         { label: "Helper mode", value: "Cursor SDK drafts, approval before canonical" }
       ],
       session_ids: ["brief_pv102_day5"]
+    },
+    {
+      id: "module_prism_dtjl_catalyst",
+      program_id: "program_prism_dtjl",
+      program_key: "PRISM_DTJL",
+      module_key: "CATALYST_BLUEPRINT_V0_1",
+      title: "The Catalyst Blueprint v0.1",
+      course_code: "CATALYST_BLUEPRINT_V0_1",
+      cohort_label: "PRISM Core",
+      status: "private_source_ingested",
+      visibility_scope: "prism_private",
+      canonical_path: "CANONICAL://02_PROJECTS/PRISM/programs/design-thinking-for-a-joyful-life",
+      source_version: "v0.1",
+      created_from_import_id: "import_prism_dtjl_2026_05_25_v0_1",
+      description:
+        "Owner-only scaffold for the Design Thinking for a Joyful Life framework. This pass records the source structure and privacy boundary only; it does not expand curriculum content.",
+      source_structure: [
+        "00_GOVERNANCE",
+        "01_SOURCES",
+        "02_PROGRAM_OS",
+        "03_AGENT_SKILLS",
+        "04_CURRICULUM",
+        "05_ARTIFACT_RECIPES",
+        "06_ASSESSMENTS",
+        "07_EXPORTS",
+        "90_REVIEW",
+        "IMPORT_MANIFEST.json"
+      ],
+      summary_boxes: [
+        { label: "Scope", value: "PRISM Core" },
+        { label: "Visibility", value: "Owner private" },
+        { label: "Demo", value: "Summary only" }
+      ],
+      session_ids: []
     }
   ],
   session_briefs: [

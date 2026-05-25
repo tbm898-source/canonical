@@ -14,6 +14,16 @@ Current sample:
 - Institutional rail: AYA / CTS
 - Facilitator framework rail: PRISM
 
+Private-first sample:
+
+- `PRISM_DTJL`
+- Ownership rail: PRISM Core
+- Visibility: `prism_private`
+- Demo behavior: `public_demo_summary_only`
+- Boundary: `PRISM_DTJL is PRISM Core, private-first, demo-summary-only, and not AYA implementation.`
+
+Demo mode may show only the polished overview card for `PRISM_DTJL`. It must not fetch or render source internals, evidence maps, diagnostic pattern internals, intervention library internals, owner notes, or connector/write controls.
+
 ## Module
 
 Represents a reusable instructional unit or course sequence inside a program.
