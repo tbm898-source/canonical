@@ -1,0 +1,79 @@
+{
+  "name": "CanonicalClassSession",
+  "type": "object",
+  "title": "Canonical Class Session",
+  "description": "A scheduled or completed class session used to organize generated materials and evidence.",
+  "properties": {
+    "course": {
+      "type": "string",
+      "maxLength": 100
+    },
+    "module": {
+      "type": "string",
+      "maxLength": 100
+    },
+    "session_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "day_label": {
+      "type": "string",
+      "maxLength": 100
+    },
+    "start_time": {
+      "type": "string",
+      "format": "time"
+    },
+    "end_time": {
+      "type": "string",
+      "format": "time"
+    },
+    "location": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "learning_objectives": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "planned_activities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "safety_notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "evidence_targets": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "planned",
+        "in_progress",
+        "completed",
+        "cancelled",
+        "needs_followup"
+      ],
+      "default": "planned"
+    }
+  },
+  "required": [
+    "course",
+    "session_date"
+  ]
+}

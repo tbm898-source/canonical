@@ -1,0 +1,101 @@
+{
+  "name": "CanonicalGeneratedArtifact",
+  "type": "object",
+  "title": "Canonical Generated Artifact",
+  "description": "A generated curriculum, PRISM, slide, handout, quiz, manifest, or operator artifact.",
+  "properties": {
+    "request_id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "rail": {
+      "type": "string",
+      "enum": [
+        "AYA_Classroom",
+        "PRISM_Framework",
+        "CTS_RCS_Public_or_Open_Source",
+        "Mixed"
+      ]
+    },
+    "artifact_type": {
+      "type": "string",
+      "maxLength": 100
+    },
+    "audience": {
+      "type": "string",
+      "enum": [
+        "student",
+        "instructor",
+        "facilitator",
+        "operator",
+        "admin",
+        "public",
+        "mixed"
+      ],
+      "default": "instructor"
+    },
+    "filename": {
+      "type": "string",
+      "maxLength": 240
+    },
+    "format": {
+      "type": "string",
+      "enum": [
+        "markdown",
+        "pdf",
+        "docx",
+        "pptx",
+        "slide_outline",
+        "json",
+        "zip",
+        "text"
+      ],
+      "default": "markdown"
+    },
+    "content": {
+      "type": "string",
+      "maxLength": 60000
+    },
+    "manifest": {
+      "type": "object"
+    },
+    "owner_attribution": {
+      "type": "string",
+      "maxLength": 300
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "review",
+        "approved",
+        "published",
+        "archived"
+      ],
+      "default": "draft"
+    },
+    "version": {
+      "type": "string",
+      "default": "v1"
+    },
+    "privacy_level": {
+      "type": "string",
+      "enum": [
+        "public",
+        "internal",
+        "restricted"
+      ],
+      "default": "internal"
+    }
+  },
+  "required": [
+    "title",
+    "rail",
+    "artifact_type",
+    "content"
+  ]
+}

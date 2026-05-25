@@ -1,0 +1,102 @@
+{
+  "name": "CanonicalMaterialRequest",
+  "type": "object",
+  "title": "Canonical Material Request",
+  "description": "A request for the PRISM Canonical Materials Operator to generate classroom, PRISM, or mixed material packs.",
+  "properties": {
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "rail": {
+      "type": "string",
+      "enum": [
+        "AYA_Classroom",
+        "PRISM_Framework",
+        "CTS_RCS_Public_or_Open_Source",
+        "Mixed"
+      ],
+      "default": "AYA_Classroom"
+    },
+    "course": {
+      "type": "string",
+      "maxLength": 100
+    },
+    "module": {
+      "type": "string",
+      "maxLength": 100
+    },
+    "session_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "day_label": {
+      "type": "string",
+      "maxLength": 100
+    },
+    "class_start_time": {
+      "type": "string",
+      "format": "time"
+    },
+    "class_end_time": {
+      "type": "string",
+      "format": "time"
+    },
+    "context_notes": {
+      "type": "string",
+      "maxLength": 8000
+    },
+    "requested_artifacts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "ready_to_generate",
+        "generated",
+        "needs_review",
+        "approved",
+        "archived"
+      ],
+      "default": "draft"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "low",
+        "normal",
+        "urgent"
+      ],
+      "default": "normal"
+    },
+    "output_format": {
+      "type": "string",
+      "enum": [
+        "markdown_pack",
+        "pdf_pack",
+        "docx_pack",
+        "slide_outline",
+        "zip_manifest"
+      ],
+      "default": "markdown_pack"
+    },
+    "assumptions_allowed": {
+      "type": "boolean",
+      "default": true
+    },
+    "private_notes": {
+      "type": "string",
+      "maxLength": 8000
+    }
+  },
+  "required": [
+    "title",
+    "rail"
+  ]
+}

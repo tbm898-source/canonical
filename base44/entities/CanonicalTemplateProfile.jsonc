@@ -1,0 +1,43 @@
+{
+  "name": "CanonicalTemplateProfile",
+  "type": "object",
+  "title": "Canonical Template Profile",
+  "description": "A reusable template or visual/profile rule for slides, packets, and generated artifacts.",
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "rail": {
+      "type": "string",
+      "enum": [
+        "AYA_Classroom",
+        "PRISM_Framework",
+        "CTS_RCS_Public_or_Open_Source",
+        "Mixed"
+      ]
+    },
+    "artifact_type": {
+      "type": "string",
+      "maxLength": 100
+    },
+    "template_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "instructions": {
+      "type": "string",
+      "maxLength": 12000
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": [
+    "name",
+    "rail",
+    "instructions"
+  ]
+}
