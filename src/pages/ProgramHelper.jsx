@@ -21,9 +21,11 @@ import {
   RefreshCcw,
   Shield,
   Wand2,
+  CloudUpload,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { portalData } from "@/data/instructionalSampleData";
+import { base44 } from "@/api/base44Client";
 
 const demoScopes = new Set(["demo_safe", "aya_safe", "prism_curated"]);
 
@@ -719,6 +721,20 @@ function DemoAgentWorkbench({
   copyStatus,
   capabilities,
 }) {
+  const [dropboxStatus, setDropboxStatus] = useState("");
+
+  const handleSaveToDropbox = async () => {
+    if (!generatedPackage) return;
+    setDropboxStatus("Saving to Dropbox...");
+    try {
+      const path = `/CANONICAL/${generatedPackage.markdownFilename}`;
+      await base44.functions.invoke('dropboxSave', { path, content: generatedPackage.packetMarkdown });
+      setDropboxStatus("Saved to Dropbox!");
+    } catch (err) {
+      setDropboxStatus("Dropbox save failed: " + err.message);
+    }
+    setTimeout(() => setDropboxStatus(""), 3000);
+  };
   const owner = mode === "owner";
   const outputCards = generatedPackage
     ? [
@@ -795,9 +811,18 @@ function DemoAgentWorkbench({
               <Printer className="h-4 w-4" />
               Print packet
             </Button>
+            <Button
+              variant="outline"
+              className="gap-2 border-indigo-200 text-indigo-700 hover:bg-indigo-50"
+              onClick={handleSaveToDropbox}
+              disabled={!generatedPackage}
+            >
+              <CloudUpload className="h-4 w-4" />
+              Save to Dropbox
+            </Button>
           </div>
-          {copyStatus && (
-            <p className="mt-3 text-xs font-semibold text-emerald-700">{copyStatus}</p>
+          {(copyStatus || dropboxStatus) && (
+            <p className="mt-3 text-xs font-semibold text-emerald-700">{dropboxStatus || copyStatus}</p>
           )}
           <div className="mt-4 rounded-2xl border border-amber-100 bg-amber-50 p-4 text-sm leading-6 text-amber-900">
             Demo guardrail: generated previews are temporary browser state. They do not create official CANONICAL files or expose raw PRISM notes until the owner approves and files them.
