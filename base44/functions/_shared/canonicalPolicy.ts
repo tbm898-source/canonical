@@ -257,3 +257,12 @@ export function buildManifest({
     generator_version: "canonical-connector-spine-v2",
   };
 }
+
+export async function safeCreateConnectorRun(base44: any, data: Record<string, unknown>) {
+  try {
+    await base44.asServiceRole.entities.CanonicalConnectorRun.create(data);
+  } catch (_error) {
+    // Connector run records are audit aids. They must never cause the user-facing
+    // connector function to fail or expose backend details.
+  }
+}
