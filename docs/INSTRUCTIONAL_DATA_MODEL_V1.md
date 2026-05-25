@@ -21,6 +21,7 @@ Private-first sample:
 - Visibility: `prism_private`
 - Demo behavior: `public_demo_summary_only`
 - Boundary: `PRISM_DTJL is PRISM Core, private-first, demo-summary-only, and not AYA implementation.`
+- Repo mirror: `canonical_spine/02_PROJECTS/PRISM/programs/design-thinking-for-a-joyful-life/`
 
 Demo mode may show only the polished overview card for `PRISM_DTJL`. It must not fetch or render source internals, evidence maps, diagnostic pattern internals, intervention library internals, owner notes, or connector/write controls.
 
