@@ -28,6 +28,44 @@ export const portalData = {
     mirror_mode: "CANONICAL files remain authoritative; Base44 mirrors structured instructional records.",
     portal_scope: "Owner workbench with curated demo viewer and future AYA export surface."
   },
+  boundary_model: [
+    {
+      key: "canonical",
+      label: "CANONICAL",
+      role: "Durable file spine and personal control surface",
+      ownership: "Tim's broader personal system for filed work, prototypes, showcase material, and approved instructional records.",
+      demo_rule: "Demo can show approved summaries and generated previews, but not raw private files, local paths, keys, or draft logs."
+    },
+    {
+      key: "aya",
+      label: "AYA",
+      role: "Alternative Youth Activities",
+      ownership: "Nonprofit employer context where institution-safe instructional materials may be delivered or exported.",
+      demo_rule: "AYA-safe output can be shown when it is student/institution appropriate and approved."
+    },
+    {
+      key: "cts",
+      label: "CTS",
+      role: "AYA-facing instructional delivery rail",
+      ownership: "The clean delivery lane for shop instructions, classroom copy, student logs, evidence prompts, and program packets.",
+      demo_rule: "CTS material should stay practical, safe, reusable, and separated from private PRISM reasoning."
+    },
+    {
+      key: "prism",
+      label: "PRISM",
+      role: "Private instructional framework",
+      ownership: "Built independently on personal time and hardware; raw facilitator logic remains private by default.",
+      demo_rule: "Demo can include curated PRISM framing only, never raw private guidance or internal reasoning."
+    }
+  ],
+  demo_agent_capabilities: [
+    "Normalize rough daily class notes into a Session Brief",
+    "Prepare an AYA/CTS daily instruction packet outline",
+    "Prepare student build-log and QC/evidence prompts",
+    "Prepare Google Classroom copy and a slide/deck outline",
+    "Summarize PRISM as curated framing without exposing private notes",
+    "Export demo-safe JSON/Markdown and print a packet preview"
+  ],
   demo_story: [
     {
       label: "01",
@@ -94,12 +132,12 @@ export const portalData = {
       id: "program_aya_cts",
       program_key: "AYA_CTS",
       title: "AYA / CTS Instructional Delivery",
-      institutional_owner: "AYA",
+      institutional_owner: "Alternative Youth Activities",
       delivery_rail: "AYA / CTS",
       framework_rail: "PRISM",
       portal_status: "active",
       description:
-        "Institutional delivery rail for CTS instruction, packets, classroom-facing assets, and reusable program continuity.",
+        "Institutional delivery rail for Alternative Youth Activities CTS instruction, packets, classroom-facing assets, and reusable program continuity.",
       module_ids: ["module_edm101"]
     }
   ],

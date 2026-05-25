@@ -6,13 +6,18 @@ import {
   BookOpen,
   CheckCircle2,
   ClipboardCheck,
+  Copy,
+  Download,
   Eye,
+  FileJson,
+  Files,
   FileText,
   GitBranch,
   Lock,
   PackageCheck,
   Play,
   Presentation,
+  Printer,
   RefreshCcw,
   Shield,
   Wand2,
@@ -73,6 +78,8 @@ function normalizeInput(rawInput, session) {
     evidence_captured: ["evidence captured", "evidence"],
     next_step: ["next step", "what should happen first next class"],
     actual_stage: ["actual stage"],
+    program_key: ["program", "program key"],
+    module_key: ["module", "module key"],
     session_title: ["session title"],
     session_date: ["date", "session date"],
   };
@@ -149,6 +156,277 @@ function prepareBundle(brief) {
   };
 }
 
+function escapeHtml(value) {
+  const replacements = {
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    "\"": "&quot;",
+    "'": "&#039;",
+  };
+  return String(value).replace(/[&<>"']/g, (char) => replacements[char]);
+}
+
+function slugify(value, fallback = "session") {
+  const token = String(value ?? "")
+    .replace(/[^A-Za-z0-9]+/g, "_")
+    .replace(/^_+|_+$/g, "");
+  return token || fallback;
+}
+
+function listOrFallback(items, fallback) {
+  return Array.isArray(items) && items.length ? items : [fallback];
+}
+
+function markdownList(items, fallback = "Not provided in the rough notes.") {
+  return listOrFallback(items, fallback).map((item) => `- ${item}`).join("\n");
+}
+
+function numberedList(items, fallback = "Not provided in the rough notes.") {
+  return listOrFallback(items, fallback).map((item, index) => `${index + 1}. ${item}`).join("\n");
+}
+
+function buildSessionBriefMarkdown(brief) {
+  return `# ${brief.session_title}
+
+- Date: ${brief.session_date || "Not provided"}
+- Program: ${brief.program_key || "AYA_CTS"}
+- Module: ${brief.module_key || "Not provided"}
+- Actual stage: ${brief.actual_stage || "Not provided"}
+
+## Completed
+${markdownList(brief.completed)}
+
+## Remaining
+${markdownList(brief.remaining)}
+
+## Blocked
+${markdownList(brief.blocked, "No blocker was provided. Verify before using this as an official plan.")}
+
+## Student learning
+${markdownList(brief.student_learning)}
+
+## Evidence captured
+${markdownList(brief.evidence_captured)}
+
+## First next step
+${brief.next_step || "Not provided in the rough notes."}`;
+}
+
+function buildGeneratedDayPackage(brief) {
+  const safeBrief = {
+    program_key: brief.program_key || "AYA_CTS",
+    module_key: brief.module_key || "EDM101",
+    session_key: brief.session_key || `${brief.module_key || "EDM101"}_${slugify(brief.session_title)}`,
+    session_title: brief.session_title || "Untitled instructional session",
+    session_date: brief.session_date || "date_pending",
+    actual_stage: brief.actual_stage || "Actual stage not provided",
+    completed: listOrFallback(brief.completed, "Not provided in the rough notes."),
+    remaining: listOrFallback(brief.remaining, "Not provided in the rough notes."),
+    blocked: listOrFallback(brief.blocked, "No blocker was provided. Verify before using this as an official plan."),
+    student_learning: listOrFallback(brief.student_learning, "Not provided in the rough notes."),
+    evidence_captured: listOrFallback(brief.evidence_captured, "Not provided in the rough notes."),
+    next_step: brief.next_step || "Not provided in the rough notes.",
+  };
+  const bundlePlan = prepareBundle(safeBrief);
+  const token = slugify(`${safeBrief.module_key}_${safeBrief.session_title}_${safeBrief.session_date}`, "daily_packet");
+  const sessionBriefMarkdown = buildSessionBriefMarkdown(safeBrief);
+
+  const ayaDailyPlan = `# ${safeBrief.session_title} - AYA/CTS Daily Plan
+
+## Day focus
+${safeBrief.actual_stage}
+
+## Opening huddle
+- State the actual build/session stage plainly.
+- Name the top targets for today.
+- Confirm safety, tools, roles, and evidence expectations.
+
+## Build targets
+${markdownList(safeBrief.remaining)}
+
+## Suggested flow
+1. Opening huddle and safety reset.
+2. Task block tied to the highest-priority remaining work.
+3. QC pause before any finish, upload, or demo step.
+4. Evidence capture: photos, student notes, and carry-forward details.
+5. Cleanup and next-session handoff.
+
+## End-of-day evidence
+${markdownList(safeBrief.evidence_captured)}
+
+## First next step
+${safeBrief.next_step}`;
+
+  const studentBuildLog = `# Student Build Log - ${safeBrief.session_title}
+
+## Name / role
+- Name:
+- Role today:
+- Time on task:
+
+## What I worked on
+${markdownList(safeBrief.remaining)}
+
+## What I learned
+${markdownList(safeBrief.student_learning)}
+
+## Reflection prompts
+- What detail mattered most today?
+- What problem did our team solve?
+- What still needs attention next class?`;
+
+  const qcEvidenceCard = `# QC and Evidence Card - ${safeBrief.session_title}
+
+## Completion checks
+${markdownList(safeBrief.remaining.map((item) => `${item} - complete / partial / not started`))}
+
+## Known blockers
+${markdownList(safeBrief.blocked)}
+
+## Evidence to capture
+${markdownList(safeBrief.evidence_captured)}
+
+## Carry-forward
+${safeBrief.next_step}`;
+
+  const classroomCopy = `# Google Classroom Draft - ${safeBrief.session_title}
+
+Today we are working from the real project status, not an ideal calendar stage.
+
+## Goals
+${markdownList(safeBrief.remaining)}
+
+## Turn in / capture
+${markdownList(safeBrief.evidence_captured)}
+
+## Reflection
+${numberedList(safeBrief.student_learning)}
+
+## Next class
+${safeBrief.next_step}`;
+
+  const slideOutline = `# Slide / Deck Outline - ${safeBrief.session_title}
+
+1. Session status
+   - ${safeBrief.actual_stage}
+2. What is already complete
+${safeBrief.completed.map((item) => `   - ${item}`).join("\n")}
+3. Today's targets
+${safeBrief.remaining.map((item) => `   - ${item}`).join("\n")}
+4. Blockers and decisions
+${safeBrief.blocked.map((item) => `   - ${item}`).join("\n")}
+5. Evidence and reflection
+${safeBrief.evidence_captured.map((item) => `   - ${item}`).join("\n")}
+6. Next-session handoff
+   - ${safeBrief.next_step}`;
+
+  const prismCurated = `# Curated PRISM Framing - Demo Safe
+
+This session is framed as adaptive instructional continuity: name the actual stage, protect quality, capture evidence, and generate the next day from real status.
+
+## Public-safe framing
+- Keep AYA/CTS outputs clean, student-safe, and institution-safe.
+- Treat evidence as part of instruction, not afterthought paperwork.
+- Use the Session Brief as the bridge between messy classflow and reusable delivery materials.
+- Keep raw PRISM facilitator logic private unless deliberately curated for demo use.`;
+
+  const filingPlan = `# Filing / Package Plan
+
+## AYA rail
+${markdownList(bundlePlan.aya)}
+
+## PRISM rail
+${markdownList(bundlePlan.prism)}
+
+## Slides + Classroom
+${markdownList(bundlePlan.downstream)}
+
+## Source-of-truth note
+CANONICAL remains the authoritative file spine. This demo preview prepares structured content and package metadata without writing private files.`;
+
+  const packetMarkdown = [
+    sessionBriefMarkdown,
+    ayaDailyPlan,
+    studentBuildLog,
+    qcEvidenceCard,
+    classroomCopy,
+    slideOutline,
+    prismCurated,
+    filingPlan,
+  ].join("\n\n---\n\n");
+
+  return {
+    brief: safeBrief,
+    token,
+    jsonFilename: `${token}_demo_agent_packet.json`,
+    markdownFilename: `${token}_demo_agent_packet.md`,
+    sessionBriefMarkdown,
+    ayaDailyPlan,
+    studentBuildLog,
+    qcEvidenceCard,
+    classroomCopy,
+    slideOutline,
+    prismCurated,
+    filingPlan,
+    packetMarkdown,
+    exportJson: JSON.stringify(
+      {
+        export_type: "demo_safe_instructional_packet",
+        generated_by: "CANONICAL demo agent preview",
+        privacy_note:
+          "This export is demo-safe. It does not include raw PRISM private notes, local paths, API keys, draft logs, or approval controls.",
+        session_brief: safeBrief,
+        outputs: {
+          aya_daily_plan: ayaDailyPlan,
+          student_build_log: studentBuildLog,
+          qc_evidence_card: qcEvidenceCard,
+          google_classroom_copy: classroomCopy,
+          slide_outline: slideOutline,
+          prism_curated_framing: prismCurated,
+          filing_plan: filingPlan,
+        },
+        bundle_plan: bundlePlan,
+      },
+      null,
+      2,
+    ),
+  };
+}
+
+function downloadText(filename, content, type = "text/plain;charset=utf-8") {
+  const blob = new Blob([content], { type });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = filename;
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
+}
+
+function printPacket(title, content) {
+  const printWindow = window.open("", "_blank", "width=920,height=720");
+  if (!printWindow) return;
+  printWindow.document.write(`<!doctype html>
+<html>
+  <head>
+    <title>${escapeHtml(title)}</title>
+    <style>
+      body { font-family: Georgia, "Times New Roman", serif; color: #111; margin: 40px; line-height: 1.5; }
+      pre { white-space: pre-wrap; font-family: inherit; font-size: 12pt; }
+      @page { margin: 0.65in; }
+    </style>
+  </head>
+  <body>
+    <pre>${escapeHtml(content)}</pre>
+    <script>window.onload = () => window.print();</script>
+  </body>
+</html>`);
+  printWindow.document.close();
+}
+
 function BrandMark({ small = false }) {
   return (
     <div
@@ -161,18 +439,18 @@ function BrandMark({ small = false }) {
 
 function MetricTile({ label, value }) {
   return (
-    <div className="rounded-2xl border border-black/5 bg-white p-5 shadow-sm">
+    <div className="min-w-0 rounded-2xl border border-black/5 bg-white p-5 shadow-sm">
       <div className="text-[11px] font-semibold uppercase tracking-wide text-[#0a0a0a]/35">
         {label}
       </div>
-      <div className="mt-2 text-sm font-semibold text-[#0a0a0a]">{value}</div>
+      <div className="mt-2 break-words text-sm font-semibold text-[#0a0a0a]">{value}</div>
     </div>
   );
 }
 
 function Surface({ children, className = "" }) {
   return (
-    <section className={`rounded-2xl border border-black/5 bg-white p-6 shadow-sm ${className}`}>
+    <section className={`min-w-0 rounded-2xl border border-black/5 bg-white p-6 shadow-sm ${className}`}>
       {children}
     </section>
   );
@@ -388,6 +666,185 @@ function ExportAdapterPanel({ adapters }) {
   );
 }
 
+function BoundaryPanel({ boundaries }) {
+  return (
+    <Surface className="mb-6">
+      <SectionTitle eyebrow="Hard boundary model" title="What belongs where" icon={Shield} />
+      <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+        {boundaries.map((boundary) => (
+          <article key={boundary.key} className="rounded-2xl border border-black/5 bg-[#fafafa] p-4">
+            <div className="text-[11px] font-semibold uppercase tracking-wide text-indigo-600">
+              {boundary.label}
+            </div>
+            <h4 className="mt-2 text-sm font-semibold text-[#0a0a0a]">{boundary.role}</h4>
+            <p className="mt-3 text-sm leading-6 text-[#0a0a0a]/50">{boundary.ownership}</p>
+            <p className="mt-3 rounded-xl bg-white p-3 text-xs leading-5 text-[#0a0a0a]/45">
+              {boundary.demo_rule}
+            </p>
+          </article>
+        ))}
+      </div>
+    </Surface>
+  );
+}
+
+function OutputPreviewCard({ title, content, onCopy }) {
+  return (
+    <article className="min-w-0 rounded-2xl border border-black/5 bg-white p-4">
+      <div className="flex items-center justify-between gap-3">
+        <h4 className="text-sm font-semibold text-[#0a0a0a]">{title}</h4>
+        <button
+          type="button"
+          onClick={() => onCopy(content)}
+          className="inline-flex items-center gap-1 rounded-full bg-[#fafafa] px-2.5 py-1 text-[11px] font-semibold text-[#0a0a0a]/45 transition hover:bg-indigo-50 hover:text-indigo-600"
+        >
+          <Copy className="h-3.5 w-3.5" />
+          Copy
+        </button>
+      </div>
+      <pre className="mt-3 max-h-72 overflow-auto whitespace-pre-wrap break-words rounded-xl bg-[#fafafa] p-3 text-xs leading-5 text-[#0a0a0a]/60">
+        {content}
+      </pre>
+    </article>
+  );
+}
+
+function DemoAgentWorkbench({
+  mode,
+  input,
+  onInputChange,
+  generatedPackage,
+  onGenerate,
+  onCopy,
+  copyStatus,
+  capabilities,
+}) {
+  const owner = mode === "owner";
+  const outputCards = generatedPackage
+    ? [
+        ["Session Brief", generatedPackage.sessionBriefMarkdown],
+        ["AYA Daily Plan", generatedPackage.ayaDailyPlan],
+        ["Student Build Log", generatedPackage.studentBuildLog],
+        ["QC / Evidence Card", generatedPackage.qcEvidenceCard],
+        ["Google Classroom Copy", generatedPackage.classroomCopy],
+        ["Slide / Deck Outline", generatedPackage.slideOutline],
+        ["Curated PRISM Framing", generatedPackage.prismCurated],
+        ["Filing Plan", generatedPackage.filingPlan],
+      ]
+    : [];
+
+  return (
+    <section id="agent-demo" className="mb-6 min-w-0 scroll-mt-24 overflow-hidden rounded-3xl border border-indigo-100 bg-gradient-to-br from-white via-white to-indigo-50/70 p-6 shadow-sm">
+      <div className="mb-5 flex flex-col justify-between gap-4 lg:flex-row lg:items-start">
+        <div>
+          <div className="inline-flex items-center gap-2 rounded-full bg-indigo-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-indigo-600">
+            <Wand2 className="h-3.5 w-3.5" />
+            {owner ? "Demo-safe agent lane" : "Demo agent"}
+          </div>
+          <h3 className="mt-3 text-2xl font-semibold tracking-tight text-[#0a0a0a]">
+            Generate a whole day packet from rough notes
+          </h3>
+          <p className="mt-2 max-w-3xl text-sm leading-6 text-[#0a0a0a]/50">
+            This mirrors the Base44 agent's seed-pack behavior in the browser for demo use. It prepares a Session Brief, AYA/CTS outputs, slide copy, Classroom copy, and curated PRISM framing without calling private runner endpoints or reading local files.
+          </p>
+        </div>
+        <span className="shrink-0 rounded-full border border-indigo-100 bg-white px-3 py-1 text-xs font-semibold text-indigo-600">
+          {owner ? "Owner can compare with private helper" : "Demo-safe, not saved"}
+        </span>
+      </div>
+
+      <div className="grid min-w-0 gap-6 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)]">
+        <div className="min-w-0 rounded-2xl border border-black/5 bg-white p-4">
+          <label className="text-xs font-semibold uppercase tracking-wide text-[#0a0a0a]/35">
+            Rough classflow notes
+          </label>
+          <textarea
+            value={input}
+            onChange={(event) => onInputChange(event.target.value)}
+            className="mt-3 min-h-80 w-full min-w-0 resize-y rounded-2xl border border-black/5 bg-[#fafafa] p-4 text-sm leading-6 text-[#0a0a0a]/70 outline-none transition focus:border-indigo-200 focus:bg-white"
+          />
+          <div className="mt-4 grid min-w-0 gap-3 sm:grid-cols-2">
+            <Button className="gap-2 bg-[#0a0a0a] text-white hover:bg-[#1a1a1a]" onClick={onGenerate}>
+              <Wand2 className="h-4 w-4" />
+              Generate demo day
+            </Button>
+            <Button
+              variant="outline"
+              className="gap-2"
+              onClick={() => downloadText(generatedPackage.jsonFilename, generatedPackage.exportJson, "application/json;charset=utf-8")}
+              disabled={!generatedPackage}
+            >
+              <FileJson className="h-4 w-4" />
+              Export JSON
+            </Button>
+            <Button
+              variant="outline"
+              className="gap-2"
+              onClick={() => downloadText(generatedPackage.markdownFilename, generatedPackage.packetMarkdown)}
+              disabled={!generatedPackage}
+            >
+              <Download className="h-4 w-4" />
+              Export Markdown
+            </Button>
+            <Button
+              variant="outline"
+              className="gap-2"
+              onClick={() => printPacket(generatedPackage.brief.session_title, generatedPackage.packetMarkdown)}
+              disabled={!generatedPackage}
+            >
+              <Printer className="h-4 w-4" />
+              Print packet
+            </Button>
+          </div>
+          {copyStatus && (
+            <p className="mt-3 text-xs font-semibold text-emerald-700">{copyStatus}</p>
+          )}
+          <div className="mt-4 rounded-2xl border border-amber-100 bg-amber-50 p-4 text-sm leading-6 text-amber-900">
+            Demo guardrail: generated previews are temporary browser state. They do not create official CANONICAL files or expose raw PRISM notes until the owner approves and files them.
+          </div>
+          <div className="mt-4 rounded-2xl border border-black/5 bg-[#fafafa] p-4">
+            <div className="text-xs font-semibold uppercase tracking-wide text-[#0a0a0a]/35">
+              Demo agent can prepare
+            </div>
+            <ul className="mt-3 space-y-2 text-sm leading-5 text-[#0a0a0a]/50">
+              {capabilities.map((capability) => (
+                <li key={capability}>{capability}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div className="grid min-w-0 gap-4">
+          {generatedPackage ? (
+            <>
+              <div className="grid min-w-0 gap-3 sm:grid-cols-3">
+                <MetricTile label="Brief" value={generatedPackage.brief.session_title} />
+                <MetricTile label="Outputs" value="8 demo-safe sections" />
+                <MetricTile label="Export" value="JSON + Markdown + print" />
+              </div>
+              <div className="grid min-w-0 gap-4 xl:grid-cols-2">
+                {outputCards.map(([title, content]) => (
+                  <OutputPreviewCard key={title} title={title} content={content} onCopy={onCopy} />
+                ))}
+              </div>
+            </>
+          ) : (
+            <div className="flex min-h-80 items-center justify-center rounded-2xl border border-dashed border-indigo-200 bg-white/70 p-8 text-center">
+              <div>
+                <Files className="mx-auto h-10 w-10 text-indigo-300" />
+                <h4 className="mt-4 text-lg font-semibold text-[#0a0a0a]">Ready when you are</h4>
+                <p className="mt-2 max-w-md text-sm leading-6 text-[#0a0a0a]/45">
+                  Click Generate demo day to turn the rough notes into a printable packet preview.
+                </p>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function ProgramHelper() {
   const query = new URLSearchParams(window.location.search);
   const ownerPreviewAllowed = ["localhost", "127.0.0.1", "::1"].includes(window.location.hostname);
@@ -395,6 +852,9 @@ export default function ProgramHelper() {
   const [mode, setMode] = useState(initialMode);
   const [entered, setEntered] = useState(query.has("mode"));
   const [helperInput, setHelperInput] = useState(portalData.helper_seed_input);
+  const [demoAgentInput, setDemoAgentInput] = useState(portalData.helper_seed_input);
+  const [generatedPackage, setGeneratedPackage] = useState(null);
+  const [copyStatus, setCopyStatus] = useState("");
   const [runStatus, setRunStatus] = useState("draft_ready");
 
   const program = getProgram(portalData.programs[0].id);
@@ -404,6 +864,7 @@ export default function ProgramHelper() {
   const owner = ownerPreviewAllowed && mode === "owner";
 
   const normalized = useMemo(() => normalizeInput(helperInput, brief), [helperInput, brief]);
+  const demoNormalized = useMemo(() => normalizeInput(demoAgentInput, brief), [demoAgentInput, brief]);
   const bundlePlan = useMemo(() => prepareBundle(normalized), [normalized]);
   const artifacts = portalData.artifacts
     .filter((artifact) => artifact.session_bundle_id === bundle.id)
@@ -412,6 +873,23 @@ export default function ProgramHelper() {
   const ayaArtifacts = artifacts.filter((artifact) => artifact.rail === "aya" || artifact.rail === "shared");
   const prismArtifacts = artifacts.filter((artifact) => artifact.rail === "prism");
   const agentRun = portalData.agent_runs?.[0];
+
+  const handleGenerateDemoPackage = () => {
+    setGeneratedPackage(buildGeneratedDayPackage(demoNormalized));
+    setCopyStatus("Demo packet generated. Exports are ready.");
+    window.setTimeout(() => setCopyStatus(""), 1800);
+  };
+
+  const handleCopyOutput = async (content) => {
+    try {
+      await navigator.clipboard.writeText(content);
+      setCopyStatus("Copied to clipboard.");
+    } catch {
+      downloadText("canonical_demo_output.txt", content);
+      setCopyStatus("Clipboard unavailable, so I downloaded a text copy instead.");
+    }
+    window.setTimeout(() => setCopyStatus(""), 1800);
+  };
 
   if (!entered) {
     return (
@@ -527,6 +1005,9 @@ export default function ProgramHelper() {
             <a href="#artifacts" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
               Artifacts
             </a>
+            <a href="#agent-demo" className="hidden text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a] sm:block">
+              Agent Demo
+            </a>
             {owner && (
               <a href="#helper" className="hidden text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a] sm:block">
                 Helper
@@ -615,6 +1096,7 @@ export default function ProgramHelper() {
         </motion.header>
 
         <StoryRail items={portalData.demo_story} />
+        <BoundaryPanel boundaries={portalData.boundary_model} />
         <ModeGuardrails owner={owner} />
 
         <section className="mb-6 grid gap-4 sm:grid-cols-3">
@@ -680,6 +1162,17 @@ export default function ProgramHelper() {
         </section>
 
         <ExportAdapterPanel adapters={portalData.export_adapters} />
+
+        <DemoAgentWorkbench
+          mode={owner ? "owner" : "demo"}
+          input={demoAgentInput}
+          onInputChange={setDemoAgentInput}
+          generatedPackage={generatedPackage}
+          onGenerate={handleGenerateDemoPackage}
+          onCopy={handleCopyOutput}
+          copyStatus={copyStatus}
+          capabilities={portalData.demo_agent_capabilities}
+        />
 
         {owner && (
           <section id="helper" className="grid scroll-mt-24 gap-6 lg:grid-cols-[1.05fr_0.95fr]">
