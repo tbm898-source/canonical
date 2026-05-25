@@ -24,6 +24,12 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { portalData } from "@/data/instructionalSampleData";
+import LiveIntegrationsPanel from "@/components/program-helper/LiveIntegrationsPanel";
+import {
+  CONNECTOR_MODES,
+  buildExportManifest,
+  createDefaultClassification,
+} from "@/lib/canonicalConnectorPolicy";
 
 const demoScopes = new Set(["demo_safe", "aya_safe", "prism_curated"]);
 
@@ -213,7 +219,7 @@ ${markdownList(brief.evidence_captured)}
 ${brief.next_step || "Not provided in the rough notes."}`;
 }
 
-function buildGeneratedDayPackage(brief) {
+function buildGeneratedDayPackage(brief, connectorMode = CONNECTOR_MODES.DEMO) {
   const safeBrief = {
     program_key: brief.program_key || "AYA_CTS",
     module_key: brief.module_key || "EDM101",
@@ -231,6 +237,7 @@ function buildGeneratedDayPackage(brief) {
   const bundlePlan = prepareBundle(safeBrief);
   const token = slugify(`${safeBrief.module_key}_${safeBrief.session_title}_${safeBrief.session_date}`, "daily_packet");
   const sessionBriefMarkdown = buildSessionBriefMarkdown(safeBrief);
+  const classification = createDefaultClassification(safeBrief, connectorMode);
 
   const ayaDailyPlan = `# ${safeBrief.session_title} - AYA/CTS Daily Plan
 
@@ -345,6 +352,76 @@ ${markdownList(bundlePlan.downstream)}
 ## Source-of-truth note
 CANONICAL remains the authoritative file spine. This demo preview prepares structured content and package metadata without writing private files.`;
 
+  const classroomDraft = {
+    title: `${safeBrief.session_title} - AYA/CTS Session Materials`,
+    body: `Today we are working from the real project status: ${safeBrief.actual_stage}. Complete the assigned work, evidence capture, and reflection prompts.`,
+    topic: safeBrief.module_key,
+    materials: bundlePlan.aya,
+    due_date: null,
+    visibility_scope: "aya_classroom",
+  };
+  const clickupTaskCandidates = [
+    ...safeBrief.remaining.map((item, index) => ({
+      id: `remaining_${index + 1}`,
+      name: `Complete: ${item}`,
+      description: item,
+      tags: ["aya", "review"],
+    })),
+    ...safeBrief.blocked.map((item, index) => ({
+      id: `blocker_${index + 1}`,
+      name: `Resolve blocker: ${item}`,
+      description: item,
+      tags: ["admin", "blocked"],
+    })),
+    {
+      id: "evidence_capture",
+      name: "Confirm evidence capture",
+      description: safeBrief.evidence_captured.join("; "),
+      tags: ["evidence", "canonical"],
+    },
+  ];
+  const warnings = [
+    ...classification.warnings,
+    "Dropbox writes require read-only spine discovery and owner-approved destination.",
+    "Classroom and ClickUp adapters are dry-run only in V1.",
+  ];
+  const exportManifest = buildExportManifest({
+    artifact_id: `${classification.session_key}_${classification.artifact_type}`,
+    classification,
+    saved_at: null,
+    destination_path: "",
+    saved_files: [],
+    classroom_draft_status: "prepared",
+    clickup_draft_status: "prepared",
+    warnings,
+  });
+  const packetJson = {
+    packet_metadata: {
+      ...classification,
+      version: "canonical-connector-spine-v2",
+      generated_at: exportManifest.generated_at,
+    },
+    student_materials: [
+      studentBuildLog,
+      qcEvidenceCard,
+    ],
+    instructor_materials: [
+      ayaDailyPlan,
+      filingPlan,
+    ],
+    quiz_materials: [],
+    answer_key_materials: [],
+    slide_outline: slideOutline.split("\n").filter(Boolean),
+    classroom_draft: classroomDraft,
+    clickup_task_candidates: clickupTaskCandidates,
+    facilitator_overlay:
+      classification.visibility_scope === "prism_private" ? prismCurated : null,
+    ai_continuity_notes:
+      classification.visibility_scope === "prism_private" ? safeBrief.next_step : null,
+    export_manifest: exportManifest,
+    warnings,
+  };
+
   const packetMarkdown = [
     sessionBriefMarkdown,
     ayaDailyPlan,
@@ -370,12 +447,19 @@ CANONICAL remains the authoritative file spine. This demo preview prepares struc
     prismCurated,
     filingPlan,
     packetMarkdown,
+    packetJson,
+    classification,
+    exportManifest,
+    warnings,
     exportJson: JSON.stringify(
       {
         export_type: "demo_safe_instructional_packet",
         generated_by: "CANONICAL demo agent preview",
         privacy_note:
           "This export is demo-safe. It does not include raw PRISM private notes, local paths, API keys, draft logs, or approval controls.",
+        classification,
+        packet_json: packetJson,
+        export_manifest: exportManifest,
         session_brief: safeBrief,
         outputs: {
           aya_daily_plan: ayaDailyPlan,
@@ -875,7 +959,12 @@ export default function ProgramHelper() {
   const agentRun = portalData.agent_runs?.[0];
 
   const handleGenerateDemoPackage = () => {
-    setGeneratedPackage(buildGeneratedDayPackage(demoNormalized));
+    setGeneratedPackage(
+      buildGeneratedDayPackage(
+        demoNormalized,
+        owner ? CONNECTOR_MODES.OWNER_PREVIEW : CONNECTOR_MODES.DEMO,
+      ),
+    );
     setCopyStatus("Demo packet generated. Exports are ready.");
     window.setTimeout(() => setCopyStatus(""), 1800);
   };
@@ -1007,6 +1096,9 @@ export default function ProgramHelper() {
             </a>
             <a href="#agent-demo" className="hidden text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a] sm:block">
               Agent Demo
+            </a>
+            <a href="#integrations" className="hidden text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a] md:block">
+              Integrations
             </a>
             {owner && (
               <a href="#helper" className="hidden text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a] sm:block">
@@ -1173,6 +1265,8 @@ export default function ProgramHelper() {
           copyStatus={copyStatus}
           capabilities={portalData.demo_agent_capabilities}
         />
+
+        <LiveIntegrationsPanel owner={owner} generatedPackage={generatedPackage} />
 
         {owner && (
           <section id="helper" className="grid scroll-mt-24 gap-6 lg:grid-cols-[1.05fr_0.95fr]">
