@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2, PlugZap } from "lucide-react";
 import PublicPageShell from "@/components/public/PublicPageShell";
-import content from "../../content/site/integrations.json";
+import content from "../content/site/integrations.json";
 
 export default function Integrations() {
   return (

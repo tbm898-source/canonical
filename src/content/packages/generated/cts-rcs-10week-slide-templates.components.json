@@ -1,0 +1,19 @@
+{
+  "top_level_components": [
+    { "name": "Week 1 — Introduction", "size_bytes": 1843200, "public_purpose": "Program overview, safety culture, and expectations." },
+    { "name": "Week 2 — Safety", "size_bytes": 2097152, "public_purpose": "Electrical safety, PPE, and shop protocols." },
+    { "name": "Week 3 — Components", "size_bytes": 1966080, "public_purpose": "PV component identification and specifications." },
+    { "name": "Week 4 — Wiring", "size_bytes": 2359296, "public_purpose": "Series, parallel, and series-parallel wiring configurations." },
+    { "name": "Week 5 — PV Sizing", "size_bytes": 2621440, "public_purpose": "System sizing decisions using load, voltage, and current." },
+    { "name": "Week 6 — Systems", "size_bytes": 2097152, "public_purpose": "Grid-tie, off-grid, and hybrid system architectures." },
+    { "name": "Week 7 — Lab", "size_bytes": 1572864, "public_purpose": "Hands-on lab session with meter and component practice." },
+    { "name": "Week 8 — Review", "size_bytes": 1966080, "public_purpose": "Cumulative review and exam preparation." },
+    { "name": "Week 9 — Assessment", "size_bytes": 1310720, "public_purpose": "Final assessment and evidence capture." },
+    { "name": "Week 10 — Capstone", "size_bytes": 1843200, "public_purpose": "Capstone project presentations and program closeout." }
+  ],
+  "source_systems": [
+    { "label": "AYA / CTS", "posture": "Primary delivery rail — all slides are classroom-safe and student-institution appropriate." },
+    { "label": "CANONICAL", "posture": "Source of truth — template spine anchored to the CANONICAL file system." },
+    { "label": "PRISM", "posture": "Not included — facilitator overlays stay private and outside slide templates." }
+  ]
+}

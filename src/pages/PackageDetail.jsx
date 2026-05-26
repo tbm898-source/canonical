@@ -3,15 +3,15 @@ import { Link, useParams } from "react-router-dom";
 import { ArrowLeft, FileArchive, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PublicPageShell from "@/components/public/PublicPageShell";
-import packageIndex from "../../content/packages/index.json";
-import ctsSummary from "../../content/packages/generated/cts-master-package-v1.summary.json";
-import ctsComponents from "../../content/packages/generated/cts-master-package-v1.components.json";
-import ctsManifest from "../../content/packages/generated/cts-master-package-v1.manifest.json";
-import ctsAuthorityMap from "../../content/packages/generated/cts-master-package-v1.authority-map.json";
-import slideSummary from "../../content/packages/generated/cts-rcs-10week-slide-templates.summary.json";
-import slideComponents from "../../content/packages/generated/cts-rcs-10week-slide-templates.components.json";
-import slideManifest from "../../content/packages/generated/cts-rcs-10week-slide-templates.manifest.json";
-import slideAuthorityMap from "../../content/packages/generated/cts-rcs-10week-slide-templates.authority-map.json";
+import packageIndex from "../content/packages/index.json";
+import ctsSummary from "../content/packages/generated/cts-master-package-v1.summary.json";
+import ctsComponents from "../content/packages/generated/cts-master-package-v1.components.json";
+import ctsManifest from "../content/packages/generated/cts-master-package-v1.manifest.json";
+import ctsAuthorityMap from "../content/packages/generated/cts-master-package-v1.authority-map.json";
+import slideSummary from "../content/packages/generated/cts-rcs-10week-slide-templates.summary.json";
+import slideComponents from "../content/packages/generated/cts-rcs-10week-slide-templates.components.json";
+import slideManifest from "../content/packages/generated/cts-rcs-10week-slide-templates.manifest.json";
+import slideAuthorityMap from "../content/packages/generated/cts-rcs-10week-slide-templates.authority-map.json";
 
 const packageRegistry = {
   "cts-master-package-v1": {

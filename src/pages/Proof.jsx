@@ -4,11 +4,11 @@ import { ArrowRight, FileArchive, ShieldCheck } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import PublicPageShell from "@/components/public/PublicPageShell";
-import content from "../../content/site/proof.json";
-import packageSummary from "../../content/packages/generated/cts-master-package-v1.summary.json";
-import packageComponents from "../../content/packages/generated/cts-master-package-v1.components.json";
-import authorityMap from "../../content/packages/generated/cts-master-package-v1.authority-map.json";
-import slideSummary from "../../content/packages/generated/cts-rcs-10week-slide-templates.summary.json";
+import content from "../content/site/proof.json";
+import packageSummary from "../content/packages/generated/cts-master-package-v1.summary.json";
+import packageComponents from "../content/packages/generated/cts-master-package-v1.components.json";
+import authorityMap from "../content/packages/generated/cts-master-package-v1.authority-map.json";
+import slideSummary from "../content/packages/generated/cts-rcs-10week-slide-templates.summary.json";
 
 const statCards = [
   { label: "Top-level files", value: packageSummary.totals.top_level_file_count },

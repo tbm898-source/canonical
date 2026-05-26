@@ -1,0 +1,46 @@
+{
+  "title": "CTS / RCS 10-Week Slide Templates",
+  "purpose": "Slide template spine for the 10-week CTS/RCS delivery sequence. Sanitized deck index and component structure only — raw PPTX files are not committed.",
+  "scope": "AYA / CTS",
+  "public_exposure": "Sanitized proof metadata only",
+  "source_package": {
+    "file_name": "CTS_RCS_10Week_Slide_Templates.zip",
+    "sha256": "sha256-verified",
+    "sha256_matches_expected": true
+  },
+  "public_safety": {
+    "public_may_show": [
+      "Deck index with week labels and slide counts",
+      "Component names and public purposes",
+      "Authority counts by source",
+      "Sanitized manifest entry counts",
+      "SHA256 verification status"
+    ],
+    "public_must_not_show": [
+      "Raw PPTX file internals",
+      "Operational template content",
+      "Local file paths",
+      "Private PRISM facilitator overlays"
+    ]
+  },
+  "deck_count": 10,
+  "totals": {
+    "top_level_file_count": 10,
+    "matrix_rows": 10,
+    "nested_archive_count": 0,
+    "referenced_source_zip_count": 1,
+    "total_slide_count": 200
+  },
+  "deck_index": [
+    { "week_label": "Week 1", "file_name": "CTS_Week1_Intro.pptx", "slide_count": 18, "layout_count": 4, "media_count": 2 },
+    { "week_label": "Week 2", "file_name": "CTS_Week2_Safety.pptx", "slide_count": 22, "layout_count": 4, "media_count": 3 },
+    { "week_label": "Week 3", "file_name": "CTS_Week3_Components.pptx", "slide_count": 20, "layout_count": 4, "media_count": 4 },
+    { "week_label": "Week 4", "file_name": "CTS_Week4_Wiring.pptx", "slide_count": 24, "layout_count": 5, "media_count": 5 },
+    { "week_label": "Week 5", "file_name": "CTS_Week5_PVSizing.pptx", "slide_count": 26, "layout_count": 5, "media_count": 6 },
+    { "week_label": "Week 6", "file_name": "CTS_Week6_Systems.pptx", "slide_count": 22, "layout_count": 4, "media_count": 4 },
+    { "week_label": "Week 7", "file_name": "CTS_Week7_Lab.pptx", "slide_count": 16, "layout_count": 3, "media_count": 3 },
+    { "week_label": "Week 8", "file_name": "CTS_Week8_Review.pptx", "slide_count": 20, "layout_count": 4, "media_count": 2 },
+    { "week_label": "Week 9", "file_name": "CTS_Week9_Assessment.pptx", "slide_count": 14, "layout_count": 3, "media_count": 1 },
+    { "week_label": "Week 10", "file_name": "CTS_Week10_Capstone.pptx", "slide_count": 18, "layout_count": 4, "media_count": 3 }
+  ]
+}

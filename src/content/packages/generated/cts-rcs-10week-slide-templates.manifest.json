@@ -1,0 +1,12 @@
+{
+  "package_id": "cts-rcs-10week-slide-templates",
+  "generated_at": "2026-05-26T00:00:00Z",
+  "generator_version": "canonical-proof-parser-v1",
+  "entry_counts": {
+    "total_entries": 10,
+    "student_materials": 0,
+    "instructor_materials": 10,
+    "assessment_materials": 1,
+    "manifest_files": 1
+  }
+}

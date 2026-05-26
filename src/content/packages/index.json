@@ -5,6 +5,12 @@
       "title": "CTS Master Package v1",
       "scope": "AYA / CTS",
       "public_exposure": "Sanitized proof metadata only"
+    },
+    {
+      "package_id": "cts-rcs-10week-slide-templates",
+      "title": "CTS / RCS 10-Week Slide Templates",
+      "scope": "AYA / CTS",
+      "public_exposure": "Sanitized proof metadata only"
     }
   ]
 }

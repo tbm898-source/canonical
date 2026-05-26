@@ -3,11 +3,11 @@ import ReactMarkdown from "react-markdown";
 import { Link, useParams } from "react-router-dom";
 import { ArrowRight, BookOpen } from "lucide-react";
 import PublicPageShell from "@/components/public/PublicPageShell";
-import docsIndex from "../../content/docs/index.json";
-import canonicalModel from "../../content/docs/canonical-model.md?raw";
-import connectorSpine from "../../content/docs/connector-spine.md?raw";
-import instructionalDataModel from "../../content/docs/instructional-data-model.md?raw";
-import base44SyncNotes from "../../content/docs/base44-sync-notes.md?raw";
+import docsIndex from "../content/docs/index.json";
+import canonicalModel from "../content/docs/canonical-model.md?raw";
+import connectorSpine from "../content/docs/connector-spine.md?raw";
+import instructionalDataModel from "../content/docs/instructional-data-model.md?raw";
+import base44SyncNotes from "../content/docs/base44-sync-notes.md?raw";
 
 const docBodies = {
   "canonical-model": canonicalModel,

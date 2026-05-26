@@ -1,0 +1,34 @@
+{
+  "eyebrow": "Integrations",
+  "title": "Connectors are gated, not assumed.",
+  "summary": "The CANONICAL connector spine treats every integration as a confirmed, owner-approved action. Demo mode disables all connector calls. Owner mode gates writes behind spine discovery and approval.",
+  "connectors": [
+    {
+      "name": "Dropbox",
+      "status": "Live (owner)",
+      "posture": "Treated as the discovered CANONICAL file spine. Spine discovery reads folder metadata only. Save requires explicit owner approval of the discovered spine map."
+    },
+    {
+      "name": "Google Classroom",
+      "status": "Dry-run only",
+      "posture": "Produces AYA-safe Classroom draft metadata. Does not post live in V1. Owner mode prepares dry-run output for review."
+    },
+    {
+      "name": "ClickUp",
+      "status": "Dry-run only",
+      "posture": "Produces tagged task candidates. Does not create live ClickUp tasks in V1. Owner mode prepares dry-run output for review."
+    },
+    {
+      "name": "Gmail / Email",
+      "status": "Disabled",
+      "posture": "No live email sending is built or enabled in V1. Future adapter planned."
+    }
+  ],
+  "rules": [
+    "Demo mode never calls backend connectors — all connector actions are blocked.",
+    "Spine discovery reads Dropbox folder metadata only; it never creates, moves, or writes files.",
+    "Save to Dropbox requires an approved spine map and a valid, classified packet.",
+    "PRISM-private material cannot be exported to Google Classroom or public demo scopes.",
+    "Connector tokens are never exposed to the frontend or demo layer."
+  ]
+}
