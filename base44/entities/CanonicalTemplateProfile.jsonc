@@ -22,6 +22,10 @@
       "type": "string",
       "maxLength": 100
     },
+    "description": {
+      "type": "string",
+      "maxLength": 1000
+    },
     "template_url": {
       "type": "string",
       "format": "uri"

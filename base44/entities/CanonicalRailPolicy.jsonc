@@ -18,6 +18,10 @@
         "Mixed"
       ]
     },
+    "description": {
+      "type": "string",
+      "maxLength": 1000
+    },
     "policy_text": {
       "type": "string",
       "minLength": 1,
