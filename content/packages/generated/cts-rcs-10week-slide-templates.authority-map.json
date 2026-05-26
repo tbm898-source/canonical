@@ -1,0 +1,104 @@
+{
+  "package_id": "cts-rcs-10week-slide-templates",
+  "authority_counts": [
+    {
+      "name": "AYA_IMPLEMENTATION",
+      "count": 10
+    },
+    {
+      "name": "weekly slide template deck",
+      "count": 10
+    },
+    {
+      "name": "outline generation target",
+      "count": 10
+    },
+    {
+      "name": "PPTX edit disabled until fidelity gate",
+      "count": 10
+    }
+  ],
+  "artifact_type_counts": [
+    {
+      "name": "slide_template_deck",
+      "count": 10
+    },
+    {
+      "name": "source_manifest",
+      "count": 1
+    }
+  ],
+  "module_counts": [
+    {
+      "name": "Week 01",
+      "count": 19
+    },
+    {
+      "name": "Week 02",
+      "count": 19
+    },
+    {
+      "name": "Week 03",
+      "count": 19
+    },
+    {
+      "name": "Week 04",
+      "count": 19
+    },
+    {
+      "name": "Week 05",
+      "count": 19
+    },
+    {
+      "name": "Week 06",
+      "count": 19
+    },
+    {
+      "name": "Week 07",
+      "count": 19
+    },
+    {
+      "name": "Week 08",
+      "count": 19
+    },
+    {
+      "name": "Week 09",
+      "count": 19
+    },
+    {
+      "name": "Week 10",
+      "count": 19
+    }
+  ],
+  "category_counts": [
+    {
+      "name": "slide templates",
+      "count": 10
+    },
+    {
+      "name": "template-safe generation planning",
+      "count": 10
+    }
+  ],
+  "extension_counts": [
+    {
+      "name": ".pptx",
+      "count": 10
+    },
+    {
+      "name": ".txt",
+      "count": 1
+    }
+  ],
+  "source_zip_counts": [
+    {
+      "name": "CTS_RCS_10Week_SlideDecks.zip",
+      "count": 10
+    }
+  ],
+  "interpretation": [
+    "Weekly decks provide a stable CTS slide spine.",
+    "The package is suitable for outline generation and patch-plan metadata now.",
+    "Direct PPTX editing remains intentionally disabled until fidelity checks pass."
+  ]
+}

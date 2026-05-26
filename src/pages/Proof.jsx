@@ -8,12 +8,20 @@ import content from "../../content/site/proof.json";
 import packageSummary from "../../content/packages/generated/cts-master-package-v1.summary.json";
 import packageComponents from "../../content/packages/generated/cts-master-package-v1.components.json";
 import authorityMap from "../../content/packages/generated/cts-master-package-v1.authority-map.json";
+import slideSummary from "../../content/packages/generated/cts-rcs-10week-slide-templates.summary.json";
 
 const statCards = [
   { label: "Top-level files", value: packageSummary.totals.top_level_file_count },
   { label: "Matrix rows", value: packageSummary.totals.matrix_rows },
   { label: "Nested archives", value: packageSummary.totals.nested_archive_count },
   { label: "Source packages mapped", value: packageSummary.totals.referenced_source_zip_count },
+];
+
+const slideStatCards = [
+  { label: "Weekly decks", value: slideSummary.deck_count },
+  { label: "Total slides", value: slideSummary.totals.total_slide_count },
+  { label: "Slides per deck", value: slideSummary.deck_index[0]?.slide_count ?? "n/a" },
+  { label: "PPTX editing", value: "Fidelity gated" },
 ];
 
 export default function Proof() {
@@ -78,6 +86,49 @@ export default function Proof() {
 
           <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {statCards.map((stat) => (
+              <div key={stat.label} className="rounded-2xl bg-[#fafafa] p-5">
+                <div className="text-2xl font-bold text-[#0a0a0a]">{stat.value}</div>
+                <div className="mt-1 text-xs font-semibold uppercase tracking-wide text-[#0a0a0a]/40">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="mt-8 rounded-3xl border border-black/5 bg-white p-7 shadow-sm">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
+            <div className="max-w-2xl">
+              <FileArchive className="mb-5 h-9 w-9 text-indigo-600" />
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-indigo-600">
+                Slide template proof
+              </p>
+              <h2 className="text-3xl font-bold tracking-tight text-[#0a0a0a]">
+                {slideSummary.title}
+              </h2>
+              <p className="mt-4 text-sm leading-6 text-[#0a0a0a]/60">{slideSummary.purpose}</p>
+              <div className="mt-6 flex flex-wrap gap-2">
+                <span className="rounded-full bg-indigo-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-indigo-600">
+                  {slideSummary.scope}
+                </span>
+                <span className="rounded-full bg-amber-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-amber-700">
+                  {slideSummary.public_exposure}
+                </span>
+                <span className="rounded-full bg-[#fafafa] px-3 py-1 text-xs font-semibold uppercase tracking-wide text-[#0a0a0a]/55">
+                  Outline + patch-plan only
+                </span>
+              </div>
+            </div>
+            <Link to="/Packages/cts-rcs-10week-slide-templates">
+              <Button className="gap-2 rounded-xl bg-[#0a0a0a] text-white hover:bg-[#1a1a1a]">
+                View Slide Spine
+                <ArrowRight className="h-4 w-4" />
+              </Button>
+            </Link>
+          </div>
+
+          <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {slideStatCards.map((stat) => (
               <div key={stat.label} className="rounded-2xl bg-[#fafafa] p-5">
                 <div className="text-2xl font-bold text-[#0a0a0a]">{stat.value}</div>
                 <div className="mt-1 text-xs font-semibold uppercase tracking-wide text-[#0a0a0a]/40">

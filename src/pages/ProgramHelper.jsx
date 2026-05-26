@@ -24,6 +24,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { portalData } from "@/data/instructionalSampleData";
+import slideTemplateSummary from "../../content/packages/generated/cts-rcs-10week-slide-templates.summary.json";
 import LiveIntegrationsPanel from "@/components/program-helper/LiveIntegrationsPanel";
 import { useAuth } from "@/lib/AuthContext";
 import {
@@ -871,6 +872,45 @@ function ExportAdapterPanel({ adapters }) {
   );
 }
 
+function SlideTemplateSpinePanel({ summary }) {
+  return (
+    <Surface className="mb-6">
+      <SectionTitle eyebrow="Owner slide spine" title="CTS 10-week template readiness" icon={Presentation} />
+      <div className="grid gap-4 lg:grid-cols-[0.75fr_1.25fr]">
+        <div className="rounded-2xl border border-indigo-100 bg-indigo-50 p-4">
+          <div className="text-xs font-semibold uppercase tracking-wide text-indigo-600">
+            Generation posture
+          </div>
+          <p className="mt-3 text-sm leading-6 text-[#0a0a0a]/60">
+            {summary.generation_support.current_v1.replace(/_/g, " ")}. Direct PPTX editing stays disabled until the fidelity gate proves copied decks preserve their structure.
+          </p>
+          <a
+            href="/Packages/cts-rcs-10week-slide-templates"
+            className="mt-4 inline-flex rounded-xl bg-[#0a0a0a] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#1a1a1a]"
+          >
+            View slide proof
+          </a>
+        </div>
+        <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-5">
+          {summary.deck_index.map((deck) => (
+            <div key={deck.file_name} className="rounded-2xl border border-black/5 bg-[#fafafa] p-4">
+              <div className="text-[11px] font-semibold uppercase tracking-wide text-indigo-600">
+                {deck.week_label}
+              </div>
+              <p className="mt-2 break-words text-xs font-semibold leading-5 text-[#0a0a0a]">
+                {deck.file_name}
+              </p>
+              <p className="mt-3 text-xs leading-5 text-[#0a0a0a]/45">
+                {deck.slide_count} slides / {deck.layout_count} layout / {deck.media_count} media
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Surface>
+  );
+}
+
 function BoundaryPanel({ boundaries }) {
   return (
     <Surface className="mb-6">
@@ -1523,6 +1563,10 @@ export default function ProgramHelper() {
         </section>
 
         <ExportAdapterPanel adapters={portalData.export_adapters} />
+
+        {owner && program.program_key === "AYA_CTS" && (
+          <SlideTemplateSpinePanel summary={slideTemplateSummary} />
+        )}
 
         <DemoAgentWorkbench
           mode={owner ? "owner" : "demo"}

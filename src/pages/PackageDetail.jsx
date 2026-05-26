@@ -4,17 +4,27 @@ import { ArrowLeft, FileArchive, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PublicPageShell from "@/components/public/PublicPageShell";
 import packageIndex from "../../content/packages/index.json";
-import summary from "../../content/packages/generated/cts-master-package-v1.summary.json";
-import components from "../../content/packages/generated/cts-master-package-v1.components.json";
-import manifest from "../../content/packages/generated/cts-master-package-v1.manifest.json";
-import authorityMap from "../../content/packages/generated/cts-master-package-v1.authority-map.json";
+import ctsSummary from "../../content/packages/generated/cts-master-package-v1.summary.json";
+import ctsComponents from "../../content/packages/generated/cts-master-package-v1.components.json";
+import ctsManifest from "../../content/packages/generated/cts-master-package-v1.manifest.json";
+import ctsAuthorityMap from "../../content/packages/generated/cts-master-package-v1.authority-map.json";
+import slideSummary from "../../content/packages/generated/cts-rcs-10week-slide-templates.summary.json";
+import slideComponents from "../../content/packages/generated/cts-rcs-10week-slide-templates.components.json";
+import slideManifest from "../../content/packages/generated/cts-rcs-10week-slide-templates.manifest.json";
+import slideAuthorityMap from "../../content/packages/generated/cts-rcs-10week-slide-templates.authority-map.json";
 
 const packageRegistry = {
   "cts-master-package-v1": {
-    summary,
-    components,
-    manifest,
-    authorityMap,
+    summary: ctsSummary,
+    components: ctsComponents,
+    manifest: ctsManifest,
+    authorityMap: ctsAuthorityMap,
+  },
+  "cts-rcs-10week-slide-templates": {
+    summary: slideSummary,
+    components: slideComponents,
+    manifest: slideManifest,
+    authorityMap: slideAuthorityMap,
   },
 };
 
@@ -48,7 +58,9 @@ export default function PackageDetail() {
     );
   }
 
+  const { summary, components, manifest, authorityMap } = packageRecord;
   const { source_package: sourcePackage, public_safety: publicSafety } = summary;
+  const deckIndex = Array.isArray(summary.deck_index) ? summary.deck_index : [];
 
   return (
     <PublicPageShell>
@@ -111,6 +123,39 @@ export default function PackageDetail() {
             </div>
           </aside>
         </section>
+
+        {deckIndex.length > 0 && (
+          <section className="mt-8 rounded-3xl border border-black/5 bg-white p-7 shadow-sm">
+            <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-indigo-600">
+                  Slide template spine
+                </p>
+                <h2 className="mt-2 text-xl font-bold tracking-tight text-[#0a0a0a]">
+                  Weekly deck index
+                </h2>
+              </div>
+              <span className="rounded-full bg-amber-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-amber-700">
+                Direct PPTX editing disabled until fidelity gate
+              </span>
+            </div>
+            <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+              {deckIndex.map((deck) => (
+                <div key={deck.file_name} className="rounded-2xl bg-[#fafafa] p-4">
+                  <div className="text-xs font-semibold uppercase tracking-wide text-indigo-600">
+                    {deck.week_label}
+                  </div>
+                  <div className="mt-2 break-words text-sm font-semibold text-[#0a0a0a]">
+                    {deck.file_name}
+                  </div>
+                  <div className="mt-3 text-xs leading-5 text-[#0a0a0a]/50">
+                    {deck.slide_count} slides / {deck.layout_count} layout / {deck.media_count} media
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
 
         <section className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {Object.entries(summary.totals).map(([label, value]) => (
@@ -193,7 +238,7 @@ export default function PackageDetail() {
         <section className="mt-8 rounded-3xl bg-[#0a0a0a] p-8 text-white">
           <h2 className="text-2xl font-bold tracking-tight">Generated proof manifest</h2>
           <p className="mt-4 max-w-3xl text-sm leading-6 text-white/55">
-            Parser output confirms the raw ZIP was not committed. Generated site artifacts include sanitized summary, component list, manifest, authority map, and markdown summary.
+            Parser output confirms the raw ZIP was not committed. Generated site artifacts include sanitized summary, component list, manifest, authority map, markdown summary, and deck index when applicable.
           </p>
           <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {Object.entries(manifest.entry_counts).slice(0, 4).map(([label, value]) => (

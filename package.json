@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "generate:cts-proof": "node scripts/generate-cts-package-proof.mjs",
+    "generate:cts-slides-proof": "node scripts/generate-cts-slides-proof.mjs",
     "lint": "eslint . --quiet",
     "lint:fix": "eslint . --fix",
     "qa:privacy": "node scripts/qa-prism-dtjl-privacy.mjs",

@@ -1,0 +1,293 @@
+{
+  "package_id": "cts-rcs-10week-slide-templates",
+  "source_sha256": "C18A9A7547FCCB808C6509402765AAB859C30A786308305A5ABBD6B055B52470",
+  "source_path_redacted": true,
+  "decks": [
+    {
+      "package_id": "cts-rcs-10week-slide-templates",
+      "week": 1,
+      "week_label": "Week 01",
+      "file_name": "CTS_RCS_Week01_Slides.pptx",
+      "source_path_redacted": true,
+      "size_bytes": 451248,
+      "slide_count": 19,
+      "layout_count": 1,
+      "media_count": 6,
+      "theme_count": 2,
+      "has_theme": true,
+      "has_notes": true,
+      "has_custom_xml": false,
+      "generation_support": {
+        "v1_supported": [
+          "slide_outline",
+          "speaker_note_outline",
+          "json_patch_plan"
+        ],
+        "disabled_until_fidelity_gate": [
+          "direct_pptx_rewrite",
+          "theme_rebuild",
+          "animation_rebuild"
+        ],
+        "fidelity_gate": "Before PPTX edits are enabled, copied decks must preserve slide count, dimensions, theme, media count, and package relationships."
+      }
+    },
+    {
+      "package_id": "cts-rcs-10week-slide-templates",
+      "week": 2,
+      "week_label": "Week 02",
+      "file_name": "CTS_RCS_Week02_Slides.pptx",
+      "source_path_redacted": true,
+      "size_bytes": 370789,
+      "slide_count": 19,
+      "layout_count": 1,
+      "media_count": 6,
+      "theme_count": 2,
+      "has_theme": true,
+      "has_notes": true,
+      "has_custom_xml": false,
+      "generation_support": {
+        "v1_supported": [
+          "slide_outline",
+          "speaker_note_outline",
+          "json_patch_plan"
+        ],
+        "disabled_until_fidelity_gate": [
+          "direct_pptx_rewrite",
+          "theme_rebuild",
+          "animation_rebuild"
+        ],
+        "fidelity_gate": "Before PPTX edits are enabled, copied decks must preserve slide count, dimensions, theme, media count, and package relationships."
+      }
+    },
+    {
+      "package_id": "cts-rcs-10week-slide-templates",
+      "week": 3,
+      "week_label": "Week 03",
+      "file_name": "CTS_RCS_Week03_Slides.pptx",
+      "source_path_redacted": true,
+      "size_bytes": 370042,
+      "slide_count": 19,
+      "layout_count": 1,
+      "media_count": 6,
+      "theme_count": 2,
+      "has_theme": true,
+      "has_notes": true,
+      "has_custom_xml": false,
+      "generation_support": {
+        "v1_supported": [
+          "slide_outline",
+          "speaker_note_outline",
+          "json_patch_plan"
+        ],
+        "disabled_until_fidelity_gate": [
+          "direct_pptx_rewrite",
+          "theme_rebuild",
+          "animation_rebuild"
+        ],
+        "fidelity_gate": "Before PPTX edits are enabled, copied decks must preserve slide count, dimensions, theme, media count, and package relationships."
+      }
+    },
+    {
+      "package_id": "cts-rcs-10week-slide-templates",
+      "week": 4,
+      "week_label": "Week 04",
+      "file_name": "CTS_RCS_Week04_Slides.pptx",
+      "source_path_redacted": true,
+      "size_bytes": 361032,
+      "slide_count": 19,
+      "layout_count": 1,
+      "media_count": 6,
+      "theme_count": 2,
+      "has_theme": true,
+      "has_notes": true,
+      "has_custom_xml": false,
+      "generation_support": {
+        "v1_supported": [
+          "slide_outline",
+          "speaker_note_outline",
+          "json_patch_plan"
+        ],
+        "disabled_until_fidelity_gate": [
+          "direct_pptx_rewrite",
+          "theme_rebuild",
+          "animation_rebuild"
+        ],
+        "fidelity_gate": "Before PPTX edits are enabled, copied decks must preserve slide count, dimensions, theme, media count, and package relationships."
+      }
+    },
+    {
+      "package_id": "cts-rcs-10week-slide-templates",
+      "week": 5,
+      "week_label": "Week 05",
+      "file_name": "CTS_RCS_Week05_Slides.pptx",
+      "source_path_redacted": true,
+      "size_bytes": 367924,
+      "slide_count": 19,
+      "layout_count": 1,
+      "media_count": 6,
+      "theme_count": 2,
+      "has_theme": true,
+      "has_notes": true,
+      "has_custom_xml": false,
+      "generation_support": {
+        "v1_supported": [
+          "slide_outline",
+          "speaker_note_outline",
+          "json_patch_plan"
+        ],
+        "disabled_until_fidelity_gate": [
+          "direct_pptx_rewrite",
+          "theme_rebuild",
+          "animation_rebuild"
+        ],
+        "fidelity_gate": "Before PPTX edits are enabled, copied decks must preserve slide count, dimensions, theme, media count, and package relationships."
+      }
+    },
+    {
+      "package_id": "cts-rcs-10week-slide-templates",
+      "week": 6,
+      "week_label": "Week 06",
+      "file_name": "CTS_RCS_Week06_Slides.pptx",
+      "source_path_redacted": true,
+      "size_bytes": 381219,
+      "slide_count": 19,
+      "layout_count": 1,
+      "media_count": 6,
+      "theme_count": 2,
+      "has_theme": true,
+      "has_notes": true,
+      "has_custom_xml": false,
+      "generation_support": {
+        "v1_supported": [
+          "slide_outline",
+          "speaker_note_outline",
+          "json_patch_plan"
+        ],
+        "disabled_until_fidelity_gate": [
+          "direct_pptx_rewrite",
+          "theme_rebuild",
+          "animation_rebuild"
+        ],
+        "fidelity_gate": "Before PPTX edits are enabled, copied decks must preserve slide count, dimensions, theme, media count, and package relationships."
+      }
+    },
+    {
+      "package_id": "cts-rcs-10week-slide-templates",
+      "week": 7,
+      "week_label": "Week 07",
+      "file_name": "CTS_RCS_Week07_Slides.pptx",
+      "source_path_redacted": true,
+      "size_bytes": 381377,
+      "slide_count": 19,
+      "layout_count": 1,
+      "media_count": 6,
+      "theme_count": 2,
+      "has_theme": true,
+      "has_notes": true,
+      "has_custom_xml": false,
+      "generation_support": {
+        "v1_supported": [
+          "slide_outline",
+          "speaker_note_outline",
+          "json_patch_plan"
+        ],
+        "disabled_until_fidelity_gate": [
+          "direct_pptx_rewrite",
+          "theme_rebuild",
+          "animation_rebuild"
+        ],
+        "fidelity_gate": "Before PPTX edits are enabled, copied decks must preserve slide count, dimensions, theme, media count, and package relationships."
+      }
+    },
+    {
+      "package_id": "cts-rcs-10week-slide-templates",
+      "week": 8,
+      "week_label": "Week 08",
+      "file_name": "CTS_RCS_Week08_Slides.pptx",
+      "source_path_redacted": true,
+      "size_bytes": 402656,
+      "slide_count": 19,
+      "layout_count": 1,
+      "media_count": 6,
+      "theme_count": 2,
+      "has_theme": true,
+      "has_notes": true,
+      "has_custom_xml": false,
+      "generation_support": {
+        "v1_supported": [
+          "slide_outline",
+          "speaker_note_outline",
+          "json_patch_plan"
+        ],
+        "disabled_until_fidelity_gate": [
+          "direct_pptx_rewrite",
+          "theme_rebuild",
+          "animation_rebuild"
+        ],
+        "fidelity_gate": "Before PPTX edits are enabled, copied decks must preserve slide count, dimensions, theme, media count, and package relationships."
+      }
+    },
+    {
+      "package_id": "cts-rcs-10week-slide-templates",
+      "week": 9,
+      "week_label": "Week 09",
+      "file_name": "CTS_RCS_Week09_Slides.pptx",
+      "source_path_redacted": true,
+      "size_bytes": 370579,
+      "slide_count": 19,
+      "layout_count": 1,
+      "media_count": 6,
+      "theme_count": 2,
+      "has_theme": true,
+      "has_notes": true,
+      "has_custom_xml": false,
+      "generation_support": {
+        "v1_supported": [
+          "slide_outline",
+          "speaker_note_outline",
+          "json_patch_plan"
+        ],
+        "disabled_until_fidelity_gate": [
+          "direct_pptx_rewrite",
+          "theme_rebuild",
+          "animation_rebuild"
+        ],
+        "fidelity_gate": "Before PPTX edits are enabled, copied decks must preserve slide count, dimensions, theme, media count, and package relationships."
+      }
+    },
+    {
+      "package_id": "cts-rcs-10week-slide-templates",
+      "week": 10,
+      "week_label": "Week 10",
+      "file_name": "CTS_RCS_Week10_Slides.pptx",
+      "source_path_redacted": true,
+      "size_bytes": 375365,
+      "slide_count": 19,
+      "layout_count": 1,
+      "media_count": 6,
+      "theme_count": 2,
+      "has_theme": true,
+      "has_notes": true,
+      "has_custom_xml": false,
+      "generation_support": {
+        "v1_supported": [
+          "slide_outline",
+          "speaker_note_outline",
+          "json_patch_plan"
+        ],
+        "disabled_until_fidelity_gate": [
+          "direct_pptx_rewrite",
+          "theme_rebuild",
+          "animation_rebuild"
+        ],
+        "fidelity_gate": "Before PPTX edits are enabled, copied decks must preserve slide count, dimensions, theme, media count, and package relationships."
+      }
+    }
+  ],
+  "generation_policy": {
+    "current_v1": "slide_outline_and_patch_plan_only",
+    "direct_pptx_editing": "disabled_until_fidelity_gate",
+    "fidelity_gate_required": true,
+    "recommended_next_step": "Generate weekly slide outlines from Session Briefs, then test copied PPTX text-placeholder replacement outside the live app before enabling edits."
+  }
+}

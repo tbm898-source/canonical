@@ -39,6 +39,9 @@ export function PublicNav() {
           <Link to="/ProgramHelper?mode=demo" className="text-sm font-medium text-indigo-600 transition-colors hover:text-indigo-800">
             Demo
           </Link>
+          <Link to="/ProgramHelper?mode=owner" className="text-sm font-medium text-[#0a0a0a] transition-colors hover:text-indigo-700">
+            Owner
+          </Link>
         </div>
       </div>
     </nav>
@@ -56,6 +59,11 @@ export function PublicFooter() {
         <Link to="/ProgramHelper?mode=demo">
           <Button variant="outline" size="sm" className="rounded-xl">
             Open Demo Viewer
+          </Button>
+        </Link>
+        <Link to="/ProgramHelper?mode=owner">
+          <Button size="sm" className="rounded-xl bg-[#0a0a0a] text-white hover:bg-[#1a1a1a]">
+            Owner Workbench
           </Button>
         </Link>
       </div>

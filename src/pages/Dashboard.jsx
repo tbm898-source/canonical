@@ -155,18 +155,26 @@ export default function Dashboard() {
             <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
               <div>
                 <h2 className="text-lg font-semibold tracking-tight text-[#0a0a0a]">
-                  Want the working prototype?
+                  Want the working owner side?
                 </h2>
                 <p className="mt-2 text-sm leading-6 text-[#0a0a0a]/50">
-                  The Program Helper shows the current demo and owner-workbench split.
+                  The Program Helper opens the authenticated owner workbench with connector diagnostics, package proof, and review-before-write controls.
                 </p>
               </div>
-              <Link to="/ProgramHelper?mode=demo">
-                <Button className="gap-2 rounded-xl bg-[#0a0a0a] text-white hover:bg-[#1a1a1a]">
-                  Open Program Helper
-                  <ClipboardList className="h-4 w-4" />
-                </Button>
-              </Link>
+              <div className="flex flex-wrap gap-3">
+                <Link to="/ProgramHelper?mode=owner">
+                  <Button className="gap-2 rounded-xl bg-[#0a0a0a] text-white hover:bg-[#1a1a1a]">
+                    Open Owner Workbench
+                    <ClipboardList className="h-4 w-4" />
+                  </Button>
+                </Link>
+                <Link to="/ProgramHelper?mode=demo">
+                  <Button variant="outline" className="gap-2 rounded-xl">
+                    Open Demo Viewer
+                    <ClipboardList className="h-4 w-4" />
+                  </Button>
+                </Link>
+              </div>
             </div>
           </section>
         </div>
