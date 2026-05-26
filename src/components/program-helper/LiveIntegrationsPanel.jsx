@@ -74,6 +74,15 @@ function SafeJsonBlock({ value }) {
   );
 }
 
+const declaredBackendFunctions = [
+  "canonicalConnectorHealth",
+  "canonicalSpineDiscovery",
+  "saveInstructionalPacketToDropbox",
+  "prepareClassroomExport",
+  "prepareClickUpExport",
+  "canonicalDropboxFileOps",
+];
+
 export default function LiveIntegrationsPanel({ owner, generatedPackage }) {
   const [healthState, setHealthState] = useState("idle");
   const [health, setHealth] = useState(null);
@@ -278,6 +287,24 @@ export default function LiveIntegrationsPanel({ owner, generatedPackage }) {
           <p>Checks Dropbox, Google Classroom, ClickUp, and Gmail shared owner connectors without exposing tokens.</p>
           <SafeJsonBlock value={health?.connectors || health?.error} />
         </IntegrationCard>
+
+        {owner && (
+          <IntegrationCard icon={DatabaseZap} title="Backend Function Availability" state="ready">
+            <p>
+              Owner workbench expects these Base44 backend functions to be deployed. They are shown as declared app capabilities, not proof of live connector writes.
+            </p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {declaredBackendFunctions.map((functionName) => (
+                <span
+                  key={functionName}
+                  className="rounded-full bg-[#fafafa] px-3 py-1 text-[11px] font-semibold text-[#0a0a0a]/55"
+                >
+                  {functionName}
+                </span>
+              ))}
+            </div>
+          </IntegrationCard>
+        )}
 
         <IntegrationCard
           icon={Lock}

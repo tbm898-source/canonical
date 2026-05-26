@@ -1,0 +1,80 @@
+{
+  "package_id": "cts-rcs-10week-slide-templates",
+  "top_level_components": [
+    {
+      "name": "CTS_RCS_Week01_Slides.pptx",
+      "kind": "weekly_slide_deck",
+      "size_bytes": 451248,
+      "public_purpose": "Week 01 CTS slide template deck indexed for outline generation and future controlled patch planning."
+    },
+    {
+      "name": "CTS_RCS_Week02_Slides.pptx",
+      "kind": "weekly_slide_deck",
+      "size_bytes": 370789,
+      "public_purpose": "Week 02 CTS slide template deck indexed for outline generation and future controlled patch planning."
+    },
+    {
+      "name": "CTS_RCS_Week03_Slides.pptx",
+      "kind": "weekly_slide_deck",
+      "size_bytes": 370042,
+      "public_purpose": "Week 03 CTS slide template deck indexed for outline generation and future controlled patch planning."
+    },
+    {
+      "name": "CTS_RCS_Week04_Slides.pptx",
+      "kind": "weekly_slide_deck",
+      "size_bytes": 361032,
+      "public_purpose": "Week 04 CTS slide template deck indexed for outline generation and future controlled patch planning."
+    },
+    {
+      "name": "CTS_RCS_Week05_Slides.pptx",
+      "kind": "weekly_slide_deck",
+      "size_bytes": 367924,
+      "public_purpose": "Week 05 CTS slide template deck indexed for outline generation and future controlled patch planning."
+    },
+    {
+      "name": "CTS_RCS_Week06_Slides.pptx",
+      "kind": "weekly_slide_deck",
+      "size_bytes": 381219,
+      "public_purpose": "Week 06 CTS slide template deck indexed for outline generation and future controlled patch planning."
+    },
+    {
+      "name": "CTS_RCS_Week07_Slides.pptx",
+      "kind": "weekly_slide_deck",
+      "size_bytes": 381377,
+      "public_purpose": "Week 07 CTS slide template deck indexed for outline generation and future controlled patch planning."
+    },
+    {
+      "name": "CTS_RCS_Week08_Slides.pptx",
+      "kind": "weekly_slide_deck",
+      "size_bytes": 402656,
+      "public_purpose": "Week 08 CTS slide template deck indexed for outline generation and future controlled patch planning."
+    },
+    {
+      "name": "CTS_RCS_Week09_Slides.pptx",
+      "kind": "weekly_slide_deck",
+      "size_bytes": 370579,
+      "public_purpose": "Week 09 CTS slide template deck indexed for outline generation and future controlled patch planning."
+    },
+    {
+      "name": "CTS_RCS_Week10_Slides.pptx",
+      "kind": "weekly_slide_deck",
+      "size_bytes": 375365,
+      "public_purpose": "Week 10 CTS slide template deck indexed for outline generation and future controlled patch planning."
+    }
+  ],
+  "nested_archives": [],
+  "source_systems": [
+    {
+      "label": "PowerPoint / PPTX",
+      "posture": "Source template format remains outside Git. V1 indexes deck structure and preserves raw files in CANONICAL/Dropbox."
+    },
+    {
+      "label": "Program Helper",
+      "posture": "Owner mode can use this package as a slide-outline target. Direct deck editing remains disabled until fidelity checks pass."
+    },
+    {
+      "label": "CANONICAL proof layer",
+      "posture": "Public proof shows sanitized counts and policy only; no full slide copy or local paths are published."
+    }
+  ]
+}

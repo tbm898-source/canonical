@@ -106,17 +106,22 @@ assert(
 );
 
 const generatedPackageFiles = [
-  "cts-master-package-v1.summary.json",
-  "cts-master-package-v1.components.json",
-  "cts-master-package-v1.manifest.json",
-  "cts-master-package-v1.authority-map.json",
+  { file: "cts-master-package-v1.summary.json", packageId: "cts-master-package-v1" },
+  { file: "cts-master-package-v1.components.json", packageId: "cts-master-package-v1" },
+  { file: "cts-master-package-v1.manifest.json", packageId: "cts-master-package-v1" },
+  { file: "cts-master-package-v1.authority-map.json", packageId: "cts-master-package-v1" },
+  { file: "cts-rcs-10week-slide-templates.summary.json", packageId: "cts-rcs-10week-slide-templates" },
+  { file: "cts-rcs-10week-slide-templates.components.json", packageId: "cts-rcs-10week-slide-templates" },
+  { file: "cts-rcs-10week-slide-templates.manifest.json", packageId: "cts-rcs-10week-slide-templates" },
+  { file: "cts-rcs-10week-slide-templates.authority-map.json", packageId: "cts-rcs-10week-slide-templates" },
+  { file: "cts-rcs-10week-slide-templates.deck-index.json", packageId: "cts-rcs-10week-slide-templates" },
 ];
 
-for (const file of generatedPackageFiles) {
+for (const { file, packageId } of generatedPackageFiles) {
   const url = new URL(`../content/packages/generated/${file}`, import.meta.url);
   assert(existsSync(url), `Missing generated CTS package artifact: ${file}`);
   const parsed = JSON.parse(readFileSync(url, "utf8"));
-  assert(parsed.package_id === "cts-master-package-v1", `${file} must describe cts-master-package-v1.`);
+  assert(parsed.package_id === packageId, `${file} must describe ${packageId}.`);
 }
 
 const summary = JSON.parse(
@@ -136,8 +141,30 @@ assert(
   "CTS package SHA256 should match the expected source hash.",
 );
 
+const slideSummary = JSON.parse(
+  readFileSync(
+    new URL("../content/packages/generated/cts-rcs-10week-slide-templates.summary.json", import.meta.url),
+    "utf8",
+  ),
+);
+
+assert(
+  slideSummary.source_package?.sha256 ===
+    "C18A9A7547FCCB808C6509402765AAB859C30A786308305A5ABBD6B055B52470",
+  "CTS slide template package SHA256 should match the expected source hash.",
+);
+assert(slideSummary.deck_count === 10, "CTS slide template package must include 10 weekly decks.");
+assert(
+  slideSummary.deck_index.every((deck) => deck.slide_count === 19),
+  "Each CTS slide template deck should report 19 slides.",
+);
+assert(
+  slideSummary.generation_support?.direct_pptx_editing === "disabled_until_fidelity_gate",
+  "Direct PPTX editing must remain disabled until the fidelity gate passes.",
+);
+
 const generatedPackageText = generatedPackageFiles
-  .map((file) =>
+  .map(({ file }) =>
     readFileSync(new URL(`../content/packages/generated/${file}`, import.meta.url), "utf8"),
   )
   .join("\n");
@@ -148,6 +175,7 @@ const generatedBlockedPatterns = [
   { label: "raw restricted notes field", pattern: /Restricted_Notes|Notes_Restricted/ },
   { label: "raw restricted routing field", pattern: /HR_Review/ },
   { label: "raw placement field", pattern: /Employer_or_Program/ },
+  { label: "raw slide content label", pattern: /speaker notes|raw slide text/i },
   { label: "credential terms", pattern: /api_key|access_token|refresh_token|oauth|secret/i },
   { label: "backend logs", pattern: /backend logs/i },
 ];
@@ -172,3 +200,4 @@ console.log("PRISM_DTJL privacy QA passed.");
 console.log("Demo view: summary-only, no private module/source payload.");
 console.log("PV102 remains the accessible public demo sample.");
 console.log("CTS package proof QA passed: generated JSON parses and public proof text is sanitized.");
+console.log("CTS slide template proof QA passed: 10 decks, 19 slides each, direct PPTX editing gated.");
