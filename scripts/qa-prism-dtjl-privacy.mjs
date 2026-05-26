@@ -96,7 +96,7 @@ assert(
 );
 
 assert(
-  /requestedMode\s*===\s*["']owner["']\s*&&\s*ownerAccessAllowed/.test(programHelperSource),
+  /requestedOwnerMode\s*&&\s*ownerAccessAllowed/.test(programHelperSource),
   "ProgramHelper must only honor requested owner mode when owner access is allowed.",
 );
 

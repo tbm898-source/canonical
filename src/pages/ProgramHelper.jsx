@@ -43,6 +43,18 @@ import {
 const demoScopes = new Set(["demo_safe", "aya_safe", "prism_curated"]);
 
 const ownerRoles = new Set(["admin", "owner"]);
+const ownerModeAliases = new Set(["owner", "admin"]);
+const ownerFlagKeys = new Set(["is_admin", "admin", "isOwner", "is_owner"]);
+const roleKeys = new Set([
+  "role",
+  "roles",
+  "portal_role",
+  "app_role",
+  "app_roles",
+  "app_user_role",
+  "user_role",
+  "permissions",
+]);
 
 function isLocalPreviewHost() {
   return ["localhost", "127.0.0.1", "::1"].includes(window.location.hostname);
@@ -50,18 +62,32 @@ function isLocalPreviewHost() {
 
 function userHasOwnerAccess(user) {
   if (!user) return false;
-  const possibleRoles = [
-    user.role,
-    user.portal_role,
-    user.app_role,
-    user.user_role,
-    user.metadata?.portal_role,
-    user.metadata?.role,
-    user.public_metadata?.portal_role,
-    user.public_metadata?.role,
-  ];
+  const possibleRoles = [];
+  const collectRoles = (value, key = "") => {
+    if (value == null) return;
+    if (typeof value === "boolean" && ownerFlagKeys.has(key) && value) {
+      possibleRoles.push("admin");
+      return;
+    }
+    if (typeof value === "string" || typeof value === "number" || typeof value === "boolean") {
+      if (roleKeys.has(key)) possibleRoles.push(value);
+      return;
+    }
+    if (Array.isArray(value)) {
+      value.forEach((item) => collectRoles(item, key));
+      return;
+    }
+    if (typeof value === "object") {
+      Object.entries(value).forEach(([nextKey, nextValue]) => {
+        collectRoles(nextValue, nextKey);
+      });
+    }
+  };
 
-  return possibleRoles.some((role) => ownerRoles.has(String(role || "").toLowerCase()));
+  collectRoles(user);
+
+  const hasOwnerRole = possibleRoles.some((role) => ownerRoles.has(String(role || "").toLowerCase()));
+  return Boolean(hasOwnerRole);
 }
 
 const fadeUp = {
@@ -636,11 +662,11 @@ function AccessModeSwitcher({ owner, ownerAccessAllowed, onOwner, onDemo }) {
             Access mode
           </div>
           <div className="mt-1 text-lg font-semibold text-[#0a0a0a]">
-            {owner ? "Owner Workbench" : "Demo Viewer"}
+            {owner ? "Owner / Admin Workbench" : "Demo Viewer"}
           </div>
         </div>
         <span className="shrink-0 rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-600">
-          {owner ? "Private controls" : "Read-only"}
+          {owner ? "Admin controls" : "Read-only"}
         </span>
       </div>
 
@@ -652,7 +678,7 @@ function AccessModeSwitcher({ owner, ownerAccessAllowed, onOwner, onDemo }) {
           onClick={onOwner}
           disabled={!ownerAccessAllowed}
         >
-          Owner
+          Owner/Admin
         </Button>
         <Button
           data-testid="demo-viewer-button"
@@ -666,9 +692,9 @@ function AccessModeSwitcher({ owner, ownerAccessAllowed, onOwner, onDemo }) {
 
       <p className="mt-5 text-sm leading-6 text-[#0a0a0a]/50">
         {owner
-          ? "Owner Workbench shows private scaffolds, approval controls, connector previews, and draft-review lanes."
+          ? "Owner / Admin Workbench shows private scaffolds, approval controls, connector previews, and draft-review lanes."
           : "Demo Viewer is presentation-safe: curated program cards, PV102 sample generation, and no private payloads or connector calls."}
-        {!ownerAccessAllowed && " Owner Workbench requires an authenticated owner/admin login."}
+        {!ownerAccessAllowed && " Owner / Admin Workbench requires an authenticated admin or owner login."}
       </p>
     </div>
   );
@@ -1224,10 +1250,13 @@ export default function ProgramHelper() {
   const localOwnerAccess = isLocalPreviewHost();
   const liveOwnerAccess = isAuthenticated && userHasOwnerAccess(user);
   const ownerAccessAllowed = localOwnerAccess || liveOwnerAccess;
-  const requestedMode = query.get("mode");
-  const initialMode = requestedMode === "owner" && ownerAccessAllowed ? "owner" : "demo";
+  const requestedMode = String(query.get("mode") || "").toLowerCase();
+  const requestedOwnerMode = ownerModeAliases.has(requestedMode);
+  const shouldEnterOwnerByDefault = liveOwnerAccess && !requestedMode;
+  const initialMode =
+    (requestedOwnerMode && ownerAccessAllowed) || shouldEnterOwnerByDefault ? "owner" : "demo";
   const [mode, setMode] = useState(initialMode);
-  const [entered, setEntered] = useState(query.has("mode"));
+  const [entered, setEntered] = useState(query.has("mode") || shouldEnterOwnerByDefault);
   const [selectedProgramId, setSelectedProgramId] = useState(query.get("program") || portalData.programs[0].id);
   const [helperInput, setHelperInput] = useState(portalData.helper_seed_input);
   const [demoAgentInput, setDemoAgentInput] = useState(portalData.helper_seed_input);
@@ -1240,6 +1269,13 @@ export default function ProgramHelper() {
       setMode("demo");
     }
   }, [mode, ownerAccessAllowed]);
+
+  useEffect(() => {
+    if (!entered && shouldEnterOwnerByDefault) {
+      setMode("owner");
+      setEntered(true);
+    }
+  }, [entered, shouldEnterOwnerByDefault]);
 
   const owner = ownerAccessAllowed && mode === "owner";
   const viewMode = owner ? PROGRAM_VIEW_MODES.OWNER : PROGRAM_VIEW_MODES.DEMO;
@@ -1365,7 +1401,7 @@ export default function ProgramHelper() {
               custom={2}
               className="mt-8 max-w-xl text-lg leading-relaxed text-[#0a0a0a]/50"
             >
-              A two-view instructional workbench: Owner Workbench for private PRISM/CANONICAL operations, and Demo Viewer for safe presentation access.
+              A two-view instructional workbench: Owner / Admin Workbench for private PRISM/CANONICAL operations, and Demo Viewer for safe presentation access.
             </motion.p>
           </motion.section>
 
@@ -1444,7 +1480,7 @@ export default function ProgramHelper() {
             >
               <div className="h-1.5 w-1.5 rounded-full bg-indigo-500" />
               <span className="text-xs font-medium tracking-wide text-indigo-600">
-                {owner ? "OWNER WORKBENCH" : "DEMO VIEWER"}
+                {owner ? "OWNER / ADMIN WORKBENCH" : "DEMO VIEWER"}
               </span>
             </motion.div>
             <motion.h1
@@ -1455,7 +1491,7 @@ export default function ProgramHelper() {
               {program.title}
               <br />
               <span className="text-[#0a0a0a]/20">
-                {owner ? "owner workbench." : "demo viewer."}
+                {owner ? "owner / admin workbench." : "demo viewer."}
               </span>
             </motion.h1>
             <motion.p

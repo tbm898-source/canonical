@@ -24,6 +24,43 @@ function isLocalPreviewHost() {
   return ['localhost', '127.0.0.1', '::1'].includes(window.location.hostname);
 }
 
+function getRecordList(response) {
+  if (Array.isArray(response)) return response;
+  if (Array.isArray(response?.data)) return response.data;
+  if (Array.isArray(response?.items)) return response.items;
+  if (Array.isArray(response?.records)) return response.records;
+  return [];
+}
+
+async function enrichUserFromAppRecord(base44, currentUser) {
+  const email = currentUser?.email;
+  if (!email) return currentUser;
+
+  try {
+    const matchingUsers = await base44.entities.User.filter({ email }, "-updated_date", 5);
+    const normalizedEmail = String(email).toLowerCase();
+    const appUser =
+      getRecordList(matchingUsers).find((record) => String(record?.email || "").toLowerCase() === normalizedEmail) ||
+      getRecordList(matchingUsers)[0];
+
+    if (!appUser) return currentUser;
+
+    return {
+      ...currentUser,
+      app_user_id: currentUser.app_user_id || appUser.id,
+      app_user_role: currentUser.app_user_role || appUser.role,
+      portal_role: currentUser.portal_role || appUser.portal_role || appUser.role,
+      role: currentUser.role || appUser.role,
+      metadata: {
+        ...(currentUser.metadata || {}),
+        app_user_role: currentUser.metadata?.app_user_role || appUser.role,
+      },
+    };
+  } catch (_error) {
+    return currentUser;
+  }
+}
+
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -135,7 +172,8 @@ export const AuthProvider = ({ children }) => {
       setIsLoadingAuth(true);
       const { base44 } = await import('@/api/base44Client');
       const currentUser = await base44.auth.me();
-      setUser(currentUser);
+      const enrichedUser = await enrichUserFromAppRecord(base44, currentUser);
+      setUser(enrichedUser);
       setIsAuthenticated(true);
       setIsLoadingAuth(false);
     } catch (error) {
