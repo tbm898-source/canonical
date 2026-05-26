@@ -1271,6 +1271,13 @@ export default function ProgramHelper() {
   }, [mode, ownerAccessAllowed]);
 
   useEffect(() => {
+    if (requestedOwnerMode && ownerAccessAllowed && mode !== "owner") {
+      setMode("owner");
+      setEntered(true);
+    }
+  }, [mode, ownerAccessAllowed, requestedOwnerMode]);
+
+  useEffect(() => {
     if (!entered && shouldEnterOwnerByDefault) {
       setMode("owner");
       setEntered(true);
