@@ -4,6 +4,7 @@ import {
   containsUnsafePublicText,
   filenameToken,
   joinDropboxPath,
+  normalizeDropboxPath,
   nowIso,
   safeCreateConnectorRun,
   safeErrorMessage,
@@ -113,7 +114,10 @@ Deno.serve(async (req) => {
       );
     }
 
-    if (recommendedPath && !destinationPath.startsWith(recommendedPath)) {
+    if (
+      recommendedPath &&
+      !normalizeDropboxPath(destinationPath).startsWith(normalizeDropboxPath(recommendedPath))
+    ) {
       return blockedResponse("Approved destination does not match the accepted CANONICAL spine map.");
     }
 

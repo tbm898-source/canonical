@@ -216,6 +216,15 @@ export function joinDropboxPath(...parts: string[]) {
   return normalized ? `/${normalized}` : "";
 }
 
+export function normalizeDropboxPath(value: string) {
+  const normalized = String(value || "")
+    .replace(/\\/g, "/")
+    .replace(/\/+/g, "/")
+    .replace(/\/+$/g, "")
+    .toLowerCase();
+  return normalized && !normalized.startsWith("/") ? `/${normalized}` : normalized;
+}
+
 export function filenameToken(value: string) {
   return String(value || "artifact")
     .replace(/[^A-Za-z0-9]+/g, "_")
