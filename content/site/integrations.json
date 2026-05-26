@@ -1,0 +1,32 @@
+{
+  "eyebrow": "Integrations",
+  "title": "Connectors are adapters, not the source of truth.",
+  "summary": "CANONICAL treats Dropbox, Google Classroom, ClickUp, Gmail, and future services as lanes around the file spine. Public mode describes the posture; owner mode handles real readiness and approval.",
+  "connectors": [
+    {
+      "name": "Dropbox",
+      "status": "First live spine candidate",
+      "posture": "Discovery and owner approval come before writes."
+    },
+    {
+      "name": "Google Classroom",
+      "status": "Prepared adapter",
+      "posture": "Classroom-ready drafts only in v1; no live posting from public/demo mode."
+    },
+    {
+      "name": "ClickUp",
+      "status": "Prepared adapter",
+      "posture": "Task candidates and KPI templates stay dry-run until explicit owner approval."
+    },
+    {
+      "name": "Gmail / email",
+      "status": "Future adapter",
+      "posture": "Communication drafts may be prepared later; sending remains out of public/demo scope."
+    }
+  ],
+  "rules": [
+    "Demo mode makes no backend connector calls.",
+    "Live writes require owner mode, classification, and an approved destination.",
+    "PRISM-private material never exports to public/demo or Classroom surfaces."
+  ]
+}

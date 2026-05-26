@@ -1,0 +1,37 @@
+{
+  "eyebrow": "How It Works",
+  "title": "CANONICAL turns scattered work into a reviewable operating loop.",
+  "summary": "The system starts with real materials, messy notes, uploaded packages, and agent drafts, then converts them into classified records that can be reviewed, filed, and exported without losing rail separation.",
+  "workflow": [
+    {
+      "step": "Request",
+      "title": "Capture the work",
+      "text": "Bring in material requests, class notes, package ZIPs, source docs, or generated drafts without pretending they are clean yet."
+    },
+    {
+      "step": "Generate",
+      "title": "Normalize into structured outputs",
+      "text": "Create briefs, packet outlines, docs, manifests, package summaries, and export previews from the selected program context."
+    },
+    {
+      "step": "Review",
+      "title": "Check boundaries before filing",
+      "text": "Confirm ownership rail, visibility, evidence status, restricted content posture, and whether live connectors are allowed."
+    },
+    {
+      "step": "File",
+      "title": "Attach the record to CANONICAL",
+      "text": "Store approved metadata, summaries, manifests, and references so the app remains aligned with the durable file spine."
+    },
+    {
+      "step": "Export",
+      "title": "Prepare downstream adapters",
+      "text": "Export only approved material to print, ZIP, Classroom, ClickUp, Dropbox, or public proof surfaces."
+    }
+  ],
+  "rails": [
+    "AYA / CTS classroom and operational material stays institution-safe.",
+    "PRISM framework material stays private-first unless curated.",
+    "CANONICAL remains the spine that indexes, remembers, and routes the work."
+  ]
+}

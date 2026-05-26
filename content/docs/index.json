@@ -1,0 +1,24 @@
+{
+  "docs": [
+    {
+      "doc_id": "canonical-model",
+      "title": "Canonical Model",
+      "summary": "How programs, modules, sessions, artifacts, packages, and manifests fit together."
+    },
+    {
+      "doc_id": "connector-spine",
+      "title": "Connector Spine",
+      "summary": "How Dropbox, Classroom, ClickUp, and other adapters sit around CANONICAL."
+    },
+    {
+      "doc_id": "instructional-data-model",
+      "title": "Instructional Data Model",
+      "summary": "The current session brief, bundle, artifact, and privacy model."
+    },
+    {
+      "doc_id": "base44-sync-notes",
+      "title": "Base44 Sync Notes",
+      "summary": "What is live, what is declared, and what remains dry-run or future-ready."
+    }
+  ]
+}
