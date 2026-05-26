@@ -1,0 +1,9 @@
+{
+  "authority_counts": [
+    { "name": "AYA / CTS", "count": 8 },
+    { "name": "PRISM", "count": 3 },
+    { "name": "CANONICAL", "count": 1 },
+    { "name": "Shared", "count": 2 },
+    { "name": "Mixed", "count": 1 }
+  ]
+}

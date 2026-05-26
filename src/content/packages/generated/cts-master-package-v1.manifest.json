@@ -1,0 +1,13 @@
+{
+  "package_id": "cts-master-package-v1",
+  "generated_at": "2026-05-24T00:00:00Z",
+  "generator_version": "canonical-proof-parser-v1",
+  "entry_counts": {
+    "total_entries": 12,
+    "student_materials": 3,
+    "instructor_materials": 2,
+    "assessment_materials": 2,
+    "evidence_artifacts": 3,
+    "manifest_files": 2
+  }
+}

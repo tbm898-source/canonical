@@ -1,0 +1,33 @@
+{
+  "title": "CTS Master Package v1",
+  "purpose": "First external proof package: the CTS source ZIP was parsed and its safe structure extracted into public proof metadata while keeping raw operational internals out of the public path.",
+  "scope": "AYA / CTS",
+  "public_exposure": "Sanitized proof metadata only",
+  "source_package": {
+    "file_name": "CTS_Master_Package_v1.zip",
+    "sha256": "sha256-verified",
+    "sha256_matches_expected": true
+  },
+  "public_safety": {
+    "public_may_show": [
+      "Package title and purpose",
+      "Top-level component names and public purposes",
+      "Authority counts by source",
+      "Sanitized manifest entry counts",
+      "SHA256 verification status"
+    ],
+    "public_must_not_show": [
+      "Raw operational templates",
+      "Restricted field internals",
+      "Local file paths",
+      "Live connector behavior",
+      "Private PRISM facilitator notes"
+    ]
+  },
+  "totals": {
+    "top_level_file_count": 12,
+    "matrix_rows": 47,
+    "nested_archive_count": 3,
+    "referenced_source_zip_count": 1
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "top_level_components": [
+    {
+      "name": "Instructor Packet",
+      "size_bytes": 245760,
+      "public_purpose": "Instructor-facing session guide with safety checks, learning objectives, and evidence prompts."
+    },
+    {
+      "name": "Student Guide",
+      "size_bytes": 122880,
+      "public_purpose": "Student-facing work surface with build steps, reflection prompts, and evidence capture."
+    },
+    {
+      "name": "Practice Sheet",
+      "size_bytes": 81920,
+      "public_purpose": "Sizing and reasoning practice to capture student understanding before quiz or next session."
+    },
+    {
+      "name": "Quiz",
+      "size_bytes": 61440,
+      "public_purpose": "Student-facing check for understanding, tied to session learning objectives."
+    },
+    {
+      "name": "Answer Key with Rationale",
+      "size_bytes": 102400,
+      "public_purpose": "Instructor-facing answer key with rationale for each quiz item."
+    },
+    {
+      "name": "Session Brief",
+      "size_bytes": 40960,
+      "public_purpose": "Canonical bridge artifact recording actual class status, blockers, and next step."
+    }
+  ],
+  "source_systems": [
+    {
+      "label": "AYA / CTS",
+      "posture": "Primary delivery rail — classroom-safe materials for student and institution use."
+    },
+    {
+      "label": "PRISM",
+      "posture": "Private facilitator rail — curated framing only in public proof layer."
+    },
+    {
+      "label": "CANONICAL",
+      "posture": "Source of truth — file spine that all portal records mirror."
+    }
+  ]
+}

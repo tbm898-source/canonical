@@ -1,0 +1,10 @@
+{
+  "packages": [
+    {
+      "package_id": "cts-master-package-v1",
+      "title": "CTS Master Package v1",
+      "scope": "AYA / CTS",
+      "public_exposure": "Sanitized proof metadata only"
+    }
+  ]
+}
