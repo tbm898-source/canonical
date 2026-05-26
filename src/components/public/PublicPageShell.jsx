@@ -20,7 +20,7 @@ export function PublicNav() {
             CANONICAL
           </span>
         </Link>
-        <div className="hidden items-center gap-5 md:flex">
+        <div className="hidden items-center gap-4 md:flex">
           <Link to="/About" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
             About
           </Link>
@@ -32,6 +32,9 @@ export function PublicNav() {
           </Link>
           <Link to="/Docs" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
             Docs
+          </Link>
+          <Link to="/Home#faq" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
+            FAQ
           </Link>
           <Link to="/WorkspaceSetup" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
             Setup

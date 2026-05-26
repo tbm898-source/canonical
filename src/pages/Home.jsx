@@ -11,7 +11,7 @@ import {
   Shield,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -131,7 +131,7 @@ function PublicNav() {
             CANONICAL
           </span>
         </Link>
-        <div className="hidden items-center gap-6 md:flex">
+        <div className="hidden items-center gap-5 md:flex">
           <Link to="/About" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
             About
           </Link>
@@ -140,6 +140,9 @@ function PublicNav() {
           </Link>
           <Link to="/Proof" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
             Proof
+          </Link>
+          <Link to="/Home#faq" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
+            FAQ
           </Link>
           <Link to="/Dashboard" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
             Operator Dashboard
@@ -212,7 +215,14 @@ const faqSchema = {
   ]
 };
 
+const faqs = faqSchema.mainEntity.map((item) => ({
+  question: item.name,
+  answer: item.acceptedAnswer.text,
+}));
+
 export default function Home() {
+  const location = useLocation();
+
   useEffect(() => {
     const script = document.createElement("script");
     script.type = "application/ld+json";
@@ -224,6 +234,13 @@ export default function Home() {
       if (existing) existing.remove();
     };
   }, []);
+
+  useEffect(() => {
+    if (location.hash !== "#faq") return;
+    window.requestAnimationFrame(() => {
+      document.getElementById("faq")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }, [location.hash]);
 
   return (
     <div className="min-h-screen overflow-hidden bg-[#fafafa]">
@@ -390,6 +407,28 @@ export default function Home() {
         </section>
 
         <section className="px-6 pb-24">
+          <div id="faq" className="mx-auto mb-16 max-w-6xl scroll-mt-28 rounded-3xl border border-black/5 bg-white p-8 shadow-sm sm:p-10">
+            <div className="mb-8 max-w-2xl">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-indigo-600">
+                FAQ
+              </p>
+              <h2 className="mt-3 text-3xl font-bold tracking-tight text-[#0a0a0a]">
+                Common questions, answered plainly.
+              </h2>
+              <p className="mt-3 text-sm leading-6 text-[#0a0a0a]/55">
+                A quick overview for visitors, demo viewers, and future collaborators trying to understand what CANONICAL is before opening the workbench.
+              </p>
+            </div>
+            <div className="grid gap-3 md:grid-cols-2">
+              {faqs.map((item) => (
+                <article key={item.question} className="rounded-2xl border border-black/5 bg-[#fafafa] p-5">
+                  <h3 className="text-base font-semibold text-[#0a0a0a]">{item.question}</h3>
+                  <p className="mt-3 text-sm leading-6 text-[#0a0a0a]/60">{item.answer}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+
           <div className="mx-auto max-w-6xl rounded-3xl bg-[#0a0a0a] p-10 sm:p-14">
             <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
               <div>
