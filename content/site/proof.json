@@ -1,0 +1,19 @@
+{
+  "eyebrow": "Proof",
+  "title": "CANONICAL is being wired to real packages, not placeholder claims.",
+  "summary": "The first proof object is the CTS Master Package v1: a real operational package with curriculum inventory, Drive blueprinting, KPI templates, authority mapping, and optional automation guidance.",
+  "proof_cards": [
+    {
+      "label": "Package parser",
+      "text": "Reads the external source ZIP and emits safe JSON/Markdown summaries for the website."
+    },
+    {
+      "label": "Sanitized public layer",
+      "text": "Shows purpose, counts, component types, and authority summaries without restricted internals."
+    },
+    {
+      "label": "Operator path",
+      "text": "Keeps source ZIPs, restricted templates, and connector writes outside the public proof surface."
+    }
+  ]
+}

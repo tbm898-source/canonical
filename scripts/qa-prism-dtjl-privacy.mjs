@@ -1,5 +1,5 @@
 import { portalData } from "../src/data/instructionalSampleData.js";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import {
   PROGRAM_VIEW_MODES,
   assertNoPrivateDemoFields,
@@ -78,6 +78,7 @@ const programHelperSource = readFileSync(
   new URL("../src/pages/ProgramHelper.jsx", import.meta.url),
   "utf8",
 );
+const appSource = readFileSync(new URL("../src/App.jsx", import.meta.url), "utf8");
 
 assert(
   !/import\s+\{\s*base44\s*\}\s+from\s+["']@\/api\/base44Client["']/.test(liveIntegrationsSource),
@@ -104,6 +105,70 @@ assert(
   "ProgramHelper must downgrade unauthorized owner mode back to demo.",
 );
 
+const generatedPackageFiles = [
+  "cts-master-package-v1.summary.json",
+  "cts-master-package-v1.components.json",
+  "cts-master-package-v1.manifest.json",
+  "cts-master-package-v1.authority-map.json",
+];
+
+for (const file of generatedPackageFiles) {
+  const url = new URL(`../content/packages/generated/${file}`, import.meta.url);
+  assert(existsSync(url), `Missing generated CTS package artifact: ${file}`);
+  const parsed = JSON.parse(readFileSync(url, "utf8"));
+  assert(parsed.package_id === "cts-master-package-v1", `${file} must describe cts-master-package-v1.`);
+}
+
+const summary = JSON.parse(
+  readFileSync(
+    new URL("../content/packages/generated/cts-master-package-v1.summary.json", import.meta.url),
+    "utf8",
+  ),
+);
+
+assert(
+  summary.public_exposure === "sanitized_proof_only",
+  "CTS package public exposure must remain sanitized_proof_only.",
+);
+assert(summary.source_package?.source_path_redacted === true, "CTS source path must remain redacted.");
+assert(
+  summary.source_package?.sha256_matches_expected === true,
+  "CTS package SHA256 should match the expected source hash.",
+);
+
+const generatedPackageText = generatedPackageFiles
+  .map((file) =>
+    readFileSync(new URL(`../content/packages/generated/${file}`, import.meta.url), "utf8"),
+  )
+  .join("\n");
+
+const generatedBlockedPatterns = [
+  { label: "Windows path", pattern: /[A-Z]:\\/ },
+  { label: "raw student field", pattern: /Student_Name|DOB_or_UniqueID|Case_Manager/ },
+  { label: "raw restricted notes field", pattern: /Restricted_Notes|Notes_Restricted/ },
+  { label: "raw restricted routing field", pattern: /HR_Review/ },
+  { label: "raw placement field", pattern: /Employer_or_Program/ },
+  { label: "credential terms", pattern: /api_key|access_token|refresh_token|oauth|secret/i },
+  { label: "backend logs", pattern: /backend logs/i },
+];
+
+const generatedLeaks = generatedBlockedPatterns
+  .filter(({ pattern }) => pattern.test(generatedPackageText))
+  .map(({ label }) => label);
+
+assert(
+  generatedLeaks.length === 0,
+  `CTS generated package proof leaked unsafe public text: ${generatedLeaks.join(", ")}`,
+);
+
+assert(
+  /path=["']\/Packages\/:packageId["']/.test(appSource),
+  "App must register /Packages/:packageId route.",
+);
+assert(/path=["']\/Proof["']/.test(appSource), "App must register /Proof route.");
+assert(/path=["']\/Docs\/:docId["']/.test(appSource), "App must register /Docs/:docId route.");
+
 console.log("PRISM_DTJL privacy QA passed.");
 console.log("Demo view: summary-only, no private module/source payload.");
 console.log("PV102 remains the accessible public demo sample.");
+console.log("CTS package proof QA passed: generated JSON parses and public proof text is sanitized.");

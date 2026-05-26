@@ -135,6 +135,12 @@ function PublicNav() {
           <Link to="/About" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
             About
           </Link>
+          <Link to="/HowItWorks" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
+            How It Works
+          </Link>
+          <Link to="/Proof" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
+            Proof
+          </Link>
           <Link to="/Dashboard" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
             Operator Dashboard
           </Link>

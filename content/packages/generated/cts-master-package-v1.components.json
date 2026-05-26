@@ -1,0 +1,85 @@
+{
+  "package_id": "cts-master-package-v1",
+  "top_level_components": [
+    {
+      "name": "CTS_Drive_Blueprint_v1.zip",
+      "kind": "archive",
+      "size_bytes": 6650,
+      "public_purpose": "Drive structure, source-to-drive mapping, KPI starter, and longitudinal tracking blueprint."
+    },
+    {
+      "name": "CTS_ClickUp_KPI_Kit_v1.zip",
+      "kind": "archive",
+      "size_bytes": 4076,
+      "public_purpose": "ClickUp-ready KPI and event-log templates for operational tracking."
+    },
+    {
+      "name": "CTS_Canonical_Content_Matrix_v0.csv",
+      "kind": "structured_csv",
+      "size_bytes": 164936,
+      "public_purpose": "Detailed source inventory used to map curriculum and evidence assets."
+    },
+    {
+      "name": "CTS_Canonical_Content_Matrix_Summary_v0.csv",
+      "kind": "structured_csv",
+      "size_bytes": 5610,
+      "public_purpose": "High-level inventory summary by week, module, artifact type, and authority."
+    },
+    {
+      "name": "CTS_ClickUp_Optional_Automations_Playbook_v1.md",
+      "kind": "playbook",
+      "size_bytes": 3396,
+      "public_purpose": "Optional ClickUp automation recipes for routing and reminders."
+    },
+    {
+      "name": "README_CTS_Master_Package_v1.txt",
+      "kind": "readme",
+      "size_bytes": 1054,
+      "public_purpose": "Package orientation and recommended order of use."
+    }
+  ],
+  "nested_archives": [
+    {
+      "archive_name": "CTS_Drive_Blueprint_v1.zip",
+      "file_count": 4,
+      "csv_count": 3,
+      "readme_count": 1,
+      "public_categories": [
+        "README present",
+        "KPI definitions present",
+        "longitudinal tracking template present",
+        "source-to-drive mapping present"
+      ]
+    },
+    {
+      "archive_name": "CTS_ClickUp_KPI_Kit_v1.zip",
+      "file_count": 8,
+      "csv_count": 7,
+      "readme_count": 1,
+      "public_categories": [
+        "KPI definitions present",
+        "student roster import template present",
+        "attendance log template present",
+        "safety check template present",
+        "skill signoff template present",
+        "restricted operational log template present",
+        "placement follow-up template present",
+        "KPI definitions present"
+      ]
+    }
+  ],
+  "source_systems": [
+    {
+      "label": "Google Drive",
+      "posture": "Blueprinted adapter/source organization from the older package design; translate into CANONICAL spine language before live writes."
+    },
+    {
+      "label": "ClickUp",
+      "posture": "Dry-run/action-tracking adapter for KPI receipts and cohort operations; do not create live tasks in public/demo mode."
+    },
+    {
+      "label": "Google Classroom",
+      "posture": "Downstream classroom delivery surface only; never the canonical source of truth."
+    }
+  ]
+}

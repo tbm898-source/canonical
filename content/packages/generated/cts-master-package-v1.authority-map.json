@@ -1,0 +1,240 @@
+{
+  "package_id": "cts-master-package-v1",
+  "authority_counts": [
+    {
+      "name": "Reference (Legacy / Field Notes)",
+      "count": 324
+    },
+    {
+      "name": "Canonical (Program Master)",
+      "count": 315
+    },
+    {
+      "name": "Canonical (Execution Evidence)",
+      "count": 133
+    },
+    {
+      "name": "Foundational (Intent)",
+      "count": 10
+    },
+    {
+      "name": "Reference (Formalization)",
+      "count": 4
+    }
+  ],
+  "artifact_type_counts": [
+    {
+      "name": "Document",
+      "count": 311
+    },
+    {
+      "name": "Quiz",
+      "count": 178
+    },
+    {
+      "name": "Handout/Worksheet",
+      "count": 106
+    },
+    {
+      "name": "Image",
+      "count": 93
+    },
+    {
+      "name": "Lab",
+      "count": 39
+    },
+    {
+      "name": "Slides",
+      "count": 39
+    },
+    {
+      "name": "Other",
+      "count": 20
+    }
+  ],
+  "module_counts": [
+    {
+      "name": "General",
+      "count": 529
+    },
+    {
+      "name": "Electrical",
+      "count": 170
+    },
+    {
+      "name": "Framing",
+      "count": 56
+    },
+    {
+      "name": "Integrated Build",
+      "count": 14
+    },
+    {
+      "name": "Drywall",
+      "count": 7
+    },
+    {
+      "name": "Career Readiness",
+      "count": 5
+    },
+    {
+      "name": "Plumbing",
+      "count": 5
+    }
+  ],
+  "category_counts": [
+    {
+      "name": "99_UNSORTED",
+      "count": 321
+    },
+    {
+      "name": "Cohort 404",
+      "count": 133
+    },
+    {
+      "name": "Handouts",
+      "count": 102
+    },
+    {
+      "name": "Quizzes",
+      "count": 72
+    },
+    {
+      "name": "Media",
+      "count": 68
+    },
+    {
+      "name": "Slides",
+      "count": 27
+    },
+    {
+      "name": "Instructor_Only",
+      "count": 16
+    },
+    {
+      "name": "00_MASTERS",
+      "count": 12
+    },
+    {
+      "name": "00_START_HERE",
+      "count": 11
+    },
+    {
+      "name": "00_STUDENT_PACKET",
+      "count": 4
+    },
+    {
+      "name": "00_SUBSTITUTE",
+      "count": 4
+    },
+    {
+      "name": "00_ADMIN",
+      "count": 2
+    },
+    {
+      "name": "AYA CTS Course Outline.doc",
+      "count": 1
+    },
+    {
+      "name": "AYA CTS Term 1 - Intro to Photovoltaics.docx",
+      "count": 1
+    },
+    {
+      "name": "AYA CTS Term 2 - Residential Construction Services.docx",
+      "count": 1
+    },
+    {
+      "name": "AYA CTS Term 3 - 2nd 40 hr PV Course Syllabus - Solar Energy Applications.docx",
+      "count": 1
+    },
+    {
+      "name": "AYA CTS Term 4 - Entertainment Electrics.docx",
+      "count": 1
+    },
+    {
+      "name": "AYA CTS Term 5 - Electric Micromobility.docx",
+      "count": 1
+    },
+    {
+      "name": "City of NB website and Eugene KMTR news video.docx",
+      "count": 1
+    },
+    {
+      "name": "CTS Training Site Layout Description.docx",
+      "count": 1
+    }
+  ],
+  "extension_counts": [
+    {
+      "name": ".pdf",
+      "count": 414
+    },
+    {
+      "name": ".docx",
+      "count": 195
+    },
+    {
+      "name": ".png",
+      "count": 87
+    },
+    {
+      "name": ".pptx",
+      "count": 39
+    },
+    {
+      "name": ".csv",
+      "count": 22
+    },
+    {
+      "name": ".xcf",
+      "count": 15
+    },
+    {
+      "name": ".jpg",
+      "count": 5
+    },
+    {
+      "name": ".webp",
+      "count": 5
+    },
+    {
+      "name": ".xlsx",
+      "count": 2
+    },
+    {
+      "name": ".doc",
+      "count": 1
+    },
+    {
+      "name": ".txt",
+      "count": 1
+    }
+  ],
+  "source_zip_counts": [
+    {
+      "name": "CTS_GoogleClassroom_Whole_Enchilada_v4_Embedded_Visuals.zip",
+      "count": 324
+    },
+    {
+      "name": "CTS_GoogleClassroom_Whole_Enchilada_v5_QA_Clean.zip",
+      "count": 315
+    },
+    {
+      "name": "Cohort 404.zip",
+      "count": 133
+    },
+    {
+      "name": "AYA CTS Course Outline origonal old as fuk.zip",
+      "count": 10
+    },
+    {
+      "name": "CTS_Curriculum_Packet_Tim_Milkewicz.zip",
+      "count": 4
+    }
+  ],
+  "interpretation": [
+    "Canonical Program Master rows indicate promoted curriculum assets.",
+    "Execution Evidence rows indicate cohort receipts and proof material.",
+    "Reference rows preserve legacy or field-note context without making it binding."
+  ]
+}

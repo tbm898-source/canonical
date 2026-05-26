@@ -1,0 +1,11 @@
+{
+  "packages": [
+    {
+      "package_id": "cts-master-package-v1",
+      "title": "CTS Master Package v1",
+      "summary_file": "cts-master-package-v1.summary.json",
+      "route": "/Packages/cts-master-package-v1",
+      "public_exposure": "sanitized_proof_only"
+    }
+  ]
+}

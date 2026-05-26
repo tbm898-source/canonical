@@ -3,7 +3,22 @@ import { appParams } from '@/lib/app-params';
 
 const AuthContext = createContext();
 
-const publicPreviewPaths = ['/', '/ProgramHelper', '/Home', '/About', '/Dashboard', '/WorkspaceSetup'];
+const publicPreviewPaths = [
+  '/',
+  '/ProgramHelper',
+  '/Home',
+  '/About',
+  '/Dashboard',
+  '/WorkspaceSetup',
+  '/HowItWorks',
+  '/Integrations',
+  '/Proof',
+  '/Docs',
+];
+
+function isPublicPreviewPath(pathname) {
+  return publicPreviewPaths.includes(pathname) || pathname.startsWith('/Packages/') || pathname.startsWith('/Docs/');
+}
 
 function isLocalPreviewHost() {
   return ['localhost', '127.0.0.1', '::1'].includes(window.location.hostname);
@@ -26,7 +41,7 @@ export const AuthProvider = ({ children }) => {
       setIsLoadingPublicSettings(true);
       setAuthError(null);
 
-      const previewPath = publicPreviewPaths.includes(window.location.pathname);
+      const previewPath = isPublicPreviewPath(window.location.pathname);
       if (previewPath && isLocalPreviewHost()) {
         setAppPublicSettings({
           id: appParams.appId || 'canonical_program_helper_preview',

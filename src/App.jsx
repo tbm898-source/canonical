@@ -10,6 +10,11 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Dashboard from './pages/Dashboard';
 import WorkspaceSetup from './pages/WorkspaceSetup';
+import HowItWorks from './pages/HowItWorks';
+import Integrations from './pages/Integrations';
+import Proof from './pages/Proof';
+import PackageDetail from './pages/PackageDetail';
+import Docs from './pages/Docs';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -43,6 +48,12 @@ const AuthenticatedApp = () => {
       <Route path="/Dashboard" element={<Dashboard />} />
       <Route path="/WorkspaceSetup" element={<WorkspaceSetup />} />
       <Route path="/ProgramHelper" element={<ProgramHelper />} />
+      <Route path="/HowItWorks" element={<HowItWorks />} />
+      <Route path="/Integrations" element={<Integrations />} />
+      <Route path="/Proof" element={<Proof />} />
+      <Route path="/Packages/:packageId" element={<PackageDetail />} />
+      <Route path="/Docs" element={<Docs />} />
+      <Route path="/Docs/:docId" element={<Docs />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
