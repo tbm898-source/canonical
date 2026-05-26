@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -173,7 +173,58 @@ function Footer() {
   );
 }
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is CANONICAL?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CANONICAL is a file-first operating spine for project memory, curriculum systems, AI workflow routing, evidence capture, and program material organization."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who is CANONICAL for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CANONICAL is built for educators, operators, builders, and small organizations that need important work to survive across tools, people, devices, and time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does the Program Helper do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Program Helper turns rough instructional notes into session briefs, class packets, slide outlines, export metadata, and safe AYA/PRISM rail outputs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does CANONICAL connect to Dropbox, Google Classroom, or ClickUp?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CANONICAL is designed for connector workflows. Dropbox is treated as the CANONICAL file spine, while Google Classroom and ClickUp are dry-run or adapter surfaces until owner approval."
+      }
+    }
+  ]
+};
+
 export default function Home() {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.id = "faq-schema";
+    script.text = JSON.stringify(faqSchema);
+    document.head.appendChild(script);
+    return () => {
+      const existing = document.getElementById("faq-schema");
+      if (existing) existing.remove();
+    };
+  }, []);
+
   return (
     <div className="min-h-screen overflow-hidden bg-[#fafafa]">
       <PublicNav />
