@@ -210,12 +210,17 @@ Deno.serve(async (req) => {
   }
 
   // ── GATE 9: approved_destination_path must be consistent with spine map ───
+  // Key is visibility_scope (not rail) — e.g. recommended_paths.aya_classroom, .prism_private, etc.
   const recommendedPath = spineMap.recommended_paths?.[artifact.visibility_scope] || '';
-  if (recommendedPath && !destinationPath.startsWith(recommendedPath)) {
-    return stageBlocked(
-      base44, entityId,
-      `approved_destination_path does not match the accepted CanonicalSpineMap path for scope "${artifact.visibility_scope}". No guessed destinations allowed.`
-    );
+  if (recommendedPath) {
+    // Normalize: lowercase, collapse multiple slashes, strip trailing slash
+    const normalize = (p) => p.toLowerCase().replace(/\/+/g, '/').replace(/\/$/, '');
+    if (!normalize(destinationPath).startsWith(normalize(recommendedPath))) {
+      return stageBlocked(
+        base44, entityId,
+        `approved_destination_path "${destinationPath}" does not start with the spine map's recommended path for scope "${artifact.visibility_scope}" ("${recommendedPath}"). No guessed destinations allowed.`
+      );
+    }
   }
 
   // ── ALL GATES PASSED — proceed with Dropbox upload ───────────────────────
