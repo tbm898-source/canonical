@@ -1,11 +1,56 @@
 import { createClientFromRequest } from "npm:@base44/sdk@0.8.25";
-import {
-  EXPECTED_SPINE_FOLDERS,
-  joinDropboxPath,
-  nowIso,
-  safeCreateConnectorRun,
-  safeErrorMessage,
-} from "../_shared/canonicalPolicy.ts";
+
+const EXPECTED_SPINE_FOLDERS = [
+  "CANONICAL",
+  "00_ADMIN",
+  "00_MASTERS",
+  "00_START_HERE",
+  "00_STUDENT_PACKET",
+  "00_SUBSTITUTE",
+  "01_Curriculum_Canonical",
+  "02_Instructor_Resources",
+  "03_Cohort_Evidence",
+  "04_Exports",
+  "05_Manifests",
+  "06_Workbench_Drafts",
+  "07_Classroom_Ready",
+  "08_ClickUp_Ready",
+  "09_PRISM_Private",
+  "90_REVIEW",
+  "99_UNSORTED",
+  "99_PROCESSED",
+];
+
+function nowIso() {
+  return new Date().toISOString();
+}
+
+function safeErrorMessage(error: unknown) {
+  if (error instanceof Error && error.message) {
+    if (/token|secret|authorization|oauth|bearer/i.test(error.message)) {
+      return "Connector request failed without exposing credentials.";
+    }
+    return error.message.slice(0, 240);
+  }
+  return "Unknown connector error.";
+}
+
+function joinDropboxPath(...parts: string[]) {
+  const normalized = parts
+    .filter(Boolean)
+    .map((part) => part.replace(/^\/+|\/+$/g, ""))
+    .filter(Boolean)
+    .join("/");
+  return normalized ? `/${normalized}` : "";
+}
+
+async function safeCreateConnectorRun(base44: any, data: Record<string, unknown>) {
+  try {
+    await base44.asServiceRole.entities.CanonicalConnectorRun.create(data);
+  } catch (_error) {
+    // Audit trail only: never fail user response on log-write issues.
+  }
+}
 
 type DropboxEntry = {
   ".tag"?: string;

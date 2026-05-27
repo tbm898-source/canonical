@@ -103,6 +103,51 @@ restored when the entity API becomes available.
   `dropboxSave`); design our own controlled wiring rather than
   accepting the auto-generated function.
 
+### 2026-05-27 Follow-up execution (today)
+
+Browser verification passed on the hosted Base44 URL after confirming
+local preview intentionally bypasses native Base44 login on
+`localhost`. Owner mode now opens and the owner PRISM panel path is
+reachable under authenticated owner access.
+
+Decision: stay on the current Base44 plan for now and continue using
+the inlining workaround (pinned SDK + no `../_shared/` imports) for
+backend functions on this app.
+
+Cleanup and revive work completed:
+
+- Deleted experimental probes:
+  `base44/functions/canary2/entry.ts`,
+  `base44/functions/getCanonicalProgramFullV2/entry.ts`
+- Kept `canaryDeployProbe` as the low-cost deployment canary
+- Deleted recovery probe scripts from `.recovery/`:
+  `canary2-probe.mjs`, `deploy-status-probe.mjs`,
+  `full-deploy-probe.mjs`, `seed-and-verify.mjs`, `v2-probe.mjs`
+- Applied inline-policy workaround to all silently-dead connector
+  functions:
+  `canonicalConnectorHealth`, `canonicalSpineDiscovery`,
+  `canonicalDropboxFileOps`, `prepareClassroomExport`,
+  `prepareClickUpExport`, `saveInstructionalPacketToDropbox`
+
+Count correction: the recap heading said "5 silently-dead older
+functions", but the list contains 6 function names. The correct count
+is 6.
+
+`git stash@{0}` audit completed (read-only):
+
+- Stash includes large pre-fix prototype edits across:
+  `.gitignore`, `base44/entities/CanonicalGeneratedArtifact.jsonc`,
+  `_shared/canonicalPolicy.ts`, multiple `base44/functions/*`,
+  `src/content/docs/*`, `src/content/packages/generated/*`,
+  and several `src/pages/*` files.
+- Some hunks are superseded by current live fixes, some are still
+  potentially useful reference material, and some are high-risk to
+  re-apply blindly because they predate the current deploy constraint
+  discoveries.
+- Recommended disposition: keep stash as archive for now; do not pop
+  wholesale. If needed later, cherry-pick only targeted hunks into a
+  clean branch.
+
 ### Session commit chain
 
 `7057d89` → `0a5a435` → `56fa07c` → `751acfd` → `d1a254d`

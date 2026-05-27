@@ -1,10 +1,41 @@
 import { createClientFromRequest } from "npm:@base44/sdk@0.8.25";
-import {
-  containsUnsafePublicText,
-  nowIso,
-  safeCreateConnectorRun,
-  safeErrorMessage,
-} from "../_shared/canonicalPolicy.ts";
+
+function nowIso() {
+  return new Date().toISOString();
+}
+
+function safeErrorMessage(error: unknown) {
+  if (error instanceof Error && error.message) {
+    if (/token|secret|authorization|oauth|bearer/i.test(error.message)) {
+      return "Connector request failed without exposing credentials.";
+    }
+    return error.message.slice(0, 240);
+  }
+  return "Unknown connector error.";
+}
+
+function containsUnsafePublicText(value: unknown) {
+  const text = typeof value === "string" ? value : JSON.stringify(value ?? "");
+  return [
+    /C:\\Users\\/i,
+    /C:\/Users\//i,
+    /\/Users\/[^/\s]+/i,
+    /access[_-]?token/i,
+    /refresh[_-]?token/i,
+    /api[_-]?key/i,
+    /Bearer\s+[A-Za-z0-9._-]+/i,
+    /local_cursor_sdk/i,
+    /AI_DRAFTS/i,
+  ].some((pattern) => pattern.test(text));
+}
+
+async function safeCreateConnectorRun(base44: any, data: Record<string, unknown>) {
+  try {
+    await base44.asServiceRole.entities.CanonicalConnectorRun.create(data);
+  } catch (_error) {
+    // Audit trail only: never fail user response on log-write issues.
+  }
+}
 
 async function loadPacket(base44: any, payload: Record<string, any>) {
   if (payload.packet_json) return payload.packet_json;

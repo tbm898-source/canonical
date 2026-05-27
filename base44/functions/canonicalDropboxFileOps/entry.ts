@@ -1,9 +1,26 @@
 import { createClientFromRequest } from "npm:@base44/sdk@0.8.25";
-import {
-  nowIso,
-  safeCreateConnectorRun,
-  safeErrorMessage,
-} from "../_shared/canonicalPolicy.ts";
+
+function nowIso() {
+  return new Date().toISOString();
+}
+
+function safeErrorMessage(error: unknown) {
+  if (error instanceof Error && error.message) {
+    if (/token|secret|authorization|oauth|bearer/i.test(error.message)) {
+      return "Connector request failed without exposing credentials.";
+    }
+    return error.message.slice(0, 240);
+  }
+  return "Unknown connector error.";
+}
+
+async function safeCreateConnectorRun(base44: any, data: Record<string, unknown>) {
+  try {
+    await base44.asServiceRole.entities.CanonicalConnectorRun.create(data);
+  } catch (_error) {
+    // Audit trail only: never fail user response on log-write issues.
+  }
+}
 
 type DropboxConnection = {
   accessToken?: string;
