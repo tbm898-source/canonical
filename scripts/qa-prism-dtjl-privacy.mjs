@@ -66,6 +66,38 @@ const leaks = blockedPatterns
 
 assert(leaks.length === 0, `PRISM_DTJL demo overview leaked: ${leaks.join(", ")}`);
 
+// Bundle-wide leak check: scan the entire portalData object (the public JS bundle payload)
+// for PRISM-private fields, paths, and operator-private metadata that must never ship publicly.
+// Adding new private fields to portalData without removing them is now a regression.
+const portalDataText = JSON.stringify(portalData);
+const portalBlockedPatterns = [
+  { label: "private CANONICAL PRISM program path", pattern: /CANONICAL:\/\/02_PROJECTS\/PRISM/i },
+  { label: "local AI drafts inbox path", pattern: /CANONICAL:\/\/00_INBOX\/AI_DRAFTS/i },
+  { label: "PRISM source folder 00_GOVERNANCE", pattern: /00_GOVERNANCE/ },
+  { label: "PRISM source folder 02_PROGRAM_OS", pattern: /02_PROGRAM_OS/ },
+  { label: "PRISM source folder 03_AGENT_SKILLS", pattern: /03_AGENT_SKILLS/ },
+  { label: "PRISM source folder 05_ARTIFACT_RECIPES", pattern: /05_ARTIFACT_RECIPES/ },
+  { label: "PRISM module key CATALYST_BLUEPRINT_V0_1", pattern: /CATALYST_BLUEPRINT_V0_1/ },
+  { label: "PRISM_DTJL import id", pattern: /import_prism_dtjl/ },
+  // Field-name leaks only matter when they carry a non-empty value.
+  // Empty placeholders in unrelated sample programs (e.g. AYA_CTS owner_only_notes_path: "")
+  // are intentionally left untouched per scope; non-empty values are the real privacy risk.
+  { label: "owner_only_notes_path with non-empty value", pattern: /"owner_only_notes_path"\s*:\s*"[^"]+"/ },
+  { label: "private_notes with non-empty value", pattern: /"private_notes"\s*:\s*"[^"]+"/ },
+  { label: "source_structure with content", pattern: /"source_structure"\s*:\s*\[\s*"/ },
+  { label: "local_cursor_sdk runtime value", pattern: /local_cursor_sdk/ },
+];
+
+const portalLeaks = portalBlockedPatterns
+  .filter(({ pattern }) => pattern.test(portalDataText))
+  .map(({ label }) => label);
+
+assert(
+  portalLeaks.length === 0,
+  `portalData public bundle leaked private PRISM/operator fields: ${portalLeaks.join(", ")}. ` +
+    `These must live behind getCanonicalProgramFull (server-side), not in src/data/instructionalSampleData.js.`,
+);
+
 const liveIntegrationsSource = readFileSync(
   new URL("../src/components/program-helper/LiveIntegrationsPanel.jsx", import.meta.url),
   "utf8",
@@ -96,12 +128,12 @@ assert(
 );
 
 assert(
-  /requestedOwnerMode\s*&&\s*ownerAccessAllowed/.test(programHelperSource),
+  /requestedOwnerMode\s*&&\s*ownerAccess\.allowed/.test(programHelperSource),
   "ProgramHelper must only honor requested owner mode when owner access is allowed.",
 );
 
 assert(
-  /!ownerAccessAllowed\s*&&\s*mode\s*===\s*["']owner["']/.test(programHelperSource),
+  /!ownerAccess\.allowed\s*&&\s*mode\s*===\s*["']owner["']/.test(programHelperSource),
   "ProgramHelper must downgrade unauthorized owner mode back to demo.",
 );
 
@@ -198,6 +230,7 @@ assert(/path=["']\/Docs\/:docId["']/.test(appSource), "App must register /Docs/:
 
 console.log("PRISM_DTJL privacy QA passed.");
 console.log("Demo view: summary-only, no private module/source payload.");
+console.log("portalData bundle scan: no PRISM-private or operator-private fields leaked into the public JS bundle.");
 console.log("PV102 remains the accessible public demo sample.");
 console.log("CTS package proof QA passed: generated JSON parses and public proof text is sanitized.");
 console.log("CTS slide template proof QA passed: 10 decks, 19 slides each, direct PPTX editing gated.");

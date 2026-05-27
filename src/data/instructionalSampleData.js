@@ -162,21 +162,11 @@ export const portalData = {
       visibility_scope: "prism_private",
       status: "private_source_ingested",
       description:
-        "Private-first PRISM Core framework for life design, self-mastery, critical thinking, and action-based confidence work with youth ages 18-24.",
+        "PRISM Core framework for life design, self-mastery, critical thinking, and action-based confidence work with young adults. Full program content is owner-private and not bundled in the public app.",
       demo_summary:
         "A PRISM-owned framework for helping young adults turn stuckness, information overload, and future uncertainty into clear design questions, prototype actions, and safer learning artifacts. Demo mode shows only this high-level overview.",
-      canonical_path: "CANONICAL://02_PROJECTS/PRISM/programs/design-thinking-for-a-joyful-life",
-      source_version: "v0.1",
-      evidence_status: "mixed_requires_review",
-      allowed_exports: ["owner_json", "owner_markdown", "future_curated_demo"],
       default_demo_behavior: "public_demo_summary_only",
-      owner_only_notes_path: "CANONICAL://02_PROJECTS/PRISM/programs/design-thinking-for-a-joyful-life/90_REVIEW/NEXT_ACTIONS.md",
-      created_from_import_id: "import_prism_dtjl_2026_05_25_v0_1",
-      owner_visibility: "prism_private",
-      demo_visibility: "public_demo_summary_only",
-      boundary_statement:
-        "PRISM_DTJL is PRISM Core, private-first, demo-summary-only, and not AYA implementation.",
-      module_ids: ["module_prism_dtjl_catalyst"]
+      module_ids: []
     }
   ],
   modules: [
@@ -196,40 +186,6 @@ export const portalData = {
         { label: "Helper mode", value: "Cursor SDK drafts, approval before canonical" }
       ],
       session_ids: ["brief_pv102_day5"]
-    },
-    {
-      id: "module_prism_dtjl_catalyst",
-      program_id: "program_prism_dtjl",
-      program_key: "PRISM_DTJL",
-      module_key: "CATALYST_BLUEPRINT_V0_1",
-      title: "The Catalyst Blueprint v0.1",
-      course_code: "CATALYST_BLUEPRINT_V0_1",
-      cohort_label: "PRISM Core",
-      status: "private_source_ingested",
-      visibility_scope: "prism_private",
-      canonical_path: "CANONICAL://02_PROJECTS/PRISM/programs/design-thinking-for-a-joyful-life",
-      source_version: "v0.1",
-      created_from_import_id: "import_prism_dtjl_2026_05_25_v0_1",
-      description:
-        "Owner-only scaffold for the Design Thinking for a Joyful Life framework. This pass records the source structure and privacy boundary only; it does not expand curriculum content.",
-      source_structure: [
-        "00_GOVERNANCE",
-        "01_SOURCES",
-        "02_PROGRAM_OS",
-        "03_AGENT_SKILLS",
-        "04_CURRICULUM",
-        "05_ARTIFACT_RECIPES",
-        "06_ASSESSMENTS",
-        "07_EXPORTS",
-        "90_REVIEW",
-        "IMPORT_MANIFEST.json"
-      ],
-      summary_boxes: [
-        { label: "Scope", value: "PRISM Core" },
-        { label: "Visibility", value: "Owner private" },
-        { label: "Demo", value: "Summary only" }
-      ],
-      session_ids: []
     }
   ],
   session_briefs: [
@@ -456,8 +412,7 @@ Use quiz results, practice-sheet evidence, and lab-readiness constraints to gene
       visibility_scope: "prism_private",
       is_primary: true,
       sort_order: 10,
-      notes: "Canonical bridge artifact.",
-      private_notes: "Use this to regenerate the next session from real state."
+      notes: "Canonical bridge artifact."
     },
     {
       id: "artifact_prism_overlay",
@@ -534,13 +489,10 @@ Use quiz results, practice-sheet evidence, and lab-readiness constraints to gene
       run_key: "PV102_DAY5_2026-03-26_DEMO_DRAFT",
       session_brief_id: "brief_pv102_day5",
       session_key: "PV102_DAY5_2026-03-26",
-      runtime: "local_cursor_sdk",
       status: "draft_ready",
       approval_status: "waiting_review",
-      draft_path:
-        "CANONICAL://00_INBOX/AI_DRAFTS/INSTRUCTIONAL/PV102_DAY5_2026-03-26_DEMO_DRAFT",
       summary:
-        "Sample local helper run showing the draft-then-approve workflow. Owner mode can review it; demo mode cannot see draft paths or logs.",
+        "Sample helper run showing the draft-then-approve workflow. Owner mode can review it; demo mode cannot see draft paths or logs. Local runtime and draft path are owner-only and not bundled in the public app.",
       started_at: "2026-03-26T09:00:00-07:00",
       finished_at: "2026-03-26T09:08:00-07:00"
     }

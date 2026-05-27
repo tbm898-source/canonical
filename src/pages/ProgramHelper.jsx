@@ -24,14 +24,22 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { portalData } from "@/data/instructionalSampleData";
-import slideTemplateSummary from "../../content/packages/generated/cts-rcs-10week-slide-templates.summary.json";
+import packageIndex from "@content/packages/index.json";
+import ctsPackageSummary from "@content/packages/generated/cts-master-package-v1.summary.json";
+import slideTemplateSummary from "@content/packages/generated/cts-rcs-10week-slide-templates.summary.json";
 import LiveIntegrationsPanel from "@/components/program-helper/LiveIntegrationsPanel";
 import { useAuth } from "@/lib/AuthContext";
+import { getCapabilityRegistry } from "@/lib/canonicalCapabilities";
 import {
   CONNECTOR_MODES,
   buildExportManifest,
   createDefaultClassification,
 } from "@/lib/canonicalConnectorPolicy";
+import {
+  getOwnerAccessState,
+  normalizeRequestedMode,
+  resolveWorkbenchMode,
+} from "@/lib/ownerAccessPolicy";
 import {
   PROGRAM_VIEW_MODES,
   getAccessibleModuleForProgram,
@@ -41,54 +49,6 @@ import {
 } from "@/lib/programAccessPolicy";
 
 const demoScopes = new Set(["demo_safe", "aya_safe", "prism_curated"]);
-
-const ownerRoles = new Set(["admin", "owner"]);
-const ownerModeAliases = new Set(["owner", "admin"]);
-const ownerFlagKeys = new Set(["is_admin", "admin", "isOwner", "is_owner"]);
-const roleKeys = new Set([
-  "role",
-  "roles",
-  "portal_role",
-  "app_role",
-  "app_roles",
-  "app_user_role",
-  "user_role",
-  "permissions",
-]);
-
-function isLocalPreviewHost() {
-  return ["localhost", "127.0.0.1", "::1"].includes(window.location.hostname);
-}
-
-function userHasOwnerAccess(user) {
-  if (!user) return false;
-  const possibleRoles = [];
-  const collectRoles = (value, key = "") => {
-    if (value == null) return;
-    if (typeof value === "boolean" && ownerFlagKeys.has(key) && value) {
-      possibleRoles.push("admin");
-      return;
-    }
-    if (typeof value === "string" || typeof value === "number" || typeof value === "boolean") {
-      if (roleKeys.has(key)) possibleRoles.push(value);
-      return;
-    }
-    if (Array.isArray(value)) {
-      value.forEach((item) => collectRoles(item, key));
-      return;
-    }
-    if (typeof value === "object") {
-      Object.entries(value).forEach(([nextKey, nextValue]) => {
-        collectRoles(nextValue, nextKey);
-      });
-    }
-  };
-
-  collectRoles(user);
-
-  const hasOwnerRole = possibleRoles.some((role) => ownerRoles.has(String(role || "").toLowerCase()));
-  return Boolean(hasOwnerRole);
-}
 
 const fadeUp = {
   hidden: { opacity: 1, y: 0 },
@@ -1013,6 +973,161 @@ function ProgramLibraryPanel({ programs, selectedProgramId, owner, onSelect }) {
   );
 }
 
+function OwnerPrivateBadge() {
+  return (
+    <span className="inline-flex items-center gap-1 rounded-full border border-amber-300 bg-amber-50 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-amber-800">
+      <Lock className="h-3 w-3" /> Owner-private
+    </span>
+  );
+}
+
+function OwnerPrismDataPanel({ state, data, program, onRetry }) {
+  const fetchedProgram = data?.program ?? null;
+  const fetchedModules = Array.isArray(data?.modules) ? data.modules : [];
+  const fetchedArtifacts = Array.isArray(data?.artifacts) ? data.artifacts : [];
+  const fetchedWarnings = Array.isArray(data?.warnings) ? data.warnings : [];
+
+  const sourceStructureFromArtifacts = (() => {
+    for (const artifact of fetchedArtifacts) {
+      const ss = artifact?.generated_json?.source_structure;
+      if (Array.isArray(ss) && ss.length > 0) return ss;
+    }
+    return [];
+  })();
+
+  return (
+    <section className="mb-6 grid gap-6 lg:grid-cols-[1fr_0.9fr]">
+      <Surface className="bg-gradient-to-br from-white to-indigo-50/60">
+        <div className="flex items-start justify-between gap-3">
+          <SectionTitle
+            eyebrow="Owner-private framework"
+            title={program.title}
+            icon={Lock}
+          />
+          <OwnerPrivateBadge />
+        </div>
+        <div className="grid gap-4 text-sm leading-6 text-[#0a0a0a]/55">
+          <p>{fetchedProgram?.description || program.demo_summary || program.description}</p>
+          {state === "ready" && fetchedProgram && (
+            <div className="rounded-2xl border border-indigo-100 bg-white/70 p-4">
+              <div className="text-xs font-semibold uppercase tracking-wide text-indigo-600">
+                Boundary
+              </div>
+              <p className="mt-2 text-sm leading-6 text-[#0a0a0a]/55">
+                {fetchedArtifacts.find((a) => a?.generated_json?.boundary_statement)
+                  ?.generated_json?.boundary_statement ||
+                  "PRISM_DTJL is PRISM Core, private-first, demo-summary-only, and not AYA implementation."}
+              </p>
+            </div>
+          )}
+          {state === "loading" && (
+            <div className="rounded-2xl border border-indigo-100 bg-white/70 p-4 text-sm text-[#0a0a0a]/55">
+              Loading owner-private PRISM data from the Base44 backend...
+            </div>
+          )}
+          {state === "not_seeded" && (
+            <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
+              <div className="font-semibold">No CanonicalProgram record yet for {program.program_key}.</div>
+              <p className="mt-1">
+                The public bundle no longer carries the private framework details. To populate the
+                owner view, invoke the owner-only one-shot seed function{" "}
+                <span className="font-mono">seedPrismDtjlFromBundle</span> from the Base44 console (or via an
+                authenticated POST). Once seeded, reload this panel.
+              </p>
+              {fetchedWarnings.length > 0 && (
+                <ul className="mt-2 list-disc pl-5 text-xs text-amber-800/80">
+                  {fetchedWarnings.map((w, i) => (
+                    <li key={i}>{w}</li>
+                  ))}
+                </ul>
+              )}
+              <Button variant="outline" size="sm" className="mt-3" onClick={onRetry}>
+                <RefreshCcw className="mr-2 h-3.5 w-3.5" /> Retry fetch
+              </Button>
+            </div>
+          )}
+          {state === "error" && (
+            <div className="rounded-2xl border border-rose-200 bg-rose-50 p-4 text-sm text-rose-900">
+              <div className="font-semibold">Could not load owner PRISM data.</div>
+              <p className="mt-1">{data?.error || "Unknown error."}</p>
+              <Button variant="outline" size="sm" className="mt-3" onClick={onRetry}>
+                <RefreshCcw className="mr-2 h-3.5 w-3.5" /> Retry
+              </Button>
+            </div>
+          )}
+        </div>
+      </Surface>
+
+      <Surface>
+        <div className="flex items-start justify-between gap-3">
+          <SectionTitle
+            eyebrow="Owner source structure"
+            title="Imported scaffold"
+            icon={Shield}
+          />
+          <OwnerPrivateBadge />
+        </div>
+        {state === "ready" && fetchedProgram ? (
+          <div className="grid gap-4">
+            <div className="grid gap-3 sm:grid-cols-2">
+              <MetricTile label="Program key" value={fetchedProgram.program_key} />
+              <MetricTile
+                label="Module key"
+                value={fetchedModules[0]?.module_key || "Not opened"}
+              />
+              <MetricTile
+                label="Evidence"
+                value={fetchedProgram.evidence_status || "Not tagged"}
+              />
+              <MetricTile
+                label="Demo behavior"
+                value={fetchedProgram.default_demo_behavior || "Not set"}
+              />
+            </div>
+            {fetchedProgram.canonical_path && (
+              <div className="rounded-2xl border border-black/5 bg-[#fafafa] p-4">
+                <div className="text-xs font-semibold uppercase tracking-wide text-[#0a0a0a]/35">
+                  Canonical pointer
+                </div>
+                <p className="mt-2 break-words text-sm text-[#0a0a0a]/55">
+                  {fetchedProgram.canonical_path}
+                </p>
+              </div>
+            )}
+            {sourceStructureFromArtifacts.length > 0 && (
+              <div className="rounded-2xl border border-black/5 bg-[#fafafa] p-4">
+                <div className="text-xs font-semibold uppercase tracking-wide text-[#0a0a0a]/35">
+                  Source structure
+                </div>
+                <ul className="mt-3 grid gap-2 text-sm text-[#0a0a0a]/55">
+                  {sourceStructureFromArtifacts.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {fetchedProgram.owner_only_notes_path && (
+              <div className="rounded-2xl border border-black/5 bg-[#fafafa] p-4">
+                <div className="text-xs font-semibold uppercase tracking-wide text-[#0a0a0a]/35">
+                  Owner-only notes pointer
+                </div>
+                <p className="mt-2 break-words text-sm text-[#0a0a0a]/55">
+                  {fetchedProgram.owner_only_notes_path}
+                </p>
+              </div>
+            )}
+          </div>
+        ) : (
+          <p className="text-sm leading-6 text-[#0a0a0a]/50">
+            Source structure and owner pointers load from the authenticated Base44 backend, not from
+            the public bundle. {state === "loading" ? "Loading..." : "Populate by seeding the Base44 entities."}
+          </p>
+        )}
+      </Surface>
+    </section>
+  );
+}
+
 function ProgramOverviewPanel({ program, module, owner }) {
   const sourceStructure = owner && Array.isArray(module?.source_structure) ? module.source_structure : [];
   const summaryOnly = isDemoSummaryOnly(program, owner ? PROGRAM_VIEW_MODES.OWNER : PROGRAM_VIEW_MODES.DEMO);
@@ -1087,6 +1202,101 @@ function ProgramOverviewPanel({ program, module, owner }) {
   );
 }
 
+const packageSummaries = {
+  "cts-master-package-v1": ctsPackageSummary,
+  "cts-rcs-10week-slide-templates": slideTemplateSummary,
+};
+
+function PackageLibraryPanel({ owner }) {
+  const packages = packageIndex.packages.map((item) => ({
+    ...item,
+    summary: packageSummaries[item.package_id],
+  }));
+
+  return (
+    <Surface className="mb-6">
+      <SectionTitle eyebrow="Package library" title="Available proof and template packages" icon={PackageCheck} />
+      <div className="grid gap-4 lg:grid-cols-2">
+        {packages.map((item) => {
+          const summary = item.summary || {};
+          return (
+            <article key={item.package_id} className="rounded-2xl border border-black/5 bg-[#fafafa] p-5">
+              <div className="flex flex-wrap items-start justify-between gap-3">
+                <div>
+                  <h4 className="text-base font-semibold text-[#0a0a0a]">{item.title}</h4>
+                  <p className="mt-2 text-sm leading-6 text-[#0a0a0a]/55">
+                    {summary.purpose || "Sanitized package metadata is available for this proof object."}
+                  </p>
+                </div>
+                <span className="rounded-full bg-indigo-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-indigo-600">
+                  {owner ? "Owner visible" : "Demo safe"}
+                </span>
+              </div>
+              <div className="mt-4 grid gap-3 sm:grid-cols-3">
+                <MetricTile label="Scope" value={summary.scope || item.scope || "Not set"} />
+                <MetricTile label="Exposure" value={summary.public_exposure || item.public_exposure || "Sanitized"} />
+                <MetricTile label="Hash" value={summary.source_package?.sha256_matches_expected ? "Verified" : "Recorded"} />
+              </div>
+              {owner && (
+                <div className="mt-4 rounded-xl border border-black/5 bg-white p-4">
+                  <div className="text-xs font-semibold uppercase tracking-wide text-[#0a0a0a]/35">
+                    Owner package metadata
+                  </div>
+                  <p className="mt-2 break-words text-sm text-[#0a0a0a]/55">
+                    Source file: {summary.source_package?.file_name || "not recorded"}
+                  </p>
+                  <p className="mt-1 text-sm text-[#0a0a0a]/55">
+                    Package type: {summary.package_type || "proof_package"}
+                  </p>
+                  <p className="mt-1 text-sm text-[#0a0a0a]/55">
+                    Generation support: {summary.generation_support?.current_v1?.replace(/_/g, " ") || "metadata only"}
+                  </p>
+                </div>
+              )}
+            </article>
+          );
+        })}
+      </div>
+    </Surface>
+  );
+}
+
+function OwnerDiagnosticsPanel({ ownerAccess, requestedMode, resolvedMode, user, capabilities }) {
+  return (
+    <Surface className="mb-6">
+      <SectionTitle eyebrow="Owner diagnostics" title="Auth, mode, and capability state" icon={Shield} />
+      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <MetricTile label="Resolved mode" value={resolvedMode} />
+        <MetricTile label="Owner access" value={ownerAccess.allowed ? "allowed" : "blocked"} />
+        <MetricTile label="Access reason" value={ownerAccess.reason} />
+        <MetricTile label="Role source" value={ownerAccess.roleSource} />
+      </div>
+      <div className="mt-4 rounded-2xl border border-black/5 bg-[#fafafa] p-4">
+        <div className="text-xs font-semibold uppercase tracking-wide text-[#0a0a0a]/35">
+          Safe auth summary
+        </div>
+        <p className="mt-2 text-sm text-[#0a0a0a]/55">
+          Requested mode: {requestedMode || "none"} / Authenticated as: {user?.email || "not signed in"} / Roles:{" "}
+          {ownerAccess.roles.length ? ownerAccess.roles.join(", ") : "none detected"}
+        </p>
+      </div>
+      <div className="mt-4 grid gap-2">
+        {capabilities.map((capability) => (
+          <div key={capability.key} className="flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-[#fafafa] p-3">
+            <div>
+              <div className="text-sm font-semibold text-[#0a0a0a]">{capability.label}</div>
+              <div className="text-xs text-[#0a0a0a]/45">{capability.reason}</div>
+            </div>
+            <span className="rounded-full bg-white px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-[#0a0a0a]/55">
+              {capability.status}
+            </span>
+          </div>
+        ))}
+      </div>
+    </Surface>
+  );
+}
+
 function OutputPreviewCard({ title, content, onCopy }) {
   return (
     <article className="min-w-0 rounded-2xl border border-black/5 bg-white p-4">
@@ -1138,17 +1348,17 @@ function DemoAgentWorkbench({
         <div>
           <div className="inline-flex items-center gap-2 rounded-full bg-indigo-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-indigo-600">
             <Wand2 className="h-3.5 w-3.5" />
-            {owner ? "Demo-safe agent lane" : "Demo agent"}
+            {owner ? "Owner packet generator" : "Demo agent"}
           </div>
           <h3 className="mt-3 text-2xl font-semibold tracking-tight text-[#0a0a0a]">
             Generate a whole day packet from rough notes
           </h3>
           <p className="mt-2 max-w-3xl text-sm leading-6 text-[#0a0a0a]/50">
-            Generate class packets, facilitator overlays, handouts, quizzes, export bundles, and canonical filing plans while keeping AYA and PRISM rails separate. Demo mode prepares the preview without calling private runner endpoints or reading local files.
+            Generate class packets, facilitator overlays, handouts, quizzes, export bundles, and canonical filing plans while keeping AYA and PRISM rails separate. Owner mode can pass generated packets to enabled backend actions; demo mode stays local and connector-free.
           </p>
         </div>
         <span className="shrink-0 rounded-full border border-indigo-100 bg-white px-3 py-1 text-xs font-semibold text-indigo-600">
-          {owner ? "Owner can compare with private helper" : "Demo-safe, not saved"}
+          {owner ? "Owner available" : "Demo-safe, not saved"}
         </span>
       </div>
 
@@ -1165,7 +1375,7 @@ function DemoAgentWorkbench({
           <div className="mt-4 grid min-w-0 gap-3 sm:grid-cols-2">
             <Button className="gap-2 bg-[#0a0a0a] text-white hover:bg-[#1a1a1a]" onClick={onGenerate}>
               <Wand2 className="h-4 w-4" />
-              Generate demo day
+              {owner ? "Generate owner packet" : "Generate demo day"}
             </Button>
             <Button
               variant="outline"
@@ -1199,11 +1409,13 @@ function DemoAgentWorkbench({
             <p className="mt-3 text-xs font-semibold text-emerald-700">{copyStatus}</p>
           )}
           <div className="mt-4 rounded-2xl border border-amber-100 bg-amber-50 p-4 text-sm leading-6 text-amber-900">
-            Demo guardrail: generated previews are temporary browser state. They do not create official CANONICAL files or expose raw PRISM notes until the owner approves and files them.
+            {owner
+              ? "Owner guardrail: generated packets stay draft-local until you run an enabled approval/export action."
+              : "Demo guardrail: generated previews are temporary browser state. They do not create official CANONICAL files or expose raw PRISM notes."}
           </div>
           <div className="mt-4 rounded-2xl border border-black/5 bg-[#fafafa] p-4">
             <div className="text-xs font-semibold uppercase tracking-wide text-[#0a0a0a]/35">
-              Demo agent can prepare
+              {owner ? "Owner generator can prepare" : "Demo agent can prepare"}
             </div>
             <ul className="mt-3 space-y-2 text-sm leading-5 text-[#0a0a0a]/50">
               {capabilities.map((capability) => (
@@ -1247,14 +1459,18 @@ function DemoAgentWorkbench({
 export default function ProgramHelper() {
   const query = new URLSearchParams(window.location.search);
   const { user, isAuthenticated } = useAuth();
-  const localOwnerAccess = isLocalPreviewHost();
-  const liveOwnerAccess = isAuthenticated && userHasOwnerAccess(user);
-  const ownerAccessAllowed = localOwnerAccess || liveOwnerAccess;
-  const requestedMode = String(query.get("mode") || "").toLowerCase();
-  const requestedOwnerMode = ownerModeAliases.has(requestedMode);
-  const shouldEnterOwnerByDefault = liveOwnerAccess && !requestedMode;
-  const initialMode =
-    (requestedOwnerMode && ownerAccessAllowed) || shouldEnterOwnerByDefault ? "owner" : "demo";
+  const ownerAccess = useMemo(
+    () => getOwnerAccessState({ user, isAuthenticated }),
+    [isAuthenticated, user],
+  );
+  const requestedMode = normalizeRequestedMode(query.get("mode") || "");
+  const requestedOwnerMode = requestedMode === "owner";
+  const shouldEnterOwnerByDefault = ownerAccess.liveOwnerAccess && !requestedMode;
+  const initialMode = resolveWorkbenchMode({
+    requestedMode,
+    ownerAccess,
+    hasExplicitMode: query.has("mode"),
+  });
   const [mode, setMode] = useState(initialMode);
   const [entered, setEntered] = useState(query.has("mode") || shouldEnterOwnerByDefault);
   const [selectedProgramId, setSelectedProgramId] = useState(query.get("program") || portalData.programs[0].id);
@@ -1263,19 +1479,22 @@ export default function ProgramHelper() {
   const [generatedPackage, setGeneratedPackage] = useState(null);
   const [copyStatus, setCopyStatus] = useState("");
   const [runStatus, setRunStatus] = useState("draft_ready");
+  const [prismDataState, setPrismDataState] = useState("idle");
+  const [prismData, setPrismData] = useState(null);
+  const [prismFetchKey, setPrismFetchKey] = useState(0);
 
   useEffect(() => {
-    if (!ownerAccessAllowed && mode === "owner") {
+    if (!ownerAccess.allowed && mode === "owner") {
       setMode("demo");
     }
-  }, [mode, ownerAccessAllowed]);
+  }, [mode, ownerAccess.allowed]);
 
   useEffect(() => {
-    if (requestedOwnerMode && ownerAccessAllowed && mode !== "owner") {
+    if (requestedOwnerMode && ownerAccess.allowed && mode !== "owner") {
       setMode("owner");
       setEntered(true);
     }
-  }, [mode, ownerAccessAllowed, requestedOwnerMode]);
+  }, [mode, ownerAccess.allowed, requestedOwnerMode]);
 
   useEffect(() => {
     if (!entered && shouldEnterOwnerByDefault) {
@@ -1284,11 +1503,67 @@ export default function ProgramHelper() {
     }
   }, [entered, shouldEnterOwnerByDefault]);
 
-  const owner = ownerAccessAllowed && mode === "owner";
+  const owner = ownerAccess.allowed && mode === "owner";
   const viewMode = owner ? PROGRAM_VIEW_MODES.OWNER : PROGRAM_VIEW_MODES.DEMO;
   const visiblePrograms = useMemo(() => getVisiblePrograms(portalData.programs, viewMode), [viewMode]);
   const program = visiblePrograms.find((item) => item.id === selectedProgramId) ?? visiblePrograms[0];
   const module = getModuleForProgram(program, viewMode);
+
+  const programKeyForFetch = program?.program_key;
+  const programVisibilityForFetch = program?.visibility_scope;
+  const shouldFetchPrismFull =
+    owner && programVisibilityForFetch === "prism_private" && Boolean(programKeyForFetch);
+
+  useEffect(() => {
+    if (!shouldFetchPrismFull) {
+      setPrismDataState("idle");
+      setPrismData(null);
+      return undefined;
+    }
+
+    let cancelled = false;
+    setPrismDataState("loading");
+    setPrismData(null);
+
+    const run = async () => {
+      try {
+        const { base44 } = await import("@/api/base44Client");
+        const response = await base44.functions.invoke("getCanonicalProgramFull", {
+          program_key: programKeyForFetch,
+        });
+        if (cancelled) return;
+        const result = response?.data ?? response;
+        if (!result || result.success !== true) {
+          setPrismData({
+            error:
+              result?.error ||
+              "Failed to load owner PRISM data. Check that you are signed in as an admin and that the Base44 function is deployed.",
+          });
+          setPrismDataState("error");
+          return;
+        }
+        if (!result.program) {
+          setPrismData(result);
+          setPrismDataState("not_seeded");
+          return;
+        }
+        setPrismData(result);
+        setPrismDataState("ready");
+      } catch (error) {
+        if (cancelled) return;
+        setPrismData({
+          error: error?.message || "Network or auth error while loading owner PRISM data.",
+        });
+        setPrismDataState("error");
+      }
+    };
+
+    run();
+    return () => {
+      cancelled = true;
+    };
+  }, [shouldFetchPrismFull, programKeyForFetch, prismFetchKey]);
+
   const brief = getBrief(module?.session_ids?.[0]);
   const bundle = getBundle(brief?.id);
   const summaryOnly = isDemoSummaryOnly(program, viewMode) || !brief || !bundle;
@@ -1307,6 +1582,10 @@ export default function ProgramHelper() {
   const agentRun = brief
     ? portalData.agent_runs?.find((run) => run.session_key === brief.session_key) ?? portalData.agent_runs?.[0]
     : null;
+  const capabilities = useMemo(
+    () => getCapabilityRegistry({ owner, generatedPackage }),
+    [generatedPackage, owner],
+  );
 
   const handleSelectProgram = (programId) => {
     const nextRawProgram = getProgram(programId);
@@ -1331,7 +1610,7 @@ export default function ProgramHelper() {
         owner ? CONNECTOR_MODES.OWNER_PREVIEW : CONNECTOR_MODES.DEMO,
       ),
     );
-    setCopyStatus("Demo packet generated. Exports are ready.");
+    setCopyStatus(owner ? "Owner packet generated. Export actions are ready." : "Demo packet generated. Exports are ready.");
     window.setTimeout(() => setCopyStatus(""), 1800);
   };
 
@@ -1347,7 +1626,7 @@ export default function ProgramHelper() {
   };
 
   const showOwnerWorkbench = () => {
-    if (!ownerAccessAllowed) return;
+    if (!ownerAccess.allowed) return;
     setMode("owner");
     setEntered(true);
   };
@@ -1418,7 +1697,7 @@ export default function ProgramHelper() {
             </h2>
             <AccessModeSwitcher
               owner={owner}
-              ownerAccessAllowed={ownerAccessAllowed}
+              ownerAccessAllowed={ownerAccess.allowed}
               onOwner={showOwnerWorkbench}
               onDemo={showDemoViewer}
             />
@@ -1441,6 +1720,9 @@ export default function ProgramHelper() {
           <div className="flex items-center gap-5">
             <a href="#program-library" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
               Programs
+            </a>
+            <a href="#package-library" className="hidden text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a] sm:block">
+              Packages
             </a>
             {!summaryOnly && (
               <>
@@ -1513,7 +1795,7 @@ export default function ProgramHelper() {
           <motion.div variants={fadeUp} custom={3} className="rounded-3xl border border-black/5 bg-white p-5 shadow-sm">
             <AccessModeSwitcher
               owner={owner}
-              ownerAccessAllowed={ownerAccessAllowed}
+              ownerAccessAllowed={ownerAccess.allowed}
               onOwner={showOwnerWorkbench}
               onDemo={showDemoViewer}
             />
@@ -1532,10 +1814,33 @@ export default function ProgramHelper() {
           />
         </div>
 
+        {owner && (
+          <OwnerDiagnosticsPanel
+            ownerAccess={ownerAccess}
+            requestedMode={requestedMode}
+            resolvedMode={mode}
+            user={user}
+            capabilities={capabilities}
+          />
+        )}
+
+        <div id="package-library" className="scroll-mt-24">
+          <PackageLibraryPanel owner={owner} />
+        </div>
+
         {summaryOnly ? (
           <>
             <ModeGuardrails owner={owner} summaryOnly />
-            <ProgramOverviewPanel program={program} module={module} owner={owner} />
+            {owner && program?.visibility_scope === "prism_private" ? (
+              <OwnerPrismDataPanel
+                state={prismDataState}
+                data={prismData}
+                program={program}
+                onRetry={() => setPrismFetchKey((k) => k + 1)}
+              />
+            ) : (
+              <ProgramOverviewPanel program={program} module={module} owner={owner} />
+            )}
           </>
         ) : (
           <>
