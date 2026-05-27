@@ -1,8 +1,23 @@
-// Inlined helpers from base44/functions/_shared/canonicalPolicy.ts.
-// Base44 deploy on this app cannot resolve relative ../_shared/ imports
-// (see canary2 isolation experiment 2026-05-27). Source-of-truth for owner
-// policy logic remains _shared/canonicalPolicy.ts; this is a duplicated
-// subset required for runtime. Keep in sync manually.
+// Owner-only PRISM program reader.
+//
+// This function returns the same response shape the frontend
+// OwnerPrismDataPanel expects: { success, program, modules, artifacts,
+// warnings, error, timestamp }.
+//
+// On this Base44 plan, the entity layer (CanonicalProgram, CanonicalModule,
+// CanonicalGeneratedArtifact) is not provisioned: `npx base44 entities push`
+// is blocked with "This endpoint is only available for Backend Platform apps".
+// Until that is resolved (either by upgrading the app or by creating those
+// schemas manually in the dashboard), the PRISM_DTJL data lives inline in
+// this function file. It is still server-side: never bundled into the public
+// frontend, never visible to non-owners, and gated by requireOwnerAdmin.
+//
+// When entities become available, the inline branch below can be replaced
+// with the entity-based read path (filter CanonicalProgram by program_key,
+// then CanonicalModule + CanonicalGeneratedArtifact).
+//
+// Inlined policy helpers below (Base44 deploy cannot resolve ../_shared/
+// imports on this app; see canary2 isolation experiment 2026-05-27).
 import { createClientFromRequest } from "npm:@base44/sdk@0.8.25";
 
 function nowIso() {
@@ -96,16 +111,86 @@ async function requireOwnerAdmin(base44: any) {
   return { email, roles: [...new Set(roles)] };
 }
 
-function getRecordList(response: unknown) {
-  if (Array.isArray(response)) return response;
-  const data = (response as { data?: unknown })?.data;
-  if (Array.isArray(data)) return data;
-  const items = (response as { items?: unknown })?.items;
-  if (Array.isArray(items)) return items;
-  const records = (response as { records?: unknown })?.records;
-  if (Array.isArray(records)) return records;
-  return [];
-}
+// Inlined PRISM_DTJL data (owner-private). Source-of-truth for now until
+// the entity layer is provisioned. Keep this aligned with PRISM source notes.
+const PRISM_DTJL_PROGRAM = {
+  program_key: "PRISM_DTJL",
+  title: "Design Thinking for a Joyful Life",
+  program_family: "PRISM Core framework",
+  ownership_rail: "PRISM_CORE",
+  visibility_scope: "prism_private",
+  status: "private_source_ingested",
+  description:
+    "Private-first PRISM Core framework for life design, self-mastery, critical thinking, and action-based confidence work with youth ages 18-24.",
+  demo_summary:
+    "A PRISM-owned framework for helping young adults turn stuckness, information overload, and future uncertainty into clear design questions, prototype actions, and safer learning artifacts. Demo mode shows only this high-level overview.",
+  canonical_path:
+    "CANONICAL://02_PROJECTS/PRISM/programs/design-thinking-for-a-joyful-life",
+  source_version: "v0.1",
+  evidence_status: "mixed_requires_review",
+  allowed_exports: ["owner_json", "owner_markdown", "future_curated_demo"],
+  default_demo_behavior: "public_demo_summary_only",
+  owner_only_notes_path:
+    "CANONICAL://02_PROJECTS/PRISM/programs/design-thinking-for-a-joyful-life/90_REVIEW/NEXT_ACTIONS.md",
+  created_from_import_id: "import_prism_dtjl_2026_05_25_v0_1",
+  created_at: "2026-05-25T00:00:00.000Z",
+  updated_at: "2026-05-27T06:00:00.000Z",
+};
+
+const PRISM_DTJL_MODULES = [
+  {
+    program_key: "PRISM_DTJL",
+    module_key: "CATALYST_BLUEPRINT_V0_1",
+    title: "The Catalyst Blueprint v0.1",
+    status: "private_source_ingested",
+    visibility_scope: "prism_private",
+    canonical_path:
+      "CANONICAL://02_PROJECTS/PRISM/programs/design-thinking-for-a-joyful-life",
+    source_version: "v0.1",
+    created_from_import_id: "import_prism_dtjl_2026_05_25_v0_1",
+    description:
+      "Owner-only scaffold for the Design Thinking for a Joyful Life framework. Records the source structure and privacy boundary; curriculum content is added by separate owner workflows.",
+  },
+];
+
+const PRISM_DTJL_ARTIFACTS = [
+  {
+    artifact_id: "prism_dtjl_source_structure_index_v0_1",
+    module_key: "CATALYST_BLUEPRINT_V0_1",
+    session_key: "",
+    session_title: "PRISM_DTJL source structure index",
+    title: "PRISM_DTJL Source Structure Index",
+    rail: "prism",
+    visibility_scope: "prism_private",
+    artifact_type: "manifest",
+    audience: "operator",
+    format: "json",
+    privacy_level: "restricted",
+    status: "approved",
+    version: "v0.1",
+    generated_json: {
+      source_structure: [
+        "00_GOVERNANCE",
+        "01_SOURCES",
+        "02_PROGRAM_OS",
+        "03_AGENT_SKILLS",
+        "04_CURRICULUM",
+        "05_ARTIFACT_RECIPES",
+        "06_ASSESSMENTS",
+        "07_EXPORTS",
+        "90_REVIEW",
+        "IMPORT_MANIFEST.json",
+      ],
+      canonical_root:
+        "CANONICAL://02_PROJECTS/PRISM/programs/design-thinking-for-a-joyful-life",
+      boundary_statement:
+        "PRISM_DTJL is PRISM Core, private-first, demo-summary-only, and not AYA implementation.",
+    },
+    warnings: [
+      "Owner-only. Do not export to AYA classroom, public demo, or Google Classroom destinations.",
+    ],
+  },
+];
 
 function emptyPayload(extra: Record<string, unknown> = {}) {
   return {
@@ -145,23 +230,15 @@ Deno.serve(async (req) => {
       );
     }
 
-    const programResponse =
-      await base44.asServiceRole.entities.CanonicalProgram.filter(
-        { program_key: programKey },
-        "-updated_at",
-        1,
-      );
-    const program = getRecordList(programResponse)[0] || null;
-
-    if (!program) {
+    if (programKey === "PRISM_DTJL") {
       return Response.json(
         {
           success: true,
-          program: null,
-          modules: [],
-          artifacts: [],
+          program: PRISM_DTJL_PROGRAM,
+          modules: PRISM_DTJL_MODULES,
+          artifacts: PRISM_DTJL_ARTIFACTS,
           warnings: [
-            `No CanonicalProgram record found for program_key="${programKey}". Owner can seed by invoking seedPrismDtjlFromBundle (PRISM_DTJL only) or by inserting records via the Base44 console.`,
+            "PRISM_DTJL data is currently served from an inline server-side source on this Base44 plan (entity layer is not provisioned). When entities become available, this function will switch to entity-backed reads.",
           ],
           timestamp: nowIso(),
           error: null,
@@ -170,42 +247,15 @@ Deno.serve(async (req) => {
       );
     }
 
-    const modulesResponse =
-      await base44.asServiceRole.entities.CanonicalModule.filter(
-        { program_key: programKey },
-        "-updated_at",
-        200,
-      );
-    const modules = getRecordList(modulesResponse);
-
-    const artifacts: unknown[] = [];
-    const artifactWarnings: string[] = [];
-    for (const mod of modules as Array<{ module_key?: string }>) {
-      if (!mod?.module_key) continue;
-      try {
-        const artifactResponse =
-          await base44.asServiceRole.entities.CanonicalGeneratedArtifact.filter(
-            { module_key: mod.module_key },
-            "-updated_at",
-            100,
-          );
-        for (const artifact of getRecordList(artifactResponse)) {
-          artifacts.push(artifact);
-        }
-      } catch (error) {
-        artifactWarnings.push(
-          `Could not load artifacts for module_key="${mod.module_key}": ${safeErrorMessage(error)}`,
-        );
-      }
-    }
-
     return Response.json(
       {
         success: true,
-        program,
-        modules,
-        artifacts,
-        warnings: artifactWarnings,
+        program: null,
+        modules: [],
+        artifacts: [],
+        warnings: [
+          `No inline data for program_key="${programKey}". Only PRISM_DTJL is currently served inline. Other programs require the entity layer, which is not provisioned on this app's plan.`,
+        ],
         timestamp: nowIso(),
         error: null,
       },
