@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import AdminAuditLog from "@/components/dashboard/AdminAuditLog";
 import {
   ArrowLeft,
   Archive,
@@ -150,6 +151,8 @@ export default function Dashboard() {
               </motion.article>
             ))}
           </section>
+
+          <AdminAuditLog />
 
           <section className="mt-10 rounded-3xl border border-indigo-100 bg-indigo-50 p-6">
             <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
