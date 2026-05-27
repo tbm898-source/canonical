@@ -24,9 +24,9 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { portalData } from "@/data/instructionalSampleData";
-import packageIndex from "../content/packages/index.json";
-import ctsPackageSummary from "../content/packages/generated/cts-master-package-v1.summary.json";
-import slideTemplateSummary from "../content/packages/generated/cts-rcs-10week-slide-templates.summary.json";
+import packageIndex from "@content/packages/index.json";
+import ctsPackageSummary from "@content/packages/generated/cts-master-package-v1.summary.json";
+import slideTemplateSummary from "@content/packages/generated/cts-rcs-10week-slide-templates.summary.json";
 import LiveIntegrationsPanel from "@/components/program-helper/LiveIntegrationsPanel";
 import { useAuth } from "@/lib/AuthContext";
 import { getCapabilityRegistry } from "@/lib/canonicalCapabilities";

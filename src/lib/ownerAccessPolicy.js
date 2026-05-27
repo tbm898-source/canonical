@@ -1,65 +1,99 @@
-export const WORKBENCH_MODES = {
-  OWNER: "owner",
-  DEMO: "demo",
-};
+export const OWNER_MODE_ALIASES = new Set(["owner", "admin"]);
+export const OWNER_ROLES = new Set(["admin", "owner"]);
 
-/**
- * Determine owner access state from auth context.
- */
-export function getOwnerAccessState({ user, isAuthenticated }) {
+const ownerFlagKeys = new Set(["is_admin", "admin", "isOwner", "is_owner"]);
+const roleKeys = new Set([
+  "role",
+  "roles",
+  "portal_role",
+  "app_role",
+  "app_roles",
+  "app_user_role",
+  "user_role",
+  "permissions",
+]);
+
+export function isLocalPreviewHost(hostname = globalThis.window?.location?.hostname || "") {
+  return ["localhost", "127.0.0.1", "::1"].includes(hostname);
+}
+
+function configuredOwnerEmails() {
+  return String(import.meta.env.VITE_CANONICAL_OWNER_EMAILS || "")
+    .split(",")
+    .map((email) => email.trim().toLowerCase())
+    .filter(Boolean);
+}
+
+export function collectUserRoles(user) {
   const roles = [];
+  const collectRoles = (value, key = "") => {
+    if (value == null) return;
+    if (typeof value === "boolean" && ownerFlagKeys.has(key) && value) {
+      roles.push("admin");
+      return;
+    }
+    if (typeof value === "string" || typeof value === "number" || typeof value === "boolean") {
+      if (roleKeys.has(key)) roles.push(String(value));
+      return;
+    }
+    if (Array.isArray(value)) {
+      value.forEach((item) => collectRoles(item, key));
+      return;
+    }
+    if (typeof value === "object") {
+      Object.entries(value).forEach(([nextKey, nextValue]) => collectRoles(nextValue, nextKey));
+    }
+  };
 
-  if (user?.role) roles.push(user.role);
+  collectRoles(user);
+  return [...new Set(roles.map((role) => String(role || "").toLowerCase()).filter(Boolean))];
+}
 
-  const isAdmin = roles.includes("admin");
-  const isOwner = roles.includes("owner");
-  const liveOwnerAccess = isAuthenticated && (isAdmin || isOwner);
-
-  if (!isAuthenticated) {
-    return {
-      allowed: false,
-      liveOwnerAccess: false,
-      reason: "not_authenticated",
-      roleSource: "none",
-      roles,
-    };
-  }
-
-  if (liveOwnerAccess) {
-    return {
-      allowed: true,
-      liveOwnerAccess: true,
-      reason: isAdmin ? "admin_role" : "owner_role",
-      roleSource: "base44_auth",
-      roles,
-    };
-  }
+export function getOwnerAccessState({
+  user,
+  isAuthenticated = false,
+  allowLocalPreview = true,
+  hostname,
+} = {}) {
+  const roles = collectUserRoles(user);
+  const hasOwnerRole = roles.some((role) => OWNER_ROLES.has(role));
+  const normalizedEmail = String(user?.email || "").toLowerCase();
+  const envAllowlistMatch = Boolean(
+    isAuthenticated && normalizedEmail && configuredOwnerEmails().includes(normalizedEmail),
+  );
+  const localPreviewAccess = Boolean(allowLocalPreview && isLocalPreviewHost(hostname));
+  const liveOwnerAccess = Boolean(isAuthenticated && (hasOwnerRole || envAllowlistMatch));
+  const allowed = localPreviewAccess || liveOwnerAccess;
+  const reason = localPreviewAccess
+    ? "local_preview_bypass"
+    : liveOwnerAccess
+      ? hasOwnerRole
+        ? "authenticated_owner_role"
+        : "authenticated_owner_allowlist"
+      : isAuthenticated
+        ? "authenticated_non_owner"
+        : "not_authenticated";
 
   return {
-    allowed: false,
-    liveOwnerAccess: false,
-    reason: "insufficient_role",
-    roleSource: "base44_auth",
+    allowed,
+    liveOwnerAccess,
+    localPreviewAccess,
     roles,
+    reason,
+    roleSource: hasOwnerRole ? "role" : envAllowlistMatch ? "env_allowlist" : "none",
   };
 }
 
-/**
- * Normalize a raw mode string from URL params.
- */
-export function normalizeRequestedMode(raw) {
-  const val = String(raw || "").toLowerCase().trim();
-  if (val === "owner") return "owner";
-  if (val === "demo") return "demo";
+export function normalizeRequestedMode(value = "") {
+  const mode = String(value || "").toLowerCase();
+  if (OWNER_MODE_ALIASES.has(mode)) return "owner";
+  if (mode === "demo") return "demo";
   return "";
 }
 
-/**
- * Resolve the initial workbench mode based on request and access state.
- */
-export function resolveWorkbenchMode({ requestedMode, ownerAccess, hasExplicitMode }) {
-  if (requestedMode === "owner" && ownerAccess.allowed) return "owner";
-  if (requestedMode === "demo") return "demo";
-  if (!hasExplicitMode && ownerAccess.liveOwnerAccess) return "owner";
+export function resolveWorkbenchMode({ requestedMode = "", ownerAccess, hasExplicitMode = false } = {}) {
+  const normalizedMode = normalizeRequestedMode(requestedMode);
+  if (normalizedMode === "owner" && ownerAccess?.allowed) return "owner";
+  if (!hasExplicitMode && ownerAccess?.liveOwnerAccess) return "owner";
   return "demo";
 }

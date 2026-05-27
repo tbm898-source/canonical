@@ -1,82 +1,109 @@
-export function getCapabilityRegistry({ owner, generatedPackage }) {
-  const base = [
-    {
-      key: "session_brief",
-      label: "Session Brief generation",
-      status: "available",
-      reason: "Always available in both demo and owner mode.",
-    },
-    {
-      key: "aya_daily_plan",
-      label: "AYA Daily Plan",
-      status: "available",
-      reason: "AYA-safe output available in demo and owner mode.",
-    },
-    {
-      key: "student_work_log",
-      label: "Student Work Log",
-      status: "available",
-      reason: "Student-safe output available in all modes.",
-    },
-    {
-      key: "qc_evidence_card",
-      label: "QC / Evidence Card",
-      status: "available",
-      reason: "Evidence capture available in all modes.",
-    },
-    {
-      key: "slide_outline",
-      label: "Slide / Deck Outline",
-      status: "available",
-      reason: "Slide outline available in all modes.",
-    },
-    {
-      key: "classroom_copy",
-      label: "Google Classroom Draft",
-      status: owner ? "available" : "demo_only",
-      reason: owner
-        ? "Owner mode can prepare classroom drafts."
-        : "Prepared locally in demo mode. No connector call.",
-    },
-    {
-      key: "prism_curated",
-      label: "Curated PRISM Framing",
-      status: "available",
-      reason: "Demo-safe PRISM framing available in all modes.",
-    },
-    {
-      key: "filing_plan",
-      label: "Filing / Package Plan",
-      status: "available",
-      reason: "Filing plan prepared locally.",
-    },
-    {
-      key: "json_export",
-      label: "JSON Export",
-      status: generatedPackage ? "ready" : "needs_generation",
-      reason: generatedPackage
-        ? "Packet generated — JSON export ready."
-        : "Generate a packet first.",
-    },
-    {
-      key: "markdown_export",
-      label: "Markdown Export",
-      status: generatedPackage ? "ready" : "needs_generation",
-      reason: generatedPackage
-        ? "Packet generated — Markdown export ready."
-        : "Generate a packet first.",
-    },
-    {
-      key: "dropbox_save",
-      label: "Dropbox Save",
-      status: owner ? (generatedPackage ? "available" : "needs_generation") : "blocked_demo",
-      reason: owner
-        ? generatedPackage
-          ? "Owner mode with packet ready. Requires spine discovery and approval."
-          : "Generate a packet first to enable Dropbox save."
-        : "Dropbox connector writes are blocked in demo mode.",
-    },
-  ];
+export const CAPABILITY_STATUSES = {
+  DEMO_ONLY: "Demo only",
+  OWNER_AVAILABLE: "Owner available",
+  DRY_RUN_AVAILABLE: "Dry-run available",
+  LIVE_WRITE_ENABLED: "Live write enabled",
+  BACKEND_DECLARED: "Backend declared but not connected",
+  NOT_IMPLEMENTED: "Not implemented yet",
+  BLOCKED: "Blocked",
+};
 
-  return base;
+export const CANONICAL_CAPABILITIES = [
+  {
+    key: "connector_health",
+    label: "Connector health",
+    functionName: "canonicalConnectorHealth",
+    maturity: CAPABILITY_STATUSES.OWNER_AVAILABLE,
+  },
+  {
+    key: "dropbox_spine_discovery",
+    label: "Dropbox spine discovery",
+    functionName: "canonicalSpineDiscovery",
+    maturity: CAPABILITY_STATUSES.OWNER_AVAILABLE,
+  },
+  {
+    key: "dropbox_file_list",
+    label: "Dropbox metadata list",
+    functionName: "canonicalDropboxFileOps",
+    maturity: CAPABILITY_STATUSES.OWNER_AVAILABLE,
+  },
+  {
+    key: "dropbox_packet_save",
+    label: "Dropbox packet save",
+    functionName: "saveInstructionalPacketToDropbox",
+    maturity: CAPABILITY_STATUSES.LIVE_WRITE_ENABLED,
+  },
+  {
+    key: "classroom_dry_run",
+    label: "Classroom export draft",
+    functionName: "prepareClassroomExport",
+    maturity: CAPABILITY_STATUSES.DRY_RUN_AVAILABLE,
+  },
+  {
+    key: "clickup_dry_run",
+    label: "ClickUp task draft",
+    functionName: "prepareClickUpExport",
+    maturity: CAPABILITY_STATUSES.DRY_RUN_AVAILABLE,
+  },
+  {
+    key: "gmail_send",
+    label: "Gmail/email send",
+    functionName: null,
+    maturity: CAPABILITY_STATUSES.NOT_IMPLEMENTED,
+  },
+];
+
+export function getCapabilityRegistry({
+  owner = false,
+  generatedPackage = null,
+  acceptedSpineMap = null,
+  validationOk = false,
+} = {}) {
+  return CANONICAL_CAPABILITIES.map((capability) => {
+    if (!owner) {
+      return {
+        ...capability,
+        available: false,
+        status: CAPABILITY_STATUSES.DEMO_ONLY,
+        reason: "Owner/admin login required.",
+      };
+    }
+
+    if (capability.key === "dropbox_packet_save") {
+      const available = Boolean(generatedPackage && acceptedSpineMap?.canonical_spine_map_id && validationOk);
+      return {
+        ...capability,
+        available,
+        status: available ? CAPABILITY_STATUSES.LIVE_WRITE_ENABLED : CAPABILITY_STATUSES.BLOCKED,
+        reason: available
+          ? "Approved spine map, generated packet, and safe classification are present."
+          : "Requires generated packet, accepted spine map, and valid rail/visibility classification.",
+      };
+    }
+
+    if (["classroom_dry_run", "clickup_dry_run"].includes(capability.key)) {
+      return {
+        ...capability,
+        available: Boolean(generatedPackage),
+        status: generatedPackage ? capability.maturity : CAPABILITY_STATUSES.BLOCKED,
+        reason: generatedPackage ? "Generated packet is ready for dry-run adapter output." : "Generate a packet first.",
+      };
+    }
+
+    if (capability.maturity === CAPABILITY_STATUSES.NOT_IMPLEMENTED) {
+      return {
+        ...capability,
+        available: false,
+        status: capability.maturity,
+        reason: "No V1 backend action is enabled for this capability.",
+      };
+    }
+
+    return {
+      ...capability,
+      available: true,
+      status: capability.maturity,
+      reason: "Available to verified owner/admin users.",
+    };
+  });
 }
