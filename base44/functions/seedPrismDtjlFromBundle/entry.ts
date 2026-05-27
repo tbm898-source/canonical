@@ -1,5 +1,5 @@
 // deploy-bump: 2026-05-27 — force redeploy after requireOwnerAdmin export landed in _shared/canonicalPolicy
-import { createClientFromRequest } from "npm:@base44/sdk";
+import { createClientFromRequest } from "npm:@base44/sdk@0.8.25";
 import {
   nowIso,
   requireOwnerAdmin,
