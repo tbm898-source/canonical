@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://canonical.local/schemas/inbox-manifest.schema.json",
+  "title": "Inbox Manifest",
+  "description": "Summary of a single dry-run scan over an inbox folder. Metadata only.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "manifest_id",
+    "scan_mode",
+    "inbox_root",
+    "generated_at",
+    "summary",
+    "source_records"
+  ],
+  "properties": {
+    "manifest_id": {
+      "type": "string",
+      "minLength": 8
+    },
+    "scan_mode": {
+      "type": "string",
+      "enum": [
+        "dry_run"
+      ]
+    },
+    "inbox_root": {
+      "type": "string",
+      "minLength": 1
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "total_files",
+        "by_rail",
+        "by_privacy",
+        "by_confidence",
+        "review_required_count"
+      ],
+      "properties": {
+        "total_files": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "by_rail": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "aya",
+            "prism",
+            "canonical",
+            "unknown"
+          ],
+          "properties": {
+            "aya": { "type": "integer", "minimum": 0 },
+            "prism": { "type": "integer", "minimum": 0 },
+            "canonical": { "type": "integer", "minimum": 0 },
+            "unknown": { "type": "integer", "minimum": 0 }
+          }
+        },
+        "by_privacy": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "public_demo",
+            "aya_classroom",
+            "canonical_internal",
+            "prism_private",
+            "unknown"
+          ],
+          "properties": {
+            "public_demo": { "type": "integer", "minimum": 0 },
+            "aya_classroom": { "type": "integer", "minimum": 0 },
+            "canonical_internal": { "type": "integer", "minimum": 0 },
+            "prism_private": { "type": "integer", "minimum": 0 },
+            "unknown": { "type": "integer", "minimum": 0 }
+          }
+        },
+        "by_confidence": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "low",
+            "medium",
+            "high"
+          ],
+          "properties": {
+            "low": { "type": "integer", "minimum": 0 },
+            "medium": { "type": "integer", "minimum": 0 },
+            "high": { "type": "integer", "minimum": 0 }
+          }
+        },
+        "review_required_count": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "source_records": {
+      "type": "array",
+      "items": {
+        "$ref": "./source-record.schema.json"
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "profile_id": "canonical.google_classroom_export.v0_1",
+  "output_type": "google_classroom_export",
+  "allowed_rails": ["aya", "canonical"],
+  "allowed_visibility_scopes": ["aya_classroom"],
+  "required_source_fields": ["program_key", "module_key", "session_key", "source_path"],
+  "output_contract": {
+    "format": "json",
+    "required_sections": ["title", "body", "topic", "materials"]
+  },
+  "forbidden_patterns": ["prism_private", "owner_only_notes_path", "access_token", "Bearer "],
+  "status": "approved",
+  "notes": "Dry-run export payload contract only in v0.1."
+}

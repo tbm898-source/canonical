@@ -1,0 +1,14 @@
+{
+  "profile_id": "canonical.daily_run.v0_1",
+  "output_type": "daily_run",
+  "allowed_rails": ["aya", "canonical"],
+  "allowed_visibility_scopes": ["aya_classroom", "canonical_internal", "public_demo"],
+  "required_source_fields": ["program_key", "module_key", "session_key", "source_path"],
+  "output_contract": {
+    "format": "markdown+json",
+    "required_sections": ["day_focus", "targets", "flow", "evidence", "next_step"]
+  },
+  "forbidden_patterns": ["access_token", "Bearer ", "owner_only_notes_path", "C:/Users/"],
+  "status": "approved",
+  "notes": "First generated output target in milestone 3."
+}

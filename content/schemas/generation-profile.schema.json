@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://canonical.local/schemas/generation-profile.schema.json",
+  "title": "Generation Profile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "profile_id",
+    "output_type",
+    "allowed_rails",
+    "allowed_visibility_scopes",
+    "required_source_fields",
+    "output_contract",
+    "forbidden_patterns",
+    "status"
+  ],
+  "properties": {
+    "profile_id": {
+      "type": "string",
+      "minLength": 3
+    },
+    "output_type": {
+      "type": "string",
+      "enum": [
+        "daily_run",
+        "slide_outline",
+        "student_handout",
+        "quiz",
+        "instructor_guide",
+        "evidence_checklist",
+        "google_classroom_export",
+        "prism_facilitator_overlay"
+      ]
+    },
+    "allowed_rails": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": [
+          "aya",
+          "prism",
+          "canonical"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "allowed_visibility_scopes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": [
+          "public_demo",
+          "aya_classroom",
+          "canonical_internal",
+          "prism_private"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "required_source_fields": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "output_contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "format",
+        "required_sections"
+      ],
+      "properties": {
+        "format": {
+          "type": "string",
+          "enum": [
+            "markdown",
+            "json",
+            "markdown+json"
+          ]
+        },
+        "required_sections": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      }
+    },
+    "forbidden_patterns": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "approved"
+      ]
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "profile_id": "canonical.prism_facilitator_overlay.v0_1",
+  "output_type": "prism_facilitator_overlay",
+  "allowed_rails": ["prism"],
+  "allowed_visibility_scopes": ["prism_private"],
+  "required_source_fields": ["program_key", "module_key", "session_key", "source_path"],
+  "output_contract": {
+    "format": "markdown+json",
+    "required_sections": ["facilitator_intent", "intervention_logic", "risk_flags", "continuity_prompt"]
+  },
+  "forbidden_patterns": ["public_demo", "aya_classroom", "access_token", "Bearer "],
+  "status": "approved",
+  "notes": "Owner/admin only; never export to student-facing paths."
+}
