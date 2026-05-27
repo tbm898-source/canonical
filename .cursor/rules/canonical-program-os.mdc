@@ -1,0 +1,43 @@
+---
+description: Canonical Program OS project rules
+alwaysApply: true
+---
+
+# Canonical Program OS Cursor Rules
+
+This repo powers Canonical Program OS.
+
+Core purpose:
+Turn scattered project files, curriculum materials, AI outputs, workflows, and institutional memory into one coherent operating system for educators, builders, and operators.
+
+Primary rails:
+- AYA/CTS: institutional and classroom-facing materials
+- PRISM: private framework, facilitator logic, owner-only program architecture
+- CANONICAL: system infrastructure, inbox parsing, generation pipelines, connector logic
+
+Rules:
+- Do not expose PRISM private content to public/demo users.
+- Do not mix PRISM private framework language into AYA/CTS student-facing materials.
+- Do not unlock owner/admin mode by query string alone.
+- Owner/Admin mode requires verified auth and authorization.
+- Do not fake live connector functionality.
+- Label features truthfully as demo, dry-run, owner available, live enabled, declared only, or not implemented.
+- Prefer small patches over broad refactors.
+- Audit before implementation.
+- One fix per step unless explicitly instructed otherwise.
+- Never commit, publish, move files, change DNS, or run live connector writes unless explicitly instructed.
+
+## PRISM owner/admin visibility rule
+
+PRISM private data is not public data.
+
+Verified owner/admin users should be able to access full PRISM program data, facilitator logic, private framework notes, source indexes, and owner-only program architecture inside Owner/Admin mode.
+
+Public, demo, and authenticated non-owner users must only see demo-safe summaries.
+
+Do not place private PRISM data in publicly bundled frontend content if it must remain truly private. If PRISM content is sensitive, load it through an authenticated Base44 function/entity path that verifies owner/admin access before returning it.
+
+UI hiding is not security. Query-string mode is not security. Owner/admin authorization must happen before private PRISM data is returned or rendered.
+
+Never expose secrets, connector tokens, raw credentials, or live write keys in frontend code, owner mode, demo mode, logs, or diagnostics.
+For multi-agent workflow, governance, approval gates, and implementation flow, follow docs/CANONICAL_Agent_Council_Flow_v0_1.md.
