@@ -275,3 +275,76 @@ export async function safeCreateConnectorRun(base44: any, data: Record<string, u
     // connector function to fail or expose backend details.
   }
 }
+
+const OWNER_ROLES = new Set(["admin", "owner"]);
+
+function getRecordList(response: any) {
+  if (Array.isArray(response)) return response;
+  if (Array.isArray(response?.data)) return response.data;
+  if (Array.isArray(response?.items)) return response.items;
+  if (Array.isArray(response?.records)) return response.records;
+  return [];
+}
+
+function collectRoles(value: unknown, key = "", roles: string[] = []) {
+  const roleKeys = new Set([
+    "role",
+    "roles",
+    "portal_role",
+    "app_role",
+    "app_roles",
+    "app_user_role",
+    "user_role",
+    "permissions",
+  ]);
+  const ownerFlagKeys = new Set(["is_admin", "admin", "isOwner", "is_owner"]);
+
+  if (value == null) return roles;
+  if (typeof value === "boolean" && ownerFlagKeys.has(key) && value) {
+    roles.push("admin");
+    return roles;
+  }
+  if (typeof value === "string" || typeof value === "number" || typeof value === "boolean") {
+    if (roleKeys.has(key)) roles.push(String(value));
+    return roles;
+  }
+  if (Array.isArray(value)) {
+    value.forEach((item) => collectRoles(item, key, roles));
+    return roles;
+  }
+  if (typeof value === "object") {
+    Object.entries(value as Record<string, unknown>).forEach(([nextKey, nextValue]) =>
+      collectRoles(nextValue, nextKey, roles),
+    );
+  }
+  return roles;
+}
+
+export async function requireOwnerAdmin(base44: any) {
+  const currentUser = await base44.auth.me();
+  const email = String(currentUser?.email || "").toLowerCase();
+  const roleSources = [currentUser];
+
+  if (email) {
+    try {
+      const matchingUsers = await base44.asServiceRole.entities.User.filter({ email }, "-updated_date", 5);
+      const appUser =
+        getRecordList(matchingUsers).find(
+          (record: Record<string, unknown>) => String(record?.email || "").toLowerCase() === email,
+        ) || getRecordList(matchingUsers)[0];
+      if (appUser) roleSources.push(appUser);
+    } catch (_error) {
+      // Role enrichment is best-effort; the auth user may already include a role.
+    }
+  }
+
+  const roles = roleSources.flatMap((source) => collectRoles(source)).map((role) => role.toLowerCase());
+  if (!roles.some((role) => OWNER_ROLES.has(role))) {
+    throw new Error("Owner/admin role required for this backend action.");
+  }
+
+  return {
+    email,
+    roles: [...new Set(roles)],
+  };
+}
