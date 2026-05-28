@@ -316,6 +316,12 @@ function validateExportRequest(payload: any) {
       code: "missing",
       message: "target_list_id is required before live ClickUp export.",
     });
+  } else if (!/^\d{6,}$/.test(targetListId)) {
+    errors.push({
+      field: "target_list_id",
+      code: "invalid_format",
+      message: "target_list_id must be a numeric ClickUp list ID from the list URL, not the list name.",
+    });
   }
 
   return {
@@ -452,11 +458,18 @@ Deno.serve(async (req) => {
       }
     }
 
-    const { accessToken } = await base44.asServiceRole.connectors.getConnection("clickup");
+    let accessToken = "";
+    try {
+      const connection = await base44.asServiceRole.connectors.getConnection("clickup");
+      accessToken = connection?.accessToken || "";
+    } catch (_error) {
+      accessToken = "";
+    }
     if (!accessToken) {
       return Response.json(
         emptyEnvelope({
-          error: "ClickUp connector is not available.",
+          error:
+            "ClickUp connector is not connected on this Base44 app. Connect ClickUp in Base44 Integrations, then retry.",
         }),
       );
     }
