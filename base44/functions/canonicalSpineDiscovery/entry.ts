@@ -107,14 +107,68 @@ function scoreRoot(name: string, folderNames: string[]) {
   return expectedHits + canonicalNameScore;
 }
 
-function recommendedPaths(rootPath: string, detected: string[]) {
+function recommendedPaths(rootPath: string, detected: string[], prismPrivatePath = "") {
   const has = (name: string) => detected.includes(name);
+  const prismPath =
+    prismPrivatePath ||
+    joinDropboxPath(rootPath, has("09_PRISM_Private") ? "09_PRISM_Private" : "09_PRISM_Private");
   return {
     canonical_internal: joinDropboxPath(rootPath, has("04_Exports") ? "04_Exports" : "05_Manifests"),
     aya_classroom: joinDropboxPath(rootPath, has("07_Classroom_Ready") ? "07_Classroom_Ready" : "00_STUDENT_PACKET"),
-    prism_private: joinDropboxPath(rootPath, "09_PRISM_Private"),
+    prism_private: prismPath,
     public_demo: joinDropboxPath(rootPath, "04_Exports", "Public_Demo"),
   };
+}
+
+async function walkForSpineCandidates(
+  accessToken: string,
+  path: string,
+  depth: number,
+  maxDepth: number,
+  candidateRoots: Array<Record<string, unknown>>,
+) {
+  if (depth > maxDepth) return;
+
+  let childFolders: DropboxEntry[] = [];
+  try {
+    childFolders = await listDropboxFolder(accessToken, path);
+  } catch (_error) {
+    return;
+  }
+
+  const childNames = childFolders.map((child) => child.name || "").filter(Boolean);
+  const detectedSpineFolders = childNames.filter((folder) => EXPECTED_SPINE_FOLDERS.includes(folder));
+  const prismPrivateEntry = childFolders.find((child) => child.name === "09_PRISM_Private");
+  const rootName = path.split("/").filter(Boolean).pop() || "Dropbox root";
+
+  if (detectedSpineFolders.length >= 2 || prismPrivateEntry) {
+    candidateRoots.push({
+      root_name: rootName,
+      root_path: path,
+      detected_folders: detectedSpineFolders,
+      prism_private_path: prismPrivateEntry?.path_display || joinDropboxPath(path, "09_PRISM_Private"),
+      score: scoreRoot(rootName, childNames) + (prismPrivateEntry ? 15 : 0),
+    });
+  }
+
+  for (const entry of childFolders) {
+    const name = entry.name || "";
+    if (!/canonical|02_projects|prism|CANONICAL|09_prism_private/i.test(name)) continue;
+    const childPath = entry.path_display || joinDropboxPath(path, name);
+    await walkForSpineCandidates(accessToken, childPath, depth + 1, maxDepth, candidateRoots);
+  }
+}
+
+function dedupeCandidateRoots(
+  candidateRoots: Array<Record<string, unknown>>,
+) {
+  const seen = new Set<string>();
+  return candidateRoots.filter((root) => {
+    const key = String(root.root_path || "");
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
 }
 
 Deno.serve(async (req) => {
@@ -137,6 +191,7 @@ Deno.serve(async (req) => {
         root_name: "Dropbox root",
         root_path: "",
         detected_folders: rootExpectedHits,
+        prism_private_path: joinDropboxPath("", "09_PRISM_Private"),
         score: scoreRoot("Dropbox root", rootFolderNames),
       });
     }
@@ -152,20 +207,24 @@ Deno.serve(async (req) => {
         childFolders = [];
       }
       const childNames = childFolders.map((child) => child.name || "").filter(Boolean);
+      const prismPrivateEntry = childFolders.find((child) => child.name === "09_PRISM_Private");
       candidateRoots.push({
         root_name: name,
         root_path: pathDisplay,
         detected_folders: childNames.filter((folder) => EXPECTED_SPINE_FOLDERS.includes(folder)),
-        score: scoreRoot(name, childNames),
+        prism_private_path: prismPrivateEntry?.path_display || joinDropboxPath(pathDisplay, "09_PRISM_Private"),
+        score: scoreRoot(name, childNames) + (prismPrivateEntry ? 15 : 0),
       });
+      await walkForSpineCandidates(accessToken, pathDisplay, 1, 3, candidateRoots);
     }
 
-    candidateRoots.sort((a, b) => b.score - a.score);
+    const uniqueCandidates = dedupeCandidateRoots(candidateRoots);
+    uniqueCandidates.sort((a, b) => Number(b.score || 0) - Number(a.score || 0));
     const selectedRoot =
-      candidateRoots.find((root) => root.root_path === payload.selected_root_path) ||
-      candidateRoots[0] ||
+      uniqueCandidates.find((root) => root.root_path === payload.selected_root_path) ||
+      uniqueCandidates[0] ||
       null;
-    const detectedFolders = selectedRoot?.detected_folders || [];
+    const detectedFolders = (selectedRoot?.detected_folders as string[]) || [];
     const missingExpectedFolders = EXPECTED_SPINE_FOLDERS.filter(
       (folder) => folder !== "CANONICAL" && !detectedFolders.includes(folder),
     );
@@ -179,7 +238,11 @@ Deno.serve(async (req) => {
     }
 
     const recommended_artifact_paths = selectedRoot
-      ? recommendedPaths(selectedRoot.root_path, detectedFolders)
+      ? recommendedPaths(
+          String(selectedRoot.root_path || ""),
+          detectedFolders,
+          String(selectedRoot.prism_private_path || ""),
+        )
       : {
           canonical_internal: "",
           aya_classroom: "",
@@ -188,11 +251,12 @@ Deno.serve(async (req) => {
         };
 
     let canonical_spine_map_id = null;
+    let accepted_spine_map: Record<string, unknown> | null = null;
     if (payload.accept_discovered_map && selectedRoot) {
-      const record = await base44.asServiceRole.entities.CanonicalSpineMap.create({
+      const mapPayload = {
         root_name: selectedRoot.root_name,
         root_path: selectedRoot.root_path,
-        candidate_roots: candidateRoots.map(({ score, ...root }) => root),
+        candidate_roots: uniqueCandidates.map(({ score, ...root }) => root),
         detected_folders: detectedFolders,
         missing_expected_folders: missingExpectedFolders,
         recommended_paths: recommended_artifact_paths,
@@ -202,8 +266,19 @@ Deno.serve(async (req) => {
         discovery_warnings: warnings,
         created_at: nowIso(),
         updated_at: nowIso(),
-      });
-      canonical_spine_map_id = record.id;
+      };
+
+      try {
+        const record = await base44.asServiceRole.entities.CanonicalSpineMap.create(mapPayload);
+        canonical_spine_map_id = record.id;
+        accepted_spine_map = { ...mapPayload, id: record.id };
+      } catch (_error) {
+        canonical_spine_map_id = `stateless_${Date.now()}`;
+        accepted_spine_map = { ...mapPayload, id: canonical_spine_map_id, persistence: "stateless" };
+        warnings.push(
+          "Entity API unavailable. Spine acceptance is held statelessly for this export session.",
+        );
+      }
     }
 
     await safeCreateConnectorRun(base44, {
@@ -218,25 +293,27 @@ Deno.serve(async (req) => {
         ? "Read Dropbox folder metadata and proposed a CANONICAL spine map."
         : "Read Dropbox folder metadata but did not find a confident CANONICAL root.",
       safe_metadata: {
-        candidate_root_count: candidateRoots.length,
+        candidate_root_count: uniqueCandidates.length,
         detected_folder_count: detectedFolders.length,
         accepted: Boolean(canonical_spine_map_id),
+        stateless: Boolean(accepted_spine_map?.persistence === "stateless"),
       },
       warnings,
     });
 
     return Response.json({
-      success: true,
+      success: Boolean(selectedRoot) || uniqueCandidates.length > 0,
       connector: "dropbox",
       mode: "read_only_discovery",
-      candidate_roots: candidateRoots.map(({ score, ...root }) => root),
+      candidate_roots: uniqueCandidates.map(({ score, ...root }) => root),
       detected_spine_folders: detectedFolders,
       missing_expected_folders: missingExpectedFolders,
       recommended_artifact_paths,
       canonical_spine_map_id,
+      accepted_spine_map,
       warnings,
       timestamp: nowIso(),
-      error: null,
+      error: selectedRoot ? null : "No confident CANONICAL spine root was discovered.",
     });
   } catch (error) {
     return Response.json(

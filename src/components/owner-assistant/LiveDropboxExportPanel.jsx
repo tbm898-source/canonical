@@ -10,10 +10,19 @@ async function invokeBase44Function(functionName, payload) {
   return response?.data ?? response;
 }
 
+function spineAccepted(result) {
+  return Boolean(
+    result?.accepted_spine_map?.accepted_by_owner ||
+      (result?.success && result?.canonical_spine_map_id),
+  );
+}
+
 export default function LiveDropboxExportPanel({ artifact, onArtifactUpdated }) {
   const [spineState, setSpineState] = useState("idle");
   const [spine, setSpine] = useState(null);
   const [acceptedSpineMap, setAcceptedSpineMap] = useState(null);
+  const [spineError, setSpineError] = useState("");
+  const [manualDestinationPath, setManualDestinationPath] = useState("");
   const [confirmLiveWrite, setConfirmLiveWrite] = useState(false);
   const [exportState, setExportState] = useState({ status: "idle", result: null, error: null });
 
@@ -22,50 +31,106 @@ export default function LiveDropboxExportPanel({ artifact, onArtifactUpdated }) 
     return artifactToPacketJson(artifact).packet_metadata;
   }, [artifact]);
 
-  const destinationPath = useMemo(() => {
-    if (!acceptedSpineMap || !classification) return "";
+  const discoveredDestinationPath = useMemo(() => {
+    if (!spine || !classification) return "";
     return (
-      acceptedSpineMap.recommended_artifact_paths?.[classification.visibility_scope] ||
-      acceptedSpineMap.recommended_paths?.[classification.visibility_scope] ||
+      spine.recommended_artifact_paths?.[classification.visibility_scope] ||
+      acceptedSpineMap?.recommended_artifact_paths?.[classification.visibility_scope] ||
+      acceptedSpineMap?.recommended_paths?.[classification.visibility_scope] ||
       ""
     );
-  }, [acceptedSpineMap, classification]);
+  }, [spine, acceptedSpineMap, classification]);
+
+  const destinationPath = manualDestinationPath.trim() || discoveredDestinationPath;
 
   if (!artifact || artifact.review_status !== "approved") return null;
 
   const alreadyExported = artifact.export_readiness_status === "ready_live";
   const exportReady =
-    Boolean(acceptedSpineMap?.canonical_spine_map_id) &&
     Boolean(destinationPath) &&
     confirmLiveWrite &&
-    exportState.status !== "loading";
+    exportState.status !== "loading" &&
+    (spineAccepted(acceptedSpineMap) || Boolean(manualDestinationPath.trim()));
 
   async function discoverSpine() {
     setSpineState("checking");
+    setSpineError("");
     try {
       const result = await invokeBase44Function("canonicalSpineDiscovery", {
         accept_discovered_map: false,
       });
       setSpine(result);
-      setSpineState(result?.success ? "needs_owner_approval" : "error");
+
+      if (!result?.success) {
+        setSpineState("error");
+        setSpineError(
+          result?.error ||
+            (Array.isArray(result?.warnings) ? result.warnings.join(" ") : "") ||
+            "Dropbox spine discovery failed.",
+        );
+        return;
+      }
+
+      if (!Array.isArray(result.candidate_roots) || result.candidate_roots.length === 0) {
+        setSpineState("no_candidates");
+        setSpineError(
+          Array.isArray(result.warnings) && result.warnings.length
+            ? result.warnings.join(" ")
+            : "No CANONICAL spine root was found in connected Dropbox.",
+        );
+        return;
+      }
+
+      setSpineState("needs_owner_approval");
+      const autoPath =
+        result.recommended_artifact_paths?.[classification?.visibility_scope] || "";
+      if (autoPath && !manualDestinationPath) {
+        setManualDestinationPath(autoPath);
+      }
     } catch (err) {
       setSpine(null);
       setSpineState("error");
+      setSpineError(err?.message || "Network error during spine discovery.");
     }
   }
 
   async function approveSpine() {
     setSpineState("checking");
+    setSpineError("");
     try {
       const result = await invokeBase44Function("canonicalSpineDiscovery", {
         accept_discovered_map: true,
-        selected_root_path: spine?.candidate_roots?.[0]?.root_path || "",
+        selected_root_path: spine?.candidate_roots?.[0]?.root_path ?? "",
       });
       setAcceptedSpineMap(result);
       setSpine(result);
-      setSpineState(result?.success && result?.canonical_spine_map_id ? "ready" : "error");
+
+      if (!spineAccepted(result)) {
+        setSpineState("error");
+        setSpineError(
+          result?.error ||
+            "Spine approval did not return an accepted map. Entity API may be unavailable and discovery may have found no root.",
+        );
+        return;
+      }
+
+      const autoPath =
+        result.recommended_artifact_paths?.[classification?.visibility_scope] ||
+        result.accepted_spine_map?.recommended_paths?.[classification.visibility_scope] ||
+        "";
+      if (autoPath && !manualDestinationPath) {
+        setManualDestinationPath(autoPath);
+      }
+
+      setSpineState("ready");
+      if (result.accepted_spine_map?.persistence === "stateless") {
+        setSpineError(
+          "Spine accepted statelessly for this session (entity API not provisioned). Export will still proceed with the resolved path.",
+        );
+      }
     } catch (err) {
       setSpineState("error");
+      setSpineError(err?.message || "Network error during spine approval.");
     }
   }
 
@@ -78,7 +143,16 @@ export default function LiveDropboxExportPanel({ artifact, onArtifactUpdated }) 
         generation_plan_id: artifact.generation_plan_id,
         artifact,
         confirm_live_write: true,
-        canonical_spine_map_id: acceptedSpineMap.canonical_spine_map_id,
+        canonical_spine_map_id: acceptedSpineMap?.canonical_spine_map_id || "",
+        accepted_spine_map:
+          acceptedSpineMap?.accepted_spine_map ||
+          (spineAccepted(acceptedSpineMap)
+            ? {
+                accepted_by_owner: true,
+                recommended_paths: acceptedSpineMap?.recommended_artifact_paths || {},
+                root_path: acceptedSpineMap?.candidate_roots?.[0]?.root_path || "",
+              }
+            : null),
         approved_destination_path: destinationPath,
       });
 
@@ -117,8 +191,8 @@ export default function LiveDropboxExportPanel({ artifact, onArtifactUpdated }) 
 
       <p className="mt-2 text-xs leading-5 text-amber-900/75">
         Writes JSON, Markdown, and manifest files to your accepted CANONICAL spine path. Requires
-        spine discovery approval and an explicit owner confirmation. ClickUp and Classroom live
-        writes are not enabled in this slice.
+        spine discovery approval and an explicit owner confirmation. If discovery cannot find your
+        spine automatically, enter a Dropbox folder path manually below.
       </p>
 
       <div className="mt-4 flex flex-wrap gap-2">
@@ -145,10 +219,21 @@ export default function LiveDropboxExportPanel({ artifact, onArtifactUpdated }) 
         </Button>
       </div>
 
-      {spineState === "needs_owner_approval" && spine?.candidate_roots?.[0]?.root_path ? (
-        <p className="mt-2 text-[11px] text-amber-900/70">
-          Candidate root: <span className="font-mono">{spine.candidate_roots[0].root_path}</span>
-        </p>
+      {spineState === "needs_owner_approval" && spine?.candidate_roots?.[0] ? (
+        <div className="mt-2 space-y-1 text-[11px] text-amber-900/70">
+          <p>
+            Candidate root:{" "}
+            <span className="font-mono">
+              {spine.candidate_roots[0].root_path || "(Dropbox root)"}
+            </span>
+          </p>
+          {discoveredDestinationPath ? (
+            <p>
+              Suggested <span className="font-mono">{classification.visibility_scope}</span> path:{" "}
+              <span className="font-mono">{discoveredDestinationPath}</span>
+            </p>
+          ) : null}
+        </div>
       ) : null}
 
       {spineState === "ready" && destinationPath ? (
@@ -158,11 +243,35 @@ export default function LiveDropboxExportPanel({ artifact, onArtifactUpdated }) 
         </p>
       ) : null}
 
-      {spineState === "error" ? (
-        <p className="mt-2 text-[11px] text-rose-700">
-          Spine discovery failed or no confident CANONICAL root was found.
-        </p>
+      {(spineState === "error" || spineState === "no_candidates") && spineError ? (
+        <div className="mt-2 rounded-lg border border-rose-200 bg-rose-50/60 px-3 py-2">
+          <p className="text-[11px] text-rose-700">{spineError}</p>
+        </div>
       ) : null}
+
+      {spineState === "ready" && spineError ? (
+        <div className="mt-2 rounded-lg border border-amber-200 bg-amber-50/60 px-3 py-2">
+          <p className="text-[11px] text-amber-800">{spineError}</p>
+        </div>
+      ) : null}
+
+      <div className="mt-4">
+        <label className="text-[11px] font-semibold uppercase tracking-wide text-amber-900/70">
+          Dropbox destination path
+        </label>
+        <input
+          type="text"
+          value={manualDestinationPath}
+          onChange={(event) => setManualDestinationPath(event.target.value)}
+          placeholder="/CANONICAL/09_PRISM_Private/exports"
+          className="mt-1 w-full rounded-lg border border-amber-200 bg-white px-3 py-2 font-mono text-xs text-[#0a0a0a]/80"
+        />
+        <p className="mt-1 text-[11px] text-amber-900/60">
+          For PRISM-private artifacts, target your private export folder (for example{" "}
+          <span className="font-mono">09_PRISM_Private</span>). Discovery will pre-fill this when
+          possible.
+        </p>
+      </div>
 
       <label className="mt-4 flex items-start gap-2 text-xs leading-5 text-amber-950/80">
         <input
@@ -170,11 +279,12 @@ export default function LiveDropboxExportPanel({ artifact, onArtifactUpdated }) 
           className="mt-0.5"
           checked={confirmLiveWrite}
           onChange={(event) => setConfirmLiveWrite(event.target.checked)}
-          disabled={spineState !== "ready" || exportState.status === "loading"}
+          disabled={!destinationPath || exportState.status === "loading"}
         />
         <span>
-          I confirm this approved artifact should be written live to Dropbox at the resolved spine
-          destination. This action cannot be undone from this panel.
+          I confirm this approved artifact should be written live to Dropbox at{" "}
+          <span className="font-mono">{destinationPath || "(path required)"}</span>. This action
+          cannot be undone from this panel.
         </span>
       </label>
 

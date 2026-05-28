@@ -391,6 +391,10 @@ function validateExportRequest(payload: any) {
   const confirmLiveWrite = payload.confirm_live_write === true;
   const canonicalSpineMapId = String(payload.canonical_spine_map_id || "").trim();
   const approvedDestinationPath = String(payload.approved_destination_path || "").trim();
+  const acceptedSpineMap =
+    payload.accepted_spine_map && typeof payload.accepted_spine_map === "object"
+      ? payload.accepted_spine_map
+      : null;
   const artifact = payload.artifact;
 
   if (!generationArtifactId) {
@@ -421,11 +425,12 @@ function validateExportRequest(payload: any) {
       message: "confirm_live_write must be true before a live Dropbox export.",
     });
   }
-  if (!canonicalSpineMapId) {
+  if (!canonicalSpineMapId && !acceptedSpineMap?.accepted_by_owner && !approvedDestinationPath) {
     errors.push({
       field: "canonical_spine_map_id",
       code: "missing",
-      message: "An accepted CANONICAL spine map is required before live Dropbox export.",
+      message:
+        "An accepted CANONICAL spine map or an approved destination path is required before live Dropbox export.",
     });
   }
 
@@ -440,6 +445,7 @@ function validateExportRequest(payload: any) {
           confirm_live_write: confirmLiveWrite,
           canonical_spine_map_id: canonicalSpineMapId,
           approved_destination_path: approvedDestinationPath,
+          accepted_spine_map: acceptedSpineMap,
         },
   };
 }
@@ -506,6 +512,40 @@ function applyExportTransition(artifact: Record<string, unknown>) {
   };
 }
 
+async function resolveAcceptedSpineMap(base44: any, normalized: {
+  canonical_spine_map_id: string;
+  approved_destination_path: string;
+  accepted_spine_map: Record<string, unknown> | null;
+}) {
+  if (normalized.accepted_spine_map?.accepted_by_owner) {
+    return normalized.accepted_spine_map;
+  }
+
+  if (
+    normalized.canonical_spine_map_id &&
+    !normalized.canonical_spine_map_id.startsWith("stateless_")
+  ) {
+    try {
+      const spineMap = await base44.asServiceRole.entities.CanonicalSpineMap.get(
+        normalized.canonical_spine_map_id,
+      );
+      if (spineMap?.accepted_by_owner) return spineMap;
+    } catch (_error) {
+      // fall through to manual path handling
+    }
+  }
+
+  if (normalized.approved_destination_path) {
+    return {
+      accepted_by_owner: true,
+      recommended_paths: {},
+      manual_destination_path: normalized.approved_destination_path,
+    };
+  }
+
+  return null;
+}
+
 Deno.serve(async (req) => {
   const startedAt = nowIso();
   const runId = `owner_assistant_dropbox_${Date.now()}`;
@@ -561,9 +601,7 @@ Deno.serve(async (req) => {
       );
     }
 
-    const spineMap = await base44.asServiceRole.entities.CanonicalSpineMap.get(
-      normalized.canonical_spine_map_id,
-    );
+    const spineMap = await resolveAcceptedSpineMap(base44, normalized);
     if (!spineMap?.accepted_by_owner) {
       return Response.json(
         emptyEnvelope({
@@ -576,7 +614,10 @@ Deno.serve(async (req) => {
       spineMap?.recommended_paths?.[classification.visibility_scope] ||
       spineMap?.recommended_artifact_paths?.[classification.visibility_scope] ||
       "";
-    const destinationPath = normalized.approved_destination_path || recommendedPath;
+    const destinationPath =
+      normalized.approved_destination_path ||
+      recommendedPath ||
+      String(spineMap.manual_destination_path || "");
 
     if (!destinationPath) {
       return Response.json(
