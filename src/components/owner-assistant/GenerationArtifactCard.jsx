@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import CapabilityBadge from "./CapabilityBadge";
 import ExportPreviewPanel from "./ExportPreviewPanel";
 import LiveDropboxExportPanel from "./LiveDropboxExportPanel";
+import LiveClickUpExportPanel from "./LiveClickUpExportPanel";
 
 export default function GenerationArtifactCard({
   state,
@@ -153,7 +154,7 @@ export default function GenerationArtifactCard({
               <>
                 Approved and exported live to Dropbox. Export readiness is{" "}
                 <span className="font-mono">ready_live</span>. ClickUp and Classroom live writes
-                remain disabled (M8 slice 2+).
+                remain disabled (M8 slice 3).
               </>
             ) : (
               <>
@@ -221,6 +222,7 @@ export default function GenerationArtifactCard({
 
       <ExportPreviewPanel artifact={artifact} />
       <LiveDropboxExportPanel artifact={artifact} onArtifactUpdated={onArtifactUpdated} />
+      <LiveClickUpExportPanel artifact={artifact} onArtifactUpdated={onArtifactUpdated} />
     </CardShell>
   );
 }
