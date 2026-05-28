@@ -1,11 +1,15 @@
 import { portalData } from "../src/data/instructionalSampleData.js";
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import {
   PROGRAM_VIEW_MODES,
   assertNoPrivateDemoFields,
   getAccessibleModuleForProgram,
   getVisiblePrograms,
 } from "../src/lib/programAccessPolicy.js";
+
+const repoRoot = fileURLToPath(new URL("..", import.meta.url));
 
 function assert(condition, message) {
   if (!condition) {
@@ -228,9 +232,134 @@ assert(
 assert(/path=["']\/Proof["']/.test(appSource), "App must register /Proof route.");
 assert(/path=["']\/Docs\/:docId["']/.test(appSource), "App must register /Docs/:docId route.");
 
+// --- src-tree and build-bundle PRISM token scan ---
+//
+// Static scan of every committed src/**/*.{js,jsx,ts,tsx} file (plus dist/**
+// when a production build is present) for known PRISM-private tokens that
+// must never ship to the public/demo frontend. These are owner-private
+// framework concepts and source paths; if a file in src/ ever contains one
+// of them, that's a regression and this script must fail.
+const SRC_FILE_EXTENSIONS = new Set([".js", ".jsx", ".ts", ".tsx"]);
+const BUNDLE_FILE_EXTENSIONS = new Set([".js", ".mjs", ".cjs", ".css", ".html"]);
+const SCAN_IGNORE_DIRS = new Set([
+  "node_modules",
+  ".git",
+  "dist",
+  "build",
+  ".recovery",
+  ".turbo",
+  ".next",
+  ".vercel",
+]);
+
+const PRISM_PRIVATE_TOKENS = [
+  { label: "Worth Decoupling Protocol", pattern: /Worth Decoupling Protocol/ },
+  { label: "Small Win Protocol", pattern: /Small Win Protocol/ },
+  { label: "Odyssey Planning Protocol", pattern: /Odyssey Planning Protocol/ },
+  { label: "belief_shift_rubric", pattern: /belief_shift_rubric/ },
+  { label: "CATALYST_BLUEPRINT", pattern: /CATALYST_BLUEPRINT/ },
+  {
+    label: "canonical_spine/02_PROJECTS/PRISM/ path",
+    pattern: /canonical_spine[\/\\]02_PROJECTS[\/\\]PRISM[\/\\]/,
+  },
+  { label: "INTERVENTION_LIBRARY", pattern: /INTERVENTION_LIBRARY/ },
+  { label: "DIAGNOSTIC_PATTERNS", pattern: /DIAGNOSTIC_PATTERNS/ },
+  { label: "CONCEPT_ONTOLOGY", pattern: /CONCEPT_ONTOLOGY/ },
+];
+
+function walkFiles(rootDir, allowedExtensions) {
+  if (!existsSync(rootDir)) return [];
+  const out = [];
+  function visit(dir) {
+    let entries;
+    try {
+      entries = readdirSync(dir);
+    } catch {
+      return;
+    }
+    for (const entry of entries) {
+      if (SCAN_IGNORE_DIRS.has(entry)) continue;
+      const fullPath = path.join(dir, entry);
+      let entryStat;
+      try {
+        entryStat = statSync(fullPath);
+      } catch {
+        continue;
+      }
+      if (entryStat.isDirectory()) {
+        visit(fullPath);
+      } else if (entryStat.isFile()) {
+        const ext = path.extname(entry).toLowerCase();
+        if (allowedExtensions.has(ext)) out.push(fullPath);
+      }
+    }
+  }
+  visit(rootDir);
+  return out;
+}
+
+function scanForTokens(files, tokens, label) {
+  const leaks = [];
+  for (const file of files) {
+    let contents;
+    try {
+      contents = readFileSync(file, "utf8");
+    } catch {
+      continue;
+    }
+    for (const token of tokens) {
+      if (token.pattern.test(contents)) {
+        leaks.push({
+          scope: label,
+          file: path.relative(repoRoot, file).replace(/\\/g, "/"),
+          token: token.label,
+        });
+      }
+    }
+  }
+  return leaks;
+}
+
+const srcRoot = path.join(repoRoot, "src");
+const srcFiles = walkFiles(srcRoot, SRC_FILE_EXTENSIONS);
+const srcLeaks = scanForTokens(srcFiles, PRISM_PRIVATE_TOKENS, "src");
+
+const distRoot = path.join(repoRoot, "dist");
+const distFiles = existsSync(distRoot)
+  ? walkFiles(distRoot, BUNDLE_FILE_EXTENSIONS)
+  : [];
+const distLeaks = distFiles.length
+  ? scanForTokens(distFiles, PRISM_PRIVATE_TOKENS, "dist")
+  : [];
+
+const allLeaks = [...srcLeaks, ...distLeaks];
+
+if (allLeaks.length) {
+  const summary = allLeaks
+    .map((leak) => `[${leak.scope}] ${leak.file} :: ${leak.token}`)
+    .join("\n  ");
+  throw new Error(
+    `PRISM private tokens leaked into bundle-scanned files:\n  ${summary}\n` +
+      `These names must live behind server-gated owner functions (e.g. getCanonicalProgramFull), ` +
+      `never inside src/ or the production bundle.`,
+  );
+}
+
 console.log("PRISM_DTJL privacy QA passed.");
 console.log("Demo view: summary-only, no private module/source payload.");
 console.log("portalData bundle scan: no PRISM-private or operator-private fields leaked into the public JS bundle.");
 console.log("PV102 remains the accessible public demo sample.");
 console.log("CTS package proof QA passed: generated JSON parses and public proof text is sanitized.");
 console.log("CTS slide template proof QA passed: 10 decks, 19 slides each, direct PPTX editing gated.");
+console.log(
+  `src tree scan: ${srcFiles.length} files scanned, 0 PRISM private tokens present.`,
+);
+if (distFiles.length) {
+  console.log(
+    `dist bundle scan: ${distFiles.length} files scanned, 0 PRISM private tokens present.`,
+  );
+} else {
+  console.log(
+    "dist bundle scan: skipped (no dist/ directory present; build before publish to re-enable this check).",
+  );
+}

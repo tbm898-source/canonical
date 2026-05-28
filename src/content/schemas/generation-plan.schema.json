@@ -1,0 +1,211 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://canonical.local/schemas/generation-plan.schema.json",
+  "title": "Generation Plan",
+  "description": "Response envelope returned by proposeOwnerGenerationPlan. On success, plan is populated and validation_errors is empty. On failure, plan is null and validation_errors describes why.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "success",
+    "plan",
+    "warnings",
+    "error",
+    "timestamp",
+    "validation_errors"
+  ],
+  "properties": {
+    "success": {
+      "type": "boolean"
+    },
+    "plan": {
+      "oneOf": [
+        { "type": "null" },
+        { "$ref": "#/$defs/Plan" }
+      ]
+    },
+    "warnings": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "error": {
+      "oneOf": [
+        { "type": "null" },
+        { "type": "string" }
+      ]
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "validation_errors": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/ValidationError" }
+    }
+  },
+  "$defs": {
+    "ValidationError": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["field", "code", "message"],
+      "properties": {
+        "field": { "type": "string", "minLength": 1 },
+        "code": { "type": "string", "minLength": 1 },
+        "message": { "type": "string", "minLength": 1 }
+      }
+    },
+    "Plan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "generation_plan_id",
+        "generated_at",
+        "rail",
+        "rail_classification",
+        "program_key",
+        "module_key",
+        "profile",
+        "privacy_classification",
+        "visibility_scope",
+        "source_references",
+        "destination",
+        "review_status",
+        "export_readiness_status",
+        "capability_label",
+        "validation_errors",
+        "next_actions"
+      ],
+      "properties": {
+        "generation_plan_id": { "type": "string", "minLength": 1 },
+        "generated_at": { "type": "string", "format": "date-time" },
+        "rail": { "type": "string", "enum": ["aya", "prism", "canonical"] },
+        "rail_classification": {
+          "type": "string",
+          "enum": ["AYA_CTS", "PRISM_CORE", "CANONICAL_SYSTEM", "UNKNOWN"]
+        },
+        "program_key": { "type": "string", "minLength": 1 },
+        "module_key": { "type": "string", "minLength": 1 },
+        "profile": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "profile_id",
+            "output_type",
+            "format",
+            "required_sections",
+            "forbidden_patterns_present"
+          ],
+          "properties": {
+            "profile_id": { "type": "string", "minLength": 3 },
+            "output_type": {
+              "type": "string",
+              "enum": [
+                "daily_run",
+                "slide_outline",
+                "student_handout",
+                "quiz",
+                "instructor_guide",
+                "evidence_checklist",
+                "google_classroom_export",
+                "prism_facilitator_overlay"
+              ]
+            },
+            "format": {
+              "type": "string",
+              "enum": ["markdown", "json", "markdown+json"]
+            },
+            "required_sections": {
+              "type": "array",
+              "items": { "type": "string" },
+              "minItems": 1
+            },
+            "forbidden_patterns_present": { "type": "boolean" }
+          }
+        },
+        "privacy_classification": {
+          "type": "string",
+          "enum": [
+            "public_safe",
+            "classroom_safe",
+            "operator_internal",
+            "owner_private",
+            "unknown"
+          ]
+        },
+        "visibility_scope": {
+          "type": "string",
+          "enum": [
+            "public_demo",
+            "aya_classroom",
+            "canonical_internal",
+            "prism_private"
+          ]
+        },
+        "source_references": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["source_record_id"],
+            "properties": {
+              "source_record_id": { "type": "string", "minLength": 1 }
+            }
+          }
+        },
+        "destination": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "label", "mode", "live_write_enabled"],
+          "properties": {
+            "id": {
+              "type": "string",
+              "enum": [
+                "local_preview",
+                "owner_inbox_dry_run",
+                "dropbox_owner_drop_zone_dry_run"
+              ]
+            },
+            "label": { "type": "string", "minLength": 1 },
+            "mode": {
+              "type": "string",
+              "enum": ["dry_run", "local_preview"]
+            },
+            "live_write_enabled": { "type": "boolean", "const": false }
+          }
+        },
+        "review_status": {
+          "type": "string",
+          "enum": ["draft", "needs_review", "approved", "rejected"]
+        },
+        "export_readiness_status": {
+          "type": "string",
+          "enum": ["not_ready", "ready_dry_run", "ready_live"]
+        },
+        "capability_label": {
+          "type": "string",
+          "enum": [
+            "Demo only",
+            "Owner available",
+            "Dry-run available",
+            "Live write enabled",
+            "Backend declared",
+            "Backend wired",
+            "Not implemented",
+            "Needs seeding",
+            "Needs owner auth",
+            "Blocked by config",
+            "Blocked by publish",
+            "Unknown"
+          ]
+        },
+        "validation_errors": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/ValidationError" }
+        },
+        "next_actions": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  }
+}

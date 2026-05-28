@@ -15,6 +15,7 @@ import Integrations from './pages/Integrations';
 import Proof from './pages/Proof';
 import PackageDetail from './pages/PackageDetail';
 import Docs from './pages/Docs';
+import OwnerAssistant from './pages/OwnerAssistant';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -54,6 +55,7 @@ const AuthenticatedApp = () => {
       <Route path="/Packages/:packageId" element={<PackageDetail />} />
       <Route path="/Docs" element={<Docs />} />
       <Route path="/Docs/:docId" element={<Docs />} />
+      <Route path="/OwnerAssistant" element={<OwnerAssistant />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );

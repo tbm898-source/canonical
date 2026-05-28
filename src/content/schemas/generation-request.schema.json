@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://canonical.local/schemas/generation-request.schema.json",
+  "title": "Generation Request",
+  "description": "Owner-side request envelope accepted by proposeOwnerGenerationPlan. Milestone 1: dry-run plans only, no artifact bodies, no live writes.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "rail",
+    "program_key",
+    "module_key",
+    "profile_id",
+    "output_destination_id",
+    "confirm_dry_run"
+  ],
+  "properties": {
+    "rail": {
+      "type": "string",
+      "enum": ["aya", "prism", "canonical"]
+    },
+    "program_key": {
+      "type": "string",
+      "minLength": 1
+    },
+    "module_key": {
+      "type": "string",
+      "minLength": 1
+    },
+    "profile_id": {
+      "type": "string",
+      "minLength": 3
+    },
+    "output_destination_id": {
+      "type": "string",
+      "enum": [
+        "local_preview",
+        "owner_inbox_dry_run",
+        "dropbox_owner_drop_zone_dry_run"
+      ]
+    },
+    "source_record_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "confirm_dry_run": {
+      "type": "boolean",
+      "const": true,
+      "description": "Must be true. The plan validator does not accept implicit live-write intent."
+    }
+  }
+}
