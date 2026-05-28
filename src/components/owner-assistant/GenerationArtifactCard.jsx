@@ -3,11 +3,13 @@ import { AlertTriangle, CheckCircle2, ChevronDown, ChevronUp, FileCode2, XCircle
 import { Button } from "@/components/ui/button";
 import CapabilityBadge from "./CapabilityBadge";
 import ExportPreviewPanel from "./ExportPreviewPanel";
+import LiveDropboxExportPanel from "./LiveDropboxExportPanel";
 
 export default function GenerationArtifactCard({
   state,
   onApprove,
   onReject,
+  onArtifactUpdated,
   reviewLoading = false,
 }) {
   if (!state || state.status === "idle") return null;
@@ -147,9 +149,19 @@ export default function GenerationArtifactCard({
       {isApproved ? (
         <section className="mt-5 rounded-lg border border-emerald-200 bg-emerald-50/60 px-4 py-3">
           <p className="text-xs leading-5 text-emerald-800">
-            Approved. Export readiness is <span className="font-mono">ready_dry_run</span>. Use the
-            export preview panel below to inspect connector payloads. Live writes remain disabled
-            (Milestone 8).
+            {artifact.export_readiness_status === "ready_live" ? (
+              <>
+                Approved and exported live to Dropbox. Export readiness is{" "}
+                <span className="font-mono">ready_live</span>. ClickUp and Classroom live writes
+                remain disabled (M8 slice 2+).
+              </>
+            ) : (
+              <>
+                Approved. Export readiness is <span className="font-mono">ready_dry_run</span> until
+                a live Dropbox export succeeds. Use dry-run previews below, then the live export
+                panel when ready.
+              </>
+            )}
           </p>
         </section>
       ) : null}
@@ -208,6 +220,7 @@ export default function GenerationArtifactCard({
       ) : null}
 
       <ExportPreviewPanel artifact={artifact} />
+      <LiveDropboxExportPanel artifact={artifact} onArtifactUpdated={onArtifactUpdated} />
     </CardShell>
   );
 }
