@@ -172,6 +172,11 @@
           "type": "string",
           "enum": ["draft", "needs_review", "approved", "rejected"]
         },
+        "reviewed_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Set when owner completes approve/reject via reviewOwnerGenerationArtifact."
+        },
         "export_readiness_status": {
           "type": "string",
           "enum": ["not_ready", "ready_dry_run", "ready_live"]

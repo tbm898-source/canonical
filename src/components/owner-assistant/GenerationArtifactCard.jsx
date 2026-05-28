@@ -1,8 +1,14 @@
 import React, { useState } from "react";
-import { AlertTriangle, CheckCircle2, ChevronDown, ChevronUp, FileCode2 } from "lucide-react";
+import { AlertTriangle, CheckCircle2, ChevronDown, ChevronUp, FileCode2, XCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import CapabilityBadge from "./CapabilityBadge";
 
-export default function GenerationArtifactCard({ state }) {
+export default function GenerationArtifactCard({
+  state,
+  onApprove,
+  onReject,
+  reviewLoading = false,
+}) {
   if (!state || state.status === "idle") return null;
 
   if (state.status === "loading") {
@@ -72,9 +78,12 @@ export default function GenerationArtifactCard({ state }) {
 
   const artifact = state.artifact;
   const sectionKeys = Object.keys(artifact.sections || {});
+  const isDraft = artifact.review_status === "draft";
+  const isApproved = artifact.review_status === "approved";
+  const isRejected = artifact.review_status === "rejected";
 
   return (
-    <CardShell tone="success">
+    <CardShell tone={isRejected ? "warning" : isApproved ? "success" : "success"}>
       <header className="flex flex-wrap items-center gap-2">
         <CheckCircle2 className="h-4 w-4 text-emerald-600" />
         <h3 className="text-sm font-semibold tracking-tight">Generated artifact (dry-run)</h3>
@@ -95,7 +104,62 @@ export default function GenerationArtifactCard({ state }) {
         <Field label="Format" value={artifact.profile?.format} />
         <Field label="Review status" value={artifact.review_status} />
         <Field label="Export readiness" value={artifact.export_readiness_status} />
+        {artifact.reviewed_at ? <Field label="Reviewed at" value={artifact.reviewed_at} /> : null}
       </dl>
+
+      {isDraft ? (
+        <section className="mt-5 border-t border-black/5 pt-4">
+          <h4 className="text-[11px] font-semibold uppercase tracking-wide text-[#0a0a0a]/55">
+            Owner review
+          </h4>
+          <p className="mt-2 text-xs leading-5 text-[#0a0a0a]/60">
+            Approve to mark this artifact ready for dry-run export preview (Milestone 7). Reject to
+            send it back for revision. No file write occurs on either action.
+          </p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            <Button
+              type="button"
+              size="sm"
+              disabled={reviewLoading}
+              onClick={onApprove}
+              className="gap-1.5 bg-emerald-700 text-white hover:bg-emerald-800 disabled:opacity-60"
+            >
+              <CheckCircle2 className="h-3.5 w-3.5" />
+              {reviewLoading ? "Reviewing..." : "Approve artifact"}
+            </Button>
+            <Button
+              type="button"
+              size="sm"
+              variant="outline"
+              disabled={reviewLoading}
+              onClick={onReject}
+              className="gap-1.5 disabled:opacity-60"
+            >
+              <XCircle className="h-3.5 w-3.5" />
+              Reject artifact
+            </Button>
+            <CapabilityBadge label="Owner available" />
+          </div>
+        </section>
+      ) : null}
+
+      {isApproved ? (
+        <section className="mt-5 rounded-lg border border-emerald-200 bg-emerald-50/60 px-4 py-3">
+          <p className="text-xs leading-5 text-emerald-800">
+            Approved. Export readiness is <span className="font-mono">ready_dry_run</span>. Connector
+            export preview is not implemented yet (Milestone 7).
+          </p>
+        </section>
+      ) : null}
+
+      {isRejected ? (
+        <section className="mt-5 rounded-lg border border-amber-200 bg-amber-50/60 px-4 py-3">
+          <p className="text-xs leading-5 text-amber-900">
+            Rejected. Regenerate from an updated plan or revise source records, then submit a new
+            artifact for review.
+          </p>
+        </section>
+      ) : null}
 
       {artifact.contract_validation ? (
         <section className="mt-5 border-t border-black/5 pt-4">

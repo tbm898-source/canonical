@@ -141,6 +141,7 @@ export default function OwnerAssistant() {
       status: "idle",
     }),
   );
+  const [reviewLoading, setReviewLoading] = useState(false);
 
   async function handlePlanGeneration() {
     if (!program || !selectedModuleKey || !selectedProfileId || !selectedDestinationId) return;
@@ -241,6 +242,57 @@ export default function OwnerAssistant() {
     }
   }
 
+  async function handleReviewArtifact(reviewAction) {
+    if (
+      artifactState.status !== "ready" ||
+      !artifactState.artifact ||
+      artifactState.artifact.review_status !== "draft"
+    ) {
+      return;
+    }
+    setReviewLoading(true);
+    try {
+      const { base44 } = await import("@/api/base44Client");
+      const response = await base44.functions.invoke("reviewOwnerGenerationArtifact", {
+        review_action: reviewAction,
+        generation_artifact_id: artifactState.artifact.generation_artifact_id,
+        generation_plan_id: artifactState.artifact.generation_plan_id,
+        artifact: artifactState.artifact,
+        confirm_dry_run: true,
+      });
+      const result = response?.data ?? response;
+      if (!result || typeof result !== "object") {
+        setArtifactState({
+          status: "error",
+          error: "Empty response from review gate.",
+        });
+        return;
+      }
+      if (result.success === true && result.artifact) {
+        setArtifactState({ status: "ready", artifact: result.artifact });
+        return;
+      }
+      if (Array.isArray(result.validation_errors) && result.validation_errors.length) {
+        setArtifactState({
+          status: "invalid",
+          validation_errors: result.validation_errors,
+        });
+        return;
+      }
+      setArtifactState({
+        status: "error",
+        error: result.error || "Review gate did not return an updated artifact.",
+      });
+    } catch (err) {
+      setArtifactState({
+        status: "error",
+        error: err?.message || "Network error while invoking reviewOwnerGenerationArtifact.",
+      });
+    } finally {
+      setReviewLoading(false);
+    }
+  }
+
   const planButtonDisabled =
     !program ||
     !selectedModuleKey ||
@@ -288,6 +340,9 @@ export default function OwnerAssistant() {
           artifactState={artifactState}
           generateButtonDisabled={generateButtonDisabled}
           onGenerateArtifact={handleGenerateArtifact}
+          reviewLoading={reviewLoading}
+          onApproveArtifact={() => handleReviewArtifact("approve")}
+          onRejectArtifact={() => handleReviewArtifact("reject")}
         />
       </main>
     </div>
@@ -348,7 +403,7 @@ function StatusBanner({ state }) {
               Owner Assistant
             </h1>
             <span className="rounded-full border border-black/10 bg-white px-2 py-0.5 text-xs font-medium text-[#0a0a0a]/60">
-              Milestone 3 (plan + generate)
+              Milestone 4 (plan + generate + review)
             </span>
           </div>
           <p className="mt-2 max-w-2xl text-sm leading-6 text-[#0a0a0a]/60">
@@ -498,6 +553,9 @@ function PlanningControlsPanel({
   artifactState,
   generateButtonDisabled,
   onGenerateArtifact,
+  reviewLoading,
+  onApproveArtifact,
+  onRejectArtifact,
 }) {
   const programRail = program?.ownership_rail
     ? String(program.ownership_rail).toLowerCase().replace(/^prism.*/, "prism")
@@ -683,7 +741,12 @@ function PlanningControlsPanel({
               <span className="font-mono">runOwnerGeneration</span> to produce a deterministic
               template body. Still no file write and no connector call.
             </p>
-            <GenerationArtifactCard state={artifactState} />
+            <GenerationArtifactCard
+              state={artifactState}
+              onApprove={onApproveArtifact}
+              onReject={onRejectArtifact}
+              reviewLoading={reviewLoading}
+            />
           </div>
         </div>
       </div>
