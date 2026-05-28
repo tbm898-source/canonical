@@ -21,6 +21,7 @@ import {
 import OwnerAssistantGate from "@/components/owner-assistant/OwnerAssistantGate";
 import CapabilityBadge from "@/components/owner-assistant/CapabilityBadge";
 import GenerationPlanCard from "@/components/owner-assistant/GenerationPlanCard";
+import GenerationArtifactCard from "@/components/owner-assistant/GenerationArtifactCard";
 import SourceRecordPicker from "@/components/owner-assistant/SourceRecordPicker";
 
 const PROGRAM_KEY = "PRISM_DTJL";
@@ -135,12 +136,18 @@ export default function OwnerAssistant() {
       status: "idle",
     }),
   );
+  const [artifactState, setArtifactState] = useState(
+    /** @type {{status: string, artifact?: any, error?: string, validation_errors?: any[]}} */ ({
+      status: "idle",
+    }),
+  );
 
   async function handlePlanGeneration() {
     if (!program || !selectedModuleKey || !selectedProfileId || !selectedDestinationId) return;
     const railRaw = program?.ownership_rail || "";
     const rail = String(railRaw).toLowerCase().replace(/^prism.*/, "prism");
     setPlanState({ status: "loading" });
+    setArtifactState({ status: "idle" });
     try {
       const { base44 } = await import("@/api/base44Client");
       const response = await base44.functions.invoke("proposeOwnerGenerationPlan", {
@@ -180,12 +187,71 @@ export default function OwnerAssistant() {
     }
   }
 
+  async function handleGenerateArtifact() {
+    if (
+      !program ||
+      !selectedModuleKey ||
+      !selectedProfileId ||
+      !selectedDestinationId ||
+      planState.status !== "ready" ||
+      !planState.plan?.generation_plan_id
+    ) {
+      return;
+    }
+    const railRaw = program?.ownership_rail || "";
+    const rail = String(railRaw).toLowerCase().replace(/^prism.*/, "prism");
+    setArtifactState({ status: "loading" });
+    try {
+      const { base44 } = await import("@/api/base44Client");
+      const response = await base44.functions.invoke("runOwnerGeneration", {
+        generation_plan_id: planState.plan.generation_plan_id,
+        rail,
+        program_key: program.program_key,
+        module_key: selectedModuleKey,
+        profile_id: selectedProfileId,
+        output_destination_id: selectedDestinationId,
+        source_record_ids: selectedSourceRecordIds,
+        confirm_dry_run: true,
+      });
+      const result = response?.data ?? response;
+      if (!result || typeof result !== "object") {
+        setArtifactState({ status: "error", error: "Empty response from generation runner." });
+        return;
+      }
+      if (result.success === true && result.artifact) {
+        setArtifactState({ status: "ready", artifact: result.artifact });
+        return;
+      }
+      if (Array.isArray(result.validation_errors) && result.validation_errors.length) {
+        setArtifactState({
+          status: "invalid",
+          validation_errors: result.validation_errors,
+        });
+        return;
+      }
+      setArtifactState({
+        status: "error",
+        error: result.error || "Generation runner did not return an artifact.",
+      });
+    } catch (err) {
+      setArtifactState({
+        status: "error",
+        error: err?.message || "Network error while invoking runOwnerGeneration.",
+      });
+    }
+  }
+
   const planButtonDisabled =
     !program ||
     !selectedModuleKey ||
     !selectedProfileId ||
     !selectedDestinationId ||
     planState.status === "loading";
+
+  const generateButtonDisabled =
+    planState.status !== "ready" ||
+    !planState.plan?.generation_plan_id ||
+    artifactState.status === "loading";
 
   if (!ownerAccess.allowed) {
     return (
@@ -219,6 +285,9 @@ export default function OwnerAssistant() {
           planState={planState}
           planButtonDisabled={planButtonDisabled}
           onPlanGeneration={handlePlanGeneration}
+          artifactState={artifactState}
+          generateButtonDisabled={generateButtonDisabled}
+          onGenerateArtifact={handleGenerateArtifact}
         />
       </main>
     </div>
@@ -279,15 +348,13 @@ function StatusBanner({ state }) {
               Owner Assistant
             </h1>
             <span className="rounded-full border border-black/10 bg-white px-2 py-0.5 text-xs font-medium text-[#0a0a0a]/60">
-              Milestone 1 (planning shell)
+              Milestone 3 (plan + generate)
             </span>
           </div>
           <p className="mt-2 max-w-2xl text-sm leading-6 text-[#0a0a0a]/60">
-            Owner-only surface for planning generation against PRISM-private program data. This
-            milestone reads from the server-gated{" "}
-            <span className="font-mono text-[#0a0a0a]/80">getCanonicalProgramFull</span>{" "}
-            function and renders selection controls only. No generation, no writes, no connector
-            calls, no publish.
+            Owner-only surface for planning and generating teaching artifacts against PRISM-private
+            program data. Reads from server-gated functions and produces deterministic dry-run
+            artifact bodies. No LLM, no file writes, no connector calls, no publish.
           </p>
         </div>
         <div className={`shrink-0 rounded-xl border px-3 py-1.5 text-xs font-medium ${tone}`}>
@@ -298,7 +365,7 @@ function StatusBanner({ state }) {
         </div>
       </div>
       <div className="mt-4 flex flex-wrap gap-2">
-        <FeatureLabel>not_implemented (generation)</FeatureLabel>
+        <FeatureLabel>Backend wired (deterministic generation)</FeatureLabel>
         <FeatureLabel>declared_only (output destinations)</FeatureLabel>
         <FeatureLabel>live_disabled (connector writes)</FeatureLabel>
         <FeatureLabel>owner_available (PRISM read)</FeatureLabel>
@@ -428,6 +495,9 @@ function PlanningControlsPanel({
   planState,
   planButtonDisabled,
   onPlanGeneration,
+  artifactState,
+  generateButtonDisabled,
+  onGenerateArtifact,
 }) {
   const programRail = program?.ownership_rail
     ? String(program.ownership_rail).toLowerCase().replace(/^prism.*/, "prism")
@@ -594,6 +664,27 @@ function PlanningControlsPanel({
             called. Live writes remain disabled.
           </p>
           <GenerationPlanCard state={planState} />
+          <div className="mt-4 flex flex-col gap-2 border-t border-black/5 pt-4">
+            <div className="flex flex-wrap items-center gap-2">
+              <Button
+                type="button"
+                onClick={onGenerateArtifact}
+                disabled={generateButtonDisabled}
+                aria-disabled={generateButtonDisabled}
+                variant="outline"
+                className="disabled:opacity-60"
+              >
+                {artifactState?.status === "loading" ? "Generating..." : "Generate artifact (dry-run)"}
+              </Button>
+              <CapabilityBadge label="Backend wired" />
+            </div>
+            <p className="text-xs text-[#0a0a0a]/55">
+              Requires an approved plan above. Calls{" "}
+              <span className="font-mono">runOwnerGeneration</span> to produce a deterministic
+              template body. Still no file write and no connector call.
+            </p>
+            <GenerationArtifactCard state={artifactState} />
+          </div>
         </div>
       </div>
     </Section>

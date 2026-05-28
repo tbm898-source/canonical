@@ -1,0 +1,203 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://canonical.local/schemas/generation-artifact.schema.json",
+  "title": "Generation Artifact",
+  "description": "Response envelope returned by runOwnerGeneration. On success, artifact contains deterministic template bodies. No file writes or connector calls occur in Milestone 3.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["success", "artifact", "warnings", "error", "timestamp", "validation_errors"],
+  "properties": {
+    "success": { "type": "boolean" },
+    "artifact": {
+      "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/Artifact" }]
+    },
+    "warnings": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "error": {
+      "oneOf": [{ "type": "null" }, { "type": "string" }]
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "validation_errors": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/ValidationError" }
+    }
+  },
+  "$defs": {
+    "ValidationError": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["field", "message"],
+      "properties": {
+        "field": { "type": "string", "minLength": 1 },
+        "code": { "type": "string", "minLength": 1 },
+        "message": { "type": "string", "minLength": 1 },
+        "source_record_id": { "type": "string", "minLength": 1 }
+      }
+    },
+    "Artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "generation_artifact_id",
+        "generation_plan_id",
+        "generated_at",
+        "rail",
+        "rail_classification",
+        "program_key",
+        "module_key",
+        "profile",
+        "privacy_classification",
+        "visibility_scope",
+        "source_references",
+        "sections",
+        "body_markdown",
+        "body_json",
+        "contract_validation",
+        "destination",
+        "review_status",
+        "export_readiness_status",
+        "capability_label",
+        "next_actions"
+      ],
+      "properties": {
+        "generation_artifact_id": { "type": "string", "minLength": 1 },
+        "generation_plan_id": { "type": "string", "minLength": 1 },
+        "generated_at": { "type": "string", "format": "date-time" },
+        "rail": { "type": "string", "enum": ["aya", "prism", "canonical"] },
+        "rail_classification": {
+          "type": "string",
+          "enum": ["AYA_CTS", "PRISM_CORE", "CANONICAL_SYSTEM", "UNKNOWN"]
+        },
+        "program_key": { "type": "string", "minLength": 1 },
+        "module_key": { "type": "string", "minLength": 1 },
+        "profile": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["profile_id", "output_type", "format", "required_sections"],
+          "properties": {
+            "profile_id": { "type": "string", "minLength": 3 },
+            "output_type": {
+              "type": "string",
+              "enum": [
+                "daily_run",
+                "slide_outline",
+                "student_handout",
+                "quiz",
+                "instructor_guide",
+                "evidence_checklist",
+                "google_classroom_export",
+                "prism_facilitator_overlay"
+              ]
+            },
+            "format": {
+              "type": "string",
+              "enum": ["markdown", "json", "markdown+json"]
+            },
+            "required_sections": {
+              "type": "array",
+              "items": { "type": "string" },
+              "minItems": 1
+            }
+          }
+        },
+        "privacy_classification": {
+          "type": "string",
+          "enum": ["public_safe", "classroom_safe", "operator_internal", "owner_private", "unknown"]
+        },
+        "visibility_scope": {
+          "type": "string",
+          "enum": ["public_demo", "aya_classroom", "canonical_internal", "prism_private"]
+        },
+        "source_references": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["source_record_id", "file_name", "rail", "privacy", "role"],
+            "properties": {
+              "source_record_id": { "type": "string", "minLength": 1 },
+              "file_name": { "type": "string", "minLength": 1 },
+              "rail": { "type": "string", "enum": ["aya", "prism", "canonical"] },
+              "privacy": {
+                "type": "string",
+                "enum": ["public_demo", "aya_classroom", "canonical_internal", "prism_private"]
+              },
+              "role": { "type": "string", "enum": ["primary_source"] }
+            }
+          }
+        },
+        "sections": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        },
+        "body_markdown": { "type": "string" },
+        "body_json": {
+          "oneOf": [{ "type": "null" }, { "type": "object" }]
+        },
+        "contract_validation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["required_sections_present", "missing_sections"],
+          "properties": {
+            "required_sections_present": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "missing_sections": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        },
+        "destination": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "label", "mode", "live_write_enabled"],
+          "properties": {
+            "id": {
+              "type": "string",
+              "enum": ["local_preview", "owner_inbox_dry_run", "dropbox_owner_drop_zone_dry_run"]
+            },
+            "label": { "type": "string", "minLength": 1 },
+            "mode": { "type": "string", "enum": ["dry_run", "local_preview"] },
+            "live_write_enabled": { "type": "boolean", "const": false }
+          }
+        },
+        "review_status": {
+          "type": "string",
+          "enum": ["draft", "needs_review", "approved", "rejected"]
+        },
+        "export_readiness_status": {
+          "type": "string",
+          "enum": ["not_ready", "ready_dry_run", "ready_live"]
+        },
+        "capability_label": {
+          "type": "string",
+          "enum": [
+            "Demo only",
+            "Owner available",
+            "Dry-run available",
+            "Live write enabled",
+            "Backend declared",
+            "Backend wired",
+            "Not implemented",
+            "Needs seeding",
+            "Needs owner auth",
+            "Blocked by config",
+            "Blocked by publish",
+            "Unknown"
+          ]
+        },
+        "next_actions": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  }
+}
