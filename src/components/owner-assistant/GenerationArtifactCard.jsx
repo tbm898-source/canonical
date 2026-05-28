@@ -5,6 +5,7 @@ import CapabilityBadge from "./CapabilityBadge";
 import ExportPreviewPanel from "./ExportPreviewPanel";
 import LiveDropboxExportPanel from "./LiveDropboxExportPanel";
 import LiveClickUpExportPanel from "./LiveClickUpExportPanel";
+import LiveClassroomExportPanel from "./LiveClassroomExportPanel";
 
 export default function GenerationArtifactCard({
   state,
@@ -223,6 +224,7 @@ export default function GenerationArtifactCard({
       <ExportPreviewPanel artifact={artifact} />
       <LiveDropboxExportPanel artifact={artifact} onArtifactUpdated={onArtifactUpdated} />
       <LiveClickUpExportPanel artifact={artifact} onArtifactUpdated={onArtifactUpdated} />
+      <LiveClassroomExportPanel artifact={artifact} onArtifactUpdated={onArtifactUpdated} />
     </CardShell>
   );
 }

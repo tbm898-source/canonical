@@ -40,6 +40,12 @@ export const CANONICAL_CAPABILITIES = [
     maturity: CAPABILITY_STATUSES.DRY_RUN_AVAILABLE,
   },
   {
+    key: "classroom_live_export",
+    label: "Classroom live post",
+    functionName: "exportOwnerApprovedArtifactToClassroom",
+    maturity: CAPABILITY_STATUSES.LIVE_WRITE_ENABLED,
+  },
+  {
     key: "clickup_dry_run",
     label: "ClickUp task draft",
     functionName: "prepareClickUpExport",
