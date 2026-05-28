@@ -1,5 +1,54 @@
 # Base44 Sync And Backend Notes
 
+## 2026-05-28 Incident: Base44 AI ClickUp entity automation
+
+Base44 AI attempted `autoExportApprovedArtifactToClickUp` + a
+`CanonicalGeneratedArtifact` entity automation. Symptoms in the builder:
+
+- Deploy timeouts / 502s during the session (eventually deployed anyway).
+- Revert in Base44 UI did not remove the function.
+- CLI `functions deploy` and `functions delete` both fail with
+  "This endpoint is only available for Backend Platform apps."
+
+### What we verified (CLI probes)
+
+| Function | Serves? | Notes |
+|---|---|---|
+| `canaryDeployProbe` | yes | platform healthy |
+| `exportOwnerApprovedArtifactToClickUp` | yes | correct Owner Assistant manual path |
+| `autoExportApprovedArtifactToClickUp` | yes | was live but wrong schema |
+
+### Root cause
+
+Two different artifact shapes were mixed:
+
+1. **Owner Assistant** (working): `review_status`, `generation_artifact_id`,
+   `export_readiness_status` — used by `LiveClickUpExportPanel` →
+   `exportOwnerApprovedArtifactToClickUp`.
+2. **Entity automation** (Base44 AI): `status`, `manifest.clickup_auto_export_list_id`
+   on `CanonicalGeneratedArtifact` — entities are not provisioned on this app
+   for Owner Assistant flows (see recap below).
+
+The auto function also had **no owner/admin gate** (unsafe if an automation fired).
+
+`autoBackupArtifactToDropbox` shows the correct entity-automation pattern but
+only for Dropbox entity records with explicit `auto_backup_enabled`.
+
+### Remediation in git (push to `main` for GitHub sync)
+
+- Replaced `autoExportApprovedArtifactToClickUp` with a **no-op `entry.ts` stub**
+  (pinned SDK, no `main.ts` / `function.jsonc`) so sync deploy overwrites the
+  live handler with `skipped: true, disabled: true`.
+- Manual ClickUp export remains: Owner Assistant →
+  `exportOwnerApprovedArtifactToClickUp`.
+
+### Dashboard step still required
+
+If Base44 Automations still lists a trigger on `CanonicalGeneratedArtifact` →
+`autoExportApprovedArtifactToClickUp`, **disable or delete that automation in
+the Base44 dashboard** (CLI has no automations API on this app plan). After the
+git stub syncs, triggers will no-op but should still be removed to avoid noise.
+
 ## 2026-05-27 Session Recap (PRISM Owner-Private Access)
 
 This session pinned down exactly how GitHub-sync deploys backend code
