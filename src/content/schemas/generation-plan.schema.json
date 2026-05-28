@@ -46,11 +46,20 @@
     "ValidationError": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["field", "code", "message"],
+      "required": ["field", "message"],
       "properties": {
         "field": { "type": "string", "minLength": 1 },
-        "code": { "type": "string", "minLength": 1 },
-        "message": { "type": "string", "minLength": 1 }
+        "code": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Stable error code such as missing, invalid_value, profile_rail_mismatch, rail_mismatch, visibility_mismatch, usable_for_mismatch, not_found."
+        },
+        "message": { "type": "string", "minLength": 1 },
+        "source_record_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Set when this error was raised against a specific source_record_id from the inbox manifest."
+        }
       }
     },
     "Plan": {
@@ -145,9 +154,32 @@
           "items": {
             "type": "object",
             "additionalProperties": false,
-            "required": ["source_record_id"],
+            "required": ["source_record_id", "file_name", "rail", "privacy", "role"],
             "properties": {
-              "source_record_id": { "type": "string", "minLength": 1 }
+              "source_record_id": { "type": "string", "minLength": 1 },
+              "file_name": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Manifest-derived file name. Must NEVER be an absolute filesystem path."
+              },
+              "rail": {
+                "type": "string",
+                "enum": ["aya", "prism", "canonical"]
+              },
+              "privacy": {
+                "type": "string",
+                "enum": [
+                  "public_demo",
+                  "aya_classroom",
+                  "canonical_internal",
+                  "prism_private"
+                ]
+              },
+              "role": {
+                "type": "string",
+                "enum": ["primary_source"],
+                "description": "Role of this source in the plan. M2 emits primary_source only; later milestones may add supporting_source / exemplar_source."
+              }
             }
           }
         },

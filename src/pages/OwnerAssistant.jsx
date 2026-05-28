@@ -21,6 +21,7 @@ import {
 import OwnerAssistantGate from "@/components/owner-assistant/OwnerAssistantGate";
 import CapabilityBadge from "@/components/owner-assistant/CapabilityBadge";
 import GenerationPlanCard from "@/components/owner-assistant/GenerationPlanCard";
+import SourceRecordPicker from "@/components/owner-assistant/SourceRecordPicker";
 
 const PROGRAM_KEY = "PRISM_DTJL";
 
@@ -57,6 +58,13 @@ export default function OwnerAssistant() {
   const [selectedDestinationId, setSelectedDestinationId] = useState(
     /** @type {string | null} */ (null),
   );
+  const [selectedSourceRecordIds, setSelectedSourceRecordIds] = useState(
+    /** @type {string[]} */ ([]),
+  );
+
+  useEffect(() => {
+    setSelectedSourceRecordIds([]);
+  }, [selectedProfileId]);
 
   useEffect(() => {
     if (!ownerAccess.allowed) {
@@ -141,6 +149,7 @@ export default function OwnerAssistant() {
         module_key: selectedModuleKey,
         profile_id: selectedProfileId,
         output_destination_id: selectedDestinationId,
+        source_record_ids: selectedSourceRecordIds,
         confirm_dry_run: true,
       });
       const result = response?.data ?? response;
@@ -204,6 +213,9 @@ export default function OwnerAssistant() {
           onSelectProfile={setSelectedProfileId}
           selectedDestinationId={selectedDestinationId}
           onSelectDestination={setSelectedDestinationId}
+          selectedSourceRecordIds={selectedSourceRecordIds}
+          onSelectSourceRecordIds={setSelectedSourceRecordIds}
+          ownerAccessAllowed={ownerAccess.allowed}
           planState={planState}
           planButtonDisabled={planButtonDisabled}
           onPlanGeneration={handlePlanGeneration}
@@ -410,6 +422,9 @@ function PlanningControlsPanel({
   onSelectProfile,
   selectedDestinationId,
   onSelectDestination,
+  selectedSourceRecordIds,
+  onSelectSourceRecordIds,
+  ownerAccessAllowed,
   planState,
   planButtonDisabled,
   onPlanGeneration,
@@ -418,6 +433,8 @@ function PlanningControlsPanel({
     ? String(program.ownership_rail).toLowerCase().replace(/^prism.*/, "prism")
     : null;
   const programVisibility = program?.visibility_scope || null;
+  const selectedProfile =
+    GENERATION_PROFILES.find((p) => p.profile_id === selectedProfileId) || null;
 
   return (
     <Section
@@ -504,6 +521,13 @@ function PlanningControlsPanel({
             })}
           </ul>
         </div>
+
+        <SourceRecordPicker
+          ownerAccessAllowed={ownerAccessAllowed}
+          selectedProfile={selectedProfile}
+          selectedSourceRecordIds={selectedSourceRecordIds}
+          onChange={onSelectSourceRecordIds}
+        />
 
         <div>
           <h3 className="text-xs font-semibold uppercase tracking-wide text-[#0a0a0a]/55">

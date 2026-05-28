@@ -44,7 +44,9 @@
         "type": "string",
         "minLength": 1
       },
-      "uniqueItems": true
+      "uniqueItems": true,
+      "default": [],
+      "description": "Optional list of source_record_id strings drawn from listOwnerInboxManifest. Each entry is validated against the selected profile's allowed_rails, allowed_visibility_scopes, and required output_type."
     },
     "confirm_dry_run": {
       "type": "boolean",

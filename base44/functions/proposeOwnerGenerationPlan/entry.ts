@@ -280,6 +280,92 @@ const PROGRAM_INDEX: Record<string, ProgramIndexEntry> = {
   },
 };
 
+// Server-side fixture catalog of source records (Milestone 2 first slice).
+//
+// Mirrors the catalog inside base44/functions/listOwnerInboxManifest/entry.ts.
+// Both fixtures are server-side only and must NEVER be imported by src/.
+// Privacy contract: no absolute paths, no "00_INBOX" tokens, no PRISM private
+// framework names. When a real manifest source replaces the fixture (next M2
+// slice), both files update together.
+type SourceRecordFixture = {
+  source_record_id: string;
+  file_name: string;
+  rail_guess: "aya" | "prism" | "canonical";
+  privacy_guess: "public_demo" | "aya_classroom" | "canonical_internal" | "prism_private";
+  usable_for: string[];
+  confidence: number;
+  review_required: boolean;
+};
+
+const SOURCE_RECORD_FIXTURES: readonly SourceRecordFixture[] = Object.freeze([
+  {
+    source_record_id: "src_aya_demo_001",
+    file_name: "aya_overview_public.md",
+    rail_guess: "aya",
+    privacy_guess: "public_demo",
+    usable_for: ["daily_run", "slide_outline", "evidence_checklist", "student_handout"],
+    confidence: 0.92,
+    review_required: false,
+  },
+  {
+    source_record_id: "src_aya_classroom_002",
+    file_name: "aya_unit_plan.md",
+    rail_guess: "aya",
+    privacy_guess: "aya_classroom",
+    usable_for: [
+      "student_handout",
+      "quiz",
+      "instructor_guide",
+      "evidence_checklist",
+      "google_classroom_export",
+    ],
+    confidence: 0.88,
+    review_required: false,
+  },
+  {
+    source_record_id: "src_canonical_internal_003",
+    file_name: "canonical_operator_brief.md",
+    rail_guess: "canonical",
+    privacy_guess: "canonical_internal",
+    usable_for: ["daily_run", "slide_outline", "instructor_guide", "evidence_checklist"],
+    confidence: 0.81,
+    review_required: false,
+  },
+  {
+    source_record_id: "src_prism_private_004",
+    file_name: "owner_facilitator_overlay_notes.md",
+    rail_guess: "prism",
+    privacy_guess: "prism_private",
+    usable_for: ["instructor_guide", "evidence_checklist", "prism_facilitator_overlay"],
+    confidence: 0.74,
+    review_required: false,
+  },
+  {
+    source_record_id: "src_aya_low_confidence_005",
+    file_name: "aya_handout_draft.md",
+    rail_guess: "aya",
+    privacy_guess: "aya_classroom",
+    usable_for: ["student_handout", "evidence_checklist"],
+    confidence: 0.52,
+    review_required: true,
+  },
+  {
+    source_record_id: "src_canonical_low_confidence_006",
+    file_name: "canonical_template_seed.md",
+    rail_guess: "canonical",
+    privacy_guess: "canonical_internal",
+    usable_for: ["slide_outline", "evidence_checklist"],
+    confidence: 0.61,
+    review_required: true,
+  },
+]);
+
+function findSourceRecord(sourceRecordId: string) {
+  return SOURCE_RECORD_FIXTURES.find(
+    (record) => record.source_record_id === sourceRecordId,
+  );
+}
+
 function classifyRail(rail: string) {
   if (rail === "prism") return "PRISM_CORE";
   if (rail === "aya") return "AYA_CTS";
@@ -307,6 +393,15 @@ type ValidationError = {
   field: string;
   code: string;
   message: string;
+  source_record_id?: string;
+};
+
+type SourceReference = {
+  source_record_id: string;
+  file_name: string;
+  rail: string;
+  privacy: string;
+  role: "primary_source";
 };
 
 function validateRequest(payload: any) {
@@ -491,6 +586,81 @@ function validateAgainstProgram(normalized: ReturnType<typeof validateRequest>["
   return errors;
 }
 
+function validateSourceRecords(
+  normalized: ReturnType<typeof validateRequest>["normalized"],
+): { errors: ValidationError[]; references: SourceReference[] } {
+  const errors: ValidationError[] = [];
+  const references: SourceReference[] = [];
+  if (!normalized) return { errors, references };
+
+  const profile = normalized.profile;
+  const sourceRecordIds = normalized.source_record_ids || [];
+
+  // Without a known profile we cannot evaluate per-record compatibility;
+  // the structural error on profile_id is already in the response.
+  if (!profile || sourceRecordIds.length === 0) return { errors, references };
+
+  for (const sourceRecordId of sourceRecordIds) {
+    const record = findSourceRecord(sourceRecordId);
+    if (!record) {
+      errors.push({
+        field: "source_record_ids",
+        source_record_id: sourceRecordId,
+        code: "not_found",
+        message: `source_record_id "${sourceRecordId}" is not present in the inbox manifest.`,
+      });
+      continue;
+    }
+
+    let mismatched = false;
+
+    if (!profile.allowed_rails.includes(record.rail_guess)) {
+      mismatched = true;
+      errors.push({
+        field: "source_record_ids",
+        source_record_id: sourceRecordId,
+        code: "rail_mismatch",
+        message: `Source "${record.file_name}" rail_guess "${record.rail_guess}" is not in profile "${profile.profile_id}" allowed_rails.`,
+      });
+    }
+
+    if (!profile.allowed_visibility_scopes.includes(record.privacy_guess)) {
+      mismatched = true;
+      errors.push({
+        field: "source_record_ids",
+        source_record_id: sourceRecordId,
+        code: "visibility_mismatch",
+        message: `Source "${record.file_name}" privacy_guess "${record.privacy_guess}" is not in profile "${profile.profile_id}" allowed_visibility_scopes.`,
+      });
+    }
+
+    if (
+      !Array.isArray(record.usable_for) ||
+      !record.usable_for.includes(profile.output_type)
+    ) {
+      mismatched = true;
+      errors.push({
+        field: "source_record_ids",
+        source_record_id: sourceRecordId,
+        code: "usable_for_mismatch",
+        message: `Source "${record.file_name}" usable_for does not include profile output_type "${profile.output_type}".`,
+      });
+    }
+
+    if (!mismatched) {
+      references.push({
+        source_record_id: record.source_record_id,
+        file_name: record.file_name,
+        rail: record.rail_guess,
+        privacy: record.privacy_guess,
+        role: "primary_source",
+      });
+    }
+  }
+
+  return { errors, references };
+}
+
 function emptyEnvelope(extra: Record<string, unknown> = {}) {
   return {
     success: false,
@@ -523,7 +693,10 @@ Deno.serve(async (req) => {
     const programErrors = normalized
       ? validateAgainstProgram(normalized)
       : [];
-    const validationErrors = [...structuralErrors, ...programErrors];
+    const { errors: sourceErrors, references: sourceReferences } = normalized
+      ? validateSourceRecords(normalized)
+      : { errors: [] as ValidationError[], references: [] as SourceReference[] };
+    const validationErrors = [...structuralErrors, ...programErrors, ...sourceErrors];
 
     if (validationErrors.length || !normalized) {
       return Response.json(
@@ -543,6 +716,10 @@ Deno.serve(async (req) => {
     const profile = normalized.profile!;
     const destination = normalized.destination!;
 
+    const nextActions = sourceReferences.length
+      ? ["owner_review"]
+      : ["owner_review", "select_source_records_when_inbox_ready"];
+
     const plan = {
       generation_plan_id: makePlanId(),
       generated_at: nowIso(),
@@ -559,7 +736,7 @@ Deno.serve(async (req) => {
       },
       privacy_classification: classifyPrivacy(program.visibility_scope),
       visibility_scope: program.visibility_scope,
-      source_references: [] as Array<{ source_record_id: string }>,
+      source_references: sourceReferences,
       destination: {
         id: destination.id,
         label: destination.label,
@@ -570,10 +747,7 @@ Deno.serve(async (req) => {
       export_readiness_status: "not_ready",
       capability_label: "Dry-run available",
       validation_errors: [] as ValidationError[],
-      next_actions: [
-        "owner_review",
-        "select_source_records_when_inbox_ready",
-      ],
+      next_actions: nextActions,
     };
 
     return Response.json(

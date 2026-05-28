@@ -265,6 +265,39 @@ const PRISM_PRIVATE_TOKENS = [
   { label: "INTERVENTION_LIBRARY", pattern: /INTERVENTION_LIBRARY/ },
   { label: "DIAGNOSTIC_PATTERNS", pattern: /DIAGNOSTIC_PATTERNS/ },
   { label: "CONCEPT_ONTOLOGY", pattern: /CONCEPT_ONTOLOGY/ },
+  // M2 source-record-picker privacy guard. The owner-only inbox manifest must
+  // never leak local-filesystem paths into the public bundle. The fixture in
+  // the listOwnerInboxManifest function returns metadata-only fields
+  // (file_name, rail_guess, privacy_guess, usable_for, confidence,
+  // review_required); any appearance of these tokens inside src/ means a
+  // developer accidentally bundled a local inbox manifest into the public
+  // frontend.
+  //
+  // Note: bare "00_INBOX" is intentionally NOT a token here because the
+  // public CANONICAL://00_INBOX/... virtual namespace pre-exists in
+  // instructionalSampleData.js as a public-safe URI, not a local-FS leak.
+  // The patterns below specifically target Dropbox-anchored local paths and
+  // any "source_path" field that carries an absolute filesystem path.
+  {
+    label: "Dropbox CANONICAL 00_INBOX path (Windows-style)",
+    pattern: /Dropbox\\CANONICAL\\00_INBOX/i,
+  },
+  {
+    label: "Dropbox CANONICAL 00_INBOX path (POSIX-style)",
+    pattern: /Dropbox\/CANONICAL\/00_INBOX/i,
+  },
+  {
+    label: "Dropbox-anchored 00_INBOX path",
+    pattern: /Dropbox[\\\/][^"'`\s]*00_INBOX/i,
+  },
+  {
+    label: "source_path field with absolute Windows path",
+    pattern: /"source_path"\s*:\s*"[A-Za-z]:[\\\/]/,
+  },
+  {
+    label: "source_path field with absolute POSIX path",
+    pattern: /"source_path"\s*:\s*"\//,
+  },
 ];
 
 function walkFiles(rootDir, allowedExtensions) {

@@ -64,6 +64,11 @@ export default function GenerationPlanCard({ state }) {
                   {err?.field || "(field?)"} - {err?.code || "(code?)"}
                 </div>
                 <div className="mt-0.5">{err?.message || "No message provided."}</div>
+                {err?.source_record_id ? (
+                  <div className="mt-1 font-mono text-[10px] text-amber-700/80">
+                    source_record_id: {err.source_record_id}
+                  </div>
+                ) : null}
               </li>
             ))}
           </ul>
@@ -149,17 +154,34 @@ export default function GenerationPlanCard({ state }) {
           Source references
         </h4>
         {Array.isArray(plan.source_references) && plan.source_references.length ? (
-          <ul className="mt-2 space-y-1">
+          <ul className="mt-2 space-y-1.5">
             {plan.source_references.map((ref, idx) => (
-              <li key={idx} className="font-mono text-xs text-[#0a0a0a]/70">
-                {ref?.source_record_id}
+              <li
+                key={ref?.source_record_id || idx}
+                className="flex flex-wrap items-center gap-2 text-xs text-[#0a0a0a]/80"
+              >
+                <span className="font-mono text-[#0a0a0a]/85">
+                  {ref?.file_name || ref?.source_record_id || "(unnamed)"}
+                </span>
+                <span className="rounded-md border border-black/10 bg-white px-2 py-0.5 text-[11px] text-[#0a0a0a]/60">
+                  role: {ref?.role || "primary_source"}
+                </span>
+                <span className="rounded-md bg-slate-100 px-2 py-0.5 text-[11px] text-slate-600">
+                  privacy: {ref?.privacy || "unknown"}
+                </span>
+                {ref?.rail ? (
+                  <span className="rounded-md bg-slate-100 px-2 py-0.5 text-[11px] text-slate-600">
+                    rail: {ref.rail}
+                  </span>
+                ) : null}
               </li>
             ))}
           </ul>
         ) : (
           <p className="mt-2 inline-flex items-center gap-1.5 text-xs text-[#0a0a0a]/55">
             <ShieldCheck className="h-3.5 w-3.5" />
-            No source records selected. The inbox manifest picker is a later milestone.
+            No source records selected. Pick records from the inbox manifest picker to attach
+            them to this dry-run plan.
           </p>
         )}
       </section>
