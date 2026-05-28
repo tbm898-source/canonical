@@ -171,6 +171,12 @@ export default function Dashboard() {
                     <ClipboardList className="h-4 w-4" />
                   </Button>
                 </Link>
+                <Link to="/OwnerAssistant">
+                  <Button variant="outline" className="gap-2 rounded-xl">
+                    Open Owner Assistant
+                    <Bot className="h-4 w-4" />
+                  </Button>
+                </Link>
                 <Link to="/ProgramHelper?mode=demo">
                   <Button variant="outline" className="gap-2 rounded-xl">
                     Open Demo Viewer

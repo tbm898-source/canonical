@@ -16,6 +16,7 @@ import {
   GENERATION_PROFILES,
   M1_OUTPUT_DESTINATIONS,
   profileSupportsRail,
+  profileSupportsVisibility,
 } from "@/lib/generationProfiles";
 import OwnerAssistantGate from "@/components/owner-assistant/OwnerAssistantGate";
 import CapabilityBadge from "@/components/owner-assistant/CapabilityBadge";
@@ -416,12 +417,13 @@ function PlanningControlsPanel({
   const programRail = program?.ownership_rail
     ? String(program.ownership_rail).toLowerCase().replace(/^prism.*/, "prism")
     : null;
+  const programVisibility = program?.visibility_scope || null;
 
   return (
     <Section
       icon={FileText}
       title="Generation planning controls"
-      caption="All controls are declared-only in Milestone 1. No generation occurs."
+      caption="Profiles incompatible with this program's rail or visibility scope are disabled. The validator will reject mismatches server-side as a second line of defense."
     >
       <div className="space-y-6">
         <div>
@@ -434,10 +436,16 @@ function PlanningControlsPanel({
               const railSupported = programRail
                 ? profileSupportsRail(profile, programRail)
                 : true;
+              const visibilitySupported = programVisibility
+                ? profileSupportsVisibility(profile, programVisibility)
+                : true;
+              const compatible = railSupported && visibilitySupported;
               return (
                 <li key={profile.profile_id}>
                   <label
-                    className={`flex cursor-pointer items-start gap-3 rounded-xl border px-4 py-3 transition ${
+                    className={`flex items-start gap-3 rounded-xl border px-4 py-3 transition ${
+                      compatible ? "cursor-pointer" : "cursor-not-allowed opacity-50"
+                    } ${
                       isSelected
                         ? "border-[#0a0a0a]/40 bg-white"
                         : "border-black/5 bg-white/60 hover:bg-white"
@@ -448,7 +456,11 @@ function PlanningControlsPanel({
                       name="owner-assistant-profile"
                       value={profile.profile_id}
                       checked={isSelected}
-                      onChange={() => onSelectProfile(profile.profile_id)}
+                      disabled={!compatible}
+                      aria-disabled={!compatible}
+                      onChange={() => {
+                        if (compatible) onSelectProfile(profile.profile_id);
+                      }}
                       className="mt-1"
                     />
                     <div className="min-w-0 flex-1">
@@ -462,6 +474,11 @@ function PlanningControlsPanel({
                         {programRail && !railSupported ? (
                           <span className="rounded-md bg-slate-100 px-2 py-0.5 text-[10px] font-medium text-slate-600">
                             not applicable to {programRail}
+                          </span>
+                        ) : null}
+                        {programVisibility && !visibilitySupported ? (
+                          <span className="rounded-md bg-slate-100 px-2 py-0.5 text-[10px] font-medium text-slate-600">
+                            not allowed for {programVisibility}
                           </span>
                         ) : null}
                       </div>
