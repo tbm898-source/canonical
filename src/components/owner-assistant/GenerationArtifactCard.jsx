@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { AlertTriangle, CheckCircle2, ChevronDown, ChevronUp, FileCode2, XCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import CapabilityBadge from "./CapabilityBadge";
+import ExportPreviewPanel from "./ExportPreviewPanel";
 
 export default function GenerationArtifactCard({
   state,
@@ -146,8 +147,9 @@ export default function GenerationArtifactCard({
       {isApproved ? (
         <section className="mt-5 rounded-lg border border-emerald-200 bg-emerald-50/60 px-4 py-3">
           <p className="text-xs leading-5 text-emerald-800">
-            Approved. Export readiness is <span className="font-mono">ready_dry_run</span>. Connector
-            export preview is not implemented yet (Milestone 7).
+            Approved. Export readiness is <span className="font-mono">ready_dry_run</span>. Use the
+            export preview panel below to inspect connector payloads. Live writes remain disabled
+            (Milestone 8).
           </p>
         </section>
       ) : null}
@@ -204,6 +206,8 @@ export default function GenerationArtifactCard({
           </div>
         </CollapsibleBlock>
       ) : null}
+
+      <ExportPreviewPanel artifact={artifact} />
     </CardShell>
   );
 }

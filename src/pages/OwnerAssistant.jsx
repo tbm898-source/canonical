@@ -403,7 +403,7 @@ function StatusBanner({ state }) {
               Owner Assistant
             </h1>
             <span className="rounded-full border border-black/10 bg-white px-2 py-0.5 text-xs font-medium text-[#0a0a0a]/60">
-              Milestone 4 (plan + generate + review)
+              Milestone 7 (plan + generate + review + export preview)
             </span>
           </div>
           <p className="mt-2 max-w-2xl text-sm leading-6 text-[#0a0a0a]/60">
