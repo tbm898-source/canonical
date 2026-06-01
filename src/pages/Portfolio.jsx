@@ -37,19 +37,23 @@ const fadeUp = {
 
 const proofIcons = [Network, BookOpenCheck, ClipboardList, FolderGit2];
 const caseIcons = [Layers3, GitBranch, BookOpenCheck, Wrench, FileCheck2];
+const GKC_LOGO_SRC = "/assets/brand/gordian-knot-consulting-llc-logo.png";
 
 function GkcLogoSlot() {
   return (
-    <div className="flex items-center gap-4">
-      <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-dashed border-black/15 bg-white shadow-sm">
-        {/* TODO: Add Gordian Knot Consulting LLC logo asset here. */}
-        <span className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#0a0a0a]/35">
-          Logo
-        </span>
+    <div className="flex min-w-0 items-center gap-4">
+      <div className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-black/5 bg-white p-1.5 shadow-sm sm:h-[4.75rem] sm:w-[4.75rem]">
+        <img
+          src={GKC_LOGO_SRC}
+          alt="Gordian Knot Consulting LLC"
+          width={68}
+          height={68}
+          className="h-full w-full max-w-full object-contain"
+        />
       </div>
-      <div>
+      <div className="min-w-0">
         <p className="text-sm font-semibold text-[#0a0a0a]">Gordian Knot Consulting LLC</p>
-        <p className="text-xs leading-5 text-[#0a0a0a]/45">AI workflow systems portfolio</p>
+        <p className="text-xs leading-5 text-[#0a0a0a]/45">Field-built AI workflow systems</p>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 export const portfolioHero = {
-  title: "Gordian Knot Consulting LLC AI Workflow Systems Portfolio",
+  title: "Gordian Knot Consulting — Field-Built AI Workflow Systems",
   subtitle:
-    "Field-built AI workflow systems for educators, builders, nonprofits, and small organizations that need their work to survive across tools, people, devices, and time.",
+    "Workflow systems for educators, builders, nonprofits, and small organizations that need their work to survive across tools, people, devices, and time.",
   credibility:
     "Built from real operational work: teaching trades, managing field logistics, producing technical curriculum, documenting SOPs, integrating AI tools, and turning scattered project memory into usable systems.",
 };
@@ -87,10 +87,10 @@ export const caseStudies = [
       "Shows practical operations support, documentation cleanup, and systems thinking under real-world constraints.",
   },
   {
-    title: "AI Portfolio and Proof System",
+    title: "Public Proof and Work History",
     category: "Professional Development / Credibility",
     summary:
-      "A public-facing proof system that replaces vague AI certificates with documented examples of actual applied AI work.",
+      "A public proof layer on the CANONICAL site that documents applied AI workflow work with sanitized examples—not slide-deck credentials.",
     highlights: [
       "Public portfolio inside the CANONICAL site",
       "Sanitized project examples",
@@ -99,7 +99,7 @@ export const caseStudies = [
       "Designed to grow over time as new projects mature",
     ],
     proof:
-      "Shows professional positioning, self-documentation, and responsible AI use.",
+      "Shows how the work is documented, bounded, and handed off—not just claimed.",
   },
 ];
 
