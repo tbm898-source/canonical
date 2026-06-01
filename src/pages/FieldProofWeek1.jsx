@@ -1,43 +1,39 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { BookOpen, CheckCircle2, Layers, Route } from "lucide-react";
+import {
+  BookOpen,
+  CalendarDays,
+  CheckCircle2,
+  ClipboardList,
+  Layers,
+  Route,
+  ShieldCheck,
+  Table2,
+} from "lucide-react";
 import PublicPageShell from "@/components/public/PublicPageShell";
+import content from "@/content/site/field-proof-week1.json";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   visible: (i = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+    transition: { delay: i * 0.06, duration: 0.55, ease: [0.22, 1, 0.36, 1] },
   }),
 };
 
-const createdCategories = [
-  "Week overview and daily instructor operations (Days 1–4)",
-  "Student welcome, expectations, and activity sheets",
-  "Verification logs and evidence naming guides",
-  "Instructor closeout and capstone-readiness checklists",
-  "Google Classroom post drafts",
-  "ClickUp task batch and print queue mapping",
-  "Missing-items tracking for shop prep",
-  "Safety and verification culture (trace before trust)",
-  "Capstone-readiness bridge and open-questions capture",
-];
+const { sections: s } = content;
 
 export default function FieldProofWeek1() {
   return (
     <PublicPageShell>
-      <motion.article
-        initial="hidden"
-        animate="visible"
-        className="mx-auto max-w-3xl"
-      >
+      <motion.article initial="hidden" animate="visible" className="mx-auto max-w-4xl">
         <motion.p
           variants={fadeUp}
           custom={0}
           className="mb-6 text-xs font-medium uppercase tracking-widest text-indigo-600"
         >
-          Field proof
+          {content.eyebrow}
         </motion.p>
 
         <motion.h1
@@ -45,76 +41,192 @@ export default function FieldProofWeek1() {
           custom={1}
           className="mb-4 text-4xl font-bold leading-tight tracking-tight text-[#0a0a0a] sm:text-5xl"
         >
-          Turning curriculum chaos into a Week 1 operating spine
+          {content.title}
         </motion.h1>
 
         <motion.p
           variants={fadeUp}
           custom={2}
-          className="mb-16 text-lg leading-relaxed text-[#0a0a0a]/45"
+          className="mb-10 text-lg leading-relaxed text-[#0a0a0a]/45"
         >
-          A real-world curriculum planning pass showing how CANONICAL turns scattered
-          planning, documents, tasks, classroom posts, and evidence routines into one
-          usable teaching system.
+          {content.subtitle}
         </motion.p>
 
-        <Section index={3} title="The problem" icon={Route}>
-          A program lead needed an upcoming youth trades / pre-apprenticeship cohort
-          prepared without losing context across files, tools, lesson plans, task lists,
-          print needs, and evidence requirements. The plan existed—but it was not yet
-          something an instructor could run from on day one.
+        <motion.section
+          variants={fadeUp}
+          custom={3}
+          className="mb-14 grid gap-3 sm:grid-cols-2 lg:grid-cols-4"
+        >
+          {content.stats.map((stat) => (
+            <div
+              key={stat.label}
+              className="rounded-2xl border border-black/5 bg-white p-5 shadow-sm"
+            >
+              <div className="text-3xl font-bold tracking-tight text-[#0a0a0a]">{stat.value}</div>
+              <div className="mt-1 text-xs leading-5 text-[#0a0a0a]/50">{stat.label}</div>
+            </div>
+          ))}
+        </motion.section>
+
+        <Section index={4} title={s.problem.title} icon={Route}>
+          <p>{s.problem.body}</p>
         </Section>
 
-        <Section index={4} title="The CANONICAL move" icon={Layers}>
-          Instead of building one more app, the work was organized into a durable
-          operating spine: a planning anchor, daily ops, student activity sheets, print
-          queue, task batch, and missing-items tracker. The machine room can be complex;
-          the handrail stays simple.
+        <Section index={5} title={s.canonicalMove.title} icon={Layers}>
+          <p>{s.canonicalMove.body}</p>
         </Section>
 
-        <Section index={5} title="What was created" icon={BookOpen}>
-          <p className="mb-4">
-            Categories only—no private packets or unpublished curriculum exposed here:
-          </p>
-          <ul className="space-y-2">
-            {createdCategories.map((item) => (
-              <li key={item} className="flex gap-3 text-sm leading-relaxed text-[#0a0a0a]/50">
-                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-indigo-500" />
-                <span>{item}</span>
-              </li>
+        <Section index={6} title={s.cohortContext.title} icon={CalendarDays}>
+          <BulletList items={s.cohortContext.items} />
+        </Section>
+
+        <Section index={7} title={s.weekPurpose.title} icon={ShieldCheck}>
+          <p>{s.weekPurpose.body}</p>
+        </Section>
+
+        <Section index={8} title={s.studentOutcomes.title} icon={Table2}>
+          <div className="overflow-x-auto rounded-2xl border border-black/5 bg-white">
+            <table className="w-full min-w-[520px] text-left text-sm">
+              <thead>
+                <tr className="border-b border-black/5 bg-[#fafafa]">
+                  <th className="px-4 py-3 font-semibold text-[#0a0a0a]">Outcome</th>
+                  <th className="px-4 py-3 font-semibold text-[#0a0a0a]">Evidence</th>
+                </tr>
+              </thead>
+              <tbody>
+                {s.studentOutcomes.rows.map((row) => (
+                  <tr key={row.outcome} className="border-b border-black/5 last:border-0">
+                    <td className="px-4 py-3 text-[#0a0a0a]/70">{row.outcome}</td>
+                    <td className="px-4 py-3 text-[#0a0a0a]/50">{row.evidence}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </Section>
+
+        <Section index={9} title={s.dailyRhythm.title} icon={CalendarDays}>
+          <div className="overflow-x-auto rounded-2xl border border-black/5 bg-white">
+            <table className="w-full min-w-[480px] text-left text-sm">
+              <thead>
+                <tr className="border-b border-black/5 bg-[#fafafa]">
+                  <th className="px-4 py-3 font-semibold text-[#0a0a0a]">Block</th>
+                  <th className="px-4 py-3 font-semibold text-[#0a0a0a]">Timing</th>
+                  <th className="px-4 py-3 font-semibold text-[#0a0a0a]">Activity</th>
+                </tr>
+              </thead>
+              <tbody>
+                {s.dailyRhythm.rows.map((row) => (
+                  <tr key={row.block} className="border-b border-black/5 last:border-0">
+                    <td className="px-4 py-3 font-medium text-[#0a0a0a]/70">{row.block}</td>
+                    <td className="px-4 py-3 text-[#0a0a0a]/45">{row.time}</td>
+                    <td className="px-4 py-3 text-[#0a0a0a]/50">{row.activity}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </Section>
+
+        <Section index={10} title={s.dayByDay.title} icon={ClipboardList}>
+          <div className="space-y-4">
+            {s.dayByDay.days.map((day) => (
+              <div
+                key={day.day}
+                className="rounded-2xl border border-black/5 bg-white p-5 shadow-sm"
+              >
+                <h3 className="text-base font-semibold text-[#0a0a0a]">{day.day}</h3>
+                <dl className="mt-3 space-y-2 text-sm">
+                  <div>
+                    <dt className="font-medium text-[#0a0a0a]/55">Focus</dt>
+                    <dd className="mt-0.5 leading-relaxed text-[#0a0a0a]/50">{day.focus}</dd>
+                  </div>
+                  <div>
+                    <dt className="font-medium text-[#0a0a0a]/55">Mastery checks</dt>
+                    <dd className="mt-0.5 text-[#0a0a0a]/50">{day.mastery}</dd>
+                  </div>
+                  <div>
+                    <dt className="font-medium text-[#0a0a0a]/55">Instructor run sheet</dt>
+                    <dd className="mt-0.5 leading-relaxed text-[#0a0a0a]/50">
+                      {day.instructorSheet}
+                    </dd>
+                  </div>
+                </dl>
+              </div>
             ))}
-          </ul>
+          </div>
         </Section>
 
-        <Section index={6} title="What changed">
-          The work became findable, teachable, reviewable, printable later, and easier
-          to hand off. Daily rhythm, verification habits, and documentation expectations
-          live in one place instead of in someone&apos;s head.
+        <Section index={11} title={s.operatingSpine.title} icon={Layers}>
+          <div className="space-y-3">
+            {s.operatingSpine.layers.map((layer) => (
+              <div
+                key={layer.name}
+                className="rounded-xl border border-black/5 bg-white px-4 py-3"
+              >
+                <div className="text-sm font-semibold text-[#0a0a0a]">{layer.name}</div>
+                <p className="mt-1 text-sm leading-relaxed text-[#0a0a0a]/50">{layer.detail}</p>
+              </div>
+            ))}
+          </div>
         </Section>
 
-        <Section index={7} title="Why it matters">
-          The instructor no longer has to hold the whole system in memory. The structure
-          becomes an external memory hook—reducing friction while preserving judgment
-          and human authority. Technology should not make the user feel tested; it should
-          absorb complexity, reduce shame, make the next step obvious, and leave the user
-          feeling more capable than before they opened it.
+        <Section index={12} title={s.planningDocs.title} icon={BookOpen}>
+          <DocGroups groups={s.planningDocs.groups} />
         </Section>
 
-        <Section index={8} title="The principle">
-          The system carries the complexity so the user can carry your intention.
-          Verification beats confidence. Documentation is part of safety—not paperwork
-          theater. Hints are not proof.
+        <Section index={13} title={s.activitySheets.title} icon={ClipboardList}>
+          <DocGroups groups={s.activitySheets.groups} />
+        </Section>
+
+        <Section index={14} title={s.evidenceSystem.title} icon={ShieldCheck}>
+          <p className="mb-4">{s.evidenceSystem.body}</p>
+          <div className="mb-4 rounded-xl bg-[#0a0a0a] px-4 py-3 font-mono text-xs text-white/90">
+            {s.evidenceSystem.namingPattern}
+          </div>
+          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-[#0a0a0a]/40">
+            Naming notes
+          </p>
+          <BulletList items={s.evidenceSystem.namingNotes} className="mb-6" />
+          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-[#0a0a0a]/40">
+            Verification principles
+          </p>
+          <BulletList items={s.evidenceSystem.verificationPrinciples} />
+        </Section>
+
+        <Section index={15} title={s.workflow.title} icon={Route}>
+          <div className="space-y-5">
+            {s.workflow.phases.map((phase) => (
+              <div key={phase.label}>
+                <h3 className="text-sm font-semibold text-[#0a0a0a]">{phase.label}</h3>
+                <ol className="mt-2 list-decimal space-y-1.5 pl-5 text-sm leading-relaxed text-[#0a0a0a]/50">
+                  {phase.steps.map((step) => (
+                    <li key={step}>{step}</li>
+                  ))}
+                </ol>
+              </div>
+            ))}
+          </div>
+        </Section>
+
+        <Section index={16} title={s.whatChanged.title}>
+          <p>{s.whatChanged.body}</p>
+        </Section>
+
+        <Section index={17} title={s.whyItMatters.title}>
+          <p>{s.whyItMatters.body}</p>
+        </Section>
+
+        <Section index={18} title={s.principle.title}>
+          <p>{s.principle.body}</p>
         </Section>
 
         <motion.div
           variants={fadeUp}
-          custom={9}
+          custom={19}
           className="mt-16 rounded-2xl bg-[#0a0a0a] p-8 text-white"
         >
-          <p className="text-sm leading-relaxed text-white/80">
-            CANONICAL is project memory, curriculum systems, and AI workflow infrastructure
-            arranged into one coherent working spine. Look. We did it.
-          </p>
+          <p className="text-sm leading-relaxed text-white/80">{s.closing}</p>
         </motion.div>
       </motion.article>
     </PublicPageShell>
@@ -134,5 +246,31 @@ function Section({ index, title, icon: Icon, children }) {
       </div>
       <div className="text-sm leading-relaxed text-[#0a0a0a]/50 sm:pl-[52px]">{children}</div>
     </motion.section>
+  );
+}
+
+function BulletList({ items, className = "" }) {
+  return (
+    <ul className={`space-y-2 ${className}`}>
+      {items.map((item) => (
+        <li key={item} className="flex gap-3 text-sm leading-relaxed text-[#0a0a0a]/50">
+          <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-indigo-500" />
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function DocGroups({ groups }) {
+  return (
+    <div className="space-y-6">
+      {groups.map((group) => (
+        <div key={group.label}>
+          <h3 className="mb-2 text-sm font-semibold text-[#0a0a0a]/70">{group.label}</h3>
+          <BulletList items={group.items} />
+        </div>
+      ))}
+    </div>
   );
 }
