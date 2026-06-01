@@ -135,6 +135,9 @@ function PublicNav() {
           <Link to="/About" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
             About
           </Link>
+          <Link to="/portfolio" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
+            Portfolio
+          </Link>
           <Link to="/HowItWorks" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
             How It Works
           </Link>
@@ -277,6 +280,11 @@ export default function Home() {
                   <Button className="h-12 gap-2 rounded-xl bg-[#0a0a0a] px-6 text-sm font-medium text-white transition-all hover:gap-3 hover:bg-[#1a1a1a]">
                     Open Demo Viewer
                     <ArrowRight className="h-4 w-4" />
+                  </Button>
+                </Link>
+                <Link to="/portfolio">
+                  <Button variant="outline" className="h-12 rounded-xl px-6 text-sm font-medium">
+                    View Portfolio
                   </Button>
                 </Link>
                 <Link to="/WorkspaceSetup">

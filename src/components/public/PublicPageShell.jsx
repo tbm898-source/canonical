@@ -24,6 +24,9 @@ export function PublicNav() {
           <Link to="/About" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
             About
           </Link>
+          <Link to="/portfolio" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
+            Portfolio
+          </Link>
           <Link to="/HowItWorks" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
             How It Works
           </Link>

@@ -13,6 +13,7 @@ import WorkspaceSetup from './pages/WorkspaceSetup';
 import HowItWorks from './pages/HowItWorks';
 import Integrations from './pages/Integrations';
 import Proof from './pages/Proof';
+import Portfolio from './pages/Portfolio';
 import PackageDetail from './pages/PackageDetail';
 import Docs from './pages/Docs';
 import OwnerAssistant from './pages/OwnerAssistant';
@@ -54,6 +55,8 @@ const AuthenticatedApp = () => {
       <Route path="/HowItWorks" element={<HowItWorks />} />
       <Route path="/Integrations" element={<Integrations />} />
       <Route path="/Proof" element={<Proof />} />
+      <Route path="/portfolio" element={<Portfolio />} />
+      <Route path="/Portfolio" element={<Navigate to="/portfolio" replace />} />
       <Route path="/field-proof-week1" element={<FieldProofWeek1 />} />
       <Route path="/FieldProofWeek1" element={<Navigate to="/field-proof-week1" replace />} />
       <Route path="/Packages/:packageId" element={<PackageDetail />} />
