@@ -141,6 +141,9 @@ function PublicNav() {
           <Link to="/Proof" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
             Proof
           </Link>
+          <Link to="/field-proof-week1" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
+            Field proof
+          </Link>
           <Link to="/Home#faq" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
             FAQ
           </Link>
@@ -305,6 +308,35 @@ export default function Home() {
                 ))}
               </div>
             </motion.div>
+          </motion.div>
+        </section>
+
+        <section className="border-y border-black/5 bg-white px-6 py-16">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={fadeUp}
+            className="mx-auto max-w-6xl rounded-3xl border border-black/5 bg-[#fafafa] p-8 sm:p-10"
+          >
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-indigo-600">
+              Field-tested in curriculum operations
+            </p>
+            <h2 className="mt-3 text-2xl font-bold tracking-tight text-[#0a0a0a] sm:text-3xl">
+              From scattered plan to Week 1 operating spine
+            </h2>
+            <p className="mt-4 max-w-2xl text-sm leading-6 text-[#0a0a0a]/60">
+              CANONICAL was used to turn an upcoming trades / pre-apprenticeship cohort
+              plan into a complete Week 1 system: daily ops, student activities, evidence
+              routines, task planning, classroom posts, print mapping, and missing-item
+              tracking—without asking the instructor to hold it all in memory.
+            </p>
+            <Link to="/field-proof-week1" className="mt-6 inline-block">
+              <Button className="h-11 gap-2 rounded-xl bg-[#0a0a0a] px-5 text-sm font-medium text-white hover:bg-[#1a1a1a]">
+                Read the field proof
+                <ArrowRight className="h-4 w-4" />
+              </Button>
+            </Link>
           </motion.div>
         </section>
 

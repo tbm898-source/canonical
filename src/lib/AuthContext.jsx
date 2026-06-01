@@ -13,6 +13,8 @@ const publicPreviewPaths = [
   '/HowItWorks',
   '/Integrations',
   '/Proof',
+  '/field-proof-week1',
+  '/FieldProofWeek1',
   '/Docs',
 ];
 

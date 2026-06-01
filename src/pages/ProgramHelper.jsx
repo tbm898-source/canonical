@@ -28,6 +28,8 @@ import packageIndex from "@content/packages/index.json";
 import ctsPackageSummary from "@content/packages/generated/cts-master-package-v1.summary.json";
 import slideTemplateSummary from "@content/packages/generated/cts-rcs-10week-slide-templates.summary.json";
 import LiveIntegrationsPanel from "@/components/program-helper/LiveIntegrationsPanel";
+import FieldProofDiscoverCard from "@/components/public/FieldProofDiscoverCard";
+import { Link } from "react-router-dom";
 import { useAuth } from "@/lib/AuthContext";
 import { getCapabilityRegistry } from "@/lib/canonicalCapabilities";
 import {
@@ -1647,13 +1649,21 @@ export default function ProgramHelper() {
                 CANONICAL
               </span>
             </div>
-            <button
-              type="button"
-              onClick={showDemoViewer}
-              className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]"
-            >
-              Open Demo Viewer
-            </button>
+            <div className="flex items-center gap-5">
+              <Link
+                to="/field-proof-week1"
+                className="text-sm font-medium text-indigo-600 transition-colors hover:text-indigo-800"
+              >
+                Field proof
+              </Link>
+              <button
+                type="button"
+                onClick={showDemoViewer}
+                className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]"
+              >
+                Open Demo Viewer
+              </button>
+            </div>
           </div>
         </nav>
 
@@ -1703,6 +1713,10 @@ export default function ProgramHelper() {
             />
           </section>
         </main>
+
+        <div className="mx-auto max-w-6xl px-6 pb-16">
+          <FieldProofDiscoverCard />
+        </div>
       </div>
     );
   }
@@ -1718,6 +1732,12 @@ export default function ProgramHelper() {
             </span>
           </div>
           <div className="flex items-center gap-5">
+            <Link
+              to="/field-proof-week1"
+              className="text-sm font-medium text-indigo-600 transition-colors hover:text-indigo-800"
+            >
+              Field proof
+            </Link>
             <a href="#program-library" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
               Programs
             </a>
@@ -1755,6 +1775,8 @@ export default function ProgramHelper() {
             Demo mode is active. Drafts, approvals, raw PRISM notes, local paths, and agent logs are hidden.
           </div>
         )}
+
+        <FieldProofDiscoverCard className="mb-8" />
 
         <motion.header
           initial="hidden"

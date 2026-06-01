@@ -30,6 +30,9 @@ export function PublicNav() {
           <Link to="/Proof" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
             Proof
           </Link>
+          <Link to="/field-proof-week1" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
+            Field proof
+          </Link>
           <Link to="/Docs" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
             Docs
           </Link>

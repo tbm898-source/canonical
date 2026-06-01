@@ -16,6 +16,8 @@ import Proof from './pages/Proof';
 import PackageDetail from './pages/PackageDetail';
 import Docs from './pages/Docs';
 import OwnerAssistant from './pages/OwnerAssistant';
+import FieldProofWeek1 from './pages/FieldProofWeek1';
+import { Navigate } from 'react-router-dom';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -52,6 +54,8 @@ const AuthenticatedApp = () => {
       <Route path="/HowItWorks" element={<HowItWorks />} />
       <Route path="/Integrations" element={<Integrations />} />
       <Route path="/Proof" element={<Proof />} />
+      <Route path="/field-proof-week1" element={<FieldProofWeek1 />} />
+      <Route path="/FieldProofWeek1" element={<Navigate to="/field-proof-week1" replace />} />
       <Route path="/Packages/:packageId" element={<PackageDetail />} />
       <Route path="/Docs" element={<Docs />} />
       <Route path="/Docs/:docId" element={<Docs />} />
