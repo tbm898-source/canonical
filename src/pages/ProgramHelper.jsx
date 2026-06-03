@@ -1029,12 +1029,11 @@ function OwnerPrismDataPanel({ state, data, program, onRetry }) {
           )}
           {state === "not_seeded" && (
             <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
-              <div className="font-semibold">No CanonicalProgram record yet for {program.program_key}.</div>
+              <div className="font-semibold">No program record returned for {program.program_key}.</div>
               <p className="mt-1">
-                The public bundle no longer carries the private framework details. To populate the
-                owner view, invoke the owner-only one-shot seed function{" "}
-                <span className="font-mono">seedPrismDtjlFromBundle</span> from the Base44 console (or via an
-                authenticated POST). Once seeded, reload this panel.
+                The public bundle does not carry private framework details. Owner data should load
+                from the authenticated <span className="font-mono">getCanonicalProgramFull</span>{" "}
+                backend function after GitHub sync. Reload this panel once deploy completes.
               </p>
               {fetchedWarnings.length > 0 && (
                 <ul className="mt-2 list-disc pl-5 text-xs text-amber-800/80">
@@ -1074,8 +1073,12 @@ function OwnerPrismDataPanel({ state, data, program, onRetry }) {
             <div className="grid gap-3 sm:grid-cols-2">
               <MetricTile label="Program key" value={fetchedProgram.program_key} />
               <MetricTile
-                label="Module key"
-                value={fetchedModules[0]?.module_key || "Not opened"}
+                label="Modules"
+                value={
+                  fetchedModules.length
+                    ? `${fetchedModules.length} (${fetchedModules.filter((m) => m.sequence_order > 0).length} curriculum)`
+                    : "Not loaded"
+                }
               />
               <MetricTile
                 label="Evidence"
@@ -1086,6 +1089,35 @@ function OwnerPrismDataPanel({ state, data, program, onRetry }) {
                 value={fetchedProgram.default_demo_behavior || "Not set"}
               />
             </div>
+            {fetchedModules.length > 0 && (
+              <div className="rounded-2xl border border-black/5 bg-[#fafafa] p-4">
+                <div className="text-xs font-semibold uppercase tracking-wide text-[#0a0a0a]/35">
+                  Module sequence
+                </div>
+                <ol className="mt-3 grid gap-2 text-sm text-[#0a0a0a]/55">
+                  {fetchedModules.map((item) => (
+                    <li key={item.module_key}>
+                      <span className="font-mono text-xs text-[#0a0a0a]/40">
+                        {item.module_key}
+                      </span>
+                      <span className="ml-2">{item.title}</span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            )}
+            {fetchedArtifacts.length > 0 && (
+              <div className="rounded-2xl border border-black/5 bg-[#fafafa] p-4">
+                <div className="text-xs font-semibold uppercase tracking-wide text-[#0a0a0a]/35">
+                  Program OS artifacts
+                </div>
+                <ul className="mt-3 grid gap-2 text-sm text-[#0a0a0a]/55">
+                  {fetchedArtifacts.map((artifact) => (
+                    <li key={artifact.artifact_id}>{artifact.title}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
             {fetchedProgram.canonical_path && (
               <div className="rounded-2xl border border-black/5 bg-[#fafafa] p-4">
                 <div className="text-xs font-semibold uppercase tracking-wide text-[#0a0a0a]/35">
@@ -1122,7 +1154,7 @@ function OwnerPrismDataPanel({ state, data, program, onRetry }) {
         ) : (
           <p className="text-sm leading-6 text-[#0a0a0a]/50">
             Source structure and owner pointers load from the authenticated Base44 backend, not from
-            the public bundle. {state === "loading" ? "Loading..." : "Populate by seeding the Base44 entities."}
+            the public bundle. {state === "loading" ? "Loading..." : "Sign in as owner/admin to load from the backend."}
           </p>
         )}
       </Surface>
