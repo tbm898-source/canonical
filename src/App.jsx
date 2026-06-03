@@ -17,6 +17,7 @@ import Portfolio from './pages/Portfolio';
 import PackageDetail from './pages/PackageDetail';
 import Docs from './pages/Docs';
 import OwnerAssistant from './pages/OwnerAssistant';
+import Settings from './pages/Settings';
 import FieldProofWeek1 from './pages/FieldProofWeek1';
 import { Navigate } from 'react-router-dom';
 
@@ -54,6 +55,7 @@ const AuthenticatedApp = () => {
       <Route path="/ProgramHelper" element={<ProgramHelper />} />
       <Route path="/HowItWorks" element={<HowItWorks />} />
       <Route path="/Integrations" element={<Integrations />} />
+      <Route path="/Settings" element={<Settings />} />
       <Route path="/Proof" element={<Proof />} />
       <Route path="/portfolio" element={<Portfolio />} />
       <Route path="/Portfolio" element={<Navigate to="/portfolio" replace />} />

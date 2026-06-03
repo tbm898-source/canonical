@@ -79,7 +79,10 @@ export function buildWorkbenchNavLinks({ summaryOnly, owner }) {
     links.push({ key: "owner-assistant", to: "/OwnerAssistant", label: "Owner Assistant" });
   }
 
-  links.push({ key: "home", to: "/Home", label: "Home" });
+  links.push(
+    { key: "settings", to: "/Settings", label: "Settings" },
+    { key: "home", to: "/Home", label: "Home" },
+  );
 
   return links;
 }

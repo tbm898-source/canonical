@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useMemo } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { CheckCircle2, PlugZap } from "lucide-react";
+import { ArrowRight, CheckCircle2, PlugZap } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import PublicPageShell from "@/components/public/PublicPageShell";
+import ConnectorGovernancePanel from "@/components/connectors/ConnectorGovernancePanel";
+import { useAuth } from "@/lib/AuthContext";
+import { getOwnerAccessState } from "@/lib/ownerAccessPolicy";
 import content from "@content/site/integrations.json";
 
 export default function Integrations() {
+  const { user, isAuthenticated } = useAuth();
+  const ownerAccess = useMemo(
+    () => getOwnerAccessState({ user, isAuthenticated }),
+    [isAuthenticated, user],
+  );
+
   return (
     <PublicPageShell>
       <div className="mx-auto max-w-6xl">
@@ -49,6 +60,32 @@ export default function Integrations() {
             ))}
           </div>
         </section>
+
+        <section className="mt-12 rounded-3xl border border-black/5 bg-white p-6 shadow-sm sm:p-8">
+          <h2 className="text-xl font-bold tracking-tight text-[#0a0a0a]">Live controls</h2>
+          <p className="mt-3 max-w-2xl text-sm leading-6 text-[#0a0a0a]/60">
+            Connector health, Dropbox discovery, and packet saves run in the owner workbench — not from demo
+            mode. Settings shows read-only posture and an optional Endpoint Pulse link.
+          </p>
+          <div className="mt-6 flex flex-col gap-2 sm:flex-row">
+            <Link to="/Settings" className="w-full sm:w-auto">
+              <Button variant="outline" className="h-11 w-full rounded-xl">
+                Settings & health check
+              </Button>
+            </Link>
+            <Link
+              to={ownerAccess.allowed ? "/ProgramHelper?mode=owner#integrations" : "/ProgramHelper?mode=demo"}
+              className="w-full sm:w-auto"
+            >
+              <Button className="h-11 w-full gap-2 rounded-xl bg-[#0a0a0a] text-white hover:bg-[#1a1a1a]">
+                {ownerAccess.allowed ? "Owner integrations panel" : "Demo workbench"}
+                <ArrowRight className="h-4 w-4" />
+              </Button>
+            </Link>
+          </div>
+        </section>
+
+        <ConnectorGovernancePanel className="mt-12" />
       </div>
     </PublicPageShell>
   );

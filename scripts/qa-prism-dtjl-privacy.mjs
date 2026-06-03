@@ -231,6 +231,7 @@ assert(
 );
 assert(/path=["']\/Proof["']/.test(appSource), "App must register /Proof route.");
 assert(/path=["']\/Docs\/:docId["']/.test(appSource), "App must register /Docs/:docId route.");
+assert(/path=["']\/Settings["']/.test(appSource), "App must register /Settings route.");
 
 // --- src-tree and build-bundle PRISM token scan ---
 //

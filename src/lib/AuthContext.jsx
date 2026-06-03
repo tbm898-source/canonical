@@ -12,6 +12,7 @@ const publicPreviewPaths = [
   '/WorkspaceSetup',
   '/HowItWorks',
   '/Integrations',
+  '/Settings',
   '/Proof',
   '/field-proof-week1',
   '/FieldProofWeek1',

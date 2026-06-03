@@ -15,6 +15,8 @@ export const PUBLIC_NAV_LINKS = [
   { to: "/About", label: "About" },
   { to: "/portfolio", label: "Portfolio" },
   { to: "/HowItWorks", label: "How It Works" },
+  { to: "/Integrations", label: "Integrations" },
+  { to: "/Settings", label: "Settings" },
   { to: "/Proof", label: "Proof" },
   { to: "/field-proof-week1", label: "Field proof" },
   { to: "/Docs", label: "Docs" },
