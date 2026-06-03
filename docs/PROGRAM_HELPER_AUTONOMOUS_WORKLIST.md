@@ -2,6 +2,13 @@
 
 Working rule while Tim is away: do useful, fun, reversible frontend and documentation work. Do not change live backend platform structure, secrets, domains, access policy, or destructive data paths without Tim.
 
+## Completed (mobile / platform v0.1)
+
+- PWA manifest, icons, safe-area layout, public + workbench mobile nav.
+- `/Settings` with governance map and owner-only connector health read.
+- `npm run qa:release` and GitHub Action release gate.
+- See `docs/CANONICAL_Mobile_Platform_Readiness_v0_1.md`.
+
 ## Safe And Fun To Move Forward
 
 - Polish the demo viewer into a stronger "here it is" presentation path.

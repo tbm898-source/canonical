@@ -1,69 +1,66 @@
-# CANONICAL Post-Deploy Audit Checklist (v0.1)
+# CANONICAL post-deploy audit checklist (v0.2)
 
-Run after GitHub push + Base44 publish/sync, **before** Phase 5 connector scaffolding.
+Run after GitHub push + Base44 **Publish**.
 
 App ID: `69b84417922e4d60ff8ef01c`  
 Repo: `tbm898-source/canonical`
 
-## Local gate (before or right after push)
+## Local release gate
 
 ```bash
-npm run qa:privacy
-npm run build
+npm run qa:release
 ```
+
+Runs `qa:privacy` then `build`. Same gate runs on GitHub Actions for `main`.
 
 ## Base44 deploy confirm
 
 - [ ] Builder shows latest commit from `main`
-- [ ] Publish/sync completed without timeout
-- [ ] No unexpected new automations on `CanonicalGeneratedArtifact` (ClickUp auto-export should stay disabled/no-op)
+- [ ] Publish completed without timeout
+- [ ] No rogue automations on `CanonicalGeneratedArtifact` → ClickUp auto-export
 
-## Function smoke (owner session required)
-
-Invoke from Owner Assistant or Program Helper owner mode; expect JSON, never tokens/paths in errors.
+## Function smoke (owner session)
 
 | Function | Expected |
 |----------|----------|
 | `getCanonicalProgramFull` | `success: true`, `program` for `PRISM_DTJL` |
-| `canonicalConnectorHealth` | `success: true`, connector status labels only |
+| `canonicalConnectorHealth` | status labels only (also from `/Settings`) |
 | `canonicalSpineDiscovery` | read-only metadata or clear blocked message |
-| `proposeOwnerGenerationPlan` | dry-run plan or validation errors (no crash) |
+| `proposeOwnerGenerationPlan` | dry-run plan or validation errors |
 
-Ghost check: if 404 "Deployment does not exist", function used `../_shared/` or failed sync — do not scaffold UI on that function until fixed.
+Ghost check: 404 "Deployment does not exist" → fix deploy before new connector work.
 
-## Demo / public (no owner login)
+## Demo / public
 
-- [ ] `/ProgramHelper?mode=demo` — PRISM_DTJL summary only, no module/source dump
-- [ ] Demo banner visible on phone while scrolling
-- [ ] Connector panel does **not** call backend (network tab quiet)
-- [ ] Home / Proof / Docs — mobile menu reaches all public links
+- [ ] `/ProgramHelper?mode=demo` — PRISM_DTJL summary only
+- [ ] `/Settings` — health check blocked without owner
+- [ ] `/Integrations` — links work; no live writes from this page alone
+- [ ] Mobile menu on Home reaches Settings, Integrations, Demo
 
-## Owner / admin (real Base44 auth, not localhost preview)
+## Owner / admin
 
-- [ ] `/ProgramHelper` — owner workbench when signed in as owner/admin
-- [ ] Owner PRISM panel loads via `getCanonicalProgramFull`
-- [ ] `/OwnerAssistant` — gate blocks non-owner; owner sees program identity + modules
-- [ ] Workbench menu → Integrations, Owner Assistant links work on phone
+- [ ] `/ProgramHelper` — owner workbench + PRISM panel
+- [ ] `/OwnerAssistant` — gated correctly
+- [ ] `/Settings` — Check connectors succeeds
+- [ ] Program Helper → Integrations — owner panel usable on phone
 
 ## Mobile / PWA
 
-- [ ] iPhone Safari: no horizontal scroll on Program Helper
-- [ ] Add to Home Screen: icon + theme color
-- [ ] Safe-area: nav not under notch; anchor jumps (Programs, Integrations) land below fixed nav
+See `docs/CANONICAL_Mobile_Test_Checklist_v0_1.md`.
 
-## Privacy regression
+## Privacy
 
-- [ ] View source / network: no PRISM private tokens in main JS bundle (spot-check)
-- [ ] Demo JSON for PRISM_DTJL has no `source_structure`, `00_GOVERNANCE`, Dropbox paths
+- [ ] `npm run qa:privacy` passed on release commit
+- [ ] Spot-check production bundle for PRISM path leaks
 
-## Record before Phase 5
+## Connector record (production)
 
 | Item | Live? | Notes |
 |------|-------|-------|
-| Dropbox connector | | |
+| Dropbox | | |
 | Classroom dry-run | | |
 | ClickUp dry-run | | |
-| Gmail | declared only | |
-| Endpoint Pulse | external link only | |
+| Gmail | declared | |
+| Endpoint Pulse | link if env set | `VITE_ENDPOINT_PULSE_URL` |
 
-**Stop rule:** If `getCanonicalProgramFull` or owner gate fails in production, fix deploy/auth before connector scaffolding.
+**Stop rule:** Fix `getCanonicalProgramFull` or owner gate before enabling new live connector writes.

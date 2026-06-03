@@ -1,5 +1,13 @@
 # Base44 Sync And Backend Notes
 
+## 2026-06 Mobile / frontend publish notes
+
+- Frontend changes (PWA, mobile nav, `/Settings`) deploy via **GitHub sync + Base44 Publish** like other Vite pages.
+- Pre-publish: `npm run qa:release` on the release commit.
+- Post-publish: `docs/CANONICAL_Post_Deploy_Audit_Checklist_v0_1.md` and `docs/CANONICAL_Mobile_Test_Checklist_v0_1.md`.
+- Optional Base44 env: `VITE_ENDPOINT_PULSE_URL`, `VITE_CANONICAL_OWNER_EMAILS` (see `docs/CANONICAL_Env_Vars.md`).
+- Backend functions unchanged by mobile work unless a separate function commit is included.
+
 ## 2026-05-28 Incident: Base44 AI ClickUp entity automation
 
 Base44 AI attempted `autoExportApprovedArtifactToClickUp` + a
