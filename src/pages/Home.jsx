@@ -11,6 +11,7 @@ import {
   Shield,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { PublicSiteNav } from "@/components/layout/MobileNav";
 import { Link, useLocation } from "react-router-dom";
 
 const fadeUp = {
@@ -113,58 +114,6 @@ const workflowSteps = [
   },
 ];
 
-function BrandMark() {
-  return (
-    <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#0a0a0a]">
-      <span className="text-xs font-bold tracking-tight text-white">C</span>
-    </div>
-  );
-}
-
-function PublicNav() {
-  return (
-    <nav className="fixed left-0 right-0 top-0 z-50 border-b border-black/5 bg-[#fafafa]/85 backdrop-blur-xl">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <Link to="/Home" className="flex items-center gap-2">
-          <BrandMark />
-          <span className="text-[15px] font-semibold tracking-tight text-[#0a0a0a]">
-            CANONICAL
-          </span>
-        </Link>
-        <div className="hidden items-center gap-5 md:flex">
-          <Link to="/About" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
-            About
-          </Link>
-          <Link to="/portfolio" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
-            Portfolio
-          </Link>
-          <Link to="/HowItWorks" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
-            How It Works
-          </Link>
-          <Link to="/Proof" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
-            Proof
-          </Link>
-          <Link to="/field-proof-week1" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
-            Field proof
-          </Link>
-          <Link to="/Home#faq" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
-            FAQ
-          </Link>
-          <Link to="/Dashboard" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
-            Operator Dashboard
-          </Link>
-          <Link to="/WorkspaceSetup" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
-            Workspace Setup
-          </Link>
-          <Link to="/ProgramHelper?mode=demo" className="text-sm font-medium text-indigo-600 transition-colors hover:text-indigo-800">
-            Demo Viewer
-          </Link>
-        </div>
-      </div>
-    </nav>
-  );
-}
-
 function Footer() {
   return (
     <footer className="border-t border-black/5 px-6 py-10">
@@ -250,10 +199,10 @@ export default function Home() {
 
   return (
     <div className="min-h-screen overflow-hidden bg-[#fafafa]">
-      <PublicNav />
+      <PublicSiteNav />
 
       <main>
-        <section className="relative px-6 pb-24 pt-36 sm:pt-44">
+        <section className="canonical-page-top relative px-6 pb-24">
           <motion.div
             initial="hidden"
             animate="visible"

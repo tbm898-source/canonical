@@ -278,7 +278,7 @@ export default function LiveIntegrationsPanel({ owner, generatedPackage }) {
           title="Connector Health"
           state={healthState}
           action={
-            <Button variant="outline" className="gap-2" onClick={checkHealth} disabled={!owner}>
+            <Button variant="outline" className="h-11 w-full gap-2 sm:w-auto" onClick={checkHealth} disabled={!owner}>
               <RefreshCcw className="h-4 w-4" />
               {owner ? "Check connectors" : "Owner mode required"}
             </Button>
@@ -311,13 +311,13 @@ export default function LiveIntegrationsPanel({ owner, generatedPackage }) {
           title="CANONICAL Spine"
           state={spineState}
           action={
-            <div className="flex flex-wrap gap-3">
-              <Button variant="outline" className="gap-2" onClick={discoverSpine} disabled={!owner}>
+            <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:gap-3">
+              <Button variant="outline" className="h-11 w-full gap-2 sm:w-auto" onClick={discoverSpine} disabled={!owner}>
                 <RefreshCcw className="h-4 w-4" />
                 {owner ? "Discover Dropbox spine" : "Connector disabled in demo"}
               </Button>
               <Button
-                className="gap-2 bg-[#0a0a0a] hover:bg-[#1a1a1a]"
+                className="h-11 w-full gap-2 bg-[#0a0a0a] hover:bg-[#1a1a1a] sm:w-auto"
                 onClick={approveSpine}
                 disabled={!owner || !spine?.success}
               >
@@ -351,7 +351,7 @@ export default function LiveIntegrationsPanel({ owner, generatedPackage }) {
           state={dropboxState}
           action={
             <Button
-              className="gap-2 bg-[#0a0a0a] hover:bg-[#1a1a1a]"
+              className="h-11 w-full gap-2 bg-[#0a0a0a] hover:bg-[#1a1a1a] sm:w-auto"
               onClick={saveDropbox}
               disabled={!canSaveDropbox}
             >
@@ -378,7 +378,7 @@ export default function LiveIntegrationsPanel({ owner, generatedPackage }) {
           title="Classroom Adapter"
           state={classroomState}
           action={
-            <Button variant="outline" className="gap-2" onClick={prepareClassroom} disabled={!owner || !generatedPackage}>
+            <Button variant="outline" className="h-11 w-full gap-2 sm:w-auto" onClick={prepareClassroom} disabled={!owner || !generatedPackage}>
               <GraduationCap className="h-4 w-4" />
               {owner ? "Prepare dry-run" : "Preview only"}
             </Button>
@@ -393,7 +393,7 @@ export default function LiveIntegrationsPanel({ owner, generatedPackage }) {
           title="ClickUp Adapter"
           state={clickUpState}
           action={
-            <Button variant="outline" className="gap-2" onClick={prepareClickUp} disabled={!owner || !generatedPackage}>
+            <Button variant="outline" className="h-11 w-full gap-2 sm:w-auto" onClick={prepareClickUp} disabled={!owner || !generatedPackage}>
               <ListChecks className="h-4 w-4" />
               {owner ? "Prepare dry-run" : "Preview only"}
             </Button>

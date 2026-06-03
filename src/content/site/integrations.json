@@ -22,6 +22,11 @@
       "name": "Gmail / email",
       "status": "Future adapter",
       "posture": "Communication drafts may be prepared later; sending remains out of public/demo scope."
+    },
+    {
+      "name": "Endpoint Pulse",
+      "status": "External monitor",
+      "posture": "Monitors CANONICAL/Base44 endpoints separately from this app. Link out from operator settings when configured."
     }
   ],
   "rules": [

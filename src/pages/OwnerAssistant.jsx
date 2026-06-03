@@ -312,17 +312,19 @@ export default function OwnerAssistant() {
 
   if (!ownerAccess.allowed) {
     return (
-      <div className="min-h-screen bg-[#fafafa] text-[#0a0a0a]">
+      <div className="min-h-screen overflow-x-hidden bg-[#fafafa] text-[#0a0a0a]">
         <PageHeader />
-        <OwnerAssistantGate ownerAccess={ownerAccess} onSignIn={navigateToLogin} />
+        <div className="canonical-page-top px-4 sm:px-6">
+          <OwnerAssistantGate ownerAccess={ownerAccess} onSignIn={navigateToLogin} />
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#fafafa] text-[#0a0a0a]">
+    <div className="min-h-screen overflow-x-hidden bg-[#fafafa] text-[#0a0a0a]">
       <PageHeader />
-      <main className="mx-auto max-w-5xl px-6 pb-24 pt-10">
+      <main className="canonical-page-top mx-auto max-w-5xl px-4 pb-24 sm:px-6">
         <StatusBanner state={state} />
         <ProgramIdentityPanel program={program} warnings={warnings} />
         <ModulePickerPanel
@@ -357,21 +359,30 @@ export default function OwnerAssistant() {
 
 function PageHeader() {
   return (
-    <header className="border-b border-black/5 bg-[#fafafa]/85 backdrop-blur-xl">
-      <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-6">
-        <Link to="/Home" className="flex items-center gap-2">
-          <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#0a0a0a]">
+    <header className="canonical-fixed-nav fixed left-0 right-0 top-0 z-50 border-b border-black/5 bg-[#fafafa]/85 backdrop-blur-xl">
+      <div className="mx-auto flex min-h-[var(--canonical-nav-height)] max-w-5xl items-center justify-between gap-3 px-4 sm:px-6">
+        <Link to="/Home" className="flex min-w-0 items-center gap-2">
+          <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#0a0a0a]">
             <span className="text-xs font-bold tracking-tight text-white">C</span>
           </div>
-          <span className="text-[15px] font-semibold tracking-tight">CANONICAL</span>
+          <span className="truncate text-[15px] font-semibold tracking-tight">CANONICAL</span>
         </Link>
-        <Link
-          to="/Home"
-          className="inline-flex items-center gap-2 text-sm text-[#0a0a0a]/60 transition-colors hover:text-[#0a0a0a]"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          Back to home
-        </Link>
+        <div className="flex shrink-0 items-center gap-3">
+          <Link
+            to="/ProgramHelper?mode=owner"
+            className="hidden min-h-11 items-center text-sm text-indigo-600 sm:inline-flex"
+          >
+            Program Helper
+          </Link>
+          <Link
+            to="/Home"
+            className="inline-flex min-h-11 items-center gap-2 text-sm text-[#0a0a0a]/60 transition-colors hover:text-[#0a0a0a]"
+          >
+            <ArrowLeft className="h-4 w-4 shrink-0" />
+            <span className="hidden sm:inline">Back to home</span>
+            <span className="sm:hidden">Home</span>
+          </Link>
+        </div>
       </div>
     </header>
   );
@@ -401,15 +412,13 @@ function StatusBanner({ state }) {
 
   return (
     <section className="mb-8">
-      <div className="flex items-start justify-between gap-4">
-        <div>
-          <div className="flex items-center gap-2">
-            <ShieldCheck className="h-5 w-5 text-[#0a0a0a]/70" />
-            <h1 className="text-2xl font-semibold tracking-tight">
-              Owner Assistant
-            </h1>
-            <span className="rounded-full border border-black/10 bg-white px-2 py-0.5 text-xs font-medium text-[#0a0a0a]/60">
-              Milestone 8 (plan + generate + review + live Dropbox + live Classroom)
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+        <div className="min-w-0">
+          <div className="flex flex-wrap items-center gap-2">
+            <ShieldCheck className="h-5 w-5 shrink-0 text-[#0a0a0a]/70" />
+            <h1 className="text-xl font-semibold tracking-tight sm:text-2xl">Owner Assistant</h1>
+            <span className="rounded-full border border-black/10 bg-white px-2 py-0.5 text-[10px] font-medium text-[#0a0a0a]/60 sm:text-xs">
+              M8 · plan · generate · review
             </span>
           </div>
           <p className="mt-2 max-w-2xl text-sm leading-6 text-[#0a0a0a]/60">
@@ -418,10 +427,10 @@ function StatusBanner({ state }) {
             artifact bodies. No LLM, no file writes, no connector calls, no publish.
           </p>
         </div>
-        <div className={`shrink-0 rounded-xl border px-3 py-1.5 text-xs font-medium ${tone}`}>
+        <div className={`w-full shrink-0 rounded-xl border px-3 py-2 text-xs font-medium sm:w-auto ${tone}`}>
           {label}
           {status === "error" && state.error ? (
-            <div className="mt-1 max-w-xs text-[11px] font-normal opacity-80">{state.error}</div>
+            <div className="mt-1 text-[11px] font-normal opacity-80">{state.error}</div>
           ) : null}
         </div>
       </div>
@@ -715,7 +724,7 @@ function PlanningControlsPanel({
               onClick={onPlanGeneration}
               disabled={planButtonDisabled}
               aria-disabled={planButtonDisabled}
-              className="bg-[#0a0a0a] text-white hover:bg-[#0a0a0a]/90 disabled:opacity-60"
+              className="h-11 w-full bg-[#0a0a0a] text-white hover:bg-[#0a0a0a]/90 disabled:opacity-60 sm:w-auto"
             >
               {planState?.status === "loading" ? "Validating..." : "Plan generation"}
             </Button>
@@ -737,7 +746,7 @@ function PlanningControlsPanel({
                 disabled={generateButtonDisabled}
                 aria-disabled={generateButtonDisabled}
                 variant="outline"
-                className="disabled:opacity-60"
+                className="h-11 w-full disabled:opacity-60 sm:w-auto"
               >
                 {artifactState?.status === "loading" ? "Generating..." : "Generate artifact (dry-run)"}
               </Button>
@@ -764,7 +773,7 @@ function PlanningControlsPanel({
 
 function Section({ icon: Icon, title, caption, children }) {
   return (
-    <section className="mb-8 rounded-2xl border border-black/5 bg-white/70 p-6 shadow-sm">
+    <section className="mb-8 rounded-2xl border border-black/5 bg-white/70 p-4 shadow-sm sm:p-6">
       <header className="mb-5">
         <div className="flex items-center gap-2">
           <Icon className="h-4 w-4 text-[#0a0a0a]/60" />

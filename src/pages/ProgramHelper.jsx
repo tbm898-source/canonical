@@ -28,6 +28,10 @@ import packageIndex from "@content/packages/index.json";
 import ctsPackageSummary from "@content/packages/generated/cts-master-package-v1.summary.json";
 import slideTemplateSummary from "@content/packages/generated/cts-rcs-10week-slide-templates.summary.json";
 import LiveIntegrationsPanel from "@/components/program-helper/LiveIntegrationsPanel";
+import {
+  ProgramHelperLandingNav,
+  ProgramHelperWorkbenchNav,
+} from "@/components/layout/ProgramHelperNav";
 import FieldProofDiscoverCard from "@/components/public/FieldProofDiscoverCard";
 import { Link } from "react-router-dom";
 import { useAuth } from "@/lib/AuthContext";
@@ -632,11 +636,11 @@ function AccessModeSwitcher({ owner, ownerAccessAllowed, onOwner, onDemo }) {
         </span>
       </div>
 
-      <div className="mt-5 grid grid-cols-2 gap-3">
+      <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
         <Button
           data-testid="owner-workbench-button"
           variant={owner ? "default" : "outline"}
-          className={owner ? "bg-[#0a0a0a] text-white hover:bg-[#1a1a1a]" : ""}
+          className={`h-11 ${owner ? "bg-[#0a0a0a] text-white hover:bg-[#1a1a1a]" : ""}`}
           onClick={onOwner}
           disabled={!ownerAccessAllowed}
         >
@@ -645,7 +649,7 @@ function AccessModeSwitcher({ owner, ownerAccessAllowed, onOwner, onDemo }) {
         <Button
           data-testid="demo-viewer-button"
           variant={owner ? "outline" : "default"}
-          className={!owner ? "bg-[#0a0a0a] text-white hover:bg-[#1a1a1a]" : ""}
+          className={`h-11 ${!owner ? "bg-[#0a0a0a] text-white hover:bg-[#1a1a1a]" : ""}`}
           onClick={onDemo}
         >
           Demo
@@ -998,9 +1002,9 @@ function OwnerPrismDataPanel({ state, data, program, onRetry }) {
   })();
 
   return (
-    <section className="mb-6 grid gap-6 lg:grid-cols-[1fr_0.9fr]">
+    <section className="mb-6 grid grid-cols-1 gap-6 xl:grid-cols-[1fr_0.9fr]">
       <Surface className="bg-gradient-to-br from-white to-indigo-50/60">
-        <div className="flex items-start justify-between gap-3">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
           <SectionTitle
             eyebrow="Owner-private framework"
             title={program.title}
@@ -1672,34 +1676,10 @@ export default function ProgramHelper() {
 
   if (!entered) {
     return (
-      <div className="min-h-screen overflow-hidden bg-[#fafafa]">
-        <nav className="fixed left-0 right-0 top-0 z-50 border-b border-black/5 bg-[#fafafa]/80 backdrop-blur-xl">
-          <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-            <div className="flex items-center gap-2">
-              <BrandMark small />
-              <span className="text-[15px] font-semibold tracking-tight text-[#0a0a0a]">
-                CANONICAL
-              </span>
-            </div>
-            <div className="flex items-center gap-5">
-              <Link
-                to="/field-proof-week1"
-                className="text-sm font-medium text-indigo-600 transition-colors hover:text-indigo-800"
-              >
-                Field proof
-              </Link>
-              <button
-                type="button"
-                onClick={showDemoViewer}
-                className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]"
-              >
-                Open Demo Viewer
-              </button>
-            </div>
-          </div>
-        </nav>
+      <div className="min-h-screen overflow-x-hidden bg-[#fafafa]">
+        <ProgramHelperLandingNav onOpenDemo={showDemoViewer} />
 
-        <main className="mx-auto grid min-h-screen max-w-6xl grid-cols-1 items-center gap-12 px-6 pt-28 lg:grid-cols-[1.05fr_0.85fr]">
+        <main className="canonical-page-top mx-auto grid min-h-screen max-w-6xl grid-cols-1 items-center gap-12 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.85fr]">
           <motion.section initial="hidden" animate="visible" className="max-w-3xl">
             <motion.div
               variants={fadeUp}
@@ -1754,56 +1734,12 @@ export default function ProgramHelper() {
   }
 
   return (
-    <div className="min-h-screen bg-[#fafafa]">
-      <nav className="fixed left-0 right-0 top-0 z-50 border-b border-black/5 bg-[#fafafa]/80 backdrop-blur-xl">
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-          <div className="flex items-center gap-2">
-            <BrandMark small />
-            <span className="text-[15px] font-semibold tracking-tight text-[#0a0a0a]">
-              CANONICAL
-            </span>
-          </div>
-          <div className="flex items-center gap-5">
-            <Link
-              to="/field-proof-week1"
-              className="text-sm font-medium text-indigo-600 transition-colors hover:text-indigo-800"
-            >
-              Field proof
-            </Link>
-            <a href="#program-library" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
-              Programs
-            </a>
-            <a href="#package-library" className="hidden text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a] sm:block">
-              Packages
-            </a>
-            {!summaryOnly && (
-              <>
-                <a href="#session" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
-                  Session
-                </a>
-                <a href="#artifacts" className="text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]">
-                  Artifacts
-                </a>
-                <a href="#agent-demo" className="hidden text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a] sm:block">
-                  Agent Demo
-                </a>
-                <a href="#integrations" className="hidden text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a] md:block">
-                  Integrations
-                </a>
-              </>
-            )}
-            {owner && !summaryOnly && (
-              <a href="#helper" className="hidden text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a] sm:block">
-                Helper
-              </a>
-            )}
-          </div>
-        </div>
-      </nav>
+    <div className="min-h-screen overflow-x-hidden bg-[#fafafa]">
+      <ProgramHelperWorkbenchNav owner={owner} summaryOnly={summaryOnly} />
 
-      <main className="mx-auto max-w-7xl px-6 pb-20 pt-28">
+      <main className="canonical-page-top mx-auto max-w-7xl px-4 pb-20 sm:px-6">
         {!owner && (
-          <div className="mb-6 rounded-2xl border border-indigo-100 bg-indigo-50 p-4 text-sm font-medium text-indigo-700">
+          <div className="sticky top-[calc(var(--canonical-nav-height)+var(--safe-top))] z-40 -mx-4 mb-6 border-b border-indigo-100 bg-indigo-50/95 px-4 py-3 text-sm font-medium text-indigo-800 backdrop-blur-sm sm:static sm:mx-0 sm:rounded-2xl sm:border sm:px-4 sm:py-4">
             Demo mode is active. Drafts, approvals, raw PRISM notes, local paths, and agent logs are hidden.
           </div>
         )}
@@ -1853,7 +1789,7 @@ export default function ProgramHelper() {
               onOwner={showOwnerWorkbench}
               onDemo={showDemoViewer}
             />
-            <Button variant="ghost" className="mt-3 w-full text-[#0a0a0a]/55" onClick={() => setEntered(false)}>
+            <Button variant="ghost" className="mt-3 h-11 w-full text-[#0a0a0a]/55" onClick={() => setEntered(false)}>
               Return to login
             </Button>
           </motion.div>

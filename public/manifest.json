@@ -3,8 +3,34 @@
   "short_name": "CANONICAL",
   "description": "Owner workbench and demo viewer for CANONICAL instructional program materials.",
   "start_url": "/ProgramHelper?mode=demo",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#fafafa",
   "theme_color": "#4f46e5",
-  "icons": []
+  "icons": [
+    {
+      "src": "/icons/canonical-mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
 }
