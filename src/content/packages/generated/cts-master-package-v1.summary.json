@@ -1,33 +1,56 @@
 {
+  "package_id": "cts-master-package-v1",
   "title": "CTS Master Package v1",
-  "purpose": "First external proof package: the CTS source ZIP was parsed and its safe structure extracted into public proof metadata while keeping raw operational internals out of the public path.",
-  "scope": "AYA / CTS",
-  "public_exposure": "Sanitized proof metadata only",
+  "scope": "AYA_IMPLEMENTATION",
+  "visibility_scope": "aya_internal",
+  "public_exposure": "sanitized_proof_only",
   "source_package": {
     "file_name": "CTS_Master_Package_v1.zip",
-    "sha256": "sha256-verified",
-    "sha256_matches_expected": true
+    "sha256": "203C14458493CC83678BC19006E03615B878CD7E047F37DFD9CCB831970BAB19",
+    "expected_sha256": "203C14458493CC83678BC19006E03615B878CD7E047F37DFD9CCB831970BAB19",
+    "sha256_matches_expected": true,
+    "source_path_redacted": true
+  },
+  "purpose": "Operational proof package for CTS: curriculum inventory, source authority mapping, Drive blueprinting, KPI/event-log templates, and optional automation guidance.",
+  "totals": {
+    "top_level_file_count": 6,
+    "matrix_rows": 786,
+    "summary_rows": 102,
+    "referenced_source_zip_count": 5,
+    "nested_archive_count": 2
   },
   "public_safety": {
     "public_may_show": [
-      "Package title and purpose",
-      "Top-level component names and public purposes",
-      "Authority counts by source",
-      "Sanitized manifest entry counts",
-      "SHA256 verification status"
+      "package purpose",
+      "file and component counts",
+      "high-level authority summary",
+      "sanitized operational relevance",
+      "notice that restricted templates exist"
     ],
     "public_must_not_show": [
-      "Raw operational templates",
-      "Restricted field internals",
-      "Local file paths",
-      "Live connector behavior",
-      "Private PRISM facilitator notes"
+      "restricted operational template fields",
+      "restricted notes",
+      "restricted review/routing internals",
+      "local Windows paths",
+      "raw CSV rows from restricted or operational templates"
     ]
   },
-  "totals": {
-    "top_level_file_count": 12,
-    "matrix_rows": 47,
-    "nested_archive_count": 3,
-    "referenced_source_zip_count": 1
+  "restricted_posture": {
+    "restricted_templates_present": true,
+    "public_handling": "Acknowledge restricted operational templates without exposing field-level internals.",
+    "indicators": [
+      {
+        "label": "restricted indicator present",
+        "count": 3
+      },
+      {
+        "label": "restricted review/routing language present",
+        "count": 3
+      },
+      {
+        "label": "restricted operational indicator present",
+        "count": 5
+      }
+    ]
   }
 }

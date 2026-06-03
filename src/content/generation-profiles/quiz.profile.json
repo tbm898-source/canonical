@@ -1,0 +1,14 @@
+{
+  "profile_id": "canonical.quiz.v0_1",
+  "output_type": "quiz",
+  "allowed_rails": ["aya"],
+  "allowed_visibility_scopes": ["aya_classroom", "public_demo"],
+  "required_source_fields": ["program_key", "module_key", "session_key", "source_path"],
+  "output_contract": {
+    "format": "markdown+json",
+    "required_sections": ["quiz_items", "rubric", "answer_key_ref"]
+  },
+  "forbidden_patterns": ["prism_private", "owner_only_notes_path", "Bearer "],
+  "status": "approved",
+  "notes": "Quiz generation profile with explicit classroom scope."
+}

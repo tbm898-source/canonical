@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://canonical.local/schemas/source-record.schema.json",
+  "title": "Source Record",
+  "description": "Metadata-only record produced by the local dry-run inbox scanner. Milestone 0 does not include extracted document body content.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "source_record_id",
+    "source_path",
+    "file_name",
+    "extension",
+    "byte_size",
+    "mtime",
+    "discovered_at",
+    "rail_guess",
+    "privacy_guess",
+    "usable_for",
+    "confidence",
+    "review_required",
+    "status"
+  ],
+  "properties": {
+    "source_record_id": {
+      "type": "string",
+      "minLength": 8
+    },
+    "source_path": {
+      "type": "string",
+      "minLength": 1
+    },
+    "file_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "extension": {
+      "type": "string"
+    },
+    "byte_size": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "mtime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "discovered_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "rail_guess": {
+      "type": "string",
+      "enum": [
+        "aya",
+        "prism",
+        "canonical",
+        "unknown"
+      ]
+    },
+    "privacy_guess": {
+      "type": "string",
+      "enum": [
+        "public_demo",
+        "aya_classroom",
+        "canonical_internal",
+        "prism_private",
+        "unknown"
+      ]
+    },
+    "usable_for": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "daily_run",
+          "slide_outline",
+          "student_handout",
+          "quiz",
+          "instructor_guide",
+          "evidence_checklist",
+          "google_classroom_export",
+          "prism_facilitator_overlay"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "confidence": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    "review_required": {
+      "type": "boolean"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "discovered",
+        "needs_review",
+        "rejected"
+      ]
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    }
+  }
+}

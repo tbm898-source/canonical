@@ -1,0 +1,246 @@
+{
+  "eyebrow": "Field proof",
+  "title": "Turning curriculum chaos into a Week 1 operating spine",
+  "subtitle": "A real-world curriculum planning pass showing how CANONICAL turns scattered planning, documents, tasks, classroom posts, and evidence routines into one usable teaching system.",
+  "stats": [
+    { "label": "Planning & ops documents", "value": "15" },
+    { "label": "Student activity sheets", "value": "16" },
+    { "label": "Instruction days covered", "value": "4" },
+    { "label": "Operating layers wired together", "value": "8" }
+  ],
+  "sections": {
+    "problem": {
+      "title": "The problem",
+      "body": "A program lead needed an upcoming youth trades / pre-apprenticeship cohort prepared without losing context across files, tools, lesson plans, task lists, print needs, and evidence requirements. The cohort goal existed on paper—a foundations week, a likely capstone direction, safety and verification culture—but it was not yet something an instructor could run from on day one. Too much lived in memory, scattered notes, and \"we'll figure it out Monday.\""
+    },
+    "canonicalMove": {
+      "title": "The CANONICAL move",
+      "body": "Instead of building one more app, the work was organized into a durable operating spine: a planning anchor, week overview, four daily instructor run sheets, student activity sheets, print queue, task batch, classroom post drafts, and missing-items tracker. The machine room can be complex; the handrail stays simple. Every artifact knows whether it is for students, instructors, classroom, print, or task tracking."
+    },
+    "cohortContext": {
+      "title": "Cohort context (generalized)",
+      "items": [
+        "Youth trades / pre-apprenticeship program, Week 1 — Foundations",
+        "Four instruction days (Monday through Thursday), full-day shop and classroom rhythm",
+        "Working capstone assumption: RV/camper electrical or solar install under supervision—not confirmed on day one, but Week 1 habits connect to that finish line",
+        "Week 1 goal: safe shop habits, program systems, evidence routines, and verification culture before capstone-level electrical work"
+      ]
+    },
+    "weekPurpose": {
+      "title": "Week 1 purpose",
+      "body": "Week 1 establishes how the cohort works: safe shop habits, program systems, evidence routines, and verification culture. Students should leave knowing how to work safely and ask for help without shame, where tools and assignments live, how to upload evidence with correct naming, and that \"I think so\" is not enough—verification is normal professional behavior. Week 1 is not about proving expertise. It is about building a shared standard: stop when unsure, check before trusting, document what you verified."
+    },
+    "studentOutcomes": {
+      "title": "Week 1 student outcomes",
+      "rows": [
+        { "outcome": "Fit and use required PPE for shop tasks", "evidence": "PPE fit checklist + photo evidence" },
+        { "outcome": "Identify hazards and use stop-work language", "evidence": "Hazard hunt + exit reflection" },
+        { "outcome": "Follow tool checkout and cleanup standard", "evidence": "Checkout + cleanup checklists" },
+        { "outcome": "Measure and mark to basic accuracy", "evidence": "Measure / mark / verify worksheet" },
+        { "outcome": "Work in a team role on a mini-build", "evidence": "Shop roles cards + team lab evidence" },
+        { "outcome": "Upload at least one correctly named evidence file", "evidence": "Naming standard practiced daily" },
+        { "outcome": "Explain one thing they verified—not assumed", "evidence": "Exit ticket or verbal check" }
+      ]
+    },
+    "dailyRhythm": {
+      "title": "Standard daily rhythm",
+      "rows": [
+        { "block": "Arrival + daily ops", "time": "Open", "activity": "Attendance, agenda, safety reminder" },
+        { "block": "Instruction / demo", "time": "Block 1", "activity": "Slides or live demo—minimal text, photo-friendly" },
+        { "block": "Lab / shop", "time": "Block 2", "activity": "Hands-on with instructor stop points" },
+        { "block": "Lunch", "time": "Midday", "activity": "Cleanup check before break" },
+        { "block": "Lab / mastery", "time": "Block 3", "activity": "Mastery check window" },
+        { "block": "Evidence + reflection", "time": "Block 4", "activity": "Upload, exit ticket, feedback" },
+        { "block": "Closeout", "time": "End", "activity": "Cleanup to standard, preview tomorrow" }
+      ]
+    },
+    "dayByDay": {
+      "title": "Day-by-day operating focus",
+      "days": [
+        {
+          "day": "Day 1",
+          "focus": "Welcome, roles, shop tour, hazard hunt, PPE fit, verification culture intro, capstone preview",
+          "mastery": "Safety and PPE fit checks",
+          "instructorSheet": "Daily ops run sheet with arrival prep, welcome script blocks, lab stations, evidence window, closeout, and next-day bridge"
+        },
+        {
+          "day": "Day 2",
+          "focus": "Tool accountability, checkout drill, cleanup standard, de-energized verification intro",
+          "mastery": "Tool checkout and cleanup to standard",
+          "instructorSheet": "Daily ops with checkout lab, verification station setup, and evidence capture window"
+        },
+        {
+          "day": "Day 3",
+          "focus": "Measurement basics—tape, mark, verify—and electrical thinking: source, protection, load",
+          "mastery": "Measure / mark / verify accuracy",
+          "instructorSheet": "Daily ops connecting measurement habits to future electrical trace work"
+        },
+        {
+          "day": "Day 4",
+          "focus": "Mini-build, team roles, capstone readiness checkpoint, Week 2 bridge",
+          "mastery": "Team lab evidence + documentation upload",
+          "instructorSheet": "Daily ops with station rotation, component inspection, open-questions capture, and week closeout"
+        }
+      ]
+    },
+    "operatingSpine": {
+      "title": "The operating spine (8 layers)",
+      "layers": [
+        { "name": "Planning anchor", "detail": "Cohort goals, capstone assumption, safety and verification principles, first-week priorities" },
+        { "name": "Week overview", "detail": "Purpose, outcomes, daily rhythm, instructor prep notes, safety culture themes" },
+        { "name": "Daily instructor ops", "detail": "Four time-blocked run sheets—arrival prep through closeout—with script blocks and lab stop points" },
+        { "name": "Student-facing materials", "detail": "Welcome and expectations, evidence naming guide, verification log template" },
+        { "name": "Activity sheets", "detail": "Sixteen print-ready checklists and worksheets across Days 1–4" },
+        { "name": "Classroom layer", "detail": "Week overview post plus daily post drafts, upload instructions, naming reminders" },
+        { "name": "Task and print ops", "detail": "ClickUp task batch, print queue map, Day 1 print/prep list, missing-items tracker" },
+        { "name": "Instructor closeout", "detail": "End-of-day checklist—shop, tools, PPE, evidence uploads, tomorrow preview" }
+      ]
+    },
+    "planningDocs": {
+      "title": "Planning & instructor operations (15 documents)",
+      "groups": [
+        {
+          "label": "Anchor & overview",
+          "items": [
+            "Cohort planning anchor (goals, capstone direction, risks, teaching principles)",
+            "Week 1 overview (purpose, outcomes, rhythm, safety themes)"
+          ]
+        },
+        {
+          "label": "Daily run sheets",
+          "items": [
+            "Day 1 daily ops — welcome, safety, systems, first evidence upload",
+            "Day 2 daily ops — tools, checkout, cleanup, verification station",
+            "Day 3 daily ops — measurement and electrical thinking ramp",
+            "Day 4 daily ops — mini-build, capstone readiness, week bridge"
+          ]
+        },
+        {
+          "label": "Student & evidence support",
+          "items": [
+            "Student welcome and expectations handout",
+            "Evidence naming one-pager",
+            "Verification log template (blank + sample patterns)",
+            "Instructor closeout checklist"
+          ]
+        },
+        {
+          "label": "Organization & handoff",
+          "items": [
+            "Master index (navigation map for instructors)",
+            "Google Classroom post drafts (week + daily)",
+            "ClickUp task batch (prep tasks with due-before-week tags)",
+            "Print queue map (print first / print later / classroom-only)",
+            "Missing-items tracker (PPE, tools, capstone parts, road kit)",
+            "Day 1 print and prep list (quantities, stage lists, whiteboard prompts)"
+          ]
+        }
+      ]
+    },
+    "activitySheets": {
+      "title": "Student activity sheets (16)",
+      "groups": [
+        {
+          "label": "Day 1",
+          "items": [
+            "Hazard hunt checklist",
+            "PPE fit and use checklist",
+            "Shop roles cards",
+            "Evidence upload quick guide"
+          ]
+        },
+        {
+          "label": "Day 2",
+          "items": [
+            "Tool checkout checklist",
+            "Measure / mark / verify worksheet",
+            "Cleanup to standard checklist",
+            "De-energized verification station sheet"
+          ]
+        },
+        {
+          "label": "Day 3",
+          "items": [
+            "Source / protection / load worksheet",
+            "RV circuit trace sketch sheet",
+            "Labeling and serviceability checklist",
+            "Load inventory and fuse match sheet"
+          ]
+        },
+        {
+          "label": "Day 4",
+          "items": [
+            "Capstone readiness checklist",
+            "Week 1 skills station rotation",
+            "RV component inspection sheet",
+            "Open questions and Week 2 bridge form"
+          ]
+        }
+      ]
+    },
+    "evidenceSystem": {
+      "title": "Evidence and verification system",
+      "body": "Week 1 treats documentation as part of safety—not paperwork theater. Students practice a consistent naming pattern, upload through classroom workflows, and use verification logs for trace and measurement work.",
+      "namingPattern": "Cohort##_W##D#_MC-XXX-###_StudentIdentifier_YYYYMMDD",
+      "namingNotes": [
+        "Cohort and week/day codes keep files sortable across the program",
+        "Mastery check codes tie evidence to skills—not vibes",
+        "Student identifier uses initials or ID policy, never full roster dumps on public systems",
+        "Date stamp supports audit and instructor review queues"
+      ],
+      "verificationPrinciples": [
+        "Hints are not proof—meter, trace, or documented check required",
+        "De-energized first before energize conversations",
+        "Previous owner wiring is not automatically bad—it must be verified",
+        "Stop-work authority is normalized, not punitive"
+      ]
+    },
+    "workflow": {
+      "title": "Recommended operating workflow",
+      "phases": [
+        {
+          "label": "Before the cohort week",
+          "steps": [
+            "Align on planning anchor—capstone direction, risks, verification culture",
+            "Create prep tasks from the task batch",
+            "Walk missing-items tracker with co-instructor",
+            "Execute print queue—student handouts and Day 1 materials first",
+            "Post week overview and Day 1 classroom draft"
+          ]
+        },
+        {
+          "label": "Each instruction day",
+          "steps": [
+            "Run that day's daily ops sheet from arrival through closeout",
+            "Issue activity sheets matching the day's lab stations",
+            "Capture evidence during the evidence window—not as an afterthought",
+            "Complete instructor closeout checklist before leaving shop",
+            "Post next-day classroom reminder"
+          ]
+        },
+        {
+          "label": "End of Week 1",
+          "steps": [
+            "Capstone readiness checkpoint on Day 4",
+            "Open questions captured for Week 2 planning",
+            "Review evidence naming compliance across the cohort",
+            "Hand off week state via index + task queue—not instructor memory"
+          ]
+        }
+      ]
+    },
+    "whatChanged": {
+      "title": "What changed",
+      "body": "The work became findable, teachable, reviewable, printable, and easier to hand off. Daily rhythm, verification habits, and documentation expectations live in one place instead of in someone's head. An instructor can open the week index, pick today's run sheet, print the right activity sheets, post the classroom draft, and close out with a checklist—without reconstructing the system from scratch."
+    },
+    "whyItMatters": {
+      "title": "Why it matters",
+      "body": "The instructor no longer has to hold the whole system in memory. The structure becomes an external memory hook—reducing friction while preserving judgment and human authority. Technology should not make the user feel tested; it should absorb complexity, reduce shame, make the next step obvious, and leave the user feeling more capable than before they opened it."
+    },
+    "principle": {
+      "title": "The principle",
+      "body": "The system carries the complexity so the user can carry the intention. Verification beats confidence. Documentation is part of safety—not paperwork theater. Hints are not proof."
+    },
+    "closing": "CANONICAL is project memory, curriculum systems, and AI workflow infrastructure arranged into one coherent working spine. This field proof is category-level documentation only—no private curriculum packets, student data, or unpublished internal files are exposed here."
+  }
+}

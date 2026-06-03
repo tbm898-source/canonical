@@ -1,0 +1,14 @@
+{
+  "profile_id": "canonical.evidence_checklist.v0_1",
+  "output_type": "evidence_checklist",
+  "allowed_rails": ["aya", "canonical", "prism"],
+  "allowed_visibility_scopes": ["aya_classroom", "canonical_internal", "prism_private", "public_demo"],
+  "required_source_fields": ["program_key", "module_key", "session_key", "source_path"],
+  "output_contract": {
+    "format": "markdown+json",
+    "required_sections": ["required_evidence", "quality_criteria", "capture_method", "review_status"]
+  },
+  "forbidden_patterns": ["access_token", "Bearer ", "owner_only_notes_path"],
+  "status": "approved",
+  "notes": "Supports daily evidence continuity and audit traceability."
+}

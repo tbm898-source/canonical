@@ -1,23 +1,11 @@
 # Base44 Sync Notes
 
-The Base44 portal mirrors structured instructional records from the CANONICAL file spine.
+This repo currently contains frontend routes, local sample data, Base44 entity declarations, Base44 function declarations, and agent instructions.
 
-## Sync posture
+## Honest Runtime Posture
 
-- Base44 does not replace CANONICAL files
-- Entity records mirror approved session data
-- GitHub sync keeps portal source in sync with the CANONICAL project repository
+Some backend resources are declared in-repo, but live behavior should be treated as unverified until tested in the connected Base44 environment.
 
-## What stays out of Base44
+## Current Principle
 
-- Raw PRISM private notes
-- Local file paths and draft logs
-- Connector tokens and API keys
-- Unapproved draft runs
-
-## What goes into Base44
-
-- Approved session briefs and artifact metadata
-- Demo-safe program and module records
-- Generated artifact content (after owner approval)
-- Evidence notes (internal or restricted privacy level)
+The website can show public overview, demo-safe samples, docs, and package proof metadata. Owner-only actions such as connector health, Dropbox discovery, approvals, and live saves stay gated.

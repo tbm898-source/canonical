@@ -11,7 +11,7 @@ import {
   Table2,
 } from "lucide-react";
 import PublicPageShell from "@/components/public/PublicPageShell";
-import content from "@/content/site/field-proof-week1.json";
+import content from "@content/site/field-proof-week1.json";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },

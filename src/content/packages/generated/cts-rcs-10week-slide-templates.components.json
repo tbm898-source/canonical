@@ -1,19 +1,80 @@
 {
+  "package_id": "cts-rcs-10week-slide-templates",
   "top_level_components": [
-    { "name": "Week 1 — Introduction", "size_bytes": 1843200, "public_purpose": "Program overview, safety culture, and expectations." },
-    { "name": "Week 2 — Safety", "size_bytes": 2097152, "public_purpose": "Electrical safety, PPE, and shop protocols." },
-    { "name": "Week 3 — Components", "size_bytes": 1966080, "public_purpose": "PV component identification and specifications." },
-    { "name": "Week 4 — Wiring", "size_bytes": 2359296, "public_purpose": "Series, parallel, and series-parallel wiring configurations." },
-    { "name": "Week 5 — PV Sizing", "size_bytes": 2621440, "public_purpose": "System sizing decisions using load, voltage, and current." },
-    { "name": "Week 6 — Systems", "size_bytes": 2097152, "public_purpose": "Grid-tie, off-grid, and hybrid system architectures." },
-    { "name": "Week 7 — Lab", "size_bytes": 1572864, "public_purpose": "Hands-on lab session with meter and component practice." },
-    { "name": "Week 8 — Review", "size_bytes": 1966080, "public_purpose": "Cumulative review and exam preparation." },
-    { "name": "Week 9 — Assessment", "size_bytes": 1310720, "public_purpose": "Final assessment and evidence capture." },
-    { "name": "Week 10 — Capstone", "size_bytes": 1843200, "public_purpose": "Capstone project presentations and program closeout." }
+    {
+      "name": "CTS_RCS_Week01_Slides.pptx",
+      "kind": "weekly_slide_deck",
+      "size_bytes": 451248,
+      "public_purpose": "Week 01 CTS slide template deck indexed for outline generation and future controlled patch planning."
+    },
+    {
+      "name": "CTS_RCS_Week02_Slides.pptx",
+      "kind": "weekly_slide_deck",
+      "size_bytes": 370789,
+      "public_purpose": "Week 02 CTS slide template deck indexed for outline generation and future controlled patch planning."
+    },
+    {
+      "name": "CTS_RCS_Week03_Slides.pptx",
+      "kind": "weekly_slide_deck",
+      "size_bytes": 370042,
+      "public_purpose": "Week 03 CTS slide template deck indexed for outline generation and future controlled patch planning."
+    },
+    {
+      "name": "CTS_RCS_Week04_Slides.pptx",
+      "kind": "weekly_slide_deck",
+      "size_bytes": 361032,
+      "public_purpose": "Week 04 CTS slide template deck indexed for outline generation and future controlled patch planning."
+    },
+    {
+      "name": "CTS_RCS_Week05_Slides.pptx",
+      "kind": "weekly_slide_deck",
+      "size_bytes": 367924,
+      "public_purpose": "Week 05 CTS slide template deck indexed for outline generation and future controlled patch planning."
+    },
+    {
+      "name": "CTS_RCS_Week06_Slides.pptx",
+      "kind": "weekly_slide_deck",
+      "size_bytes": 381219,
+      "public_purpose": "Week 06 CTS slide template deck indexed for outline generation and future controlled patch planning."
+    },
+    {
+      "name": "CTS_RCS_Week07_Slides.pptx",
+      "kind": "weekly_slide_deck",
+      "size_bytes": 381377,
+      "public_purpose": "Week 07 CTS slide template deck indexed for outline generation and future controlled patch planning."
+    },
+    {
+      "name": "CTS_RCS_Week08_Slides.pptx",
+      "kind": "weekly_slide_deck",
+      "size_bytes": 402656,
+      "public_purpose": "Week 08 CTS slide template deck indexed for outline generation and future controlled patch planning."
+    },
+    {
+      "name": "CTS_RCS_Week09_Slides.pptx",
+      "kind": "weekly_slide_deck",
+      "size_bytes": 370579,
+      "public_purpose": "Week 09 CTS slide template deck indexed for outline generation and future controlled patch planning."
+    },
+    {
+      "name": "CTS_RCS_Week10_Slides.pptx",
+      "kind": "weekly_slide_deck",
+      "size_bytes": 375365,
+      "public_purpose": "Week 10 CTS slide template deck indexed for outline generation and future controlled patch planning."
+    }
   ],
+  "nested_archives": [],
   "source_systems": [
-    { "label": "AYA / CTS", "posture": "Primary delivery rail — all slides are classroom-safe and student-institution appropriate." },
-    { "label": "CANONICAL", "posture": "Source of truth — template spine anchored to the CANONICAL file system." },
-    { "label": "PRISM", "posture": "Not included — facilitator overlays stay private and outside slide templates." }
+    {
+      "label": "PowerPoint / PPTX",
+      "posture": "Source template format remains outside Git. V1 indexes deck structure and preserves raw files in CANONICAL/Dropbox."
+    },
+    {
+      "label": "Program Helper",
+      "posture": "Owner mode can use this package as a slide-outline target. Direct deck editing remains disabled until fidelity checks pass."
+    },
+    {
+      "label": "CANONICAL proof layer",
+      "posture": "Public proof shows sanitized counts and policy only; no full slide copy or local paths are published."
+    }
   ]
 }

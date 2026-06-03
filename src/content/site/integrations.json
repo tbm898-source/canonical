@@ -1,34 +1,32 @@
 {
   "eyebrow": "Integrations",
-  "title": "Connectors are gated, not assumed.",
-  "summary": "The CANONICAL connector spine treats every integration as a confirmed, owner-approved action. Demo mode disables all connector calls. Owner mode gates writes behind spine discovery and approval.",
+  "title": "Connectors are adapters, not the source of truth.",
+  "summary": "CANONICAL treats Dropbox, Google Classroom, ClickUp, Gmail, and future services as lanes around the file spine. Public mode describes the posture; owner mode handles real readiness and approval.",
   "connectors": [
     {
       "name": "Dropbox",
-      "status": "Live (owner)",
-      "posture": "Treated as the discovered CANONICAL file spine. Spine discovery reads folder metadata only. Save requires explicit owner approval of the discovered spine map."
+      "status": "First live spine candidate",
+      "posture": "Discovery and owner approval come before writes."
     },
     {
       "name": "Google Classroom",
-      "status": "Dry-run only",
-      "posture": "Produces AYA-safe Classroom draft metadata. Does not post live in V1. Owner mode prepares dry-run output for review."
+      "status": "Prepared adapter",
+      "posture": "Classroom-ready drafts only in v1; no live posting from public/demo mode."
     },
     {
       "name": "ClickUp",
-      "status": "Dry-run only",
-      "posture": "Produces tagged task candidates. Does not create live ClickUp tasks in V1. Owner mode prepares dry-run output for review."
+      "status": "Prepared adapter",
+      "posture": "Task candidates and KPI templates stay dry-run until explicit owner approval."
     },
     {
-      "name": "Gmail / Email",
-      "status": "Disabled",
-      "posture": "No live email sending is built or enabled in V1. Future adapter planned."
+      "name": "Gmail / email",
+      "status": "Future adapter",
+      "posture": "Communication drafts may be prepared later; sending remains out of public/demo scope."
     }
   ],
   "rules": [
-    "Demo mode never calls backend connectors — all connector actions are blocked.",
-    "Spine discovery reads Dropbox folder metadata only; it never creates, moves, or writes files.",
-    "Save to Dropbox requires an approved spine map and a valid, classified packet.",
-    "PRISM-private material cannot be exported to Google Classroom or public demo scopes.",
-    "Connector tokens are never exposed to the frontend or demo layer."
+    "Demo mode makes no backend connector calls.",
+    "Live writes require owner mode, classification, and an approved destination.",
+    "PRISM-private material never exports to public/demo or Classroom surfaces."
   ]
 }

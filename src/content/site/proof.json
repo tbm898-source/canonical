@@ -1,19 +1,19 @@
 {
-  "eyebrow": "Package proof",
-  "title": "The CTS Master Package v1 is the first external proof layer.",
-  "summary": "This page proves the package exists and shows safe structure only. Raw operational templates, restricted field internals, local paths, and live connector behavior stay outside public and demo routes.",
+  "eyebrow": "Proof",
+  "title": "CANONICAL is being wired to real packages, not placeholder claims.",
+  "summary": "The first proof object is the CTS Master Package v1: a real operational package with curriculum inventory, Drive blueprinting, KPI templates, authority mapping, and optional automation guidance.",
   "proof_cards": [
     {
-      "label": "Package exists",
-      "text": "The CTS Master Package v1 ZIP was parsed, verified by SHA256, and its safe structure was extracted into public proof metadata."
+      "label": "Package parser",
+      "text": "Reads the external source ZIP and emits safe JSON/Markdown summaries for the website."
     },
     {
-      "label": "Raw ZIP excluded",
-      "text": "The source ZIP was not committed to the repository. Only sanitized summary, component list, manifest, and authority map are public."
+      "label": "Sanitized public layer",
+      "text": "Shows purpose, counts, component types, and authority summaries without restricted internals."
     },
     {
-      "label": "Private internals protected",
-      "text": "Operational templates, restricted field data, local file paths, and connector behavior are not included in any public or demo route."
+      "label": "Operator path",
+      "text": "Keeps source ZIPs, restricted templates, and connector writes outside the public proof surface."
     }
   ]
 }

@@ -3,22 +3,22 @@
     {
       "doc_id": "canonical-model",
       "title": "Canonical Model",
-      "summary": "How CANONICAL structures program memory, rails, and session continuity."
+      "summary": "How programs, modules, sessions, artifacts, packages, and manifests fit together."
     },
     {
       "doc_id": "connector-spine",
       "title": "Connector Spine",
-      "summary": "How Dropbox is used as the discovered CANONICAL file spine."
+      "summary": "How Dropbox, Classroom, ClickUp, and other adapters sit around CANONICAL."
     },
     {
       "doc_id": "instructional-data-model",
       "title": "Instructional Data Model",
-      "summary": "Entity schema for sessions, artifacts, evidence notes, and material requests."
+      "summary": "The current session brief, bundle, artifact, and privacy model."
     },
     {
       "doc_id": "base44-sync-notes",
       "title": "Base44 Sync Notes",
-      "summary": "How the Base44 portal mirrors the CANONICAL file spine without replacing it."
+      "summary": "What is live, what is declared, and what remains dry-run or future-ready."
     }
   ]
 }

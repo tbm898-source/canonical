@@ -1,12 +1,79 @@
 {
   "package_id": "cts-rcs-10week-slide-templates",
-  "generated_at": "2026-05-26T00:00:00Z",
-  "generator_version": "canonical-proof-parser-v1",
+  "generated_at": "2026-05-26T03:05:08.296Z",
+  "generator": "scripts/generate-cts-slides-proof.mjs",
+  "source_package_file_name": "CTS_RCS_10Week_SlideDecks.zip",
+  "source_sha256": "C18A9A7547FCCB808C6509402765AAB859C30A786308305A5ABBD6B055B52470",
+  "source_path_redacted": true,
+  "raw_source_zip_committed": false,
+  "raw_pptx_committed": false,
   "entry_counts": {
-    "total_entries": 10,
-    "student_materials": 0,
-    "instructor_materials": 10,
-    "assessment_materials": 1,
-    "manifest_files": 1
-  }
+    "top_level": 11,
+    "total_entries": 11,
+    "pptx_entries": 10,
+    "text_entries": 1,
+    "nested_zip_entries": 0
+  },
+  "sanitized_manifest": [
+    {
+      "name": "CTS_RCS_Week01_Slides.pptx",
+      "kind": "weekly_slide_deck",
+      "size_bytes": 451248
+    },
+    {
+      "name": "CTS_RCS_Week02_Slides.pptx",
+      "kind": "weekly_slide_deck",
+      "size_bytes": 370789
+    },
+    {
+      "name": "CTS_RCS_Week03_Slides.pptx",
+      "kind": "weekly_slide_deck",
+      "size_bytes": 370042
+    },
+    {
+      "name": "CTS_RCS_Week04_Slides.pptx",
+      "kind": "weekly_slide_deck",
+      "size_bytes": 361032
+    },
+    {
+      "name": "CTS_RCS_Week05_Slides.pptx",
+      "kind": "weekly_slide_deck",
+      "size_bytes": 367924
+    },
+    {
+      "name": "CTS_RCS_Week06_Slides.pptx",
+      "kind": "weekly_slide_deck",
+      "size_bytes": 381219
+    },
+    {
+      "name": "CTS_RCS_Week07_Slides.pptx",
+      "kind": "weekly_slide_deck",
+      "size_bytes": 381377
+    },
+    {
+      "name": "CTS_RCS_Week08_Slides.pptx",
+      "kind": "weekly_slide_deck",
+      "size_bytes": 402656
+    },
+    {
+      "name": "CTS_RCS_Week09_Slides.pptx",
+      "kind": "weekly_slide_deck",
+      "size_bytes": 370579
+    },
+    {
+      "name": "CTS_RCS_Week10_Slides.pptx",
+      "kind": "weekly_slide_deck",
+      "size_bytes": 375365
+    },
+    {
+      "name": "CTS_RCS_Slides_Manifest.txt",
+      "kind": "manifest",
+      "size_bytes": 270
+    }
+  ],
+  "privacy_notes": [
+    "No raw PPTX files are committed to the repo.",
+    "No local filesystem path is written to generated package metadata.",
+    "No full slide copy or private note content is published in generated site content."
+  ]
 }

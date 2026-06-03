@@ -1,38 +1,37 @@
 {
-  "eyebrow": "How it works",
-  "title": "Real class status drives everything.",
-  "summary": "The CANONICAL system starts from what actually happened in class, not what the calendar says should have happened. Every session brief, artifact, and export traces back to real student status.",
+  "eyebrow": "How It Works",
+  "title": "CANONICAL turns scattered work into a reviewable operating loop.",
+  "summary": "The system starts with real materials, messy notes, uploaded packages, and agent drafts, then converts them into classified records that can be reviewed, filed, and exported without losing rail separation.",
   "workflow": [
     {
-      "step": "Capture",
-      "title": "Record real class status",
-      "text": "Rough classflow notes capture what was completed, what remains, what is blocked, and what evidence needs to be captured."
-    },
-    {
-      "step": "Normalize",
-      "title": "Build a Session Brief",
-      "text": "The helper turns rough notes into a structured Session Brief: completed, remaining, blocked, student learning, evidence, and next step."
-    },
-    {
-      "step": "Split",
-      "title": "Separate the rails",
-      "text": "AYA/CTS outputs stay student and institution safe. PRISM keeps facilitator intelligence private or curated."
+      "step": "Request",
+      "title": "Capture the work",
+      "text": "Bring in material requests, class notes, package ZIPs, source docs, or generated drafts without pretending they are clean yet."
     },
     {
       "step": "Generate",
-      "title": "Produce the packet",
-      "text": "Daily plans, student guides, QC cards, classroom copy, slide outlines, and filing plans are generated from the brief."
+      "title": "Normalize into structured outputs",
+      "text": "Create briefs, packet outlines, docs, manifests, package summaries, and export previews from the selected program context."
+    },
+    {
+      "step": "Review",
+      "title": "Check boundaries before filing",
+      "text": "Confirm ownership rail, visibility, evidence status, restricted content posture, and whether live connectors are allowed."
     },
     {
       "step": "File",
-      "title": "Return to CANONICAL",
-      "text": "Approved artifacts point back to CANONICAL packages. The portal mirrors records without replacing the file spine."
+      "title": "Attach the record to CANONICAL",
+      "text": "Store approved metadata, summaries, manifests, and references so the app remains aligned with the durable file spine."
+    },
+    {
+      "step": "Export",
+      "title": "Prepare downstream adapters",
+      "text": "Export only approved material to print, ZIP, Classroom, ClickUp, Dropbox, or public proof surfaces."
     }
   ],
   "rails": [
-    "AYA / CTS — Classroom-safe delivery materials for student and institution use",
-    "PRISM — Private facilitator intelligence, kept internal by default",
-    "CTS / RCS — Public or open-source output layer for approved sharing",
-    "Mixed — Dual-rail artifacts explicitly tagged for combined use"
+    "AYA / CTS classroom and operational material stays institution-safe.",
+    "PRISM framework material stays private-first unless curated.",
+    "CANONICAL remains the spine that indexes, remembers, and routes the work."
   ]
 }

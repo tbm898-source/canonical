@@ -24,7 +24,7 @@ import {
   portfolioHero,
   proofCards,
   workflowStack,
-} from "@/content/site/portfolio";
+} from "@content/site/portfolio.js";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 18 },

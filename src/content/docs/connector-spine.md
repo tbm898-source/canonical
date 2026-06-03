@@ -1,19 +1,16 @@
 # Connector Spine
 
-The connector spine uses Dropbox as the discovered CANONICAL file spine.
+Connectors are adapters around CANONICAL. They are not the source of truth.
 
-## Discovery model
+## Current Connector Posture
 
-1. The spine discovery function reads Dropbox folder metadata only.
-2. It does not create folders, move files, or write files during discovery.
-3. The owner reviews and approves the discovered spine map before any writes occur.
+- Dropbox: first live file-spine candidate after discovery and owner approval.
+- Google Classroom: prepared adapter for classroom-safe drafts.
+- ClickUp: prepared adapter for tasks, KPI candidates, and operational follow-up.
+- Gmail / email: future communication adapter.
 
-## Save posture
+## Public Safety
 
-- Demo mode: no connector calls, no real paths
-- Owner preview: spine discovery allowed, save requires explicit approval
-- Owner live: approved spine map unlocks artifact save
+Demo and public pages do not call backend connectors, show private connector material, expose local paths, or trigger live writes.
 
-## Privacy
-
-Connector tokens are never exposed to the frontend or demo layer. All connector calls happen in backend functions only.
+Live writes require owner mode, safe classification, accepted spine mapping, and explicit approval.

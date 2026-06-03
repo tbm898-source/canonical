@@ -1,13 +1,61 @@
 {
   "package_id": "cts-master-package-v1",
-  "generated_at": "2026-05-24T00:00:00Z",
-  "generator_version": "canonical-proof-parser-v1",
+  "generated_at": "2026-05-25T23:54:53.409Z",
+  "generator": "scripts/generate-cts-package-proof.mjs",
+  "source_package_file_name": "CTS_Master_Package_v1.zip",
+  "source_sha256": "203C14458493CC83678BC19006E03615B878CD7E047F37DFD9CCB831970BAB19",
+  "source_path_redacted": true,
+  "raw_source_zip_committed": false,
   "entry_counts": {
-    "total_entries": 12,
-    "student_materials": 3,
-    "instructor_materials": 2,
-    "assessment_materials": 2,
-    "evidence_artifacts": 3,
-    "manifest_files": 2
-  }
+    "top_level": 6,
+    "total_entries": 6,
+    "csv_entries": 2,
+    "markdown_entries": 1,
+    "text_entries": 1,
+    "nested_zip_entries": 2
+  },
+  "sanitized_manifest": [
+    {
+      "name": "CTS_Drive_Blueprint_v1.zip",
+      "kind": "archive",
+      "size_bytes": 6650
+    },
+    {
+      "name": "CTS_ClickUp_KPI_Kit_v1.zip",
+      "kind": "archive",
+      "size_bytes": 4076
+    },
+    {
+      "name": "CTS_Canonical_Content_Matrix_v0.csv",
+      "kind": "structured_csv",
+      "size_bytes": 164936
+    },
+    {
+      "name": "CTS_Canonical_Content_Matrix_Summary_v0.csv",
+      "kind": "structured_csv",
+      "size_bytes": 5610
+    },
+    {
+      "name": "CTS_ClickUp_Optional_Automations_Playbook_v1.md",
+      "kind": "playbook",
+      "size_bytes": 3396
+    },
+    {
+      "name": "README_CTS_Master_Package_v1.txt",
+      "kind": "readme",
+      "size_bytes": 1054
+    }
+  ],
+  "referenced_source_packages": [
+    "AYA CTS Course Outline origonal old as fuk.zip",
+    "CTS_Curriculum_Packet_Tim_Milkewicz.zip",
+    "CTS_GoogleClassroom_Whole_Enchilada_v4_Embedded_Visuals.zip",
+    "CTS_GoogleClassroom_Whole_Enchilada_v5_QA_Clean.zip",
+    "Cohort 404.zip"
+  ],
+  "privacy_notes": [
+    "No raw CSV rows are published in generated site content.",
+    "No local filesystem path is written to generated package metadata.",
+    "Restricted operational templates are summarized, not exposed field-by-field."
+  ]
 }

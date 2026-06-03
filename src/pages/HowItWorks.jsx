@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Archive, CheckCircle2, GitBranch } from "lucide-react";
 import PublicPageShell from "@/components/public/PublicPageShell";
-import content from "../content/site/how-it-works.json";
+import content from "@content/site/how-it-works.json";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 18 },

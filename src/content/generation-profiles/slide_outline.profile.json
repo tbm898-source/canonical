@@ -1,0 +1,14 @@
+{
+  "profile_id": "canonical.slide_outline.v0_1",
+  "output_type": "slide_outline",
+  "allowed_rails": ["aya", "canonical"],
+  "allowed_visibility_scopes": ["aya_classroom", "canonical_internal", "public_demo"],
+  "required_source_fields": ["program_key", "module_key", "session_key", "source_path"],
+  "output_contract": {
+    "format": "markdown+json",
+    "required_sections": ["opening", "status", "targets", "decisions", "handoff"]
+  },
+  "forbidden_patterns": ["access_token", "Bearer ", "owner_only_notes_path"],
+  "status": "approved",
+  "notes": "Slide-ready structure only; no direct PPTX write in v0.1."
+}
