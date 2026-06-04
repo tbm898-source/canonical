@@ -94,6 +94,10 @@
 
   :root {
     --canonical-nav-height: 4rem;
+    --canonical-bottom-nav-height: 3.75rem;
+    --tap-min: 2.75rem;
+    --page-gutter: 1rem;
+    --section-gap: 1.5rem;
     --safe-top: env(safe-area-inset-top, 0px);
     --safe-bottom: env(safe-area-inset-bottom, 0px);
     --safe-left: env(safe-area-inset-left, 0px);
@@ -115,6 +119,57 @@
   @media (min-width: 640px) {
     .canonical-page-top {
       padding-top: calc(var(--canonical-nav-height) + var(--safe-top) + 5.5rem);
+    }
+  }
+
+  .canonical-page-with-bottom-nav {
+    padding-bottom: calc(var(--canonical-bottom-nav-height) + var(--safe-bottom) + 1rem);
+  }
+
+  @media (min-width: 1024px) {
+    .canonical-page-with-bottom-nav {
+      padding-bottom: 2rem;
+    }
+  }
+
+  .canonical-page-with-substitute-bar {
+    padding-bottom: calc(
+      var(--canonical-bottom-nav-height) + 4.5rem + var(--safe-bottom)
+    );
+  }
+
+  @media (min-width: 1024px) {
+    .canonical-page-with-substitute-bar {
+      padding-bottom: 5rem;
+    }
+  }
+
+  .canonical-bottom-nav {
+    padding-bottom: var(--safe-bottom);
+  }
+
+  .canonical-substitute-bar {
+    bottom: calc(var(--canonical-bottom-nav-height) + var(--safe-bottom));
+  }
+
+  @media (min-width: 1024px) {
+    .canonical-substitute-bar {
+      bottom: 0;
+    }
+  }
+
+  input,
+  textarea,
+  select,
+  button {
+    font-size: max(16px, 1rem);
+  }
+
+  @media (min-width: 768px) {
+    input,
+    textarea,
+    select {
+      font-size: inherit;
     }
   }
 }

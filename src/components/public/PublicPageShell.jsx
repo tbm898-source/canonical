@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { PublicSiteNav } from "@/components/layout/MobileNav";
 
@@ -16,13 +16,8 @@ export function PublicFooter() {
           <div>CANONICAL Core v0.1 - private operator buildout / public overview</div>
         </div>
         <Link to="/ProgramHelper?mode=demo">
-          <Button variant="outline" size="sm" className="rounded-xl">
-            Open Demo Viewer
-          </Button>
-        </Link>
-        <Link to="/ProgramHelper?mode=owner">
           <Button size="sm" className="rounded-xl bg-[#0a0a0a] text-white hover:bg-[#1a1a1a]">
-            Owner Workbench
+            Open today&apos;s class
           </Button>
         </Link>
       </div>
@@ -30,12 +25,19 @@ export function PublicFooter() {
   );
 }
 
-export default function PublicPageShell({ children }) {
+export default function PublicPageShell({ children, showFooter = true }) {
+  const outlet = useOutletContext();
+  const inAppShell = Boolean(outlet?.inAppShell);
+
+  if (inAppShell) {
+    return <div className="overflow-x-hidden">{children}</div>;
+  }
+
   return (
     <div className="min-h-screen overflow-x-hidden bg-[#fafafa]">
       <PublicNav />
       <main className="canonical-page-top px-4 pb-24 sm:px-6">{children}</main>
-      <PublicFooter />
+      {showFooter ? <PublicFooter /> : null}
     </div>
   );
 }

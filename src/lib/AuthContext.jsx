@@ -1,27 +1,8 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import { appParams } from '@/lib/app-params';
+import { isPublicPreviewPath } from '@/lib/publicPreviewPolicy';
 
 const AuthContext = createContext();
-
-const publicPreviewPaths = [
-  '/',
-  '/ProgramHelper',
-  '/Home',
-  '/About',
-  '/Dashboard',
-  '/WorkspaceSetup',
-  '/HowItWorks',
-  '/Integrations',
-  '/Settings',
-  '/Proof',
-  '/field-proof-week1',
-  '/FieldProofWeek1',
-  '/Docs',
-];
-
-function isPublicPreviewPath(pathname) {
-  return publicPreviewPaths.includes(pathname) || pathname.startsWith('/Packages/') || pathname.startsWith('/Docs/');
-}
 
 function isLocalPreviewHost() {
   return ['localhost', '127.0.0.1', '::1'].includes(window.location.hostname);
@@ -85,7 +66,7 @@ export const AuthProvider = ({ children }) => {
       if (previewPath && isLocalPreviewHost()) {
         setAppPublicSettings({
           id: appParams.appId || 'canonical_program_helper_preview',
-          public_settings: { auth_required: false }
+          public_settings: { auth_required: false },
         });
         setIsAuthenticated(false);
         setIsLoadingAuth(false);

@@ -11,12 +11,12 @@ import { getEndpointPulseUrl } from "@/lib/integrationRegistry";
 
 function RoleCard({ ownerAccess, user, isAuthenticated }) {
   const modeLabel = ownerAccess.liveOwnerAccess
-    ? "Owner / admin (live)"
+    ? "Admin — full access"
     : ownerAccess.localPreviewAccess
-      ? "Local preview bypass"
+      ? "Developer preview"
       : isAuthenticated
-        ? "Signed in (non-owner)"
-        : "Public / demo";
+        ? "Class access"
+        : "Not signed in";
 
   return (
     <section className="rounded-3xl border border-black/5 bg-white p-4 shadow-sm sm:p-6">
@@ -25,10 +25,9 @@ function RoleCard({ ownerAccess, user, isAuthenticated }) {
           <Settings2 className="h-4 w-4 text-white" />
         </div>
         <div className="min-w-0 flex-1">
-          <h2 className="text-lg font-semibold tracking-tight text-[#0a0a0a]">Session & role</h2>
+          <h2 className="text-lg font-semibold tracking-tight text-[#0a0a0a]">Your access</h2>
           <p className="mt-2 text-sm leading-6 text-[#0a0a0a]/55">
-            Owner mode requires verified Base44 auth and an owner/admin role (or configured allowlist). Query
-            strings alone do not unlock private PRISM data.
+            Class logins see preview-safe materials. Admin tools require an owner account from your coordinator.
           </p>
         </div>
       </div>
@@ -43,15 +42,19 @@ function RoleCard({ ownerAccess, user, isAuthenticated }) {
             {user?.email || "Not signed in"}
           </dd>
         </div>
-        <div className="rounded-xl bg-[#fafafa] p-3 sm:col-span-2">
-          <dt className="text-[11px] font-semibold uppercase tracking-wide text-[#0a0a0a]/40">Access reason</dt>
-          <dd className="mt-1 font-mono text-xs text-[#0a0a0a]/70">{ownerAccess.reason}</dd>
-        </div>
+        {ownerAccess.allowed && (
+          <div className="rounded-xl bg-[#fafafa] p-3 sm:col-span-2">
+            <dt className="text-[11px] font-semibold uppercase tracking-wide text-[#0a0a0a]/40">
+              Technical detail
+            </dt>
+            <dd className="mt-1 font-mono text-xs text-[#0a0a0a]/70">{ownerAccess.reason}</dd>
+          </div>
+        )}
       </dl>
       <div className="mt-5 flex flex-col gap-2 sm:flex-row">
         <Link to="/ProgramHelper?mode=demo" className="w-full sm:w-auto">
           <Button variant="outline" className="h-11 w-full rounded-xl">
-            Open demo viewer
+            Open class view
           </Button>
         </Link>
         {ownerAccess.allowed ? (

@@ -33,6 +33,11 @@ import {
   ProgramHelperWorkbenchNav,
 } from "@/components/layout/ProgramHelperNav";
 import FieldProofDiscoverCard from "@/components/public/FieldProofDiscoverCard";
+import SubstituteActionBar from "@/components/program-helper/SubstituteActionBar";
+import SubstituteQuickPath from "@/components/layout/SubstituteQuickPath";
+import CollapsibleSection from "@/components/program-helper/CollapsibleSection";
+import BottomNav from "@/components/layout/BottomNav";
+import { useNavModel } from "@/hooks/use-nav-model";
 import { Link } from "react-router-dom";
 import { useAuth } from "@/lib/AuthContext";
 import { getCapabilityRegistry } from "@/lib/canonicalCapabilities";
@@ -625,14 +630,14 @@ function AccessModeSwitcher({ owner, ownerAccessAllowed, onOwner, onDemo }) {
       <div className="flex items-start justify-between gap-4">
         <div>
           <div className="text-xs font-medium uppercase tracking-wide text-[#0a0a0a]/35">
-            Access mode
+            View
           </div>
           <div className="mt-1 text-lg font-semibold text-[#0a0a0a]">
-            {owner ? "Owner / Admin Workbench" : "Demo Viewer"}
+            {owner ? "Admin workbench" : "Class view"}
           </div>
         </div>
         <span className="shrink-0 rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-600">
-          {owner ? "Admin controls" : "Read-only"}
+          {owner ? "Full access" : "Preview"}
         </span>
       </div>
 
@@ -644,7 +649,7 @@ function AccessModeSwitcher({ owner, ownerAccessAllowed, onOwner, onDemo }) {
           onClick={onOwner}
           disabled={!ownerAccessAllowed}
         >
-          Owner/Admin
+          Admin
         </Button>
         <Button
           data-testid="demo-viewer-button"
@@ -652,15 +657,15 @@ function AccessModeSwitcher({ owner, ownerAccessAllowed, onOwner, onDemo }) {
           className={`h-11 ${!owner ? "bg-[#0a0a0a] text-white hover:bg-[#1a1a1a]" : ""}`}
           onClick={onDemo}
         >
-          Demo
+          Class view
         </Button>
       </div>
 
       <p className="mt-5 text-sm leading-6 text-[#0a0a0a]/50">
         {owner
           ? "Owner / Admin Workbench shows private scaffolds, approval controls, connector previews, and draft-review lanes."
-          : "Demo Viewer is presentation-safe: curated program cards, PV102 sample generation, and no private payloads or connector calls."}
-        {!ownerAccessAllowed && " Owner / Admin Workbench requires an authenticated admin or owner login."}
+          : "Class view after sign-in: session brief, printable packet preview, and sample exports. Ask your coordinator if you need a login."}
+        {!ownerAccessAllowed && " Admin workbench requires a signed-in owner or admin account."}
       </p>
     </div>
   );
@@ -1497,6 +1502,7 @@ function DemoAgentWorkbench({
 export default function ProgramHelper() {
   const query = new URLSearchParams(window.location.search);
   const { user, isAuthenticated } = useAuth();
+  const navModel = useNavModel();
   const ownerAccess = useMemo(
     () => getOwnerAccessState({ user, isAuthenticated }),
     [isAuthenticated, user],
@@ -1676,59 +1682,76 @@ export default function ProgramHelper() {
 
   if (!entered) {
     return (
-      <div className="min-h-screen overflow-x-hidden bg-[#fafafa]">
+      <div className="min-h-screen overflow-x-hidden bg-[#fafafa] pb-[calc(var(--canonical-bottom-nav-height)+var(--safe-bottom))]">
         <ProgramHelperLandingNav onOpenDemo={showDemoViewer} />
 
-        <main className="canonical-page-top mx-auto grid min-h-screen max-w-6xl grid-cols-1 items-center gap-12 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.85fr]">
+        <main className="canonical-page-top mx-auto max-w-6xl px-4 pb-16 sm:px-6">
           <motion.section initial="hidden" animate="visible" className="max-w-3xl">
-            <motion.div
+            <motion.p
               variants={fadeUp}
               custom={0}
-              className="mb-8 inline-flex items-center gap-2 rounded-full border border-indigo-100 bg-indigo-50 px-3 py-1.5"
+              className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-700"
             >
-              <div className="h-1.5 w-1.5 animate-pulse rounded-full bg-indigo-500" />
-              <span className="text-xs font-medium tracking-wide text-indigo-600">
-                PRISM HELPER
-              </span>
-            </motion.div>
+              Sign in first, then open class view
+            </motion.p>
 
             <motion.h1
               variants={fadeUp}
               custom={1}
-              className="text-5xl font-bold leading-[1.05] tracking-tight text-[#0a0a0a] sm:text-7xl"
+              className="text-4xl font-bold leading-[1.08] tracking-tight text-[#0a0a0a] sm:text-6xl"
             >
-              CANONICAL Program
-              <br />
-              <span className="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">
-                Helper.
-              </span>
+              Today&apos;s class materials
             </motion.h1>
 
             <motion.p
               variants={fadeUp}
               custom={2}
-              className="mt-8 max-w-xl text-lg leading-relaxed text-[#0a0a0a]/50"
+              className="mt-6 max-w-xl text-lg leading-relaxed text-[#0a0a0a]/55"
             >
-              A two-view instructional workbench: Owner / Admin Workbench for private PRISM/CANONICAL operations, and Demo Viewer for safe presentation access.
+              After you sign in with your class credentials, open the lesson packet, session brief, and printable
+              preview. Built for substitutes and first-day coverage on any device.
             </motion.p>
+
+            <motion.div variants={fadeUp} custom={3} className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Button
+                type="button"
+                className="h-12 w-full gap-2 rounded-xl bg-[#0a0a0a] text-base font-semibold text-white hover:bg-[#1a1a1a] sm:w-auto sm:px-8"
+                onClick={showDemoViewer}
+              >
+                Open class view
+                <ArrowRight className="h-4 w-4" />
+              </Button>
+              <Link to="/field-proof-week1" className="w-full sm:w-auto">
+                <Button variant="outline" className="h-12 w-full rounded-xl text-base font-medium sm:w-auto sm:px-6">
+                  Week 1 example
+                </Button>
+              </Link>
+            </motion.div>
           </motion.section>
 
-          <section className="rounded-3xl border border-black/5 bg-white p-5 shadow-2xl shadow-black/[0.04]">
-            <h2 className="mb-4 text-lg font-semibold tracking-tight text-[#0a0a0a]">
-              Choose presentation view
-            </h2>
-            <AccessModeSwitcher
-              owner={owner}
-              ownerAccessAllowed={ownerAccess.allowed}
-              onOwner={showOwnerWorkbench}
-              onDemo={showDemoViewer}
-            />
-          </section>
-        </main>
+          <div className="mt-12">
+            <SubstituteQuickPath />
+          </div>
 
-        <div className="mx-auto max-w-6xl px-6 pb-16">
-          <FieldProofDiscoverCard />
-        </div>
+          {ownerAccess.allowed && (
+            <section className="mt-10 rounded-3xl border border-black/5 bg-white p-5 shadow-sm">
+              <h2 className="mb-4 text-lg font-semibold tracking-tight text-[#0a0a0a]">
+                Signed in as admin?
+              </h2>
+              <AccessModeSwitcher
+                owner={owner}
+                ownerAccessAllowed={ownerAccess.allowed}
+                onOwner={showOwnerWorkbench}
+                onDemo={showDemoViewer}
+              />
+            </section>
+          )}
+
+          <div className="mt-10">
+            <FieldProofDiscoverCard />
+          </div>
+        </main>
+        <BottomNav tabs={navModel.tabs} />
       </div>
     );
   }
@@ -1737,14 +1760,19 @@ export default function ProgramHelper() {
     <div className="min-h-screen overflow-x-hidden bg-[#fafafa]">
       <ProgramHelperWorkbenchNav owner={owner} summaryOnly={summaryOnly} />
 
-      <main className="canonical-page-top mx-auto max-w-7xl px-4 pb-20 sm:px-6">
+      <main
+        className={`canonical-page-top mx-auto max-w-7xl px-4 sm:px-6 ${
+          owner ? "pb-20" : "canonical-page-with-substitute-bar pb-28"
+        }`}
+      >
         {!owner && (
-          <div className="sticky top-[calc(var(--canonical-nav-height)+var(--safe-top))] z-40 -mx-4 mb-6 border-b border-indigo-100 bg-indigo-50/95 px-4 py-3 text-sm font-medium text-indigo-800 backdrop-blur-sm sm:static sm:mx-0 sm:rounded-2xl sm:border sm:px-4 sm:py-4">
-            Demo mode is active. Drafts, approvals, raw PRISM notes, local paths, and agent logs are hidden.
+          <div className="sticky top-[calc(var(--canonical-nav-height)+var(--safe-top))] z-40 -mx-4 mb-6 border-b border-emerald-100 bg-emerald-50/95 px-4 py-3 text-sm font-medium text-emerald-900 backdrop-blur-sm sm:static sm:mx-0 sm:rounded-2xl sm:border sm:px-4 sm:py-4">
+            Class view: scroll to Session for the lesson brief, or use Generate packet for a printable preview.
+            Contact your coordinator if you cannot sign in.
           </div>
         )}
 
-        <FieldProofDiscoverCard className="mb-8" />
+        {owner && <FieldProofDiscoverCard className="mb-8" />}
 
         <motion.header
           initial="hidden"
@@ -1759,7 +1787,7 @@ export default function ProgramHelper() {
             >
               <div className="h-1.5 w-1.5 rounded-full bg-indigo-500" />
               <span className="text-xs font-medium tracking-wide text-indigo-600">
-                {owner ? "OWNER / ADMIN WORKBENCH" : "DEMO VIEWER"}
+                {owner ? "Admin workbench" : "Class view · Preview"}
               </span>
             </motion.div>
             <motion.h1
@@ -1768,10 +1796,11 @@ export default function ProgramHelper() {
               className="max-w-4xl text-4xl font-bold leading-[1.05] tracking-tight text-[#0a0a0a] sm:text-6xl"
             >
               {program.title}
-              <br />
-              <span className="text-[#0a0a0a]/20">
-                {owner ? "owner / admin workbench." : "demo viewer."}
-              </span>
+              {!owner && (
+                <span className="mt-2 block text-lg font-medium text-[#0a0a0a]/35">
+                  Sample materials for class today
+                </span>
+              )}
             </motion.h1>
             <motion.p
               variants={fadeUp}
@@ -1782,17 +1811,33 @@ export default function ProgramHelper() {
             </motion.p>
           </div>
 
-          <motion.div variants={fadeUp} custom={3} className="rounded-3xl border border-black/5 bg-white p-5 shadow-sm">
-            <AccessModeSwitcher
-              owner={owner}
-              ownerAccessAllowed={ownerAccess.allowed}
-              onOwner={showOwnerWorkbench}
-              onDemo={showDemoViewer}
-            />
-            <Button variant="ghost" className="mt-3 h-11 w-full text-[#0a0a0a]/55" onClick={() => setEntered(false)}>
-              Return to login
-            </Button>
-          </motion.div>
+          {!ownerAccess.allowed && (
+            <motion.div variants={fadeUp} custom={3} className="flex flex-col gap-2">
+              <Link to="/start">
+                <Button variant="outline" className="h-11 w-full rounded-xl">
+                  Back to Start
+                </Button>
+              </Link>
+            </motion.div>
+          )}
+          {ownerAccess.allowed && (
+            <motion.div variants={fadeUp} custom={3} className="rounded-3xl border border-black/5 bg-white p-5 shadow-sm">
+              <AccessModeSwitcher
+                owner={owner}
+                ownerAccessAllowed={ownerAccess.allowed}
+                onOwner={showOwnerWorkbench}
+                onDemo={showDemoViewer}
+              />
+              <Link to="/admin" className="mt-3 block">
+                <Button variant="outline" className="h-11 w-full rounded-xl text-sm">
+                  Admin hub
+                </Button>
+              </Link>
+              <Button variant="ghost" className="mt-2 h-11 w-full text-[#0a0a0a]/55" onClick={() => setEntered(false)}>
+                Back to start screen
+              </Button>
+            </motion.div>
+          )}
         </motion.header>
 
         <div id="program-library" className="scroll-mt-24">
@@ -1804,19 +1849,21 @@ export default function ProgramHelper() {
           />
         </div>
 
-        {owner && (
-          <OwnerDiagnosticsPanel
-            ownerAccess={ownerAccess}
-            requestedMode={requestedMode}
-            resolvedMode={mode}
-            user={user}
-            capabilities={capabilities}
-          />
+        {!owner ? (
+          <CollapsibleSection
+            value="packages"
+            title="Package library"
+            description="Proof packages and manifests"
+          >
+            <div id="package-library" className="scroll-mt-24">
+              <PackageLibraryPanel owner={owner} />
+            </div>
+          </CollapsibleSection>
+        ) : (
+          <div id="package-library" className="scroll-mt-24">
+            <PackageLibraryPanel owner={owner} />
+          </div>
         )}
-
-        <div id="package-library" className="scroll-mt-24">
-          <PackageLibraryPanel owner={owner} />
-        </div>
 
         {summaryOnly ? (
           <>
@@ -1834,19 +1881,8 @@ export default function ProgramHelper() {
           </>
         ) : (
           <>
-        <StoryRail items={portalData.demo_story} />
-        <BoundaryPanel boundaries={portalData.boundary_model} />
-        <ModeGuardrails owner={owner} />
-
-        <section className="mb-6 grid gap-4 sm:grid-cols-3">
-          <MetricTile label="Source of truth" value="CANONICAL file spine" />
-          <MetricTile label="Session" value={brief.session_key} />
-          <MetricTile label="Helper stance" value="Draft then approve" />
-        </section>
-
         <section className="mb-6 grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
           <DemoPresentationPanel owner={owner} bundle={bundle} />
-          <BriefQualityPanel checks={portalData.brief_quality_checks} />
         </section>
 
         <section id="session" className="mb-6 grid scroll-mt-24 gap-6 lg:grid-cols-[0.85fr_1.15fr]">
@@ -1879,7 +1915,7 @@ export default function ProgramHelper() {
 
         <section id="artifacts" className="mb-6 grid scroll-mt-24 gap-6 lg:grid-cols-2">
           <Surface>
-            <SectionTitle eyebrow="AYA rail" title="Delivery-facing outputs" icon={BookOpen} />
+            <SectionTitle eyebrow="Classroom" title="Printable materials" icon={BookOpen} />
             <div className="grid gap-3">
               {ayaArtifacts.map((artifact) => (
                 <ArtifactCard key={artifact.id} artifact={artifact} mode={mode} />
@@ -1888,8 +1924,8 @@ export default function ProgramHelper() {
           </Surface>
           <Surface>
             <SectionTitle
-              eyebrow="PRISM rail"
-              title={owner ? "Private facilitator intelligence" : "Curated PRISM framing"}
+              eyebrow={owner ? "Facilitator" : "Overview"}
+              title={owner ? "Facilitator materials" : "Lesson overview"}
               icon={owner ? Lock : Eye}
             />
             <div className="grid gap-3">
@@ -1899,12 +1935,6 @@ export default function ProgramHelper() {
             </div>
           </Surface>
         </section>
-
-        <ExportAdapterPanel adapters={portalData.export_adapters} />
-
-        {owner && program.program_key === "AYA_CTS" && (
-          <SlideTemplateSpinePanel summary={slideTemplateSummary} />
-        )}
 
         <DemoAgentWorkbench
           mode={owner ? "owner" : "demo"}
@@ -1917,9 +1947,70 @@ export default function ProgramHelper() {
           capabilities={portalData.demo_agent_capabilities}
         />
 
-        <LiveIntegrationsPanel owner={owner} generatedPackage={generatedPackage} />
+        <CollapsibleSection
+          value="class-details"
+          title="Background & visibility"
+          description="How this view is limited and what each rail means"
+        >
+          <StoryRail items={portalData.demo_story} />
+          <div className="mt-4">
+            <BoundaryPanel boundaries={portalData.boundary_model} />
+          </div>
+          <div className="mt-4">
+            <ModeGuardrails owner={owner} />
+          </div>
+          {!owner && (
+            <section className="mt-4 grid gap-4 sm:grid-cols-2">
+              <MetricTile label="Session" value={brief.session_key} />
+              <MetricTile label="View" value="Preview sample" />
+            </section>
+          )}
+          {owner && (
+            <>
+              <section className="mt-4 grid gap-4 sm:grid-cols-3">
+                <MetricTile label="Source of truth" value="CANONICAL file spine" />
+                <MetricTile label="Session" value={brief.session_key} />
+                <MetricTile label="Stance" value="Draft then approve" />
+              </section>
+              <div className="mt-4">
+                <BriefQualityPanel checks={portalData.brief_quality_checks} />
+              </div>
+            </>
+          )}
+        </CollapsibleSection>
+
+        <CollapsibleSection
+          value="exports-adapters"
+          title="Export destinations"
+          description="Future adapters after approval"
+          defaultOpen={owner}
+        >
+          <ExportAdapterPanel adapters={portalData.export_adapters} />
+        </CollapsibleSection>
 
         {owner && (
+          <CollapsibleSection
+            value="owner-integrations"
+            title="Connectors"
+            description="Owner-only live and dry-run controls"
+            defaultOpen
+          >
+            <LiveIntegrationsPanel owner={owner} generatedPackage={generatedPackage} />
+            {program.program_key === "AYA_CTS" && (
+              <div className="mt-4">
+                <SlideTemplateSpinePanel summary={slideTemplateSummary} />
+              </div>
+            )}
+          </CollapsibleSection>
+        )}
+
+        {owner && (
+          <CollapsibleSection
+            value="owner-helper"
+            title="Notes & draft tools"
+            description="Hybrid input, bundle plan, and draft run review"
+            defaultOpen
+          >
           <section id="helper" className="grid scroll-mt-24 gap-6 lg:grid-cols-[1.05fr_0.95fr]">
             <Surface>
               <SectionTitle eyebrow="Program helper" title="Hybrid notes to bundle plan" icon={Wand2} />
@@ -1970,10 +2061,37 @@ export default function ProgramHelper() {
               </div>
             </Surface>
           </section>
+          </CollapsibleSection>
+        )}
+
+        {owner && (
+          <CollapsibleSection
+            value="owner-diagnostics"
+            title="Diagnostics"
+            description="Mode resolution and capability registry"
+          >
+            <OwnerDiagnosticsPanel
+              ownerAccess={ownerAccess}
+              requestedMode={requestedMode}
+              resolvedMode={mode}
+              user={user}
+              capabilities={capabilities}
+            />
+          </CollapsibleSection>
         )}
           </>
         )}
       </main>
+      <BottomNav tabs={navModel.tabs} />
+      {!owner && (
+        <SubstituteActionBar
+          onGenerate={() => {
+            const target = document.getElementById("agent-demo");
+            target?.scrollIntoView({ behavior: "smooth", block: "start" });
+            handleGenerateDemoPackage();
+          }}
+        />
+      )}
     </div>
   );
 }

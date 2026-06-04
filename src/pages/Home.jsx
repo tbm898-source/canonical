@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PublicSiteNav } from "@/components/layout/MobileNav";
+import SubstituteQuickPath from "@/components/layout/SubstituteQuickPath";
 import { Link, useLocation } from "react-router-dom";
 
 const fadeUp = {
@@ -191,9 +192,10 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    if (location.hash !== "#faq") return;
+    const hash = location.hash?.replace("#", "");
+    if (!hash) return;
     window.requestAnimationFrame(() => {
-      document.getElementById("faq")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      document.getElementById(hash)?.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   }, [location.hash]);
 
@@ -209,36 +211,34 @@ export default function Home() {
             className="mx-auto grid max-w-6xl gap-12 xl:grid-cols-[minmax(0,1.05fr)_minmax(420px,0.95fr)] xl:items-center"
           >
             <motion.div variants={fadeUp} custom={0} className="max-w-4xl xl:max-w-none">
-              <h1 className="text-5xl font-bold leading-[1.05] tracking-tight text-[#0a0a0a] sm:text-7xl">
-                Project memory,
-                <br />
-                curriculum systems,
+              <p className="mb-4 inline-flex rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-emerald-800">
+                Works on phone, tablet, and computer
+              </p>
+              <h1 className="text-4xl font-bold leading-[1.08] tracking-tight text-[#0a0a0a] sm:text-6xl lg:text-7xl">
+                Covering class today?
                 <br />
                 <span className="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">
-                  AI workflow infrastructure.
+                  Get materials in three taps.
                 </span>
               </h1>
               <p className="mt-8 max-w-2xl text-lg leading-relaxed text-[#0a0a0a]/65">
-                CANONICAL is a structured operating system for turning scattered projects, class materials, AI outputs, files, workflows, and institutional memory into one coherent working spine.
+                Sign in with the login your coordinator gave you, open today&apos;s class view, then print or copy
+                the packet. The screens use plain labels, not operator jargon.
               </p>
               <p className="mt-4 max-w-2xl text-base leading-7 text-[#0a0a0a]/55">
-                Built for educators, operators, builders, and small organizations that need their work to survive across tools, people, devices, and time.
+                When your access is no longer needed, your coordinator can remove the account. Owner and builder
+                tools stay on a separate admin path.
               </p>
-              <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-                <Link to="/ProgramHelper?mode=demo">
-                  <Button className="h-12 gap-2 rounded-xl bg-[#0a0a0a] px-6 text-sm font-medium text-white transition-all hover:gap-3 hover:bg-[#1a1a1a]">
-                    Open Demo Viewer
+              <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                <Link to="/ProgramHelper?mode=demo" className="w-full sm:w-auto">
+                  <Button className="h-12 w-full gap-2 rounded-xl bg-[#0a0a0a] px-6 text-base font-semibold text-white transition-all hover:bg-[#1a1a1a] sm:w-auto">
+                    Open today&apos;s class
                     <ArrowRight className="h-4 w-4" />
                   </Button>
                 </Link>
-                <Link to="/portfolio">
-                  <Button variant="outline" className="h-12 rounded-xl px-6 text-sm font-medium">
-                    View Portfolio
-                  </Button>
-                </Link>
-                <Link to="/WorkspaceSetup">
-                  <Button variant="outline" className="h-12 rounded-xl px-6 text-sm font-medium">
-                    View Setup Path
+                <Link to="/field-proof-week1" className="w-full sm:w-auto">
+                  <Button variant="outline" className="h-12 w-full rounded-xl px-6 text-base font-medium sm:w-auto">
+                    See Week 1 example
                   </Button>
                 </Link>
               </div>
@@ -266,6 +266,12 @@ export default function Home() {
               </div>
             </motion.div>
           </motion.div>
+        </section>
+
+        <section id="substitute-quick-path" className="scroll-mt-28 px-6 pb-8">
+          <div className="mx-auto max-w-6xl">
+            <SubstituteQuickPath />
+          </div>
         </section>
 
         <section className="border-y border-black/5 bg-white px-6 py-16">
@@ -433,7 +439,7 @@ export default function Home() {
               </div>
               <Link to="/ProgramHelper?mode=demo">
                 <Button className="h-12 gap-2 rounded-xl bg-white px-6 text-sm font-medium text-[#0a0a0a] hover:bg-white/90">
-                  Launch Program Helper
+                  Open class view
                   <Layers className="h-4 w-4" />
                 </Button>
               </Link>

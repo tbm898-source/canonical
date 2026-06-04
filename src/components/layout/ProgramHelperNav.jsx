@@ -30,7 +30,7 @@ function ModeBadge({ owner }) {
           : "border border-slate-200 bg-white text-slate-600"
       }`}
     >
-      {owner ? "Owner" : "Demo"}
+      {owner ? "Admin" : "Class"}
     </span>
   );
 }
@@ -58,21 +58,25 @@ function WorkbenchSectionLinks({ links, className }) {
 
 export function buildWorkbenchNavLinks({ summaryOnly, owner }) {
   const links = [
-    { key: "field-proof", to: "/field-proof-week1", label: "Field proof" },
+    { key: "field-proof", to: "/field-proof-week1", label: "Week 1 example" },
     { key: "programs", href: "#program-library", label: "Programs" },
     { key: "packages", href: "#package-library", label: "Packages" },
   ];
 
-  if (!summaryOnly) {
+  if (!summaryOnly && !owner) {
+    links.unshift(
+      { key: "session", href: "#session", label: "Session" },
+      { key: "agent", href: "#agent-demo", label: "Generate" },
+      { key: "artifacts", href: "#artifacts", label: "Printables" },
+    );
+  } else if (!summaryOnly && owner) {
     links.push(
       { key: "session", href: "#session", label: "Session" },
       { key: "artifacts", href: "#artifacts", label: "Artifacts" },
       { key: "agent", href: "#agent-demo", label: "Agent demo" },
       { key: "integrations", href: "#integrations", label: "Integrations" },
+      { key: "helper", href: "#helper", label: "Helper" },
     );
-    if (owner) {
-      links.push({ key: "helper", href: "#helper", label: "Helper" });
-    }
   }
 
   if (owner) {
@@ -151,11 +155,10 @@ export function ProgramHelperLandingNav({ onOpenDemo }) {
           </Link>
           <Button
             type="button"
-            variant="outline"
-            className="hidden h-11 rounded-xl sm:inline-flex"
+            className="hidden h-11 rounded-xl bg-[#0a0a0a] text-white hover:bg-[#1a1a1a] sm:inline-flex"
             onClick={onOpenDemo}
           >
-            Open demo
+            Open class view
           </Button>
           <Sheet>
             <SheetTrigger asChild>
@@ -188,7 +191,7 @@ export function ProgramHelperLandingNav({ onOpenDemo }) {
                     className="min-h-11 flex w-full items-center text-left text-sm font-medium text-indigo-600"
                     onClick={onOpenDemo}
                   >
-                    Open demo viewer
+                    Open class view
                   </button>
                 </SheetClose>
                 <SheetClose asChild>

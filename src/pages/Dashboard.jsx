@@ -1,193 +1,76 @@
 import React from "react";
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import AdminAuditLog from "@/components/dashboard/AdminAuditLog";
-import {
-  ArrowLeft,
-  Archive,
-  Bot,
-  ClipboardList,
-  DatabaseZap,
-  FileCheck2,
-  FileText,
-  GraduationCap,
-  Lock,
-  RefreshCcw,
-} from "lucide-react";
+import { ArrowRight, ClipboardList, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import PublicPageShell from "@/components/public/PublicPageShell";
+import AdminAuditLog from "@/components/dashboard/AdminAuditLog";
+import CollapsibleSection from "@/components/program-helper/CollapsibleSection";
 
-const dashboardCards = [
+const overviewCards = [
   {
-    icon: Archive,
-    title: "Canonical Inbox",
-    status: "Intake lane",
-    text: "Downloads, notes, exports, and generated drafts enter review before becoming official records.",
+    title: "Inbox & review",
+    text: "New work enters intake, pauses for human review, then files to the spine.",
   },
   {
-    icon: FileText,
-    title: "Recent Materials",
-    status: "Preview only",
-    text: "Track the latest packets, guides, worksheets, slide outlines, manifests, and classroom-ready drafts.",
+    title: "Class materials",
+    text: "AYA-safe packets and classroom exports stay separate from private facilitator notes.",
   },
   {
-    icon: Bot,
-    title: "Class Session Builder",
-    status: "Draft then approve",
-    text: "Turn hybrid notes into a normalized session brief and downstream AYA/PRISM bundle plan.",
-  },
-  {
-    icon: GraduationCap,
-    title: "AYA Rail",
-    status: "Classroom-safe",
-    text: "Student-facing and institution-facing outputs stay clean, practical, and separated from private PRISM notes.",
-  },
-  {
-    icon: Lock,
-    title: "PRISM Rail",
-    status: "Owner-private",
-    text: "Private framework scaffolds, facilitator overlays, and operator reasoning remain gated by mode and visibility.",
-  },
-  {
-    icon: RefreshCcw,
-    title: "Review Queue",
-    status: "Human approval",
-    text: "Generated work is staged for review before filing, publishing, exporting, or live connector use.",
-  },
-  {
-    icon: FileCheck2,
-    title: "Generated Artifacts",
-    status: "Classified",
-    text: "Every packet records rail, visibility, artifact type, module/session keys, warnings, and manifest data.",
-  },
-  {
-    icon: DatabaseZap,
-    title: "Connector Health",
-    status: "Owner-only",
-    text: "Dropbox, Classroom, ClickUp, and future email adapters remain disabled in public/demo mode.",
+    title: "Connectors",
+    text: "Dropbox, Classroom, and ClickUp — owner approval before live writes.",
   },
 ];
 
 export default function Dashboard() {
   return (
-    <div className="min-h-screen bg-[#fafafa]">
-      <nav className="fixed left-0 right-0 top-0 z-50 border-b border-black/5 bg-[#fafafa]/85 backdrop-blur-xl">
-        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-          <Link to="/Home" className="flex items-center gap-2">
-            <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#0a0a0a]">
-              <span className="text-xs font-bold tracking-tight text-white">C</span>
-            </div>
-            <span className="text-[15px] font-semibold tracking-tight text-[#0a0a0a]">
-              CANONICAL
-            </span>
-          </Link>
-          <Link to="/Home">
-            <Button variant="ghost" size="sm" className="gap-2 text-[#0a0a0a]/50 hover:text-[#0a0a0a]">
-              <ArrowLeft className="h-4 w-4" />
-              Home
-            </Button>
-          </Link>
-        </div>
-      </nav>
+    <PublicPageShell>
+      <div className="mx-auto max-w-2xl py-2 sm:py-6">
+        <p className="text-xs font-semibold uppercase tracking-wide text-indigo-600">Admin overview</p>
+        <h1 className="mt-2 text-3xl font-bold tracking-tight text-[#0a0a0a]">System at a glance</h1>
+        <p className="mt-3 text-sm leading-6 text-[#0a0a0a]/55">
+          Categories only — no private data on this page. Open the workbench for live status and actions.
+        </p>
 
-      <main className="px-6 pb-24 pt-32">
-        <div className="mx-auto max-w-6xl">
-          <motion.header
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mb-10 max-w-3xl"
-          >
-            <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-indigo-600">
-              Operator Dashboard
-            </p>
-            <h1 className="text-4xl font-bold tracking-tight text-[#0a0a0a] sm:text-5xl">
-              A public preview of what the private dashboard tracks.
-            </h1>
-            <p className="mt-5 text-sm leading-6 text-[#0a0a0a]/50">
-              Track inbox, requests, generated artifacts, review status, connector health, and rail separation. This page shows dashboard categories, not private data; live status, raw files, source internals, and approval actions stay inside owner mode.
-            </p>
-          </motion.header>
+        <ul className="mt-8 space-y-3">
+          {overviewCards.map((card) => (
+            <li key={card.title} className="rounded-2xl border border-black/5 bg-white p-4 shadow-sm">
+              <h2 className="text-sm font-semibold text-[#0a0a0a]">{card.title}</h2>
+              <p className="mt-2 text-sm leading-6 text-[#0a0a0a]/50">{card.text}</p>
+            </li>
+          ))}
+        </ul>
 
-          <section className="mb-8 grid gap-4 sm:grid-cols-3">
-            <div className="rounded-2xl border border-black/5 bg-white p-5 shadow-sm">
-              <div className="text-[11px] font-semibold uppercase tracking-wide text-[#0a0a0a]/35">
-                Source of truth
-              </div>
-              <div className="mt-2 text-sm font-semibold text-[#0a0a0a]">CANONICAL file spine</div>
-            </div>
-            <div className="rounded-2xl border border-black/5 bg-white p-5 shadow-sm">
-              <div className="text-[11px] font-semibold uppercase tracking-wide text-[#0a0a0a]/35">
-                Public mode
-              </div>
-              <div className="mt-2 text-sm font-semibold text-[#0a0a0a]">Preview only</div>
-            </div>
-            <div className="rounded-2xl border border-black/5 bg-white p-5 shadow-sm">
-              <div className="text-[11px] font-semibold uppercase tracking-wide text-[#0a0a0a]/35">
-                Live writes
-              </div>
-              <div className="mt-2 text-sm font-semibold text-[#0a0a0a]">Owner approval required</div>
-            </div>
-          </section>
+        <Link to="/admin" className="mt-6 block">
+          <Button variant="outline" className="h-11 w-full rounded-xl">
+            Back to admin hub
+          </Button>
+        </Link>
 
-          <section className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-            {dashboardCards.map((card, index) => (
-              <motion.article
-                key={card.title}
-                initial={{ opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.04, duration: 0.35 }}
-                className="rounded-2xl border border-black/5 bg-white p-5 shadow-sm"
-              >
-                <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-2xl bg-indigo-50">
-                  <card.icon className="h-5 w-5 text-indigo-600" />
-                </div>
-                <div className="flex items-start justify-between gap-3">
-                  <h3 className="text-sm font-semibold text-[#0a0a0a]">{card.title}</h3>
-                  <span className="shrink-0 rounded-full bg-[#fafafa] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-[#0a0a0a]/45">
-                    {card.status}
-                  </span>
-                </div>
-                <p className="mt-3 text-sm leading-6 text-[#0a0a0a]/50">{card.text}</p>
-              </motion.article>
-            ))}
-          </section>
+        <Link to="/ProgramHelper?mode=owner" className="mt-3 block">
+          <Button className="h-12 w-full gap-2 rounded-xl bg-[#0a0a0a] text-white hover:bg-[#1a1a1a]">
+            Open admin workbench
+            <ClipboardList className="h-4 w-4" />
+          </Button>
+        </Link>
 
+        <CollapsibleSection
+          value="audit-log"
+          title="Activity log"
+          description="Recent operator events"
+          className="mt-8"
+        >
           <AdminAuditLog />
+        </CollapsibleSection>
 
-          <section className="mt-10 rounded-3xl border border-indigo-100 bg-indigo-50 p-6">
-            <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-              <div>
-                <h2 className="text-lg font-semibold tracking-tight text-[#0a0a0a]">
-                  Want the working owner side?
-                </h2>
-                <p className="mt-2 text-sm leading-6 text-[#0a0a0a]/50">
-                  The Program Helper opens the authenticated owner workbench with connector diagnostics, package proof, and review-before-write controls.
-                </p>
-              </div>
-              <div className="flex flex-wrap gap-3">
-                <Link to="/ProgramHelper?mode=owner">
-                  <Button className="gap-2 rounded-xl bg-[#0a0a0a] text-white hover:bg-[#1a1a1a]">
-                    Open Owner Workbench
-                    <ClipboardList className="h-4 w-4" />
-                  </Button>
-                </Link>
-                <Link to="/OwnerAssistant">
-                  <Button variant="outline" className="gap-2 rounded-xl">
-                    Open Owner Assistant
-                    <Bot className="h-4 w-4" />
-                  </Button>
-                </Link>
-                <Link to="/ProgramHelper?mode=demo">
-                  <Button variant="outline" className="gap-2 rounded-xl">
-                    Open Demo Viewer
-                    <ClipboardList className="h-4 w-4" />
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          </section>
-        </div>
-      </main>
-    </div>
+        <p className="mt-8 flex items-center gap-2 text-xs text-[#0a0a0a]/40">
+          <Lock className="h-3.5 w-3.5" />
+          Preview categories — live writes require owner workbench
+          <Link to="/ProgramHelper?mode=demo" className="ml-auto text-indigo-600">
+            Class view
+            <ArrowRight className="ml-0.5 inline h-3 w-3" />
+          </Link>
+        </p>
+      </div>
+    </PublicPageShell>
   );
 }

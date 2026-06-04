@@ -5,8 +5,12 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
+import AppShell from '@/components/layout/AppShell';
 import ProgramHelper from './pages/ProgramHelper';
-import Home from './pages/Home';
+import HomeRoute from './pages/HomeRoute';
+import Start from './pages/Start';
+import AdminHub from './pages/AdminHub';
+import More from './pages/More';
 import About from './pages/About';
 import Dashboard from './pages/Dashboard';
 import WorkspaceSetup from './pages/WorkspaceSetup';
@@ -47,24 +51,29 @@ const AuthenticatedApp = () => {
   // Render the main app
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/Home" element={<Home />} />
-      <Route path="/About" element={<About />} />
-      <Route path="/Dashboard" element={<Dashboard />} />
-      <Route path="/WorkspaceSetup" element={<WorkspaceSetup />} />
       <Route path="/ProgramHelper" element={<ProgramHelper />} />
-      <Route path="/HowItWorks" element={<HowItWorks />} />
-      <Route path="/Integrations" element={<Integrations />} />
-      <Route path="/Settings" element={<Settings />} />
-      <Route path="/Proof" element={<Proof />} />
-      <Route path="/portfolio" element={<Portfolio />} />
-      <Route path="/Portfolio" element={<Navigate to="/portfolio" replace />} />
-      <Route path="/field-proof-week1" element={<FieldProofWeek1 />} />
-      <Route path="/FieldProofWeek1" element={<Navigate to="/field-proof-week1" replace />} />
-      <Route path="/Packages/:packageId" element={<PackageDetail />} />
-      <Route path="/Docs" element={<Docs />} />
-      <Route path="/Docs/:docId" element={<Docs />} />
-      <Route path="/OwnerAssistant" element={<OwnerAssistant />} />
+      <Route element={<AppShell />}>
+        <Route path="/start" element={<Start />} />
+        <Route path="/" element={<HomeRoute />} />
+        <Route path="/Home" element={<Navigate to="/start" replace />} />
+        <Route path="/admin" element={<AdminHub />} />
+        <Route path="/more" element={<More />} />
+        <Route path="/About" element={<About />} />
+        <Route path="/Dashboard" element={<Dashboard />} />
+        <Route path="/WorkspaceSetup" element={<WorkspaceSetup />} />
+        <Route path="/HowItWorks" element={<HowItWorks />} />
+        <Route path="/Integrations" element={<Integrations />} />
+        <Route path="/Settings" element={<Settings />} />
+        <Route path="/Proof" element={<Proof />} />
+        <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/Portfolio" element={<Navigate to="/portfolio" replace />} />
+        <Route path="/field-proof-week1" element={<FieldProofWeek1 />} />
+        <Route path="/FieldProofWeek1" element={<Navigate to="/field-proof-week1" replace />} />
+        <Route path="/Packages/:packageId" element={<PackageDetail />} />
+        <Route path="/Docs" element={<Docs />} />
+        <Route path="/Docs/:docId" element={<Docs />} />
+        <Route path="/OwnerAssistant" element={<OwnerAssistant />} />
+      </Route>
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );

@@ -11,24 +11,40 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
-export const PUBLIC_NAV_LINKS = [
-  { to: "/About", label: "About" },
-  { to: "/portfolio", label: "Portfolio" },
-  { to: "/HowItWorks", label: "How It Works" },
-  { to: "/Integrations", label: "Integrations" },
-  { to: "/Settings", label: "Settings" },
-  { to: "/Proof", label: "Proof" },
-  { to: "/field-proof-week1", label: "Field proof" },
-  { to: "/Docs", label: "Docs" },
-  { to: "/Home#faq", label: "FAQ" },
-  { to: "/Dashboard", label: "Operator Dashboard" },
-  { to: "/WorkspaceSetup", label: "Workspace Setup" },
+/** Shown first — classroom / substitute friendly. */
+export const CLASSROOM_NAV_LINKS = [
   {
     to: "/ProgramHelper?mode=demo",
-    label: "Demo Viewer",
+    label: "Today's class",
     variant: "demo",
+    primary: true,
   },
+  { to: "/field-proof-week1", label: "Week 1 example" },
+  { to: "/HowItWorks", label: "How it works" },
+  { to: "/start", label: "Quick start" },
 ];
+
+/** Operator / builder links — secondary in mobile menu. */
+export const OPERATOR_NAV_LINKS = [
+  { to: "/About", label: "About" },
+  { to: "/portfolio", label: "Portfolio" },
+  { to: "/Integrations", label: "Integrations" },
+  { to: "/Proof", label: "Proof" },
+  { to: "/Docs", label: "Docs" },
+  { to: "/Home#faq", label: "FAQ" },
+  { to: "/WorkspaceSetup", label: "Workspace setup" },
+  { to: "/Dashboard", label: "Operator dashboard", requiresAuth: true },
+  { to: "/Settings", label: "Settings", requiresAuth: true },
+];
+
+/** Desktop: classroom links + a few essentials; full list in mobile sheet. */
+export const DESKTOP_NAV_LINKS = [
+  ...CLASSROOM_NAV_LINKS,
+  { to: "/About", label: "About" },
+  { to: "/portfolio", label: "Portfolio" },
+];
+
+export const PUBLIC_NAV_LINKS = [...CLASSROOM_NAV_LINKS, ...OPERATOR_NAV_LINKS];
 
 function BrandMark() {
   return (
@@ -38,22 +54,55 @@ function BrandMark() {
   );
 }
 
-function navLinkClassName(variant) {
-  if (variant === "demo") {
-    return "text-sm font-medium text-indigo-600 transition-colors hover:text-indigo-800 min-h-11 flex items-center";
+function navLinkClassName(variant, primary = false) {
+  if (variant === "demo" || primary) {
+    return "inline-flex min-h-11 items-center rounded-full bg-indigo-600 px-4 text-sm font-semibold text-white transition-colors hover:bg-indigo-700";
   }
-  return "text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a] min-h-11 flex items-center";
+  return "flex min-h-11 items-center text-sm text-[#0a0a0a]/50 transition-colors hover:text-[#0a0a0a]";
+}
+
+function NavLink({ to, label, variant, primary, onClick }) {
+  return (
+    <Link to={to} className={navLinkClassName(variant, primary)} onClick={onClick}>
+      {label}
+    </Link>
+  );
 }
 
 export function DesktopNavLinks({ className = "" }) {
   return (
-    <div className={`items-center gap-5 ${className}`}>
-      {PUBLIC_NAV_LINKS.map(({ to, label, variant }) => (
-        <Link key={to} to={to} className={navLinkClassName(variant)}>
-          {label}
-        </Link>
+    <div className={`items-center gap-3 lg:gap-4 ${className}`}>
+      {DESKTOP_NAV_LINKS.map(({ to, label, variant, primary }) => (
+        <NavLink key={to} to={to} label={label} variant={variant} primary={primary} />
       ))}
     </div>
+  );
+}
+
+function MobileNavSections() {
+  return (
+    <>
+      <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-700">
+        For class today
+      </p>
+      <nav className="mt-2 flex flex-col gap-1">
+        {CLASSROOM_NAV_LINKS.map(({ to, label, variant, primary }) => (
+          <SheetClose asChild key={to}>
+            <NavLink to={to} label={label} variant={variant} primary={primary} />
+          </SheetClose>
+        ))}
+      </nav>
+      <p className="mt-8 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#0a0a0a]/35">
+        More (operators)
+      </p>
+      <nav className="mt-2 flex flex-col gap-1">
+        {OPERATOR_NAV_LINKS.map(({ to, label }) => (
+          <SheetClose asChild key={to}>
+            <NavLink to={to} label={label} />
+          </SheetClose>
+        ))}
+      </nav>
+    </>
   );
 }
 
@@ -73,20 +122,14 @@ export function MobileNavMenu({ className = "" }) {
       </SheetTrigger>
       <SheetContent
         side="right"
-        className="flex w-[min(100vw-1rem,20rem)] flex-col gap-0 border-black/5 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-[max(1.5rem,env(safe-area-inset-top))]"
+        className="flex w-[min(100vw-1rem,20rem)] flex-col gap-0 overflow-y-auto border-black/5 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-[max(1.5rem,env(safe-area-inset-top))]"
       >
         <SheetHeader className="text-left">
           <SheetTitle className="text-[#0a0a0a]">CANONICAL</SheetTitle>
         </SheetHeader>
-        <nav className="mt-6 flex flex-col gap-1">
-          {PUBLIC_NAV_LINKS.map(({ to, label, variant }) => (
-            <SheetClose asChild key={to}>
-              <Link to={to} className={navLinkClassName(variant)}>
-                {label}
-              </Link>
-            </SheetClose>
-          ))}
-        </nav>
+        <div className="mt-6">
+          <MobileNavSections />
+        </div>
       </SheetContent>
     </Sheet>
   );
@@ -95,7 +138,10 @@ export function MobileNavMenu({ className = "" }) {
 /** Fixed top nav with safe-area padding for iOS/Android. */
 export function PublicSiteNav() {
   return (
-    <nav className="canonical-fixed-nav fixed left-0 right-0 top-0 z-50 border-b border-black/5 bg-[#fafafa]/85 backdrop-blur-xl">
+    <nav
+      className="canonical-fixed-nav fixed left-0 right-0 top-0 z-50 border-b border-black/5 bg-[#fafafa]/85 backdrop-blur-xl"
+      aria-label="Site"
+    >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
         <Link to="/Home" className="flex min-w-0 items-center gap-2">
           <BrandMark />
