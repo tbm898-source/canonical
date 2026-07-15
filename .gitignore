@@ -34,3 +34,4 @@ dist-ssr
 # Never commit. May contain PRISM-private path references and metadata.
 .recovery/
 .recovery/inbox-scan/
+base44/.app.jsonc
