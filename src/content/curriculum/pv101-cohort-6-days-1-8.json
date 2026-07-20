@@ -1,0 +1,1406 @@
+{
+  "course": "PV101",
+  "cohort": 6,
+  "ownerOnly": true,
+  "sourceRoot": "/CANONICAL/02_PROJECTS/CTS_Cohort_06/03_DAILY",
+  "totalDays": 8,
+  "totalArtifacts": 168,
+  "days": [
+    {
+      "course": "PV101",
+      "courseDay": 1,
+      "ctsDay": 1,
+      "date": "2026-07-06",
+      "title": "Orientation and PV system overview",
+      "folder": "Day_01_PV101_First_Day_Orientation_2026-07-06",
+      "canonicalDropboxPath": "/CANONICAL/02_PROJECTS/CTS_Cohort_06/03_DAILY/Day_01_PV101_First_Day_Orientation_2026-07-06",
+      "dropboxUrl": "https://www.dropbox.com/home/CANONICAL/02_PROJECTS/CTS_Cohort_06/03_DAILY/Day_01_PV101_First_Day_Orientation_2026-07-06",
+      "objectives": [
+        "Orient learners to CTS Cohort 6 expectations, facilities, and daily evidence routines.",
+        "Identify the source, storage, distribution, and load blocks in a small photovoltaic system.",
+        "Apply baseline shop, electrical, battery, and tool-safety controls."
+      ],
+      "agenda": [
+        "Welcome, program orientation, and workspace tour",
+        "PV system block-diagram walkthrough",
+        "Component identification and energy-flow discussion",
+        "Safety briefing and evidence closeout"
+      ],
+      "handsOn": [
+        "Complete a component-identification station rotation and assemble a labeled PV system block diagram."
+      ],
+      "safetyControls": [
+        "PPE and closed-toe footwear",
+        "De-energized component handling",
+        "Battery terminal protection",
+        "Stop-work authority and housekeeping"
+      ],
+      "evidence": [
+        "Completed orientation checklist",
+        "Labeled PV system block diagram",
+        "Safety acknowledgement",
+        "End-of-day reflection"
+      ],
+      "artifactCount": 15,
+      "resourceGroups": [
+        {
+          "name": "Root",
+          "count": 2
+        },
+        {
+          "name": "PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Downloads",
+          "count": 13
+        }
+      ],
+      "artifactInventory": [
+        {
+          "name": "00_FOLDER_CREATED_BY_DAY1_SAVE.md",
+          "resourceGroup": "Root",
+          "relativePath": "00_FOLDER_CREATED_BY_DAY1_SAVE.md",
+          "sizeBytes": 696
+        },
+        {
+          "name": "PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Downloads.zip",
+          "resourceGroup": "Root",
+          "relativePath": "PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Downloads.zip",
+          "sizeBytes": 484564
+        },
+        {
+          "name": "PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Answer_Key.docx",
+          "resourceGroup": "PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Downloads",
+          "relativePath": "PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Downloads/PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Answer_Key.docx",
+          "sizeBytes": 38601
+        },
+        {
+          "name": "PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Answer_Key.pdf",
+          "resourceGroup": "PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Downloads",
+          "relativePath": "PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Downloads/PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Answer_Key.pdf",
+          "sizeBytes": 55243
+        },
+        {
+          "name": "PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Google_Classroom_Post.docx",
+          "resourceGroup": "PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Downloads",
+          "relativePath": "PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Downloads/PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Google_Classroom_Post.docx",
+          "sizeBytes": 38629
+        },
+        {
+          "name": "PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Google_Classroom_Post.pdf",
+          "resourceGroup": "PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Downloads",
+          "relativePath": "PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Downloads/PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Google_Classroom_Post.pdf",
+          "sizeBytes": 45951
+        },
+        {
+          "name": "PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Master_Print_Packet.docx",
+          "resourceGroup": "PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Downloads",
+          "relativePath": "PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Downloads/PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Master_Print_Packet.docx",
+          "sizeBytes": 41516
+        },
+        {
+          "name": "PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Master_Print_Packet.pdf",
+          "resourceGroup": "PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Downloads",
+          "relativePath": "PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Downloads/PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Master_Print_Packet.pdf",
+          "sizeBytes": 119137
+        },
+        {
+          "name": "PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Quiz.docx",
+          "resourceGroup": "PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Downloads",
+          "relativePath": "PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Downloads/PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Quiz.docx",
+          "sizeBytes": 38792
+        },
+        {
+          "name": "PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Quiz.pdf",
+          "resourceGroup": "PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Downloads",
+          "relativePath": "PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Downloads/PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Quiz.pdf",
+          "sizeBytes": 70552
+        },
+        {
+          "name": "PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Source.md",
+          "resourceGroup": "PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Downloads",
+          "relativePath": "PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Downloads/PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Source.md",
+          "sizeBytes": 3830
+        },
+        {
+          "name": "PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Student_Packet.docx",
+          "resourceGroup": "PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Downloads",
+          "relativePath": "PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Downloads/PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Student_Packet.docx",
+          "sizeBytes": 39578
+        },
+        {
+          "name": "PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Student_Packet.pdf",
+          "resourceGroup": "PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Downloads",
+          "relativePath": "PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Downloads/PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Student_Packet.pdf",
+          "sizeBytes": 81319
+        },
+        {
+          "name": "PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Whiteboard_Plan.docx",
+          "resourceGroup": "PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Downloads",
+          "relativePath": "PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Downloads/PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Whiteboard_Plan.docx",
+          "sizeBytes": 38499
+        },
+        {
+          "name": "PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Whiteboard_Plan.pdf",
+          "resourceGroup": "PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Downloads",
+          "relativePath": "PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Downloads/PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Whiteboard_Plan.pdf",
+          "sizeBytes": 49024
+        }
+      ]
+    },
+    {
+      "course": "PV101",
+      "courseDay": 2,
+      "ctsDay": 2,
+      "date": "2026-07-07",
+      "title": "Electricity basics and multimeter practice",
+      "folder": "Day_02_PV101_Electricity_Basics_2026-07-07",
+      "canonicalDropboxPath": "/CANONICAL/02_PROJECTS/CTS_Cohort_06/03_DAILY/Day_02_PV101_Electricity_Basics_2026-07-07",
+      "dropboxUrl": "https://www.dropbox.com/home/CANONICAL/02_PROJECTS/CTS_Cohort_06/03_DAILY/Day_02_PV101_Electricity_Basics_2026-07-07",
+      "objectives": [
+        "Explain voltage, current, resistance, power, and energy using practical PV examples.",
+        "Configure and use a digital multimeter for safe DC measurements.",
+        "Record measurements with correct units, polarity, and reasonable-value checks."
+      ],
+      "agenda": [
+        "Electrical quantities and Ohm's law",
+        "Meter controls, leads, ranges, and ports",
+        "Voltage, resistance, and continuity demonstrations",
+        "Guided measurement stations and debrief"
+      ],
+      "handsOn": [
+        "Measure known sources and components, verify continuity, and document readings on the lab evidence sheet."
+      ],
+      "safetyControls": [
+        "Inspect meter and leads before use",
+        "Use the correct input jack and range",
+        "Never measure resistance on an energized circuit",
+        "Maintain polarity awareness and controlled work zones"
+      ],
+      "evidence": [
+        "Completed multimeter practice sheet",
+        "Instructor observation of safe meter setup",
+        "Recorded measurements and calculations",
+        "Exit check"
+      ],
+      "artifactCount": 13,
+      "resourceGroups": [
+        {
+          "name": "Root",
+          "count": 2
+        },
+        {
+          "name": "PV101_Cohort06_Day02_2026-07-07_Print_Downloads",
+          "count": 11
+        }
+      ],
+      "artifactInventory": [
+        {
+          "name": "FUTURE_WORKSHEET_FIX_2026-07-07.md",
+          "resourceGroup": "Root",
+          "relativePath": "FUTURE_WORKSHEET_FIX_2026-07-07.md",
+          "sizeBytes": 696
+        },
+        {
+          "name": "PV101_Cohort06_Day02_2026-07-07_Print_Downloads.zip",
+          "resourceGroup": "Root",
+          "relativePath": "PV101_Cohort06_Day02_2026-07-07_Print_Downloads.zip",
+          "sizeBytes": 414690
+        },
+        {
+          "name": "PV101_Cohort06_Day02_2026-07-07_Answer_Key.docx",
+          "resourceGroup": "PV101_Cohort06_Day02_2026-07-07_Print_Downloads",
+          "relativePath": "PV101_Cohort06_Day02_2026-07-07_Print_Downloads/PV101_Cohort06_Day02_2026-07-07_Answer_Key.docx",
+          "sizeBytes": 37434
+        },
+        {
+          "name": "PV101_Cohort06_Day02_2026-07-07_Answer_Key.pdf",
+          "resourceGroup": "PV101_Cohort06_Day02_2026-07-07_Print_Downloads",
+          "relativePath": "PV101_Cohort06_Day02_2026-07-07_Print_Downloads/PV101_Cohort06_Day02_2026-07-07_Answer_Key.pdf",
+          "sizeBytes": 48225
+        },
+        {
+          "name": "PV101_Cohort06_Day02_2026-07-07_Google_Classroom_Post.docx",
+          "resourceGroup": "PV101_Cohort06_Day02_2026-07-07_Print_Downloads",
+          "relativePath": "PV101_Cohort06_Day02_2026-07-07_Print_Downloads/PV101_Cohort06_Day02_2026-07-07_Google_Classroom_Post.docx",
+          "sizeBytes": 37492
+        },
+        {
+          "name": "PV101_Cohort06_Day02_2026-07-07_Google_Classroom_Post.pdf",
+          "resourceGroup": "PV101_Cohort06_Day02_2026-07-07_Print_Downloads",
+          "relativePath": "PV101_Cohort06_Day02_2026-07-07_Print_Downloads/PV101_Cohort06_Day02_2026-07-07_Google_Classroom_Post.pdf",
+          "sizeBytes": 46757
+        },
+        {
+          "name": "PV101_Cohort06_Day02_2026-07-07_Master_Print_Packet.docx",
+          "resourceGroup": "PV101_Cohort06_Day02_2026-07-07_Print_Downloads",
+          "relativePath": "PV101_Cohort06_Day02_2026-07-07_Print_Downloads/PV101_Cohort06_Day02_2026-07-07_Master_Print_Packet.docx",
+          "sizeBytes": 41783
+        },
+        {
+          "name": "PV101_Cohort06_Day02_2026-07-07_Master_Print_Packet.pdf",
+          "resourceGroup": "PV101_Cohort06_Day02_2026-07-07_Print_Downloads",
+          "relativePath": "PV101_Cohort06_Day02_2026-07-07_Print_Downloads/PV101_Cohort06_Day02_2026-07-07_Master_Print_Packet.pdf",
+          "sizeBytes": 179891
+        },
+        {
+          "name": "PV101_Cohort06_Day02_2026-07-07_Quiz.docx",
+          "resourceGroup": "PV101_Cohort06_Day02_2026-07-07_Print_Downloads",
+          "relativePath": "PV101_Cohort06_Day02_2026-07-07_Print_Downloads/PV101_Cohort06_Day02_2026-07-07_Quiz.docx",
+          "sizeBytes": 37641
+        },
+        {
+          "name": "PV101_Cohort06_Day02_2026-07-07_Quiz.pdf",
+          "resourceGroup": "PV101_Cohort06_Day02_2026-07-07_Print_Downloads",
+          "relativePath": "PV101_Cohort06_Day02_2026-07-07_Print_Downloads/PV101_Cohort06_Day02_2026-07-07_Quiz.pdf",
+          "sizeBytes": 63851
+        },
+        {
+          "name": "PV101_Cohort06_Day02_2026-07-07_Source.md",
+          "resourceGroup": "PV101_Cohort06_Day02_2026-07-07_Print_Downloads",
+          "relativePath": "PV101_Cohort06_Day02_2026-07-07_Print_Downloads/PV101_Cohort06_Day02_2026-07-07_Source.md",
+          "sizeBytes": 5555
+        },
+        {
+          "name": "PV101_Cohort06_Day02_2026-07-07_Student_Packet.docx",
+          "resourceGroup": "PV101_Cohort06_Day02_2026-07-07_Print_Downloads",
+          "relativePath": "PV101_Cohort06_Day02_2026-07-07_Print_Downloads/PV101_Cohort06_Day02_2026-07-07_Student_Packet.docx",
+          "sizeBytes": 38138
+        },
+        {
+          "name": "PV101_Cohort06_Day02_2026-07-07_Student_Packet.pdf",
+          "resourceGroup": "PV101_Cohort06_Day02_2026-07-07_Print_Downloads",
+          "relativePath": "PV101_Cohort06_Day02_2026-07-07_Print_Downloads/PV101_Cohort06_Day02_2026-07-07_Student_Packet.pdf",
+          "sizeBytes": 88372
+        }
+      ]
+    },
+    {
+      "course": "PV101",
+      "courseDay": 3,
+      "ctsDay": 3,
+      "date": "2026-07-08",
+      "title": "Wiring and crimping",
+      "folder": "Day_03_PV101_Wire_Practice_2026-07-08",
+      "canonicalDropboxPath": "/CANONICAL/02_PROJECTS/CTS_Cohort_06/03_DAILY/Day_03_PV101_Wire_Practice_2026-07-08",
+      "dropboxUrl": "https://www.dropbox.com/home/CANONICAL/02_PROJECTS/CTS_Cohort_06/03_DAILY/Day_03_PV101_Wire_Practice_2026-07-08",
+      "objectives": [
+        "Select conductors, terminals, and tools appropriate to a low-voltage PV circuit.",
+        "Strip, crimp, tug-test, and inspect repeatable terminations.",
+        "Use polarity, labeling, and continuity checks before energization."
+      ],
+      "agenda": [
+        "Wire types, gauges, and connector anatomy",
+        "Tool setup and stripping demonstration",
+        "Crimp quality criteria and failure examples",
+        "Practice rotations, inspection, and remediation"
+      ],
+      "handsOn": [
+        "Produce a set of labeled sample conductors and terminal crimps that pass visual, tug, and continuity checks."
+      ],
+      "safetyControls": [
+        "Eye protection during cutting and crimping",
+        "Hands clear of tool pinch points",
+        "De-energized practice boards",
+        "Control wire offcuts and sharp strands"
+      ],
+      "evidence": [
+        "Crimp-quality rubric",
+        "Accepted sample set",
+        "Continuity results",
+        "Photo or instructor verification"
+      ],
+      "artifactCount": 18,
+      "resourceGroups": [
+        {
+          "name": "Root",
+          "count": 1
+        },
+        {
+          "name": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads",
+          "count": 17
+        }
+      ],
+      "artifactInventory": [
+        {
+          "name": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads.zip",
+          "resourceGroup": "Root",
+          "relativePath": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads.zip",
+          "sizeBytes": 681451
+        },
+        {
+          "name": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Google_Classroom_Post.docx",
+          "resourceGroup": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads",
+          "relativePath": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Google_Classroom_Post.docx",
+          "sizeBytes": 38337
+        },
+        {
+          "name": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Google_Classroom_Post.pdf",
+          "resourceGroup": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads",
+          "relativePath": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Google_Classroom_Post.pdf",
+          "sizeBytes": 31907
+        },
+        {
+          "name": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Master_Print_Packet.docx",
+          "resourceGroup": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads",
+          "relativePath": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Master_Print_Packet.docx",
+          "sizeBytes": 41825
+        },
+        {
+          "name": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Master_Print_Packet.pdf",
+          "resourceGroup": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads",
+          "relativePath": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Master_Print_Packet.pdf",
+          "sizeBytes": 134987
+        },
+        {
+          "name": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Morning_Quiz_Answer_Key.docx",
+          "resourceGroup": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads",
+          "relativePath": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Morning_Quiz_Answer_Key.docx",
+          "sizeBytes": 38829
+        },
+        {
+          "name": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Morning_Quiz_Answer_Key.pdf",
+          "resourceGroup": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads",
+          "relativePath": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Morning_Quiz_Answer_Key.pdf",
+          "sizeBytes": 59528
+        },
+        {
+          "name": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Morning_Quiz.docx",
+          "resourceGroup": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads",
+          "relativePath": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Morning_Quiz.docx",
+          "sizeBytes": 38544
+        },
+        {
+          "name": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Morning_Quiz.pdf",
+          "resourceGroup": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads",
+          "relativePath": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Morning_Quiz.pdf",
+          "sizeBytes": 51756
+        },
+        {
+          "name": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Slides.pdf",
+          "resourceGroup": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads",
+          "relativePath": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Slides.pdf",
+          "sizeBytes": 120360
+        },
+        {
+          "name": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Slides.pptx",
+          "resourceGroup": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads",
+          "relativePath": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Slides.pptx",
+          "sizeBytes": 45949
+        },
+        {
+          "name": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Source.md",
+          "resourceGroup": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads",
+          "relativePath": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Source.md",
+          "sizeBytes": 5632
+        },
+        {
+          "name": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Student_Packet.docx",
+          "resourceGroup": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads",
+          "relativePath": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Student_Packet.docx",
+          "sizeBytes": 40280
+        },
+        {
+          "name": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Student_Packet.pdf",
+          "resourceGroup": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads",
+          "relativePath": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Student_Packet.pdf",
+          "sizeBytes": 101107
+        },
+        {
+          "name": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Whiteboard_Plan.docx",
+          "resourceGroup": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads",
+          "relativePath": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Whiteboard_Plan.docx",
+          "sizeBytes": 38709
+        },
+        {
+          "name": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Whiteboard_Plan.pdf",
+          "resourceGroup": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads",
+          "relativePath": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Whiteboard_Plan.pdf",
+          "sizeBytes": 60176
+        },
+        {
+          "name": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Wire_Stripping_Crimping_Lab.docx",
+          "resourceGroup": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads",
+          "relativePath": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Wire_Stripping_Crimping_Lab.docx",
+          "sizeBytes": 39508
+        },
+        {
+          "name": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Wire_Stripping_Crimping_Lab.pdf",
+          "resourceGroup": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads",
+          "relativePath": "PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Wire_Stripping_Crimping_Lab.pdf",
+          "sizeBytes": 78344
+        }
+      ]
+    },
+    {
+      "course": "PV101",
+      "courseDay": 4,
+      "ctsDay": 4,
+      "date": "2026-07-09",
+      "title": "Small solar-system build",
+      "folder": "Day_04_PV101_Wire_Practice_2026-07-09",
+      "canonicalDropboxPath": "/CANONICAL/02_PROJECTS/CTS_Cohort_06/03_DAILY/Day_04_PV101_Wire_Practice_2026-07-09",
+      "dropboxUrl": "https://www.dropbox.com/home/CANONICAL/02_PROJECTS/CTS_Cohort_06/03_DAILY/Day_04_PV101_Wire_Practice_2026-07-09",
+      "objectives": [
+        "Translate a wiring diagram into an orderly physical build.",
+        "Complete conductors and connections using verified crimping practices.",
+        "Commission a small PV system in a controlled sequence."
+      ],
+      "agenda": [
+        "Build brief and diagram review",
+        "Team roles, staging, and preflight",
+        "Mechanical assembly and low-voltage wiring",
+        "Continuity, polarity, staged energization, and closeout"
+      ],
+      "handsOn": [
+        "Build and commission a small panel-controller-battery-load system, then demonstrate expected energy flow."
+      ],
+      "safetyControls": [
+        "Keep the system de-energized until preflight approval",
+        "Cover PV source during wiring",
+        "Fuse/protect source conductors",
+        "Use staged energization and a defined emergency disconnect"
+      ],
+      "evidence": [
+        "Completed build checklist",
+        "As-built wiring diagram",
+        "Preflight and commissioning readings",
+        "Team demonstration"
+      ],
+      "artifactCount": 15,
+      "resourceGroups": [
+        {
+          "name": "docs",
+          "count": 4
+        },
+        {
+          "name": "print",
+          "count": 7
+        },
+        {
+          "name": "slides",
+          "count": 1
+        },
+        {
+          "name": "source",
+          "count": 3
+        }
+      ],
+      "artifactInventory": [
+        {
+          "name": "CTS_C6_PV101_Day04_2026-07-09_Afternoon_Lab.docx",
+          "resourceGroup": "docs",
+          "relativePath": "docs/CTS_C6_PV101_Day04_2026-07-09_Afternoon_Lab.docx",
+          "sizeBytes": 39069
+        },
+        {
+          "name": "CTS_C6_PV101_Day04_2026-07-09_Daily_Run_Sheet.docx",
+          "resourceGroup": "docs",
+          "relativePath": "docs/CTS_C6_PV101_Day04_2026-07-09_Daily_Run_Sheet.docx",
+          "sizeBytes": 39594
+        },
+        {
+          "name": "CTS_C6_PV101_Day04_2026-07-09_Morning_Quiz_KEY.docx",
+          "resourceGroup": "docs",
+          "relativePath": "docs/CTS_C6_PV101_Day04_2026-07-09_Morning_Quiz_KEY.docx",
+          "sizeBytes": 37760
+        },
+        {
+          "name": "CTS_C6_PV101_Day04_2026-07-09_Morning_Quiz_Student.docx",
+          "resourceGroup": "docs",
+          "relativePath": "docs/CTS_C6_PV101_Day04_2026-07-09_Morning_Quiz_Student.docx",
+          "sizeBytes": 37460
+        },
+        {
+          "name": "CTS_C6_PV101_Day04_2026-07-09_Afternoon_Lab.pdf",
+          "resourceGroup": "print",
+          "relativePath": "print/CTS_C6_PV101_Day04_2026-07-09_Afternoon_Lab.pdf",
+          "sizeBytes": 80351
+        },
+        {
+          "name": "CTS_C6_PV101_Day04_2026-07-09_Daily_Run_Sheet.pdf",
+          "resourceGroup": "print",
+          "relativePath": "print/CTS_C6_PV101_Day04_2026-07-09_Daily_Run_Sheet.pdf",
+          "sizeBytes": 93183
+        },
+        {
+          "name": "CTS_C6_PV101_Day04_2026-07-09_Daily_Slide_Deck.pdf",
+          "resourceGroup": "print",
+          "relativePath": "print/CTS_C6_PV101_Day04_2026-07-09_Daily_Slide_Deck.pdf",
+          "sizeBytes": 125115
+        },
+        {
+          "name": "CTS_C6_PV101_Day04_2026-07-09_Master_Print_Packet.pdf",
+          "resourceGroup": "print",
+          "relativePath": "print/CTS_C6_PV101_Day04_2026-07-09_Master_Print_Packet.pdf",
+          "sizeBytes": 136440
+        },
+        {
+          "name": "CTS_C6_PV101_Day04_2026-07-09_Morning_Quiz_KEY.pdf",
+          "resourceGroup": "print",
+          "relativePath": "print/CTS_C6_PV101_Day04_2026-07-09_Morning_Quiz_KEY.pdf",
+          "sizeBytes": 43013
+        },
+        {
+          "name": "CTS_C6_PV101_Day04_2026-07-09_Morning_Quiz_Student.pdf",
+          "resourceGroup": "print",
+          "relativePath": "print/CTS_C6_PV101_Day04_2026-07-09_Morning_Quiz_Student.pdf",
+          "sizeBytes": 37340
+        },
+        {
+          "name": "CTS_C6_PV101_Day04_2026-07-09_Student_Print_Packet.pdf",
+          "resourceGroup": "print",
+          "relativePath": "print/CTS_C6_PV101_Day04_2026-07-09_Student_Print_Packet.pdf",
+          "sizeBytes": 65786
+        },
+        {
+          "name": "CTS_C6_PV101_Day04_2026-07-09_Daily_Slide_Deck.pptx",
+          "resourceGroup": "slides",
+          "relativePath": "slides/CTS_C6_PV101_Day04_2026-07-09_Daily_Slide_Deck.pptx",
+          "sizeBytes": 263251
+        },
+        {
+          "name": "build_day4_docs.py",
+          "resourceGroup": "source",
+          "relativePath": "source/build_day4_docs.py",
+          "sizeBytes": 14614
+        },
+        {
+          "name": "build_day4_slides_corrected.js",
+          "resourceGroup": "source",
+          "relativePath": "source/build_day4_slides_corrected.js",
+          "sizeBytes": 14053
+        },
+        {
+          "name": "build_day4_slides.js",
+          "resourceGroup": "source",
+          "relativePath": "source/build_day4_slides.js",
+          "sizeBytes": 15014
+        }
+      ]
+    },
+    {
+      "course": "PV101",
+      "courseDay": 5,
+      "ctsDay": 5,
+      "date": "2026-07-13",
+      "title": "Commissioning, protection, voltage drop, and troubleshooting",
+      "folder": "Day_05_PV101_Electrical_Protection_and_Wire_Sizing_2026-07-13",
+      "canonicalDropboxPath": "/CANONICAL/02_PROJECTS/CTS_Cohort_06/03_DAILY/Day_05_PV101_Electrical_Protection_and_Wire_Sizing_2026-07-13",
+      "dropboxUrl": "https://www.dropbox.com/home/CANONICAL/02_PROJECTS/CTS_Cohort_06/03_DAILY/Day_05_PV101_Electrical_Protection_and_Wire_Sizing_2026-07-13",
+      "objectives": [
+        "Choose overcurrent protection and conductor size for representative DC circuits.",
+        "Calculate and interpret voltage drop.",
+        "Apply a documented commissioning and first-line troubleshooting sequence."
+      ],
+      "agenda": [
+        "Protection purpose and placement",
+        "Ampacity and voltage-drop calculations",
+        "Commissioning sequence and expected readings",
+        "Fault scenarios and structured troubleshooting"
+      ],
+      "handsOn": [
+        "Size conductors and protective devices for a scenario, commission a training circuit, and isolate seeded faults."
+      ],
+      "safetyControls": [
+        "De-energize before changing conductors or protection",
+        "Use correctly rated fuses and devices",
+        "Verify polarity before energization",
+        "Apply one-change-at-a-time fault isolation"
+      ],
+      "evidence": [
+        "Wire-sizing worksheet",
+        "Protection-selection rationale",
+        "Commissioning record",
+        "Troubleshooting evidence"
+      ],
+      "artifactCount": 13,
+      "resourceGroups": [
+        {
+          "name": "Root",
+          "count": 13
+        }
+      ],
+      "artifactInventory": [
+        {
+          "name": "CTS_Cohort6_PV101_Day05_Electrical_Protection_WireSizing_2026-07-13_README.txt",
+          "resourceGroup": "Root",
+          "relativePath": "CTS_Cohort6_PV101_Day05_Electrical_Protection_WireSizing_2026-07-13_README.txt",
+          "sizeBytes": 567
+        },
+        {
+          "name": "CTS_Cohort6_PV101_Day05_Electrical_Protection_WireSizing_2026-07-13_Afternoon_Lab.docx",
+          "resourceGroup": "Root",
+          "relativePath": "CTS_Cohort6_PV101_Day05_Electrical_Protection_WireSizing_2026-07-13_Afternoon_Lab.docx",
+          "sizeBytes": 38489
+        },
+        {
+          "name": "CTS_Cohort6_PV101_Day05_Electrical_Protection_WireSizing_2026-07-13_Afternoon_Lab.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "CTS_Cohort6_PV101_Day05_Electrical_Protection_WireSizing_2026-07-13_Afternoon_Lab.pdf",
+          "sizeBytes": 74481
+        },
+        {
+          "name": "CTS_Cohort6_PV101_Day05_Electrical_Protection_WireSizing_2026-07-13_Instructor_Run_Sheet.docx",
+          "resourceGroup": "Root",
+          "relativePath": "CTS_Cohort6_PV101_Day05_Electrical_Protection_WireSizing_2026-07-13_Instructor_Run_Sheet.docx",
+          "sizeBytes": 38885
+        },
+        {
+          "name": "CTS_Cohort6_PV101_Day05_Electrical_Protection_WireSizing_2026-07-13_Instructor_Run_Sheet.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "CTS_Cohort6_PV101_Day05_Electrical_Protection_WireSizing_2026-07-13_Instructor_Run_Sheet.pdf",
+          "sizeBytes": 76064
+        },
+        {
+          "name": "CTS_Cohort6_PV101_Day05_Electrical_Protection_WireSizing_2026-07-13_Morning_Quiz_Answer_Key.docx",
+          "resourceGroup": "Root",
+          "relativePath": "CTS_Cohort6_PV101_Day05_Electrical_Protection_WireSizing_2026-07-13_Morning_Quiz_Answer_Key.docx",
+          "sizeBytes": 39014
+        },
+        {
+          "name": "CTS_Cohort6_PV101_Day05_Electrical_Protection_WireSizing_2026-07-13_Morning_Quiz_Answer_Key.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "CTS_Cohort6_PV101_Day05_Electrical_Protection_WireSizing_2026-07-13_Morning_Quiz_Answer_Key.pdf",
+          "sizeBytes": 49350
+        },
+        {
+          "name": "CTS_Cohort6_PV101_Day05_Electrical_Protection_WireSizing_2026-07-13_Morning_Quiz_Student.docx",
+          "resourceGroup": "Root",
+          "relativePath": "CTS_Cohort6_PV101_Day05_Electrical_Protection_WireSizing_2026-07-13_Morning_Quiz_Student.docx",
+          "sizeBytes": 38485
+        },
+        {
+          "name": "CTS_Cohort6_PV101_Day05_Electrical_Protection_WireSizing_2026-07-13_Morning_Quiz_Student.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "CTS_Cohort6_PV101_Day05_Electrical_Protection_WireSizing_2026-07-13_Morning_Quiz_Student.pdf",
+          "sizeBytes": 47947
+        },
+        {
+          "name": "CTS_Cohort6_PV101_Day05_Electrical_Protection_WireSizing_2026-07-13_Slide_Deck.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "CTS_Cohort6_PV101_Day05_Electrical_Protection_WireSizing_2026-07-13_Slide_Deck.pdf",
+          "sizeBytes": 120508
+        },
+        {
+          "name": "CTS_Cohort6_PV101_Day05_Electrical_Protection_WireSizing_2026-07-13_Slide_Deck.pptx",
+          "resourceGroup": "Root",
+          "relativePath": "CTS_Cohort6_PV101_Day05_Electrical_Protection_WireSizing_2026-07-13_Slide_Deck.pptx",
+          "sizeBytes": 43468
+        },
+        {
+          "name": "CTS_Cohort6_PV101_Day05_Electrical_Protection_WireSizing_2026-07-13_Student_Print_Packet.docx",
+          "resourceGroup": "Root",
+          "relativePath": "CTS_Cohort6_PV101_Day05_Electrical_Protection_WireSizing_2026-07-13_Student_Print_Packet.docx",
+          "sizeBytes": 37678
+        },
+        {
+          "name": "CTS_Cohort6_PV101_Day05_Electrical_Protection_WireSizing_2026-07-13_Student_Print_Packet.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "CTS_Cohort6_PV101_Day05_Electrical_Protection_WireSizing_2026-07-13_Student_Print_Packet.pdf",
+          "sizeBytes": 50243
+        }
+      ]
+    },
+    {
+      "course": "PV101",
+      "courseDay": 6,
+      "ctsDay": 6,
+      "date": "2026-07-14",
+      "title": "Hidden-fuse troubleshooting",
+      "folder": "Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14",
+      "canonicalDropboxPath": "/CANONICAL/02_PROJECTS/CTS_Cohort_06/03_DAILY/Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14",
+      "dropboxUrl": "https://www.dropbox.com/home/CANONICAL/02_PROJECTS/CTS_Cohort_06/03_DAILY/Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14",
+      "objectives": [
+        "Use symptoms and measurements to narrow an electrical fault.",
+        "Locate concealed or non-obvious overcurrent protection in a system path.",
+        "Explain findings with a repeatable evidence trail."
+      ],
+      "agenda": [
+        "Troubleshooting mindset and fault tree",
+        "Voltage-under-load and continuity checks",
+        "Hidden-fuse challenge briefing",
+        "Team diagnosis, repair verification, and debrief"
+      ],
+      "handsOn": [
+        "Diagnose a non-operational training system containing a hidden-fuse fault and verify restored operation."
+      ],
+      "safetyControls": [
+        "Treat unknown circuits as energized until verified",
+        "Measure before opening enclosures",
+        "Replace only with the specified fuse rating",
+        "No bypassing protective devices"
+      ],
+      "evidence": [
+        "Fault-isolation log",
+        "Before/after readings",
+        "Identified root cause",
+        "Repair and verification signoff"
+      ],
+      "artifactCount": 14,
+      "resourceGroups": [
+        {
+          "name": "Root",
+          "count": 14
+        }
+      ],
+      "artifactInventory": [
+        {
+          "name": "Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14_README.txt",
+          "resourceGroup": "Root",
+          "relativePath": "Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14_README.txt",
+          "sizeBytes": 649
+        },
+        {
+          "name": "Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14_Afternoon_Lab.docx",
+          "resourceGroup": "Root",
+          "relativePath": "Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14_Afternoon_Lab.docx",
+          "sizeBytes": 37583
+        },
+        {
+          "name": "Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14_Afternoon_Lab.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14_Afternoon_Lab.pdf",
+          "sizeBytes": 2118
+        },
+        {
+          "name": "Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14_Instructor_Run_Sheet.docx",
+          "resourceGroup": "Root",
+          "relativePath": "Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14_Instructor_Run_Sheet.docx",
+          "sizeBytes": 38266
+        },
+        {
+          "name": "Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14_Instructor_Run_Sheet.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14_Instructor_Run_Sheet.pdf",
+          "sizeBytes": 3017
+        },
+        {
+          "name": "Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14_Morning_Quiz_Answer_Key.docx",
+          "resourceGroup": "Root",
+          "relativePath": "Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14_Morning_Quiz_Answer_Key.docx",
+          "sizeBytes": 37650
+        },
+        {
+          "name": "Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14_Morning_Quiz_Answer_Key.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14_Morning_Quiz_Answer_Key.pdf",
+          "sizeBytes": 2081
+        },
+        {
+          "name": "Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14_Morning_Quiz_Student.docx",
+          "resourceGroup": "Root",
+          "relativePath": "Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14_Morning_Quiz_Student.docx",
+          "sizeBytes": 38079
+        },
+        {
+          "name": "Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14_Morning_Quiz_Student.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14_Morning_Quiz_Student.pdf",
+          "sizeBytes": 3808
+        },
+        {
+          "name": "Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14_Slide_Deck.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14_Slide_Deck.pdf",
+          "sizeBytes": 16417
+        },
+        {
+          "name": "Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14_Slide_Deck.pptx",
+          "resourceGroup": "Root",
+          "relativePath": "Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14_Slide_Deck.pptx",
+          "sizeBytes": 63262
+        },
+        {
+          "name": "Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14_Source.md",
+          "resourceGroup": "Root",
+          "relativePath": "Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14_Source.md",
+          "sizeBytes": 806
+        },
+        {
+          "name": "Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14_Student_Print_Packet.docx",
+          "resourceGroup": "Root",
+          "relativePath": "Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14_Student_Print_Packet.docx",
+          "sizeBytes": 37574
+        },
+        {
+          "name": "Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14_Student_Print_Packet.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14_Student_Print_Packet.pdf",
+          "sizeBytes": 3528
+        }
+      ]
+    },
+    {
+      "course": "PV101",
+      "courseDay": 7,
+      "ctsDay": 7,
+      "date": "2026-07-15",
+      "title": "Load assessment and system sizing",
+      "folder": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15",
+      "canonicalDropboxPath": "/CANONICAL/02_PROJECTS/CTS_Cohort_06/03_DAILY/Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15",
+      "dropboxUrl": "https://www.dropbox.com/home/CANONICAL/02_PROJECTS/CTS_Cohort_06/03_DAILY/Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15",
+      "objectives": [
+        "Inventory loads and calculate daily energy demand.",
+        "Apply autonomy, system-loss, battery-depth-of-discharge, and solar-production assumptions.",
+        "Propose a coherent PV, storage, controller, inverter, and conductor sizing concept."
+      ],
+      "agenda": [
+        "Load inventory and duty cycle",
+        "Daily watt-hour calculation",
+        "Battery and array sizing assumptions",
+        "Design review and peer critique"
+      ],
+      "handsOn": [
+        "Complete a residential or mobile load assessment and develop a traceable preliminary system-sizing package."
+      ],
+      "safetyControls": [
+        "Use nameplate data and approved assumptions",
+        "Separate AC and DC calculation paths",
+        "Flag uncertain loads rather than guessing",
+        "Keep design activity de-energized"
+      ],
+      "evidence": [
+        "Load-assessment worksheet",
+        "Sizing calculations",
+        "Single-line concept diagram",
+        "Peer-review notes"
+      ],
+      "artifactCount": 37,
+      "resourceGroups": [
+        {
+          "name": "Root",
+          "count": 37
+        }
+      ],
+      "artifactInventory": [
+        {
+          "name": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_README.txt",
+          "resourceGroup": "Root",
+          "relativePath": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_README.txt",
+          "sizeBytes": 215
+        },
+        {
+          "name": "Day_07_PV101_Battery_Storage_Solar_and_Wire_Sizing_2026-07-15_Instructor_Key.docx",
+          "resourceGroup": "Root",
+          "relativePath": "Day_07_PV101_Battery_Storage_Solar_and_Wire_Sizing_2026-07-15_Instructor_Key.docx",
+          "sizeBytes": 38891
+        },
+        {
+          "name": "Day_07_PV101_Battery_Storage_Solar_and_Wire_Sizing_2026-07-15_Instructor_Key.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "Day_07_PV101_Battery_Storage_Solar_and_Wire_Sizing_2026-07-15_Instructor_Key.pdf",
+          "sizeBytes": 73740
+        },
+        {
+          "name": "Day_07_PV101_Battery_Storage_Solar_and_Wire_Sizing_2026-07-15_Source.md",
+          "resourceGroup": "Root",
+          "relativePath": "Day_07_PV101_Battery_Storage_Solar_and_Wire_Sizing_2026-07-15_Source.md",
+          "sizeBytes": 1396
+        },
+        {
+          "name": "Day_07_PV101_Battery_Storage_Solar_and_Wire_Sizing_2026-07-15_Student_Worksheet.docx",
+          "resourceGroup": "Root",
+          "relativePath": "Day_07_PV101_Battery_Storage_Solar_and_Wire_Sizing_2026-07-15_Student_Worksheet.docx",
+          "sizeBytes": 40878
+        },
+        {
+          "name": "Day_07_PV101_Battery_Storage_Solar_and_Wire_Sizing_2026-07-15_Student_Worksheet.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "Day_07_PV101_Battery_Storage_Solar_and_Wire_Sizing_2026-07-15_Student_Worksheet.pdf",
+          "sizeBytes": 128328
+        },
+        {
+          "name": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Daily_Slide_Deck.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Daily_Slide_Deck.pdf",
+          "sizeBytes": 284774
+        },
+        {
+          "name": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Daily_Slide_Deck.pptx",
+          "resourceGroup": "Root",
+          "relativePath": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Daily_Slide_Deck.pptx",
+          "sizeBytes": 245308
+        },
+        {
+          "name": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Daily_Summary.docx",
+          "resourceGroup": "Root",
+          "relativePath": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Daily_Summary.docx",
+          "sizeBytes": 37678
+        },
+        {
+          "name": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Daily_Summary.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Daily_Summary.pdf",
+          "sizeBytes": 56271
+        },
+        {
+          "name": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Evidence_Checklist.docx",
+          "resourceGroup": "Root",
+          "relativePath": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Evidence_Checklist.docx",
+          "sizeBytes": 37641
+        },
+        {
+          "name": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Evidence_Checklist.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Evidence_Checklist.pdf",
+          "sizeBytes": 57126
+        },
+        {
+          "name": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Google_Classroom_Post.docx",
+          "resourceGroup": "Root",
+          "relativePath": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Google_Classroom_Post.docx",
+          "sizeBytes": 37710
+        },
+        {
+          "name": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Google_Classroom_Post.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Google_Classroom_Post.pdf",
+          "sizeBytes": 55188
+        },
+        {
+          "name": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Guided_Practice_Guide.docx",
+          "resourceGroup": "Root",
+          "relativePath": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Guided_Practice_Guide.docx",
+          "sizeBytes": 38094
+        },
+        {
+          "name": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Guided_Practice_Guide.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Guided_Practice_Guide.pdf",
+          "sizeBytes": 73922
+        },
+        {
+          "name": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Instructor_Notes.docx",
+          "resourceGroup": "Root",
+          "relativePath": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Instructor_Notes.docx",
+          "sizeBytes": 37726
+        },
+        {
+          "name": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Instructor_Notes.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Instructor_Notes.pdf",
+          "sizeBytes": 62457
+        },
+        {
+          "name": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Instructor_Run_Sheet.docx",
+          "resourceGroup": "Root",
+          "relativePath": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Instructor_Run_Sheet.docx",
+          "sizeBytes": 40308
+        },
+        {
+          "name": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Instructor_Run_Sheet.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Instructor_Run_Sheet.pdf",
+          "sizeBytes": 117954
+        },
+        {
+          "name": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Master_Print_Packet.docx",
+          "resourceGroup": "Root",
+          "relativePath": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Master_Print_Packet.docx",
+          "sizeBytes": 44743
+        },
+        {
+          "name": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Master_Print_Packet.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Master_Print_Packet.pdf",
+          "sizeBytes": 243908
+        },
+        {
+          "name": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Morning_Quiz_Answer_Key.docx",
+          "resourceGroup": "Root",
+          "relativePath": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Morning_Quiz_Answer_Key.docx",
+          "sizeBytes": 38252
+        },
+        {
+          "name": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Morning_Quiz_Answer_Key.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Morning_Quiz_Answer_Key.pdf",
+          "sizeBytes": 59640
+        },
+        {
+          "name": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Morning_Quiz_Student.docx",
+          "resourceGroup": "Root",
+          "relativePath": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Morning_Quiz_Student.docx",
+          "sizeBytes": 37894
+        },
+        {
+          "name": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Morning_Quiz_Student.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Morning_Quiz_Student.pdf",
+          "sizeBytes": 54935
+        },
+        {
+          "name": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Reflection_Questions.docx",
+          "resourceGroup": "Root",
+          "relativePath": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Reflection_Questions.docx",
+          "sizeBytes": 37668
+        },
+        {
+          "name": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Reflection_Questions.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Reflection_Questions.pdf",
+          "sizeBytes": 49347
+        },
+        {
+          "name": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Source.md",
+          "resourceGroup": "Root",
+          "relativePath": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Source.md",
+          "sizeBytes": 440
+        },
+        {
+          "name": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Student_Print_Packet.docx",
+          "resourceGroup": "Root",
+          "relativePath": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Student_Print_Packet.docx",
+          "sizeBytes": 40329
+        },
+        {
+          "name": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Student_Print_Packet.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Student_Print_Packet.pdf",
+          "sizeBytes": 133887
+        },
+        {
+          "name": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Student_Worksheet_Answer_Key.docx",
+          "resourceGroup": "Root",
+          "relativePath": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Student_Worksheet_Answer_Key.docx",
+          "sizeBytes": 38595
+        },
+        {
+          "name": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Student_Worksheet_Answer_Key.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Student_Worksheet_Answer_Key.pdf",
+          "sizeBytes": 79659
+        },
+        {
+          "name": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Student_Worksheet.docx",
+          "resourceGroup": "Root",
+          "relativePath": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Student_Worksheet.docx",
+          "sizeBytes": 39095
+        },
+        {
+          "name": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Student_Worksheet.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Student_Worksheet.pdf",
+          "sizeBytes": 101298
+        },
+        {
+          "name": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Whiteboard_Outline.docx",
+          "resourceGroup": "Root",
+          "relativePath": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Whiteboard_Outline.docx",
+          "sizeBytes": 37967
+        },
+        {
+          "name": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Whiteboard_Outline.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Whiteboard_Outline.pdf",
+          "sizeBytes": 70554
+        }
+      ]
+    },
+    {
+      "course": "PV101",
+      "courseDay": 8,
+      "ctsDay": 8,
+      "date": "2026-07-16",
+      "title": "Final review and assessment",
+      "folder": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16",
+      "canonicalDropboxPath": "/CANONICAL/02_PROJECTS/CTS_Cohort_06/03_DAILY/Day_08_PV101_Final_Review_and_Assessment_2026-07-16",
+      "dropboxUrl": "https://www.dropbox.com/home/CANONICAL/02_PROJECTS/CTS_Cohort_06/03_DAILY/Day_08_PV101_Final_Review_and_Assessment_2026-07-16",
+      "objectives": [
+        "Integrate PV system concepts, measurement, wiring, protection, commissioning, and sizing.",
+        "Demonstrate safe, systematic practical work.",
+        "Submit a complete evidence package and identify next-step growth areas."
+      ],
+      "agenda": [
+        "Cumulative review and question clinic",
+        "Written knowledge assessment",
+        "Practical assessment stations",
+        "Evidence audit, feedback, and course closeout"
+      ],
+      "handsOn": [
+        "Complete the PV101 written and practical assessments, including inspection, measurement, diagnosis, and explanation."
+      ],
+      "safetyControls": [
+        "Follow every station's energization state",
+        "Use PPE and verified meter setup",
+        "Stop on unexpected conditions",
+        "Instructor approval before resets or rewiring"
+      ],
+      "evidence": [
+        "Written assessment",
+        "Practical rubric",
+        "Final evidence inventory",
+        "Learner reflection and handoff"
+      ],
+      "artifactCount": 43,
+      "resourceGroups": [
+        {
+          "name": "D08_PV101_HangoutRoom_2026-07-16",
+          "count": 7
+        },
+        {
+          "name": "Root",
+          "count": 36
+        }
+      ],
+      "artifactInventory": [
+        {
+          "name": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_README.txt",
+          "resourceGroup": "Root",
+          "relativePath": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_README.txt",
+          "sizeBytes": 209
+        },
+        {
+          "name": "D08_Evidence_Checklist.md",
+          "resourceGroup": "D08_PV101_HangoutRoom_2026-07-16",
+          "relativePath": "D08_PV101_HangoutRoom_2026-07-16/D08_Evidence_Checklist.md",
+          "sizeBytes": 707
+        },
+        {
+          "name": "D08_GClass_Post.md",
+          "resourceGroup": "D08_PV101_HangoutRoom_2026-07-16",
+          "relativePath": "D08_PV101_HangoutRoom_2026-07-16/D08_GClass_Post.md",
+          "sizeBytes": 612
+        },
+        {
+          "name": "D08_Rich_RunSheet.docx",
+          "resourceGroup": "D08_PV101_HangoutRoom_2026-07-16",
+          "relativePath": "D08_PV101_HangoutRoom_2026-07-16/D08_Rich_RunSheet.docx",
+          "sizeBytes": 39830
+        },
+        {
+          "name": "D08_Rich_RunSheet.pdf",
+          "resourceGroup": "D08_PV101_HangoutRoom_2026-07-16",
+          "relativePath": "D08_PV101_HangoutRoom_2026-07-16/D08_Rich_RunSheet.pdf",
+          "sizeBytes": 76926
+        },
+        {
+          "name": "D08_Source.md",
+          "resourceGroup": "D08_PV101_HangoutRoom_2026-07-16",
+          "relativePath": "D08_PV101_HangoutRoom_2026-07-16/D08_Source.md",
+          "sizeBytes": 1230
+        },
+        {
+          "name": "D08_Student_Worksheet.docx",
+          "resourceGroup": "D08_PV101_HangoutRoom_2026-07-16",
+          "relativePath": "D08_PV101_HangoutRoom_2026-07-16/D08_Student_Worksheet.docx",
+          "sizeBytes": 39601
+        },
+        {
+          "name": "D08_Student_Worksheet.pdf",
+          "resourceGroup": "D08_PV101_HangoutRoom_2026-07-16",
+          "relativePath": "D08_PV101_HangoutRoom_2026-07-16/D08_Student_Worksheet.pdf",
+          "sizeBytes": 84486
+        },
+        {
+          "name": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Daily_Slide_Deck.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Daily_Slide_Deck.pdf",
+          "sizeBytes": 299942
+        },
+        {
+          "name": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Daily_Slide_Deck.pptx",
+          "resourceGroup": "Root",
+          "relativePath": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Daily_Slide_Deck.pptx",
+          "sizeBytes": 273163
+        },
+        {
+          "name": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Daily_Summary.docx",
+          "resourceGroup": "Root",
+          "relativePath": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Daily_Summary.docx",
+          "sizeBytes": 37659
+        },
+        {
+          "name": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Daily_Summary.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Daily_Summary.pdf",
+          "sizeBytes": 56423
+        },
+        {
+          "name": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Evidence_Checklist.docx",
+          "resourceGroup": "Root",
+          "relativePath": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Evidence_Checklist.docx",
+          "sizeBytes": 37637
+        },
+        {
+          "name": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Evidence_Checklist.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Evidence_Checklist.pdf",
+          "sizeBytes": 55682
+        },
+        {
+          "name": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Final_Test_Answer_Key.docx",
+          "resourceGroup": "Root",
+          "relativePath": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Final_Test_Answer_Key.docx",
+          "sizeBytes": 39356
+        },
+        {
+          "name": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Final_Test_Answer_Key.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Final_Test_Answer_Key.pdf",
+          "sizeBytes": 107053
+        },
+        {
+          "name": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Final_Test_Student.docx",
+          "resourceGroup": "Root",
+          "relativePath": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Final_Test_Student.docx",
+          "sizeBytes": 39938
+        },
+        {
+          "name": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Final_Test_Student.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Final_Test_Student.pdf",
+          "sizeBytes": 132646
+        },
+        {
+          "name": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Google_Classroom_Post.docx",
+          "resourceGroup": "Root",
+          "relativePath": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Google_Classroom_Post.docx",
+          "sizeBytes": 37579
+        },
+        {
+          "name": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Google_Classroom_Post.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Google_Classroom_Post.pdf",
+          "sizeBytes": 54568
+        },
+        {
+          "name": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Guided_Practice_Guide.docx",
+          "resourceGroup": "Root",
+          "relativePath": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Guided_Practice_Guide.docx",
+          "sizeBytes": 37900
+        },
+        {
+          "name": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Guided_Practice_Guide.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Guided_Practice_Guide.pdf",
+          "sizeBytes": 71336
+        },
+        {
+          "name": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Instructor_Notes.docx",
+          "resourceGroup": "Root",
+          "relativePath": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Instructor_Notes.docx",
+          "sizeBytes": 37714
+        },
+        {
+          "name": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Instructor_Notes.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Instructor_Notes.pdf",
+          "sizeBytes": 63043
+        },
+        {
+          "name": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Instructor_Run_Sheet.docx",
+          "resourceGroup": "Root",
+          "relativePath": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Instructor_Run_Sheet.docx",
+          "sizeBytes": 40275
+        },
+        {
+          "name": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Instructor_Run_Sheet.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Instructor_Run_Sheet.pdf",
+          "sizeBytes": 116902
+        },
+        {
+          "name": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Master_Print_Packet.docx",
+          "resourceGroup": "Root",
+          "relativePath": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Master_Print_Packet.docx",
+          "sizeBytes": 46888
+        },
+        {
+          "name": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Master_Print_Packet.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Master_Print_Packet.pdf",
+          "sizeBytes": 333354
+        },
+        {
+          "name": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Morning_Quiz_Answer_Key.docx",
+          "resourceGroup": "Root",
+          "relativePath": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Morning_Quiz_Answer_Key.docx",
+          "sizeBytes": 37853
+        },
+        {
+          "name": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Morning_Quiz_Answer_Key.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Morning_Quiz_Answer_Key.pdf",
+          "sizeBytes": 55999
+        },
+        {
+          "name": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Morning_Quiz_Student.docx",
+          "resourceGroup": "Root",
+          "relativePath": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Morning_Quiz_Student.docx",
+          "sizeBytes": 37736
+        },
+        {
+          "name": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Morning_Quiz_Student.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Morning_Quiz_Student.pdf",
+          "sizeBytes": 52569
+        },
+        {
+          "name": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Reflection_Questions.docx",
+          "resourceGroup": "Root",
+          "relativePath": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Reflection_Questions.docx",
+          "sizeBytes": 37622
+        },
+        {
+          "name": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Reflection_Questions.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Reflection_Questions.pdf",
+          "sizeBytes": 49761
+        },
+        {
+          "name": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Source.md",
+          "resourceGroup": "Root",
+          "relativePath": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Source.md",
+          "sizeBytes": 434
+        },
+        {
+          "name": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Student_Print_Packet.docx",
+          "resourceGroup": "Root",
+          "relativePath": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Student_Print_Packet.docx",
+          "sizeBytes": 41218
+        },
+        {
+          "name": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Student_Print_Packet.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Student_Print_Packet.pdf",
+          "sizeBytes": 178379
+        },
+        {
+          "name": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Student_Worksheet_Answer_Key.docx",
+          "resourceGroup": "Root",
+          "relativePath": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Student_Worksheet_Answer_Key.docx",
+          "sizeBytes": 38461
+        },
+        {
+          "name": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Student_Worksheet_Answer_Key.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Student_Worksheet_Answer_Key.pdf",
+          "sizeBytes": 74736
+        },
+        {
+          "name": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Student_Worksheet.docx",
+          "resourceGroup": "Root",
+          "relativePath": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Student_Worksheet.docx",
+          "sizeBytes": 37903
+        },
+        {
+          "name": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Student_Worksheet.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Student_Worksheet.pdf",
+          "sizeBytes": 63071
+        },
+        {
+          "name": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Whiteboard_Outline.docx",
+          "resourceGroup": "Root",
+          "relativePath": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Whiteboard_Outline.docx",
+          "sizeBytes": 37932
+        },
+        {
+          "name": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Whiteboard_Outline.pdf",
+          "resourceGroup": "Root",
+          "relativePath": "Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Whiteboard_Outline.pdf",
+          "sizeBytes": 73132
+        }
+      ]
+    }
+  ]
+}

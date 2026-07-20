@@ -1,0 +1,245 @@
+{
+  "course": "RCS",
+  "cohort": 6,
+  "ownerOnly": true,
+  "sourceRoot": "/CANONICAL/02_PROJECTS/CTS_Cohort_06/03_DAILY",
+  "totalDays": 8,
+  "totalArtifacts": 197,
+  "days": [
+    {
+      "course": "RCS",
+      "courseDay": 1,
+      "ctsDay": 9,
+      "date": "2026-07-20",
+      "title": "Residential systems and professional shop safety",
+      "folder": "D09_RCS01_2026-07-20",
+      "canonicalDropboxPath": "/CANONICAL/02_PROJECTS/CTS_Cohort_06/03_DAILY/D09_RCS01_2026-07-20",
+      "dropboxUrl": "https://www.dropbox.com/home/CANONICAL/02_PROJECTS/CTS_Cohort_06/03_DAILY/D09_RCS01_2026-07-20",
+      "objectives": [
+        "Identify the major assemblies and trades within a residential wall system.",
+        "Set up and maintain a professional, orderly shop work area.",
+        "Apply task-specific PPE, tool inspection, and stop-work controls."
+      ],
+      "agenda": [
+        "RCS course launch and system overview",
+        "Shop zones, roles, and professional expectations",
+        "Tool and PPE inspections",
+        "Wall-system observation and safety practice"
+      ],
+      "handsOn": [
+        "Complete a shop setup, tool inspection, and annotated residential wall-system walkdown."
+      ],
+      "safetyControls": [
+        "Eye, hearing, hand, and respiratory protection as assigned",
+        "Tool inspection before use",
+        "Defined cut and assembly zones",
+        "Housekeeping and stop-work authority"
+      ],
+      "evidence": [
+        "Shop-safety checklist",
+        "Tool inspection record",
+        "Annotated systems sketch",
+        "Instructor observation"
+      ],
+      "artifactCount": 29,
+      "resourceGroups": [
+        {
+          "name": "Instructor",
+          "count": 10
+        },
+        {
+          "name": "Print",
+          "count": 2
+        },
+        {
+          "name": "Slides",
+          "count": 2
+        },
+        {
+          "name": "Source",
+          "count": 5
+        },
+        {
+          "name": "Student",
+          "count": 10
+        }
+      ],
+      "artifactInventory": [
+        {
+          "name": "RCS01_AnswerKey.docx",
+          "resourceGroup": "Instructor",
+          "relativePath": "Instructor/RCS01_AnswerKey.docx",
+          "sizeBytes": 37811
+        },
+        {
+          "name": "RCS01_AnswerKey.pdf",
+          "resourceGroup": "Instructor",
+          "relativePath": "Instructor/RCS01_AnswerKey.pdf",
+          "sizeBytes": 41320
+        },
+        {
+          "name": "RCS01_ClassroomPost.docx",
+          "resourceGroup": "Instructor",
+          "relativePath": "Instructor/RCS01_ClassroomPost.docx",
+          "sizeBytes": 37767
+        },
+        {
+          "name": "RCS01_ClassroomPost.pdf",
+          "resourceGroup": "Instructor",
+          "relativePath": "Instructor/RCS01_ClassroomPost.pdf",
+          "sizeBytes": 35076
+        },
+        {
+          "name": "RCS01_MasterRecord.docx",
+          "resourceGroup": "Instructor",
+          "relativePath": "Instructor/RCS01_MasterRecord.docx",
+          "sizeBytes": 38187
+        },
+        {
+          "name": "RCS01_MasterRecord.pdf",
+          "resourceGroup": "Instructor",
+          "relativePath": "Instructor/RCS01_MasterRecord.pdf",
+          "sizeBytes": 51511
+        },
+        {
+          "name": "RCS01_RunSheet.docx",
+          "resourceGroup": "Instructor",
+          "relativePath": "Instructor/RCS01_RunSheet.docx",
+          "sizeBytes": 40478
+        },
+        {
+          "name": "RCS01_RunSheet.pdf",
+          "resourceGroup": "Instructor",
+          "relativePath": "Instructor/RCS01_RunSheet.pdf",
+          "sizeBytes": 103994
+        },
+        {
+          "name": "RCS01_WhiteboardPlan.docx",
+          "resourceGroup": "Instructor",
+          "relativePath": "Instructor/RCS01_WhiteboardPlan.docx",
+          "sizeBytes": 38056
+        },
+        {
+          "name": "RCS01_WhiteboardPlan.pdf",
+          "resourceGroup": "Instructor",
+          "relativePath": "Instructor/RCS01_WhiteboardPlan.pdf",
+          "sizeBytes": 46219
+        },
+        {
+          "name": "RCS01_MasterPacket.pdf",
+          "resourceGroup": "Print",
+          "relativePath": "Print/RCS01_MasterPacket.pdf",
+          "sizeBytes": 399786
+        },
+        {
+          "name": "RCS01_StudentPacket.pdf",
+          "resourceGroup": "Print",
+          "relativePath": "Print/RCS01_StudentPacket.pdf",
+          "sizeBytes": 158933
+        },
+        {
+          "name": "RCS01_Slides.pdf",
+          "resourceGroup": "Slides",
+          "relativePath": "Slides/RCS01_Slides.pdf",
+          "sizeBytes": 175176
+        },
+        {
+          "name": "RCS01_Slides.pptx",
+          "resourceGroup": "Slides",
+          "relativePath": "Slides/RCS01_Slides.pptx",
+          "sizeBytes": 400476
+        },
+        {
+          "name": "classroom_post.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/classroom_post.md",
+          "sizeBytes": 666
+        },
+        {
+          "name": "lab.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/lab.md",
+          "sizeBytes": 604
+        },
+        {
+          "name": "lesson.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/lesson.md",
+          "sizeBytes": 2195
+        },
+        {
+          "name": "quiz.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/quiz.md",
+          "sizeBytes": 1371
+        },
+        {
+          "name": "slides.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/slides.md",
+          "sizeBytes": 616
+        },
+        {
+          "name": "RCS01_ExitTicket.docx",
+          "resourceGroup": "Student",
+          "relativePath": "Student/RCS01_ExitTicket.docx",
+          "sizeBytes": 37536
+        },
+        {
+          "name": "RCS01_ExitTicket.pdf",
+          "resourceGroup": "Student",
+          "relativePath": "Student/RCS01_ExitTicket.pdf",
+          "sizeBytes": 32012
+        },
+        {
+          "name": "RCS01_Lab.docx",
+          "resourceGroup": "Student",
+          "relativePath": "Student/RCS01_Lab.docx",
+          "sizeBytes": 38902
+        },
+        {
+          "name": "RCS01_Lab.pdf",
+          "resourceGroup": "Student",
+          "relativePath": "Student/RCS01_Lab.pdf",
+          "sizeBytes": 75222
+        },
+        {
+          "name": "RCS01_Quiz.docx",
+          "resourceGroup": "Student",
+          "relativePath": "Student/RCS01_Quiz.docx",
+          "sizeBytes": 38272
+        },
+        {
+          "name": "RCS01_Quiz.pdf",
+          "resourceGroup": "Student",
+          "relativePath": "Student/RCS01_Quiz.pdf",
+          "sizeBytes": 56873
+        },
+        {
+          "name": "RCS01_StudentGuide.docx",
+          "resourceGroup": "Student",
+          "relativePath": "Student/RCS01_StudentGuide.docx",
+          "sizeBytes": 38726
+        },
+        {
+          "name": "RCS01_StudentGuide.pdf",
+          "resourceGroup": "Student",
+          "relativePath": "Student/RCS01_StudentGuide.pdf",
+          "sizeBytes": 58567
+        },
+        {
+          "name": "RCS01_VerificationLog.docx",
+          "resourceGroup": "Student",
+          "relativePath": "Student/RCS01_VerificationLog.docx",
+          "sizeBytes": 37995
+        },
+        {
+          "name": "RCS01_VerificationLog.pdf",
+          "resourceGroup": "Student",
+          "relativePath": "Student/RCS01_VerificationLog.pdf",
+          "sizeBytes": 44859
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1445 @@
+{
+  "course": "RCS",
+  "cohort": 6,
+  "ownerOnly": true,
+  "sourceRoot": "/CANONICAL/02_PROJECTS/CTS_Cohort_06/03_DAILY",
+  "totalDays": 8,
+  "totalArtifacts": 197,
+  "days": [
+    {
+      "course": "RCS",
+      "courseDay": 2,
+      "ctsDay": 10,
+      "date": "2026-07-21",
+      "title": "Measurement and framing",
+      "folder": "D10_RCS02_2026-07-21",
+      "canonicalDropboxPath": "/CANONICAL/02_PROJECTS/CTS_Cohort_06/03_DAILY/D10_RCS02_2026-07-21",
+      "dropboxUrl": "https://www.dropbox.com/home/CANONICAL/02_PROJECTS/CTS_Cohort_06/03_DAILY/D10_RCS02_2026-07-21",
+      "objectives": [
+        "Read a tape measure accurately and communicate dimensions.",
+        "Lay out studs, plates, and openings from a drawing.",
+        "Cut and assemble a square wall frame using safe tool practices."
+      ],
+      "agenda": [
+        "Measurement warm-up",
+        "Framing vocabulary and layout",
+        "Cut planning and saw demonstration",
+        "Wall-frame assembly, square check, and cleanup"
+      ],
+      "handsOn": [
+        "Lay out, cut, and assemble a framed wall section to the supplied dimensions."
+      ],
+      "safetyControls": [
+        "Eye and hearing protection",
+        "Controlled saw zone and material support",
+        "Hands clear of blades and pinch points",
+        "Verify measurements before cutting"
+      ],
+      "evidence": [
+        "Measurement check",
+        "Layout marks",
+        "Frame dimension and square record",
+        "Build photos or instructor signoff"
+      ],
+      "artifactCount": 24,
+      "resourceGroups": [
+        {
+          "name": "Instructor",
+          "count": 4
+        },
+        {
+          "name": "Print",
+          "count": 2
+        },
+        {
+          "name": "Slides",
+          "count": 3
+        },
+        {
+          "name": "Source",
+          "count": 11
+        },
+        {
+          "name": "Student",
+          "count": 4
+        }
+      ],
+      "artifactInventory": [
+        {
+          "name": "RCS02_AnswerKey.docx",
+          "resourceGroup": "Instructor",
+          "relativePath": "Instructor/RCS02_AnswerKey.docx",
+          "sizeBytes": 38757
+        },
+        {
+          "name": "RCS02_AnswerKey.pdf",
+          "resourceGroup": "Instructor",
+          "relativePath": "Instructor/RCS02_AnswerKey.pdf",
+          "sizeBytes": 64589
+        },
+        {
+          "name": "RCS02_InstructorGuide.docx",
+          "resourceGroup": "Instructor",
+          "relativePath": "Instructor/RCS02_InstructorGuide.docx",
+          "sizeBytes": 40970
+        },
+        {
+          "name": "RCS02_InstructorGuide.pdf",
+          "resourceGroup": "Instructor",
+          "relativePath": "Instructor/RCS02_InstructorGuide.pdf",
+          "sizeBytes": 127407
+        },
+        {
+          "name": "RCS02_MasterPrintPacket.pdf",
+          "resourceGroup": "Print",
+          "relativePath": "Print/RCS02_MasterPrintPacket.pdf",
+          "sizeBytes": 243678
+        },
+        {
+          "name": "RCS02_StudentPrintPacket.pdf",
+          "resourceGroup": "Print",
+          "relativePath": "Print/RCS02_StudentPrintPacket.pdf",
+          "sizeBytes": 113558
+        },
+        {
+          "name": "RCS02_DailySlideDeck.pptx",
+          "resourceGroup": "Slides",
+          "relativePath": "Slides/RCS02_DailySlideDeck.pptx",
+          "sizeBytes": 66126
+        },
+        {
+          "name": "RCS02_DailySlideDeck.pptx.inspect.ndjson",
+          "resourceGroup": "Slides",
+          "relativePath": "Slides/RCS02_DailySlideDeck.pptx.inspect.ndjson",
+          "sizeBytes": 44310
+        },
+        {
+          "name": "RCS02_Slides.pdf",
+          "resourceGroup": "Slides",
+          "relativePath": "Slides/RCS02_Slides.pdf",
+          "sizeBytes": 1323512
+        },
+        {
+          "name": "answer_key.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/answer_key.md",
+          "sizeBytes": 439
+        },
+        {
+          "name": "classroom_post.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/classroom_post.md",
+          "sizeBytes": 404
+        },
+        {
+          "name": "day.json",
+          "resourceGroup": "Source",
+          "relativePath": "Source/day.json",
+          "sizeBytes": 5643
+        },
+        {
+          "name": "lab.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/lab.md",
+          "sizeBytes": 1069
+        },
+        {
+          "name": "lesson.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/lesson.md",
+          "sizeBytes": 2135
+        },
+        {
+          "name": "manifest.json",
+          "resourceGroup": "Source",
+          "relativePath": "Source/manifest.json",
+          "sizeBytes": 393
+        },
+        {
+          "name": "quiz.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/quiz.md",
+          "sizeBytes": 476
+        },
+        {
+          "name": "reflection.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/reflection.md",
+          "sizeBytes": 156
+        },
+        {
+          "name": "slides.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/slides.md",
+          "sizeBytes": 362
+        },
+        {
+          "name": "whiteboard.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/whiteboard.md",
+          "sizeBytes": 160
+        },
+        {
+          "name": "worksheet.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/worksheet.md",
+          "sizeBytes": 337
+        },
+        {
+          "name": "RCS02_Quiz.docx",
+          "resourceGroup": "Student",
+          "relativePath": "Student/RCS02_Quiz.docx",
+          "sizeBytes": 38500
+        },
+        {
+          "name": "RCS02_Quiz.pdf",
+          "resourceGroup": "Student",
+          "relativePath": "Student/RCS02_Quiz.pdf",
+          "sizeBytes": 58586
+        },
+        {
+          "name": "RCS02_StudentPacket.docx",
+          "resourceGroup": "Student",
+          "relativePath": "Student/RCS02_StudentPacket.docx",
+          "sizeBytes": 39770
+        },
+        {
+          "name": "RCS02_StudentPacket.pdf",
+          "resourceGroup": "Student",
+          "relativePath": "Student/RCS02_StudentPacket.pdf",
+          "sizeBytes": 92962
+        }
+      ]
+    },
+    {
+      "course": "RCS",
+      "courseDay": 3,
+      "ctsDay": 11,
+      "date": "2026-07-22",
+      "title": "Receptacles and electrical box layout",
+      "folder": "D11_RCS03_2026-07-22",
+      "canonicalDropboxPath": "/CANONICAL/02_PROJECTS/CTS_Cohort_06/03_DAILY/D11_RCS03_2026-07-22",
+      "dropboxUrl": "https://www.dropbox.com/home/CANONICAL/02_PROJECTS/CTS_Cohort_06/03_DAILY/D11_RCS03_2026-07-22",
+      "objectives": [
+        "Lay out electrical boxes at consistent heights and offsets.",
+        "Route and secure cable on a training wall using applicable workshop rules.",
+        "Wire and verify a basic receptacle training circuit."
+      ],
+      "agenda": [
+        "Residential branch-circuit overview",
+        "Box layout and mounting demonstration",
+        "Cable-routing practice",
+        "Receptacle termination, inspection, and test"
+      ],
+      "handsOn": [
+        "Install boxes and a de-energized receptacle circuit on the framed wall, then complete approved verification."
+      ],
+      "safetyControls": [
+        "Training circuits remain de-energized during installation",
+        "Verify absence of voltage",
+        "Protect cable from sharp edges and fasteners",
+        "Instructor-controlled energization only"
+      ],
+      "evidence": [
+        "Box-layout measurements",
+        "Cable-routing inspection",
+        "Termination checklist",
+        "Test results"
+      ],
+      "artifactCount": 24,
+      "resourceGroups": [
+        {
+          "name": "Instructor",
+          "count": 4
+        },
+        {
+          "name": "Print",
+          "count": 2
+        },
+        {
+          "name": "Slides",
+          "count": 3
+        },
+        {
+          "name": "Source",
+          "count": 11
+        },
+        {
+          "name": "Student",
+          "count": 4
+        }
+      ],
+      "artifactInventory": [
+        {
+          "name": "RCS03_AnswerKey.docx",
+          "resourceGroup": "Instructor",
+          "relativePath": "Instructor/RCS03_AnswerKey.docx",
+          "sizeBytes": 38788
+        },
+        {
+          "name": "RCS03_AnswerKey.pdf",
+          "resourceGroup": "Instructor",
+          "relativePath": "Instructor/RCS03_AnswerKey.pdf",
+          "sizeBytes": 65052
+        },
+        {
+          "name": "RCS03_InstructorGuide.docx",
+          "resourceGroup": "Instructor",
+          "relativePath": "Instructor/RCS03_InstructorGuide.docx",
+          "sizeBytes": 40975
+        },
+        {
+          "name": "RCS03_InstructorGuide.pdf",
+          "resourceGroup": "Instructor",
+          "relativePath": "Instructor/RCS03_InstructorGuide.pdf",
+          "sizeBytes": 128769
+        },
+        {
+          "name": "RCS03_MasterPrintPacket.pdf",
+          "resourceGroup": "Print",
+          "relativePath": "Print/RCS03_MasterPrintPacket.pdf",
+          "sizeBytes": 245130
+        },
+        {
+          "name": "RCS03_StudentPrintPacket.pdf",
+          "resourceGroup": "Print",
+          "relativePath": "Print/RCS03_StudentPrintPacket.pdf",
+          "sizeBytes": 113627
+        },
+        {
+          "name": "RCS03_DailySlideDeck.pptx",
+          "resourceGroup": "Slides",
+          "relativePath": "Slides/RCS03_DailySlideDeck.pptx",
+          "sizeBytes": 66226
+        },
+        {
+          "name": "RCS03_DailySlideDeck.pptx.inspect.ndjson",
+          "resourceGroup": "Slides",
+          "relativePath": "Slides/RCS03_DailySlideDeck.pptx.inspect.ndjson",
+          "sizeBytes": 44543
+        },
+        {
+          "name": "RCS03_Slides.pdf",
+          "resourceGroup": "Slides",
+          "relativePath": "Slides/RCS03_Slides.pdf",
+          "sizeBytes": 1340647
+        },
+        {
+          "name": "answer_key.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/answer_key.md",
+          "sizeBytes": 486
+        },
+        {
+          "name": "classroom_post.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/classroom_post.md",
+          "sizeBytes": 406
+        },
+        {
+          "name": "day.json",
+          "resourceGroup": "Source",
+          "relativePath": "Source/day.json",
+          "sizeBytes": 5995
+        },
+        {
+          "name": "lab.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/lab.md",
+          "sizeBytes": 1172
+        },
+        {
+          "name": "lesson.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/lesson.md",
+          "sizeBytes": 2224
+        },
+        {
+          "name": "manifest.json",
+          "resourceGroup": "Source",
+          "relativePath": "Source/manifest.json",
+          "sizeBytes": 393
+        },
+        {
+          "name": "quiz.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/quiz.md",
+          "sizeBytes": 570
+        },
+        {
+          "name": "reflection.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/reflection.md",
+          "sizeBytes": 160
+        },
+        {
+          "name": "slides.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/slides.md",
+          "sizeBytes": 362
+        },
+        {
+          "name": "whiteboard.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/whiteboard.md",
+          "sizeBytes": 205
+        },
+        {
+          "name": "worksheet.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/worksheet.md",
+          "sizeBytes": 289
+        },
+        {
+          "name": "RCS03_Quiz.docx",
+          "resourceGroup": "Student",
+          "relativePath": "Student/RCS03_Quiz.docx",
+          "sizeBytes": 38550
+        },
+        {
+          "name": "RCS03_Quiz.pdf",
+          "resourceGroup": "Student",
+          "relativePath": "Student/RCS03_Quiz.pdf",
+          "sizeBytes": 59464
+        },
+        {
+          "name": "RCS03_StudentPacket.docx",
+          "resourceGroup": "Student",
+          "relativePath": "Student/RCS03_StudentPacket.docx",
+          "sizeBytes": 39675
+        },
+        {
+          "name": "RCS03_StudentPacket.pdf",
+          "resourceGroup": "Student",
+          "relativePath": "Student/RCS03_StudentPacket.pdf",
+          "sizeBytes": 92332
+        }
+      ]
+    },
+    {
+      "course": "RCS",
+      "courseDay": 4,
+      "ctsDay": 12,
+      "date": "2026-07-23",
+      "title": "Plumbing systems",
+      "folder": "D12_RCS04_2026-07-23",
+      "canonicalDropboxPath": "/CANONICAL/02_PROJECTS/CTS_Cohort_06/03_DAILY/D12_RCS04_2026-07-23",
+      "dropboxUrl": "https://www.dropbox.com/home/CANONICAL/02_PROJECTS/CTS_Cohort_06/03_DAILY/D12_RCS04_2026-07-23",
+      "objectives": [
+        "Identify supply, drain, waste, and vent functions in a residential assembly.",
+        "Lay out a simple plumbing path while respecting framing and other systems.",
+        "Cut, prepare, join, and inspect training piping."
+      ],
+      "agenda": [
+        "Residential plumbing system map",
+        "Fitting selection and layout",
+        "Cutting, deburring, and joining demonstration",
+        "Training-wall installation and leak-check process"
+      ],
+      "handsOn": [
+        "Install a simple supply and/or DWV training assembly in the integrated wall bay."
+      ],
+      "safetyControls": [
+        "Eye protection during cutting",
+        "Ventilation and product-specific PPE for joining materials",
+        "Control sharp edges and spills",
+        "Do not pressure-test beyond the training procedure"
+      ],
+      "evidence": [
+        "Plumbing layout",
+        "Joint-quality inspection",
+        "System photo or diagram",
+        "Leak-check record"
+      ],
+      "artifactCount": 24,
+      "resourceGroups": [
+        {
+          "name": "Instructor",
+          "count": 4
+        },
+        {
+          "name": "Print",
+          "count": 2
+        },
+        {
+          "name": "Slides",
+          "count": 3
+        },
+        {
+          "name": "Source",
+          "count": 11
+        },
+        {
+          "name": "Student",
+          "count": 4
+        }
+      ],
+      "artifactInventory": [
+        {
+          "name": "RCS04_AnswerKey.docx",
+          "resourceGroup": "Instructor",
+          "relativePath": "Instructor/RCS04_AnswerKey.docx",
+          "sizeBytes": 38787
+        },
+        {
+          "name": "RCS04_AnswerKey.pdf",
+          "resourceGroup": "Instructor",
+          "relativePath": "Instructor/RCS04_AnswerKey.pdf",
+          "sizeBytes": 65622
+        },
+        {
+          "name": "RCS04_InstructorGuide.docx",
+          "resourceGroup": "Instructor",
+          "relativePath": "Instructor/RCS04_InstructorGuide.docx",
+          "sizeBytes": 40939
+        },
+        {
+          "name": "RCS04_InstructorGuide.pdf",
+          "resourceGroup": "Instructor",
+          "relativePath": "Instructor/RCS04_InstructorGuide.pdf",
+          "sizeBytes": 129221
+        },
+        {
+          "name": "RCS04_MasterPrintPacket.pdf",
+          "resourceGroup": "Print",
+          "relativePath": "Print/RCS04_MasterPrintPacket.pdf",
+          "sizeBytes": 247149
+        },
+        {
+          "name": "RCS04_StudentPrintPacket.pdf",
+          "resourceGroup": "Print",
+          "relativePath": "Print/RCS04_StudentPrintPacket.pdf",
+          "sizeBytes": 114674
+        },
+        {
+          "name": "RCS04_DailySlideDeck.pptx",
+          "resourceGroup": "Slides",
+          "relativePath": "Slides/RCS04_DailySlideDeck.pptx",
+          "sizeBytes": 66128
+        },
+        {
+          "name": "RCS04_DailySlideDeck.pptx.inspect.ndjson",
+          "resourceGroup": "Slides",
+          "relativePath": "Slides/RCS04_DailySlideDeck.pptx.inspect.ndjson",
+          "sizeBytes": 44342
+        },
+        {
+          "name": "RCS04_Slides.pdf",
+          "resourceGroup": "Slides",
+          "relativePath": "Slides/RCS04_Slides.pdf",
+          "sizeBytes": 1334924
+        },
+        {
+          "name": "answer_key.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/answer_key.md",
+          "sizeBytes": 469
+        },
+        {
+          "name": "classroom_post.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/classroom_post.md",
+          "sizeBytes": 424
+        },
+        {
+          "name": "day.json",
+          "resourceGroup": "Source",
+          "relativePath": "Source/day.json",
+          "sizeBytes": 5552
+        },
+        {
+          "name": "lab.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/lab.md",
+          "sizeBytes": 993
+        },
+        {
+          "name": "lesson.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/lesson.md",
+          "sizeBytes": 2127
+        },
+        {
+          "name": "manifest.json",
+          "resourceGroup": "Source",
+          "relativePath": "Source/manifest.json",
+          "sizeBytes": 393
+        },
+        {
+          "name": "quiz.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/quiz.md",
+          "sizeBytes": 511
+        },
+        {
+          "name": "reflection.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/reflection.md",
+          "sizeBytes": 159
+        },
+        {
+          "name": "slides.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/slides.md",
+          "sizeBytes": 362
+        },
+        {
+          "name": "whiteboard.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/whiteboard.md",
+          "sizeBytes": 151
+        },
+        {
+          "name": "worksheet.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/worksheet.md",
+          "sizeBytes": 277
+        },
+        {
+          "name": "RCS04_Quiz.docx",
+          "resourceGroup": "Student",
+          "relativePath": "Student/RCS04_Quiz.docx",
+          "sizeBytes": 38527
+        },
+        {
+          "name": "RCS04_Quiz.pdf",
+          "resourceGroup": "Student",
+          "relativePath": "Student/RCS04_Quiz.pdf",
+          "sizeBytes": 60059
+        },
+        {
+          "name": "RCS04_StudentPacket.docx",
+          "resourceGroup": "Student",
+          "relativePath": "Student/RCS04_StudentPacket.docx",
+          "sizeBytes": 39656
+        },
+        {
+          "name": "RCS04_StudentPacket.pdf",
+          "resourceGroup": "Student",
+          "relativePath": "Student/RCS04_StudentPacket.pdf",
+          "sizeBytes": 92454
+        }
+      ]
+    },
+    {
+      "course": "RCS",
+      "courseDay": 5,
+      "ctsDay": 13,
+      "date": "2026-07-27",
+      "title": "Switch/light installation and troubleshooting",
+      "folder": "D13_RCS05_2026-07-27",
+      "canonicalDropboxPath": "/CANONICAL/02_PROJECTS/CTS_Cohort_06/03_DAILY/D13_RCS05_2026-07-27",
+      "dropboxUrl": "https://www.dropbox.com/home/CANONICAL/02_PROJECTS/CTS_Cohort_06/03_DAILY/D13_RCS05_2026-07-27",
+      "objectives": [
+        "Lay out and wire a basic switch-controlled lighting circuit.",
+        "Use diagrams and measurements to verify line, load, neutral, and equipment-ground paths.",
+        "Diagnose common seeded faults using a safe sequence."
+      ],
+      "agenda": [
+        "Lighting-circuit diagrams",
+        "Box and cable layout",
+        "Switch and luminaire termination",
+        "Inspection, controlled test, and troubleshooting"
+      ],
+      "handsOn": [
+        "Install and troubleshoot a switch-controlled light circuit on the integrated wall."
+      ],
+      "safetyControls": [
+        "De-energize and lock out the training circuit",
+        "Verify absence of voltage",
+        "Instructor-controlled energization",
+        "No live retermination"
+      ],
+      "evidence": [
+        "As-built circuit diagram",
+        "Termination inspection",
+        "Functional test",
+        "Troubleshooting log"
+      ],
+      "artifactCount": 24,
+      "resourceGroups": [
+        {
+          "name": "Instructor",
+          "count": 4
+        },
+        {
+          "name": "Print",
+          "count": 2
+        },
+        {
+          "name": "Slides",
+          "count": 3
+        },
+        {
+          "name": "Source",
+          "count": 11
+        },
+        {
+          "name": "Student",
+          "count": 4
+        }
+      ],
+      "artifactInventory": [
+        {
+          "name": "RCS05_AnswerKey.docx",
+          "resourceGroup": "Instructor",
+          "relativePath": "Instructor/RCS05_AnswerKey.docx",
+          "sizeBytes": 38783
+        },
+        {
+          "name": "RCS05_AnswerKey.pdf",
+          "resourceGroup": "Instructor",
+          "relativePath": "Instructor/RCS05_AnswerKey.pdf",
+          "sizeBytes": 64967
+        },
+        {
+          "name": "RCS05_InstructorGuide.docx",
+          "resourceGroup": "Instructor",
+          "relativePath": "Instructor/RCS05_InstructorGuide.docx",
+          "sizeBytes": 40866
+        },
+        {
+          "name": "RCS05_InstructorGuide.pdf",
+          "resourceGroup": "Instructor",
+          "relativePath": "Instructor/RCS05_InstructorGuide.pdf",
+          "sizeBytes": 128859
+        },
+        {
+          "name": "RCS05_MasterPrintPacket.pdf",
+          "resourceGroup": "Print",
+          "relativePath": "Print/RCS05_MasterPrintPacket.pdf",
+          "sizeBytes": 244492
+        },
+        {
+          "name": "RCS05_StudentPrintPacket.pdf",
+          "resourceGroup": "Print",
+          "relativePath": "Print/RCS05_StudentPrintPacket.pdf",
+          "sizeBytes": 113461
+        },
+        {
+          "name": "RCS05_DailySlideDeck.pptx",
+          "resourceGroup": "Slides",
+          "relativePath": "Slides/RCS05_DailySlideDeck.pptx",
+          "sizeBytes": 66110
+        },
+        {
+          "name": "RCS05_DailySlideDeck.pptx.inspect.ndjson",
+          "resourceGroup": "Slides",
+          "relativePath": "Slides/RCS05_DailySlideDeck.pptx.inspect.ndjson",
+          "sizeBytes": 44481
+        },
+        {
+          "name": "RCS05_Slides.pdf",
+          "resourceGroup": "Slides",
+          "relativePath": "Slides/RCS05_Slides.pdf",
+          "sizeBytes": 1315797
+        },
+        {
+          "name": "answer_key.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/answer_key.md",
+          "sizeBytes": 600
+        },
+        {
+          "name": "classroom_post.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/classroom_post.md",
+          "sizeBytes": 451
+        },
+        {
+          "name": "day.json",
+          "resourceGroup": "Source",
+          "relativePath": "Source/day.json",
+          "sizeBytes": 5681
+        },
+        {
+          "name": "lab.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/lab.md",
+          "sizeBytes": 1100
+        },
+        {
+          "name": "lesson.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/lesson.md",
+          "sizeBytes": 2096
+        },
+        {
+          "name": "manifest.json",
+          "resourceGroup": "Source",
+          "relativePath": "Source/manifest.json",
+          "sizeBytes": 393
+        },
+        {
+          "name": "quiz.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/quiz.md",
+          "sizeBytes": 419
+        },
+        {
+          "name": "reflection.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/reflection.md",
+          "sizeBytes": 166
+        },
+        {
+          "name": "slides.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/slides.md",
+          "sizeBytes": 362
+        },
+        {
+          "name": "whiteboard.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/whiteboard.md",
+          "sizeBytes": 131
+        },
+        {
+          "name": "worksheet.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/worksheet.md",
+          "sizeBytes": 297
+        },
+        {
+          "name": "RCS05_Quiz.docx",
+          "resourceGroup": "Student",
+          "relativePath": "Student/RCS05_Quiz.docx",
+          "sizeBytes": 38463
+        },
+        {
+          "name": "RCS05_Quiz.pdf",
+          "resourceGroup": "Student",
+          "relativePath": "Student/RCS05_Quiz.pdf",
+          "sizeBytes": 59026
+        },
+        {
+          "name": "RCS05_StudentPacket.docx",
+          "resourceGroup": "Student",
+          "relativePath": "Student/RCS05_StudentPacket.docx",
+          "sizeBytes": 39680
+        },
+        {
+          "name": "RCS05_StudentPacket.pdf",
+          "resourceGroup": "Student",
+          "relativePath": "Student/RCS05_StudentPacket.pdf",
+          "sizeBytes": 92773
+        }
+      ]
+    },
+    {
+      "course": "RCS",
+      "courseDay": 6,
+      "ctsDay": 14,
+      "date": "2026-07-28",
+      "title": "Drywall",
+      "folder": "D14_RCS06_2026-07-28",
+      "canonicalDropboxPath": "/CANONICAL/02_PROJECTS/CTS_Cohort_06/03_DAILY/D14_RCS06_2026-07-28",
+      "dropboxUrl": "https://www.dropbox.com/home/CANONICAL/02_PROJECTS/CTS_Cohort_06/03_DAILY/D14_RCS06_2026-07-28",
+      "objectives": [
+        "Plan panel orientation and fastener layout.",
+        "Measure, score, cut, fit, and fasten drywall cleanly.",
+        "Protect concealed building systems while closing the wall."
+      ],
+      "agenda": [
+        "Drywall material and layout",
+        "Measurement and cutting demonstration",
+        "Panel fit-up and fastening",
+        "Opening cuts, quality review, and cleanup"
+      ],
+      "handsOn": [
+        "Fit and fasten drywall to the training wall while maintaining required openings and system clearances."
+      ],
+      "safetyControls": [
+        "Eye and respiratory protection",
+        "Dust control and housekeeping",
+        "Verify concealed-service locations",
+        "Manage sheet weight and pinch points"
+      ],
+      "evidence": [
+        "Panel layout",
+        "Fit and fastener inspection",
+        "Opening dimensions",
+        "Quality-control checklist"
+      ],
+      "artifactCount": 24,
+      "resourceGroups": [
+        {
+          "name": "Instructor",
+          "count": 4
+        },
+        {
+          "name": "Print",
+          "count": 2
+        },
+        {
+          "name": "Slides",
+          "count": 3
+        },
+        {
+          "name": "Source",
+          "count": 11
+        },
+        {
+          "name": "Student",
+          "count": 4
+        }
+      ],
+      "artifactInventory": [
+        {
+          "name": "RCS06_AnswerKey.docx",
+          "resourceGroup": "Instructor",
+          "relativePath": "Instructor/RCS06_AnswerKey.docx",
+          "sizeBytes": 38833
+        },
+        {
+          "name": "RCS06_AnswerKey.pdf",
+          "resourceGroup": "Instructor",
+          "relativePath": "Instructor/RCS06_AnswerKey.pdf",
+          "sizeBytes": 64219
+        },
+        {
+          "name": "RCS06_InstructorGuide.docx",
+          "resourceGroup": "Instructor",
+          "relativePath": "Instructor/RCS06_InstructorGuide.docx",
+          "sizeBytes": 40969
+        },
+        {
+          "name": "RCS06_InstructorGuide.pdf",
+          "resourceGroup": "Instructor",
+          "relativePath": "Instructor/RCS06_InstructorGuide.pdf",
+          "sizeBytes": 128034
+        },
+        {
+          "name": "RCS06_MasterPrintPacket.pdf",
+          "resourceGroup": "Print",
+          "relativePath": "Print/RCS06_MasterPrintPacket.pdf",
+          "sizeBytes": 240595
+        },
+        {
+          "name": "RCS06_StudentPrintPacket.pdf",
+          "resourceGroup": "Print",
+          "relativePath": "Print/RCS06_StudentPrintPacket.pdf",
+          "sizeBytes": 111149
+        },
+        {
+          "name": "RCS06_DailySlideDeck.pptx",
+          "resourceGroup": "Slides",
+          "relativePath": "Slides/RCS06_DailySlideDeck.pptx",
+          "sizeBytes": 66073
+        },
+        {
+          "name": "RCS06_DailySlideDeck.pptx.inspect.ndjson",
+          "resourceGroup": "Slides",
+          "relativePath": "Slides/RCS06_DailySlideDeck.pptx.inspect.ndjson",
+          "sizeBytes": 44272
+        },
+        {
+          "name": "RCS06_Slides.pdf",
+          "resourceGroup": "Slides",
+          "relativePath": "Slides/RCS06_Slides.pdf",
+          "sizeBytes": 1303099
+        },
+        {
+          "name": "answer_key.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/answer_key.md",
+          "sizeBytes": 720
+        },
+        {
+          "name": "classroom_post.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/classroom_post.md",
+          "sizeBytes": 436
+        },
+        {
+          "name": "day.json",
+          "resourceGroup": "Source",
+          "relativePath": "Source/day.json",
+          "sizeBytes": 5810
+        },
+        {
+          "name": "lab.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/lab.md",
+          "sizeBytes": 1058
+        },
+        {
+          "name": "lesson.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/lesson.md",
+          "sizeBytes": 2112
+        },
+        {
+          "name": "manifest.json",
+          "resourceGroup": "Source",
+          "relativePath": "Source/manifest.json",
+          "sizeBytes": 393
+        },
+        {
+          "name": "quiz.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/quiz.md",
+          "sizeBytes": 418
+        },
+        {
+          "name": "reflection.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/reflection.md",
+          "sizeBytes": 149
+        },
+        {
+          "name": "slides.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/slides.md",
+          "sizeBytes": 362
+        },
+        {
+          "name": "whiteboard.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/whiteboard.md",
+          "sizeBytes": 174
+        },
+        {
+          "name": "worksheet.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/worksheet.md",
+          "sizeBytes": 267
+        },
+        {
+          "name": "RCS06_Quiz.docx",
+          "resourceGroup": "Student",
+          "relativePath": "Student/RCS06_Quiz.docx",
+          "sizeBytes": 38454
+        },
+        {
+          "name": "RCS06_Quiz.pdf",
+          "resourceGroup": "Student",
+          "relativePath": "Student/RCS06_Quiz.pdf",
+          "sizeBytes": 57864
+        },
+        {
+          "name": "RCS06_StudentPacket.docx",
+          "resourceGroup": "Student",
+          "relativePath": "Student/RCS06_StudentPacket.docx",
+          "sizeBytes": 39679
+        },
+        {
+          "name": "RCS06_StudentPacket.pdf",
+          "resourceGroup": "Student",
+          "relativePath": "Student/RCS06_StudentPacket.pdf",
+          "sizeBytes": 91613
+        }
+      ]
+    },
+    {
+      "course": "RCS",
+      "courseDay": 7,
+      "ctsDay": 15,
+      "date": "2026-07-29",
+      "title": "Integrated wall build and punch list",
+      "folder": "D15_RCS07_2026-07-29",
+      "canonicalDropboxPath": "/CANONICAL/02_PROJECTS/CTS_Cohort_06/03_DAILY/D15_RCS07_2026-07-29",
+      "dropboxUrl": "https://www.dropbox.com/home/CANONICAL/02_PROJECTS/CTS_Cohort_06/03_DAILY/D15_RCS07_2026-07-29",
+      "objectives": [
+        "Coordinate framing, electrical, plumbing, and finish requirements.",
+        "Inspect work against drawings, quality criteria, and safety expectations.",
+        "Create and close a prioritized punch list."
+      ],
+      "agenda": [
+        "Integrated-build planning",
+        "Trade-sequence coordination",
+        "System completion and inspection",
+        "Punch-list creation, correction, and verification"
+      ],
+      "handsOn": [
+        "Complete the integrated wall assembly and close identified workmanship or functionality deficiencies."
+      ],
+      "safetyControls": [
+        "Confirm energization and pressure states before work",
+        "Protect completed systems",
+        "Use task-specific PPE and controlled tool zones",
+        "Document deficiencies before correction"
+      ],
+      "evidence": [
+        "Integrated build record",
+        "Inspection checklist",
+        "Punch list",
+        "Closed-item verification"
+      ],
+      "artifactCount": 24,
+      "resourceGroups": [
+        {
+          "name": "Instructor",
+          "count": 4
+        },
+        {
+          "name": "Print",
+          "count": 2
+        },
+        {
+          "name": "Slides",
+          "count": 3
+        },
+        {
+          "name": "Source",
+          "count": 11
+        },
+        {
+          "name": "Student",
+          "count": 4
+        }
+      ],
+      "artifactInventory": [
+        {
+          "name": "RCS07_AnswerKey.docx",
+          "resourceGroup": "Instructor",
+          "relativePath": "Instructor/RCS07_AnswerKey.docx",
+          "sizeBytes": 38814
+        },
+        {
+          "name": "RCS07_AnswerKey.pdf",
+          "resourceGroup": "Instructor",
+          "relativePath": "Instructor/RCS07_AnswerKey.pdf",
+          "sizeBytes": 64656
+        },
+        {
+          "name": "RCS07_InstructorGuide.docx",
+          "resourceGroup": "Instructor",
+          "relativePath": "Instructor/RCS07_InstructorGuide.docx",
+          "sizeBytes": 40889
+        },
+        {
+          "name": "RCS07_InstructorGuide.pdf",
+          "resourceGroup": "Instructor",
+          "relativePath": "Instructor/RCS07_InstructorGuide.pdf",
+          "sizeBytes": 128965
+        },
+        {
+          "name": "RCS07_MasterPrintPacket.pdf",
+          "resourceGroup": "Print",
+          "relativePath": "Print/RCS07_MasterPrintPacket.pdf",
+          "sizeBytes": 243192
+        },
+        {
+          "name": "RCS07_StudentPrintPacket.pdf",
+          "resourceGroup": "Print",
+          "relativePath": "Print/RCS07_StudentPrintPacket.pdf",
+          "sizeBytes": 112885
+        },
+        {
+          "name": "RCS07_DailySlideDeck.pptx",
+          "resourceGroup": "Slides",
+          "relativePath": "Slides/RCS07_DailySlideDeck.pptx",
+          "sizeBytes": 66126
+        },
+        {
+          "name": "RCS07_DailySlideDeck.pptx.inspect.ndjson",
+          "resourceGroup": "Slides",
+          "relativePath": "Slides/RCS07_DailySlideDeck.pptx.inspect.ndjson",
+          "sizeBytes": 44402
+        },
+        {
+          "name": "RCS07_Slides.pdf",
+          "resourceGroup": "Slides",
+          "relativePath": "Slides/RCS07_Slides.pdf",
+          "sizeBytes": 1335632
+        },
+        {
+          "name": "answer_key.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/answer_key.md",
+          "sizeBytes": 748
+        },
+        {
+          "name": "classroom_post.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/classroom_post.md",
+          "sizeBytes": 421
+        },
+        {
+          "name": "day.json",
+          "resourceGroup": "Source",
+          "relativePath": "Source/day.json",
+          "sizeBytes": 5604
+        },
+        {
+          "name": "lab.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/lab.md",
+          "sizeBytes": 1007
+        },
+        {
+          "name": "lesson.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/lesson.md",
+          "sizeBytes": 2027
+        },
+        {
+          "name": "manifest.json",
+          "resourceGroup": "Source",
+          "relativePath": "Source/manifest.json",
+          "sizeBytes": 393
+        },
+        {
+          "name": "quiz.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/quiz.md",
+          "sizeBytes": 414
+        },
+        {
+          "name": "reflection.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/reflection.md",
+          "sizeBytes": 149
+        },
+        {
+          "name": "slides.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/slides.md",
+          "sizeBytes": 362
+        },
+        {
+          "name": "whiteboard.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/whiteboard.md",
+          "sizeBytes": 143
+        },
+        {
+          "name": "worksheet.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/worksheet.md",
+          "sizeBytes": 218
+        },
+        {
+          "name": "RCS07_Quiz.docx",
+          "resourceGroup": "Student",
+          "relativePath": "Student/RCS07_Quiz.docx",
+          "sizeBytes": 38456
+        },
+        {
+          "name": "RCS07_Quiz.pdf",
+          "resourceGroup": "Student",
+          "relativePath": "Student/RCS07_Quiz.pdf",
+          "sizeBytes": 58720
+        },
+        {
+          "name": "RCS07_StudentPacket.docx",
+          "resourceGroup": "Student",
+          "relativePath": "Student/RCS07_StudentPacket.docx",
+          "sizeBytes": 39609
+        },
+        {
+          "name": "RCS07_StudentPacket.pdf",
+          "resourceGroup": "Student",
+          "relativePath": "Student/RCS07_StudentPacket.pdf",
+          "sizeBytes": 92175
+        }
+      ]
+    },
+    {
+      "course": "RCS",
+      "courseDay": 8,
+      "ctsDay": 16,
+      "date": "2026-07-30",
+      "title": "Final practical and handoff",
+      "folder": "D16_RCS08_2026-07-30",
+      "canonicalDropboxPath": "/CANONICAL/02_PROJECTS/CTS_Cohort_06/03_DAILY/D16_RCS08_2026-07-30",
+      "dropboxUrl": "https://www.dropbox.com/home/CANONICAL/02_PROJECTS/CTS_Cohort_06/03_DAILY/D16_RCS08_2026-07-30",
+      "objectives": [
+        "Demonstrate safe, independent performance across the RCS skill sequence.",
+        "Explain the completed wall's systems and quality-control evidence.",
+        "Complete a professional closeout and handoff package."
+      ],
+      "agenda": [
+        "Final briefing and station assignments",
+        "Practical assessment",
+        "System demonstration and oral defense",
+        "Evidence audit, cleanup, feedback, and handoff"
+      ],
+      "handsOn": [
+        "Complete the final practical, correct allowable deficiencies, and hand off the integrated wall with documentation."
+      ],
+      "safetyControls": [
+        "Follow assessment energization controls",
+        "Inspect tools and PPE before each task",
+        "Stop and report unexpected conditions",
+        "No unapproved corrections after scoring"
+      ],
+      "evidence": [
+        "Final practical rubric",
+        "Completed wall inspection",
+        "Evidence inventory",
+        "Handoff and learner reflection"
+      ],
+      "artifactCount": 24,
+      "resourceGroups": [
+        {
+          "name": "Instructor",
+          "count": 4
+        },
+        {
+          "name": "Print",
+          "count": 2
+        },
+        {
+          "name": "Slides",
+          "count": 3
+        },
+        {
+          "name": "Source",
+          "count": 11
+        },
+        {
+          "name": "Student",
+          "count": 4
+        }
+      ],
+      "artifactInventory": [
+        {
+          "name": "RCS08_AnswerKey.docx",
+          "resourceGroup": "Instructor",
+          "relativePath": "Instructor/RCS08_AnswerKey.docx",
+          "sizeBytes": 38820
+        },
+        {
+          "name": "RCS08_AnswerKey.pdf",
+          "resourceGroup": "Instructor",
+          "relativePath": "Instructor/RCS08_AnswerKey.pdf",
+          "sizeBytes": 65018
+        },
+        {
+          "name": "RCS08_InstructorGuide.docx",
+          "resourceGroup": "Instructor",
+          "relativePath": "Instructor/RCS08_InstructorGuide.docx",
+          "sizeBytes": 40755
+        },
+        {
+          "name": "RCS08_InstructorGuide.pdf",
+          "resourceGroup": "Instructor",
+          "relativePath": "Instructor/RCS08_InstructorGuide.pdf",
+          "sizeBytes": 127126
+        },
+        {
+          "name": "RCS08_MasterPrintPacket.pdf",
+          "resourceGroup": "Print",
+          "relativePath": "Print/RCS08_MasterPrintPacket.pdf",
+          "sizeBytes": 243473
+        },
+        {
+          "name": "RCS08_StudentPrintPacket.pdf",
+          "resourceGroup": "Print",
+          "relativePath": "Print/RCS08_StudentPrintPacket.pdf",
+          "sizeBytes": 113005
+        },
+        {
+          "name": "RCS08_DailySlideDeck.pptx",
+          "resourceGroup": "Slides",
+          "relativePath": "Slides/RCS08_DailySlideDeck.pptx",
+          "sizeBytes": 66194
+        },
+        {
+          "name": "RCS08_DailySlideDeck.pptx.inspect.ndjson",
+          "resourceGroup": "Slides",
+          "relativePath": "Slides/RCS08_DailySlideDeck.pptx.inspect.ndjson",
+          "sizeBytes": 44623
+        },
+        {
+          "name": "RCS08_Slides.pdf",
+          "resourceGroup": "Slides",
+          "relativePath": "Slides/RCS08_Slides.pdf",
+          "sizeBytes": 1355987
+        },
+        {
+          "name": "answer_key.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/answer_key.md",
+          "sizeBytes": 609
+        },
+        {
+          "name": "classroom_post.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/classroom_post.md",
+          "sizeBytes": 450
+        },
+        {
+          "name": "day.json",
+          "resourceGroup": "Source",
+          "relativePath": "Source/day.json",
+          "sizeBytes": 5432
+        },
+        {
+          "name": "lab.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/lab.md",
+          "sizeBytes": 989
+        },
+        {
+          "name": "lesson.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/lesson.md",
+          "sizeBytes": 1971
+        },
+        {
+          "name": "manifest.json",
+          "resourceGroup": "Source",
+          "relativePath": "Source/manifest.json",
+          "sizeBytes": 393
+        },
+        {
+          "name": "quiz.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/quiz.md",
+          "sizeBytes": 500
+        },
+        {
+          "name": "reflection.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/reflection.md",
+          "sizeBytes": 149
+        },
+        {
+          "name": "slides.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/slides.md",
+          "sizeBytes": 362
+        },
+        {
+          "name": "whiteboard.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/whiteboard.md",
+          "sizeBytes": 145
+        },
+        {
+          "name": "worksheet.md",
+          "resourceGroup": "Source",
+          "relativePath": "Source/worksheet.md",
+          "sizeBytes": 196
+        },
+        {
+          "name": "RCS08_Quiz.docx",
+          "resourceGroup": "Student",
+          "relativePath": "Student/RCS08_Quiz.docx",
+          "sizeBytes": 38502
+        },
+        {
+          "name": "RCS08_Quiz.pdf",
+          "resourceGroup": "Student",
+          "relativePath": "Student/RCS08_Quiz.pdf",
+          "sizeBytes": 59550
+        },
+        {
+          "name": "RCS08_StudentPacket.docx",
+          "resourceGroup": "Student",
+          "relativePath": "Student/RCS08_StudentPacket.docx",
+          "sizeBytes": 39513
+        },
+        {
+          "name": "RCS08_StudentPacket.pdf",
+          "resourceGroup": "Student",
+          "relativePath": "Student/RCS08_StudentPacket.pdf",
+          "sizeBytes": 91127
+        }
+      ]
+    }
+  ]
+}
