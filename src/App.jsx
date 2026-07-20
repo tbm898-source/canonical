@@ -23,6 +23,8 @@ import Docs from './pages/Docs';
 import OwnerAssistant from './pages/OwnerAssistant';
 import Settings from './pages/Settings';
 import FieldProofWeek1 from './pages/FieldProofWeek1';
+import CommandCenter from './pages/CommandCenter';
+import Cohort6Curriculum from './pages/Cohort6Curriculum';
 import { Navigate } from 'react-router-dom';
 
 const AuthenticatedApp = () => {
@@ -73,6 +75,10 @@ const AuthenticatedApp = () => {
         <Route path="/Docs" element={<Docs />} />
         <Route path="/Docs/:docId" element={<Docs />} />
         <Route path="/OwnerAssistant" element={<OwnerAssistant />} />
+        <Route path="/CommandCenter" element={<CommandCenter />} />
+        <Route path="/Curriculum/Cohort6" element={<Cohort6Curriculum />} />
+        <Route path="/Curriculum/RCS/Cohort6" element={<Cohort6Curriculum />} />
+        <Route path="/Curriculum/PV101/Cohort6" element={<Cohort6Curriculum />} />
       </Route>
       <Route path="*" element={<PageNotFound />} />
     </Routes>

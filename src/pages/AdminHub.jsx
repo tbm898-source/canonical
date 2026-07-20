@@ -8,11 +8,18 @@ import {
   PlugZap,
   Settings2,
   Shield,
+  BookOpen,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavModel } from "@/hooks/use-nav-model";
 
 const adminLinks = [
+  {
+    to: "/CommandCenter",
+    title: "Command Center",
+    text: "Cohort 6 curriculum readiness and private daily artifact index.",
+    icon: BookOpen,
+  },
   {
     to: "/ProgramHelper?mode=owner",
     title: "Owner workbench",
