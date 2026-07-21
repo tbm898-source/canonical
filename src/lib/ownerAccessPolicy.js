@@ -91,9 +91,9 @@ export function normalizeRequestedMode(value = "") {
   return "";
 }
 
-export function resolveWorkbenchMode({ requestedMode = "", ownerAccess, hasExplicitMode = false } = {}) {
+export function resolveWorkbenchMode({ requestedMode = "" } = {}) {
+  // Demo mode retired — always operate in full owner mode.
   const normalizedMode = normalizeRequestedMode(requestedMode);
-  if (normalizedMode === "owner" && ownerAccess?.allowed) return "owner";
-  if (!hasExplicitMode && ownerAccess?.liveOwnerAccess) return "owner";
-  return "demo";
+  if (normalizedMode === "demo") return "demo";
+  return "owner";
 }
