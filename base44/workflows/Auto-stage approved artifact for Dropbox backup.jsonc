@@ -1,0 +1,38 @@
+{
+  "name": "Auto-stage approved artifact for Dropbox backup",
+  "description": "Stages a CanonicalGeneratedArtifact for Dropbox backup only when it is fully validated: status=approved, auto_backup_enabled=true, canonical_spine_map_id present and owner-accepted, approved_destination_path matching the spine map, rail/scope/artifact_type valid, and no unsafe content in public-scoped artifacts. Blocks and stamps dropbox_backup_status=blocked if any gate fails.",
+  "trigger": {
+    "condition": "${ (.trigger.data.status == \"approved\") }",
+    "config": {
+      "trigger_type": "entity",
+      "events": [
+        "create",
+        "update"
+      ],
+      "entity_name": "CanonicalGeneratedArtifact"
+    }
+  },
+  "definition": {
+    "document": {
+      "dsl": "1.0.0",
+      "name": "auto_stage_approved_artifact_for_dropbox_backup",
+      "version": "1.0",
+      "namespace": "base44"
+    },
+    "do": [
+      {
+        "run_function": {
+          "call": "invoke_backend_function",
+          "with": {
+            "function_name": "autoBackupArtifactToDropbox",
+            "args": {}
+          },
+          "then": "end"
+        }
+      }
+    ]
+  },
+  "x-base44-migrated-from-automation": {
+    "legacy_payload_function": "autoBackupArtifactToDropbox"
+  }
+}
