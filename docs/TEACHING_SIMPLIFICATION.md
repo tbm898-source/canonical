@@ -1,29 +1,36 @@
 # Teaching workspace simplification
 
-Prepared October 23, 2026 from GitHub `main` at `afdbfce` on `codex/simplify-teaching`.
+Prepared October 23, 2026 on `codex/simplify-teaching`, from GitHub main `afdbfce`.
 
-## Changed behavior
+## Current behavior
 
 - Home offers two teaching actions: plan the next class or browse curriculum.
-- Main navigation is Home, Curriculum, Plan a class, More. Examples and website tools remain available through More.
-- Curriculum lists Design Thinking for a Joyful Life directly. The existing authenticated owner response now includes the six original module outlines, with core questions, concepts and activity outputs. The frontend renders those outlines as readable sections rather than raw metadata.
-- The lesson planner accepts class name, session date, topic, completed work, remaining work and the first next step. Separate drafts autosave as edited, restore after reload, and can be downloaded as Markdown or previewed and printed.
-- Draft storage is browser-local, scoped by authenticated account ID (email fallback) or a separate anonymous preview key. No cloud sync, provider delivery, curriculum approval or AI generation is implied. Student records are not supported.
-- Malformed saved data is preserved rather than overwritten; failed storage writes show an error and keep download available. No deletion feature was added.
-- The module sync script checks all six module headings against the index before attaching outlines. No curriculum meaning or backend authorization behavior was changed.
+- Main navigation is Home, Curriculum, Plan a class, More.
+- Design Thinking for a Joyful Life opens directly in Curriculum. All six original module outlines include their core questions, concepts and student activity outputs. Reading them does not depend on an owner role, an owner-only backend function, or a mode selection.
+- Demo mode and its landing/switching UI are removed. Old ProgramHelper bookmarks redirect to Curriculum, Plan, or Connected services based on their section, ignoring their old mode query. The old demo data and access-policy files are deleted. Existing technical connector request enums remain compatibility guards, not teaching modes.
+- The planner saves separate class drafts on this browser, scoped to the authenticated account or a separate preview key. Drafts support chosen dates, progress notes, download, preview and print. It does not claim AI generation or cloud synchronization.
+- Examples and website administration are secondary. Connected-service permissions remain separate from teaching access.
 
-## Verification
+## Teaching access decision
 
-- Four focused Node tests pass: independent class drafts, storage corruption rejection, exact preservation of notes/date in download content, and correspondence of all six outlines to source with owner gate retained.
-- Production build, configured lint and post-build privacy checks pass.
-- Type checking still fails with 188 diagnostics across the existing project. No diagnostics name the new planner, library or draft utility. This change does not claim to repair the repository-wide typing baseline.
-- Local browser verified: home navigation; curriculum discovery and anonymous access explanation; drafting; autosave; date persistence; reload recovery; two independent class drafts; and lesson preview. A date-input event problem found during this test was corrected and retested.
-- Live owner login, actual provider responses, cross-device persistence, physical print output and mobile-device interaction were not tested. The local preview has no backend configuration. The new teaching outlines require a successful backend sync to appear in production; old responses receive an explicit outline-unavailable message.
+The program owner explicitly requested on October 23, 2026: unlock Design Thinking for a Joyful Life and remove demo mode. This supersedes the earlier owner-only restriction for the teaching projection used by this website.
+
+`content/teaching/design-thinking.json` is an allowlisted projection: program title, six module titles, sequence numbers and their teaching outlines. It is generated from the existing module sequence with `npm run generate:teaching`. It does not import diagnostic/intervention records, private facilitator notes, internal paths, inbox metadata or credentials. Curriculum meaning and the original source files are unchanged. This is the human-approved curriculum handoff to the teaching surface; it is not approval to publish every PRISM record.
+
+Teaching outlines ship with the frontend so they do not fail when an owner-only backend function is unavailable. The Base44 app's existing site-level sign-in setting is unchanged. The separate owner-method backend and connector-write permissions retain their existing checks.
+
+## Validation
+
+- Five focused Node tests cover independent class drafts, corruption handling, exact preservation of notes/dates, original backend outline correspondence, and exact correspondence of the newly unlocked projection to all six source modules.
+- Lint and release gate pass. The release gate now runs teaching checks, build, then privacy checks against the newly built bundle.
+- Local browser checks confirm module contents open without an owner-role response, Life Design Lab fills the planner's program/topic, and old `?mode=demo` bookmarks redirect to Curriculum with no mode selector. The previous pass verified autosave, chosen dates, reload recovery and two independent class drafts.
+- Repository-wide type diagnostics remain; see local ignored typecheck log. The content alias was added to match Vite resolution.
+- No live provider requests, sign-in changes, external writes or production deployment were performed. Physical print and mobile-device interaction remain unverified.
 
 ## Integration and release
 
-This is a local review candidate, not a deployed release. Source authority remains `tbm898-source/canonical`; the original Dropbox checkout is unchanged. Its observed dirty files include `src/App.jsx`, `.gitignore`, `package.json` and two docs. The mesh policy is `PRESERVE_ONLY_UNTIL_WIP_REVIEW`, so this branch has not been pushed or merged.
+This is a local review candidate. Source authority remains `tbm898-source/canonical`. The original Dropbox checkout has unfinished tracked work including `src/App.jsx`, `.gitignore`, `package.json` and two docs; none was overwritten. The mesh policy is `PRESERVE_ONLY_UNTIL_WIP_REVIEW`, so these commits have not been pushed or merged.
 
-Before release, reconcile the routing addition with the original checkout's unfinished `src/App.jsx` work. Review the curriculum access policy separately: this change makes the content discoverable and readable for the existing authorized account, but does not publish owner-restricted teaching outlines to other accounts. Then run release checks, sync the frontend and `getCanonicalProgramFull` backend through the documented GitHub/Base44 path, publish, and verify the owner experience on the live domain.
+Before release, reconcile routing and package-script additions with that work, run release checks, then use the existing GitHub sync and Base44 Publish path. The unlocked teaching library requires only the frontend update; it no longer needs a backend deployment to become readable. Confirm the published curriculum and old bookmarks on the live domain.
 
-Rollback: revert this change's commit. Existing routes, backend response fields, curriculum sources and provider state are preserved. Browser draft data can remain in place.
+Rollback: revert the two local simplification commits. Existing provider state is unaffected; saved local drafts may remain.

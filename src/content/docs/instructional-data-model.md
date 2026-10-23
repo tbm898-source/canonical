@@ -12,4 +12,4 @@ The instructional model is built around turning real class status into a durable
 
 ## Privacy Rule
 
-Demo mode may show approved summaries, AYA-safe artifacts, and curated PRISM overviews only. PRISM-private material and local draft paths stay owner-only.
+Approved teaching outlines are available in the curriculum library. Private method records, local draft paths, and connected-service administration remain separate.

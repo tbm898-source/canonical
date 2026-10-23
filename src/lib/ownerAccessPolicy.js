@@ -1,4 +1,3 @@
-export const OWNER_MODE_ALIASES = new Set(["owner", "admin"]);
 export const OWNER_ROLES = new Set(["admin", "owner"]);
 
 const ownerFlagKeys = new Set(["is_admin", "admin", "isOwner", "is_owner"]);
@@ -83,18 +82,4 @@ export function getOwnerAccessState({
     reason,
     roleSource: hasOwnerRole ? "role" : envAllowlistMatch ? "env_allowlist" : "none",
   };
-}
-
-export function normalizeRequestedMode(value = "") {
-  const mode = String(value || "").toLowerCase();
-  if (OWNER_MODE_ALIASES.has(mode)) return "owner";
-  if (mode === "demo") return "demo";
-  return "";
-}
-
-export function resolveWorkbenchMode({ requestedMode = "" } = {}) {
-  // Demo mode retired — always operate in full owner mode.
-  const normalizedMode = normalizeRequestedMode(requestedMode);
-  if (normalizedMode === "demo") return "demo";
-  return "owner";
 }

@@ -46,9 +46,9 @@ export default function Dashboard() {
           </Button>
         </Link>
 
-        <Link to="/ProgramHelper?mode=owner" className="mt-3 block">
+        <Link to="/connections" className="mt-3 block">
           <Button className="h-12 w-full gap-2 rounded-xl bg-[#0a0a0a] text-white hover:bg-[#1a1a1a]">
-            Open admin workbench
+            Open connected services
             <ClipboardList className="h-4 w-4" />
           </Button>
         </Link>
@@ -65,7 +65,7 @@ export default function Dashboard() {
         <p className="mt-8 flex items-center gap-2 text-xs text-[#0a0a0a]/40">
           <Lock className="h-3.5 w-3.5" />
           Preview categories — live writes require owner workbench
-          <Link to="/ProgramHelper?mode=demo" className="ml-auto text-indigo-600">
+          <Link to="/curriculum" className="ml-auto text-indigo-600">
             Class view
             <ArrowRight className="ml-0.5 inline h-3 w-3" />
           </Link>

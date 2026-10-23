@@ -21,7 +21,6 @@ export const CLASSROOM_NAV_LINKS = [
 
 /** Operator / builder links — secondary in mobile menu. */
 export const OPERATOR_NAV_LINKS = [
-  { to: "/ProgramHelper?mode=demo", label: "Sample lesson & packet builder" },
   { to: "/field-proof-week1", label: "Week 1 example" },
   { to: "/HowItWorks", label: "How it works" },
   { to: "/About", label: "About" },

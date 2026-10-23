@@ -1,5 +1,5 @@
 /**
- * CANONICAL release gate: privacy QA + production build.
+ * CANONICAL release gate: teaching checks + production build + bundle privacy QA.
  * Run before every Base44 publish.
  */
 import { spawnSync } from "node:child_process";
@@ -21,6 +21,7 @@ function run(scriptName) {
   }
 }
 
-run("qa:privacy");
+run("qa:teaching");
 run("build");
-console.log("\n✓ Release gate passed (privacy QA + build).\n");
+run("qa:privacy");
+console.log("\n✓ Release gate passed (teaching checks + build + bundle privacy QA).\n");

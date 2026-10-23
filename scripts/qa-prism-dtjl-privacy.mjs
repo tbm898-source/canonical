@@ -1,146 +1,21 @@
-import { portalData } from "../src/data/instructionalSampleData.js";
 import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import {
-  PROGRAM_VIEW_MODES,
-  assertNoPrivateDemoFields,
-  getAccessibleModuleForProgram,
-  getVisiblePrograms,
-} from "../src/lib/programAccessPolicy.js";
-
 const repoRoot = fileURLToPath(new URL("..", import.meta.url));
-
-function assert(condition, message) {
-  if (!condition) {
-    throw new Error(message);
-  }
-}
-
-const demoPrograms = getVisiblePrograms(portalData.programs, PROGRAM_VIEW_MODES.DEMO);
-const ownerPrograms = getVisiblePrograms(portalData.programs, PROGRAM_VIEW_MODES.OWNER);
-const demoDtjl = demoPrograms.find((program) => program.program_key === "PRISM_DTJL");
-const ownerDtjl = ownerPrograms.find((program) => program.program_key === "PRISM_DTJL");
-const demoPv102 = demoPrograms.find((program) => program.program_key === "AYA_CTS");
-
-assert(demoDtjl, "PRISM_DTJL must be visible as a demo-safe overview card.");
-assert(ownerDtjl, "PRISM_DTJL must be available in owner mode.");
-assert(demoPv102, "PV102 / AYA_CTS public demo sample must remain visible.");
-assert(demoDtjl.demo_access === "public_demo_summary_only", "PRISM_DTJL demo view must be summary-only.");
-assert(ownerDtjl.visibility_scope === "prism_private", "Owner PRISM_DTJL seed must remain prism_private.");
-assert(ownerDtjl.ownership_rail === "PRISM_CORE", "Owner PRISM_DTJL seed must remain PRISM_CORE.");
-
-const leakedFields = assertNoPrivateDemoFields(demoDtjl);
-assert(
-  leakedFields.length === 0,
-  `PRISM_DTJL demo program includes private fields: ${leakedFields.join(", ")}`,
-);
-
-const demoDtjlModule = getAccessibleModuleForProgram(
-  demoDtjl,
-  portalData.modules,
-  PROGRAM_VIEW_MODES.DEMO,
-);
-assert(demoDtjlModule === null, "PRISM_DTJL demo mode must not receive module/source structure data.");
-
-const pv102Module = getAccessibleModuleForProgram(
-  demoPv102,
-  portalData.modules,
-  PROGRAM_VIEW_MODES.DEMO,
-);
-assert(pv102Module?.module_key === "PV102", "PV102 demo module must remain accessible.");
-
-const demoDtjlText = JSON.stringify(demoDtjl);
-const blockedPatterns = [
-  { label: "Windows path", pattern: /[A-Z]:\\/ },
-  { label: "private CANONICAL program path", pattern: /CANONICAL:\/\/02_PROJECTS\/PRISM\/programs/i },
-  { label: "evidence map internals", pattern: /evidence_map|evidence map/i },
-  { label: "diagnostic internals", pattern: /DIAGNOSTIC_PATTERNS|diagnostic pattern/i },
-  { label: "intervention internals", pattern: /INTERVENTION_LIBRARY|intervention librar/i },
-  { label: "source structure", pattern: /source_structure|00_GOVERNANCE|02_PROGRAM_OS/i },
-  { label: "connector calls", pattern: /connector|dropbox|classroom|clickup|gmail/i },
-  { label: "credentials", pattern: /api_key|token|oauth|secret/i },
-  { label: "AYA implementation assumptions", pattern: /\bAYA\b|Alternative Youth Activities|\bCTS\b/i },
-  { label: "private notes", pattern: /private_notes|owner_only/i },
-];
-
-const leaks = blockedPatterns
-  .filter(({ pattern }) => pattern.test(demoDtjlText))
-  .map(({ label }) => label);
-
-assert(leaks.length === 0, `PRISM_DTJL demo overview leaked: ${leaks.join(", ")}`);
-
-// Bundle-wide leak check: scan the entire portalData object (the public JS bundle payload)
-// for PRISM-private fields, paths, and operator-private metadata that must never ship publicly.
-// Adding new private fields to portalData without removing them is now a regression.
-const portalDataText = JSON.stringify(portalData);
-const portalBlockedPatterns = [
-  { label: "private CANONICAL PRISM program path", pattern: /CANONICAL:\/\/02_PROJECTS\/PRISM/i },
-  { label: "local AI drafts inbox path", pattern: /CANONICAL:\/\/00_INBOX\/AI_DRAFTS/i },
-  { label: "PRISM source folder 00_GOVERNANCE", pattern: /00_GOVERNANCE/ },
-  { label: "PRISM source folder 02_PROGRAM_OS", pattern: /02_PROGRAM_OS/ },
-  { label: "PRISM source folder 03_AGENT_SKILLS", pattern: /03_AGENT_SKILLS/ },
-  { label: "PRISM source folder 05_ARTIFACT_RECIPES", pattern: /05_ARTIFACT_RECIPES/ },
-  { label: "PRISM module key CATALYST_BLUEPRINT_V0_1", pattern: /CATALYST_BLUEPRINT_V0_1/ },
-  { label: "PRISM_DTJL import id", pattern: /import_prism_dtjl/ },
-  // Field-name leaks only matter when they carry a non-empty value.
-  // Empty placeholders in unrelated sample programs (e.g. AYA_CTS owner_only_notes_path: "")
-  // are intentionally left untouched per scope; non-empty values are the real privacy risk.
-  { label: "owner_only_notes_path with non-empty value", pattern: /"owner_only_notes_path"\s*:\s*"[^"]+"/ },
-  { label: "private_notes with non-empty value", pattern: /"private_notes"\s*:\s*"[^"]+"/ },
-  { label: "source_structure with content", pattern: /"source_structure"\s*:\s*\[\s*"/ },
-  { label: "local_cursor_sdk runtime value", pattern: /local_cursor_sdk/ },
-];
-
-const portalLeaks = portalBlockedPatterns
-  .filter(({ pattern }) => pattern.test(portalDataText))
-  .map(({ label }) => label);
-
-assert(
-  portalLeaks.length === 0,
-  `portalData public bundle leaked private PRISM/operator fields: ${portalLeaks.join(", ")}. ` +
-    `These must live behind getCanonicalProgramFull (server-side), not in src/data/instructionalSampleData.js.`,
-);
-
-const liveIntegrationsSource = readFileSync(
-  new URL("../src/components/program-helper/LiveIntegrationsPanel.jsx", import.meta.url),
-  "utf8",
-);
-const authContextSource = readFileSync(
-  new URL("../src/lib/AuthContext.jsx", import.meta.url),
-  "utf8",
-);
-const programHelperSource = readFileSync(
-  new URL("../src/pages/ProgramHelper.jsx", import.meta.url),
-  "utf8",
-);
+function assert(condition, message) { if (!condition) throw new Error(message); }
 const appSource = readFileSync(new URL("../src/App.jsx", import.meta.url), "utf8");
-
-assert(
-  !/import\s+\{\s*base44\s*\}\s+from\s+["']@\/api\/base44Client["']/.test(liveIntegrationsSource),
-  "LiveIntegrationsPanel must not statically import the Base44 client because demo mode must not preload backend SDK calls.",
-);
-
-assert(
-  /await import\(["']@\/api\/base44Client["']\)/.test(liveIntegrationsSource),
-  "LiveIntegrationsPanel should lazy-load the Base44 client only inside owner-triggered integration actions.",
-);
-
-assert(
-  /previewPath\s*&&\s*isLocalPreviewHost\(\)/.test(authContextSource),
-  "AuthContext must keep anonymous preview bypass limited to localhost only.",
-);
-
-assert(
-  /requestedOwnerMode\s*&&\s*ownerAccess\.allowed/.test(programHelperSource),
-  "ProgramHelper must only honor requested owner mode when owner access is allowed.",
-);
-
-assert(
-  /!ownerAccess\.allowed\s*&&\s*mode\s*===\s*["']owner["']/.test(programHelperSource),
-  "ProgramHelper must downgrade unauthorized owner mode back to demo.",
-);
-
+const librarySource = readFileSync(new URL("../src/pages/TeachingLibrary.jsx", import.meta.url), "utf8");
+const helperSource = readFileSync(new URL("../src/pages/ProgramHelper.jsx", import.meta.url), "utf8");
+const teaching = JSON.parse(readFileSync(new URL("../content/teaching/design-thinking.json", import.meta.url), "utf8"));
+assert(teaching.modules.length === 6, "All six teaching modules must be available.");
+assert(!/liveOwnerAccess|functions.invoke|mode=demo/.test(librarySource), "Teaching curriculum must open without an owner gate or demo flag.");
+assert(/Navigate/.test(helperSource) && !/setMode|setEntered/.test(helperSource), "Legacy helper must redirect without restoring mode selection.");
+assert(Object.keys(teaching).sort().join() === "approval,modules,title,version", "Unexpected teaching projection fields.");
+assert(teaching.modules.every((module) => Object.keys(module).sort().join() === "outline,sequence,title"), "Teaching projection must not carry private method metadata.");
+const authSource = readFileSync(new URL("../src/lib/AuthContext.jsx", import.meta.url), "utf8");
+assert(/previewPath\s*&&\s*isLocalPreviewHost\(\)/.test(authSource), "Local startup preview must not bypass live sign-in settings.");
+const liveSource = readFileSync(new URL("../src/components/program-helper/LiveIntegrationsPanel.jsx", import.meta.url), "utf8");
+assert(/await import\(["']@\/api\/base44Client["']\)/.test(liveSource), "Connector client should remain loaded only for connector operations.");
 const generatedPackageFiles = [
   { file: "cts-master-package-v1.summary.json", packageId: "cts-master-package-v1" },
   { file: "cts-master-package-v1.components.json", packageId: "cts-master-package-v1" },
@@ -380,9 +255,9 @@ if (allLeaks.length) {
 }
 
 console.log("PRISM_DTJL privacy QA passed.");
-console.log("Demo view: summary-only, no private module/source payload.");
-console.log("portalData bundle scan: no PRISM-private or operator-private fields leaked into the public JS bundle.");
-console.log("PV102 remains the accessible public demo sample.");
+console.log("Teaching library: six approved outlines unlocked; no demo or owner mode selection.");
+console.log("Private method tokens and operator paths remain excluded from the public JS bundle.");
+
 console.log("CTS package proof QA passed: generated JSON parses and public proof text is sanitized.");
 console.log("CTS slide template proof QA passed: 10 decks, 19 slides each, direct PPTX editing gated.");
 console.log(

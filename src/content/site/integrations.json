@@ -11,7 +11,7 @@
     {
       "name": "Google Classroom",
       "status": "Prepared adapter",
-      "posture": "Classroom-ready drafts only in v1; no live posting from public/demo mode."
+      "posture": "Classroom-ready drafts; live posting requires an authorized administrator."
     },
     {
       "name": "ClickUp",
@@ -30,7 +30,7 @@
     }
   ],
   "rules": [
-    "Demo mode makes no backend connector calls.",
+    "Teaching access does not grant connected-service write permissions.",
     "Live writes require owner mode, classification, and an approved destination.",
     "PRISM-private material never exports to public/demo or Classroom surfaces."
   ]

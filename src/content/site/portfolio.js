@@ -51,7 +51,7 @@ export const caseStudies = [
       "Codex/Cursor for deeper refactoring and implementation",
       "GitHub branches, commits, and pull requests for durability",
       "Agent instructions and project handoffs for continuity",
-      "Separation between demo mode and live connector/write access",
+      "Teaching materials available independently of connected-service permissions",
     ],
     proof:
       "Shows ability to operate across no-code, low-code, and code-assisted workflows without losing control of the system.",

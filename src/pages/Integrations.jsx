@@ -64,8 +64,8 @@ export default function Integrations() {
         <section className="mt-12 rounded-3xl border border-black/5 bg-white p-6 shadow-sm sm:p-8">
           <h2 className="text-xl font-bold tracking-tight text-[#0a0a0a]">Live controls</h2>
           <p className="mt-3 max-w-2xl text-sm leading-6 text-[#0a0a0a]/60">
-            Connector health, Dropbox discovery, and packet saves run in the owner workbench — not from demo
-            mode. Settings shows read-only posture and an optional Endpoint Pulse link.
+            Connector health and Dropbox setup are available in Connected services. Teaching materials open
+            separately in the curriculum library. Settings shows connection information and account access.
           </p>
           <div className="mt-6 flex flex-col gap-2 sm:flex-row">
             <Link to="/Settings" className="w-full sm:w-auto">
@@ -74,11 +74,11 @@ export default function Integrations() {
               </Button>
             </Link>
             <Link
-              to={ownerAccess.allowed ? "/ProgramHelper?mode=owner#integrations" : "/ProgramHelper?mode=demo"}
+              to={ownerAccess.allowed ? "/connections" : "/curriculum"}
               className="w-full sm:w-auto"
             >
               <Button className="h-11 w-full gap-2 rounded-xl bg-[#0a0a0a] text-white hover:bg-[#1a1a1a]">
-                {ownerAccess.allowed ? "Owner integrations panel" : "Demo workbench"}
+                {ownerAccess.allowed ? "Owner integrations panel" : "Curriculum library"}
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </Link>

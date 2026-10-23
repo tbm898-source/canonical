@@ -35,3 +35,22 @@ test("authenticated payload includes all six original outlines and keeps the own
   assert.deepEqual(modules.filter((module) => module.sequence_order > 0).map((module) => module.teaching_outline), originals);
   assert.ok(source.indexOf("await requireOwnerAdmin(base44)") < source.indexOf('if (programKey === "PRISM_DTJL")'));
 });
+
+test("teaching projection exposes exactly the approved outlines without requiring owner access", () => {
+  const teaching = JSON.parse(readFileSync(new URL("../content/teaching/design-thinking.json", import.meta.url), "utf8"));
+  const source = readFileSync(new URL("../canonical_spine/02_PROJECTS/PRISM/programs/design-thinking-for-a-joyful-life/04_CURRICULUM/MODULE_SEQUENCE.md", import.meta.url), "utf8").replace(/\r\n/g, "\n");
+  const sections = source.split(/^## Module \d+: /m).slice(1);
+  assert.equal(teaching.modules.length, 6);
+  teaching.modules.forEach((module, index) => {
+    const split = sections[index].indexOf("\n");
+    assert.equal(module.title, sections[index].slice(0, split).trim());
+    assert.equal(module.outline, sections[index].slice(split).replace(/\n---\s*$/, "").trim());
+    assert.deepEqual(Object.keys(module).sort(), ["outline", "sequence", "title"]);
+  });
+  const library = readFileSync(new URL("../src/pages/TeachingLibrary.jsx", import.meta.url), "utf8");
+  assert.ok(!library.includes("liveOwnerAccess"));
+  assert.ok(!library.includes("functions.invoke"));
+  const legacy = readFileSync(new URL("../src/pages/ProgramHelper.jsx", import.meta.url), "utf8");
+  assert.ok(legacy.includes("Navigate"));
+  assert.ok(!legacy.includes("setMode"));
+});

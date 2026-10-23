@@ -27,13 +27,13 @@ function RoleCard({ ownerAccess, user, isAuthenticated }) {
         <div className="min-w-0 flex-1">
           <h2 className="text-lg font-semibold tracking-tight text-[#0a0a0a]">Your access</h2>
           <p className="mt-2 text-sm leading-6 text-[#0a0a0a]/55">
-            Class logins see preview-safe materials. Admin tools require an owner account from your coordinator.
+            Teaching modules open from the curriculum library. Managing connected services requires an administrator account.
           </p>
         </div>
       </div>
       <dl className="mt-5 grid gap-3 text-sm sm:grid-cols-2">
         <div className="rounded-xl bg-[#fafafa] p-3">
-          <dt className="text-[11px] font-semibold uppercase tracking-wide text-[#0a0a0a]/40">Mode</dt>
+          <dt className="text-[11px] font-semibold uppercase tracking-wide text-[#0a0a0a]/40">Account access</dt>
           <dd className="mt-1 font-medium text-[#0a0a0a]">{modeLabel}</dd>
         </div>
         <div className="rounded-xl bg-[#fafafa] p-3">
@@ -52,15 +52,15 @@ function RoleCard({ ownerAccess, user, isAuthenticated }) {
         )}
       </dl>
       <div className="mt-5 flex flex-col gap-2 sm:flex-row">
-        <Link to="/ProgramHelper?mode=demo" className="w-full sm:w-auto">
+        <Link to="/curriculum" className="w-full sm:w-auto">
           <Button variant="outline" className="h-11 w-full rounded-xl">
             Open class view
           </Button>
         </Link>
         {ownerAccess.allowed ? (
-          <Link to="/ProgramHelper?mode=owner" className="w-full sm:w-auto">
+          <Link to="/connections" className="w-full sm:w-auto">
             <Button className="h-11 w-full rounded-xl bg-[#0a0a0a] text-white hover:bg-[#1a1a1a]">
-              Open owner workbench
+              Open connected services
             </Button>
           </Link>
         ) : (
