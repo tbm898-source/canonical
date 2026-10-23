@@ -12,6 +12,8 @@
     "lint": "eslint . --quiet",
     "lint:fix": "eslint . --fix",
     "qa:privacy": "node scripts/qa-prism-dtjl-privacy.mjs",
+    "qa:teaching": "node --test scripts/test-lesson-drafts.mjs",
+    "generate:teaching": "node scripts/generate-teaching-curriculum.mjs",
     "qa:release": "node scripts/run-release-gate.mjs",
     "sync:prism-inline": "node scripts/sync-prism-dtjl-inline.mjs",
     "typecheck": "tsc -p ./jsconfig.json",

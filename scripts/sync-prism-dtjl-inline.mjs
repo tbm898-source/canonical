@@ -22,6 +22,12 @@ const importManifest = readJson("IMPORT_MANIFEST.json");
 const ontology = readJson("02_PROGRAM_OS/CONCEPT_ONTOLOGY.json");
 const diagnostics = readJson("02_PROGRAM_OS/DIAGNOSTIC_PATTERNS.json");
 const interventions = readJson("02_PROGRAM_OS/INTERVENTION_LIBRARY.json");
+// Keep teaching text in the authenticated backend payload, never the public JS bundle.
+const moduleSequence = readFileSync(path.join(spineRoot, "04_CURRICULUM/MODULE_SEQUENCE.md"), "utf8");
+const teachingOutlines = moduleSequence.split(/^## Module \d+: /m).slice(1).map((section) => {
+  const firstNewline = section.indexOf("\n");
+  return { title: section.slice(0, firstNewline).trim(), body: section.slice(firstNewline).replace(/\n---\s*$/, "").trim() };
+});
 
 const MODULE_KEYS = [
   ["Critical Thinking and Information Navigation", "DTJL_M01_CRITICAL_THINKING"],
@@ -31,6 +37,9 @@ const MODULE_KEYS = [
   ["Environmental Architecture and Resilience", "DTJL_M05_ENVIRONMENT_ARCHITECTURE"],
   ["Decision Architecture", "DTJL_M06_DECISION_ARCHITECTURE"],
 ];
+if (teachingOutlines.length !== MODULE_KEYS.length || MODULE_KEYS.some(([title], index) => teachingOutlines[index].title !== title)) {
+  throw new Error("Curriculum sequence does not match the module index. Refusing to attach incorrect teaching outlines.");
+}
 
 const canonicalUri = importManifest.canonical_destination_path;
 const repoMirror =
@@ -93,6 +102,7 @@ const PRISM_DTJL_MODULES = [
     created_from_import_id: importId,
     sequence_order: index + 1,
     description: `Curriculum module ${index + 1} of ${MODULE_KEYS.length} in the Catalyst Blueprint sequence.`,
+    teaching_outline: teachingOutlines[index].body,
   })),
 ];
 

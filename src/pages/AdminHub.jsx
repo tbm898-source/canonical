@@ -21,9 +21,9 @@ const adminLinks = [
     icon: BookOpen,
   },
   {
-    to: "/ProgramHelper?mode=owner",
-    title: "Owner workbench",
-    text: "Full session tools, connectors, draft review, and PRISM panels.",
+    to: "/connections",
+    title: "Connected services",
+    text: "Connection checks, Dropbox setup, and export tools.",
     icon: ClipboardList,
   },
   {
@@ -90,7 +90,7 @@ export default function AdminHub() {
         ))}
       </ul>
 
-      <Link to="/ProgramHelper?mode=owner#integrations" className="mt-6 block">
+      <Link to="/connections" className="mt-6 block">
         <Button className="h-12 w-full rounded-xl bg-[#0a0a0a] text-white hover:bg-[#1a1a1a]">
           Open connector panel
         </Button>

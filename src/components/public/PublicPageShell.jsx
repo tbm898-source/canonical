@@ -15,9 +15,9 @@ export function PublicFooter() {
           <div className="font-semibold text-[#0a0a0a]/60">Gordian Knot Consulting LLC</div>
           <div>CANONICAL Core v0.1 - private operator buildout / public overview</div>
         </div>
-        <Link to="/ProgramHelper?mode=demo">
+        <Link to="/plan">
           <Button size="sm" className="rounded-xl bg-[#0a0a0a] text-white hover:bg-[#1a1a1a]">
-            Open today&apos;s class
+            Plan the next class
           </Button>
         </Link>
       </div>

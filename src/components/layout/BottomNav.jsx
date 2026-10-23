@@ -1,12 +1,12 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { BookOpen, Home, Layers, MoreHorizontal, Shield } from "lucide-react";
+import { BookOpen, Home, CalendarDays, MoreHorizontal, Shield } from "lucide-react";
 import { pathMatchesTab, TAB_IDS } from "@/hooks/use-nav-model";
 
 const TAB_ICONS = {
   [TAB_IDS.START]: Home,
   [TAB_IDS.PROGRAMS]: BookOpen,
-  [TAB_IDS.EXAMPLES]: Layers,
+  [TAB_IDS.EXAMPLES]: CalendarDays,
   [TAB_IDS.MORE]: MoreHorizontal,
   [TAB_IDS.ADMIN]: Shield,
 };

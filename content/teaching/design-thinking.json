@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "title": "Design Thinking for a Joyful Life",
+  "approval": "Teaching outlines unlocked by the program owner on 2026-10-23",
+  "modules": [
+    {
+      "sequence": 1,
+      "title": "Critical Thinking and Information Navigation",
+      "outline": "**Core question:** Who or what have I authorized to shape my reality?\n\n### Concepts\n- Information glut\n- Fact vs argument\n- Persuasion filter\n- Intentional authority\n- Curiosity with skepticism\n- Opportunity noticing\n\n### Student outputs\n- Fact vs argument sort\n- Authority audit\n- Media/input inventory\n- Persuasion filter reflection"
+    },
+    {
+      "sequence": 2,
+      "title": "Life Design Lab",
+      "outline": "**Core question:** What parts of my life are designable, and what parts are gravity?\n\n### Concepts\n- Design thinking\n- Curiosity\n- Reframing\n- Radical collaboration\n- Bias to action\n- Gravity problems\n- Work View and Life View\n\n### Student outputs\n- Work View reflection\n- Life View reflection\n- Gravity problem sort\n- Reframe map"
+    },
+    {
+      "sequence": 3,
+      "title": "Odyssey Planning and Prototyping",
+      "outline": "**Core question:** What are three lives I could build from here?\n\n### Concepts\n- Three parallel futures\n- Current path improved\n- Pivot path\n- Wild-card path\n- Prototype conversations\n- Prototype experiences\n- Narrative resonance\n\n### Student outputs\n- Three futures worksheet\n- Prototype conversation plan\n- Prototype experience plan\n- Alignment scorecard"
+    },
+    {
+      "sequence": 4,
+      "title": "Mechanics of High-Speed Change",
+      "outline": "**Core question:** How do I start before my brain talks me out of starting?\n\n### Concepts\n- Activation energy\n- 5-second start\n- Two-minute entry\n- 20-hour skill sprint\n- Frustration barrier\n- Self-correction\n\n### Student outputs\n- Five-second action log\n- Skill sprint plan\n- Practice barrier removal sheet\n- Frustration reflection"
+    },
+    {
+      "sequence": 5,
+      "title": "Environmental Architecture and Resilience",
+      "outline": "**Core question:** What around me is shaping who I become?\n\n### Concepts\n- Environment over willpower\n- Peer group audit\n- Media diet\n- Input streams\n- Support anchors\n- Midwives to dreams\n\n### Student outputs\n- Environment audit\n- Peer group map\n- Media cleanup plan\n- Support anchor plan"
+    },
+    {
+      "sequence": 6,
+      "title": "Decision Architecture",
+      "outline": "**Core question:** How do I choose without getting trapped in endless options?\n\n### Concepts\n- Choice overload\n- Rule of five\n- Gut check after choice\n- Commitment after prototyping\n- FOMO reduction\n- Decision log\n\n### Student outputs\n- Choice narrowing sheet\n- Top five options\n- Decision commitment plan\n- Post-choice reflection"
+    }
+  ]
+}

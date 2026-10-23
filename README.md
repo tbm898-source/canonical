@@ -1,6 +1,6 @@
 # CANONICAL Program OS (Base44)
 
-Structured operating system for instructional program memory, AYA/CTS classroom materials, and owner-private PRISM framework — synced to [Base44](https://Base44.com) via GitHub.
+Teaching workspace for curriculum, class preparation and saved lesson drafts — synced to [Base44](https://Base44.com) via GitHub. Design Thinking teaching modules are available in the curriculum library without an owner-role requirement or demo mode.
 
 | | |
 |---|---|
@@ -30,7 +30,7 @@ npm run dev
 npm run qa:release
 ```
 
-Runs privacy QA (`qa:privacy`) and production build. CI runs the same on `main`.
+Runs teaching checks, production build, then privacy QA against the fresh bundle. CI runs the same on `main`.
 
 ## Publish
 
@@ -42,8 +42,11 @@ Runs privacy QA (`qa:privacy`) and production build. CI runs the same on `main`.
 
 | Route | Who |
 |-------|-----|
-| `/ProgramHelper?mode=demo` | Public demo |
-| `/ProgramHelper?mode=owner` | Owner / admin |
+| `/start` | Teaching home |
+| `/curriculum` | Curriculum library, including all six Design Thinking outlines |
+| `/plan` | Lesson drafts, chosen dates, download and print |
+| `/ProgramHelper` | Legacy bookmarks redirect to the new teaching pages; mode flags are ignored |
+| `/connections` | Administrator service connection tools |
 | `/OwnerAssistant` | Owner PRISM generation |
 | `/Settings` | Role, connector posture, health check |
 | `/Integrations` | Connector overview |
@@ -52,8 +55,10 @@ Runs privacy QA (`qa:privacy`) and production build. CI runs the same on `main`.
 
 | Script | Purpose |
 |--------|---------|
-| `npm run qa:privacy` | PRISM/demo bundle privacy regression |
-| `npm run qa:release` | Privacy QA + build |
+| `npm run qa:privacy` | Teaching access and private-method bundle checks |
+| `npm run qa:teaching` | Lesson draft and curriculum projection tests |
+| `npm run generate:teaching` | Refresh the approved six-module teaching projection |
+| `npm run qa:release` | Teaching checks + build + privacy QA |
 | `npm run build` | Production bundle |
 | `npm run sync:prism-inline` | Update inline `getCanonicalProgramFull` mirror (operator) |
 
@@ -68,8 +73,9 @@ Runs privacy QA (`qa:privacy`) and production build. CI runs the same on `main`.
 
 ## Boundaries
 
-- PRISM private data: server function `getCanonicalProgramFull` only — never in public `src` bundle
-- Demo mode: no backend connector calls
+- Approved Design Thinking teaching outlines: `content/teaching/design-thinking.json`, available in Curriculum
+- Private method records: authenticated server functions; not included in the teaching projection
+- Connected-service writes: separate administrator authorization; reading curriculum grants no write permissions
 - Endpoint Pulse / FieldPulse: separate; link from Settings only
 
 Base44 docs: [GitHub integration](https://docs.base44.com/Integrations/Using-GitHub)

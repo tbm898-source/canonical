@@ -9,6 +9,9 @@ import AppShell from '@/components/layout/AppShell';
 import ProgramHelper from './pages/ProgramHelper';
 import HomeRoute from './pages/HomeRoute';
 import Start from './pages/Start';
+import TeachingLibrary from './pages/TeachingLibrary';
+import LessonPlanner from './pages/LessonPlanner';
+import ConnectionTools from './pages/ConnectionTools';
 import AdminHub from './pages/AdminHub';
 import More from './pages/More';
 import About from './pages/About';
@@ -56,6 +59,9 @@ const AuthenticatedApp = () => {
       <Route path="/ProgramHelper" element={<ProgramHelper />} />
       <Route element={<AppShell />}>
         <Route path="/start" element={<Start />} />
+        <Route path="/curriculum" element={<TeachingLibrary />} />
+        <Route path="/plan" element={<LessonPlanner />} />
+        <Route path="/connections" element={<ConnectionTools />} />
         <Route path="/" element={<HomeRoute />} />
         <Route path="/Home" element={<Navigate to="/start" replace />} />
         <Route path="/admin" element={<AdminHub />} />

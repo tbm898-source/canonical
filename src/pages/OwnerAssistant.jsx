@@ -369,10 +369,10 @@ function PageHeader() {
         </Link>
         <div className="flex shrink-0 items-center gap-3">
           <Link
-            to="/ProgramHelper?mode=owner"
+            to="/connections"
             className="hidden min-h-11 items-center text-sm text-indigo-600 sm:inline-flex"
           >
-            Program Helper
+            Connected services
           </Link>
           <Link
             to="/Home"

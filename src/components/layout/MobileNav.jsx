@@ -13,19 +13,16 @@ import {
 
 /** Shown first — classroom / substitute friendly. */
 export const CLASSROOM_NAV_LINKS = [
-  {
-    to: "/ProgramHelper?mode=demo",
-    label: "Today's class",
-    variant: "demo",
-    primary: true,
-  },
-  { to: "/field-proof-week1", label: "Week 1 example" },
-  { to: "/HowItWorks", label: "How it works" },
-  { to: "/start", label: "Quick start" },
+  { to: "/start", label: "Home" },
+  { to: "/curriculum", label: "Curriculum" },
+  { to: "/plan", label: "Plan a class", primary: true },
+  { to: "/more", label: "More" },
 ];
 
 /** Operator / builder links — secondary in mobile menu. */
 export const OPERATOR_NAV_LINKS = [
+  { to: "/field-proof-week1", label: "Week 1 example" },
+  { to: "/HowItWorks", label: "How it works" },
   { to: "/About", label: "About" },
   { to: "/portfolio", label: "Portfolio" },
   { to: "/Integrations", label: "Integrations" },
@@ -40,8 +37,6 @@ export const OPERATOR_NAV_LINKS = [
 /** Desktop: classroom links + a few essentials; full list in mobile sheet. */
 export const DESKTOP_NAV_LINKS = [
   ...CLASSROOM_NAV_LINKS,
-  { to: "/About", label: "About" },
-  { to: "/portfolio", label: "Portfolio" },
 ];
 
 export const PUBLIC_NAV_LINKS = [...CLASSROOM_NAV_LINKS, ...OPERATOR_NAV_LINKS];
@@ -83,7 +78,7 @@ function MobileNavSections() {
   return (
     <>
       <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-700">
-        For class today
+        Teaching
       </p>
       <nav className="mt-2 flex flex-col gap-1">
         {CLASSROOM_NAV_LINKS.map(({ to, label, variant, primary }) => (
@@ -93,7 +88,7 @@ function MobileNavSections() {
         ))}
       </nav>
       <p className="mt-8 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#0a0a0a]/35">
-        More (operators)
+        Examples & background
       </p>
       <nav className="mt-2 flex flex-col gap-1">
         {OPERATOR_NAV_LINKS.map(({ to, label }) => (

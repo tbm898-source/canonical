@@ -38,7 +38,7 @@ const steps = [
   {
     icon: ShieldCheck,
     title: "Set dry-run mode",
-    text: "Classroom, ClickUp, and email adapters should prepare drafts first. Demo mode must never call backend connectors.",
+    text: "Classroom, ClickUp, and email adapters prepare drafts before delivery. Connected-service administration uses separate permissions from reading curriculum.",
   },
   {
     icon: PlugZap,
@@ -102,7 +102,7 @@ export default function WorkspaceSetup() {
               <p className="mt-4 text-sm leading-6 text-[#0a0a0a]/50">
                 V1 treats Dropbox as the first live connector, but discovery comes before writing. Google Classroom, ClickUp, and email remain prepared/dry-run adapters until owner approval and explicit live workflows exist.
               </p>
-              <Link to="/ProgramHelper?mode=demo">
+              <Link to="/curriculum">
                 <Button className="mt-6 gap-2 rounded-xl bg-[#0a0a0a] text-white hover:bg-[#1a1a1a]">
                   Open current helper
                   <Bot className="h-4 w-4" />

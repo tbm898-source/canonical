@@ -104,12 +104,7 @@ export default function LiveIntegrationsPanel({ owner, generatedPackage }) {
       }),
     [classification, owner],
   );
-  const modeLabel = owner
-    ? acceptedSpineMap
-      ? CONNECTOR_MODES.OWNER_LIVE_DROPBOX
-      : CONNECTOR_MODES.OWNER_PREVIEW
-    : CONNECTOR_MODES.DEMO;
-  const connectorBlockedMessage = owner ? "Generate a packet first." : "Connector disabled in demo.";
+  const connectorBlockedMessage = owner ? "Generate a packet first." : "Administrator permission required.";
   const canCallBackend = owner;
   const canSaveDropbox =
     owner &&
@@ -258,17 +253,17 @@ export default function LiveIntegrationsPanel({ owner, generatedPackage }) {
             Connector spine controls
           </h3>
           <p className="mt-2 max-w-3xl text-sm leading-6 text-[#0a0a0a]/50">
-            Dropbox is treated as the discovered CANONICAL spine. Classroom and ClickUp stay dry-run only in V1, and demo mode never calls backend connectors.
+            Check the website's service connections and approved Dropbox destination. Delivery and export tools require administrator permission.
           </p>
         </div>
         <span className="shrink-0 rounded-full border border-indigo-100 bg-white px-3 py-1 text-xs font-semibold text-indigo-600">
-          {modeLabel.replace(/_/g, " ")}
+          {acceptedSpineMap ? "Destination selected" : "Connection setup"}
         </span>
       </div>
 
       {!owner && (
         <div className="mb-4 rounded-2xl border border-amber-100 bg-amber-50 p-4 text-sm leading-6 text-amber-900">
-          Demo mode: connector calls, real Dropbox paths, Classroom posting, ClickUp creation, and Gmail/email sending are disabled.
+          Administrator permission is required to manage connected services.
         </div>
       )}
 
@@ -280,7 +275,7 @@ export default function LiveIntegrationsPanel({ owner, generatedPackage }) {
           action={
             <Button variant="outline" className="h-11 w-full gap-2 sm:w-auto" onClick={checkHealth} disabled={!owner}>
               <RefreshCcw className="h-4 w-4" />
-              {owner ? "Check connectors" : "Owner mode required"}
+              {owner ? "Check connectors" : "Administrator permission required"}
             </Button>
           }
         >
@@ -314,7 +309,7 @@ export default function LiveIntegrationsPanel({ owner, generatedPackage }) {
             <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:gap-3">
               <Button variant="outline" className="h-11 w-full gap-2 sm:w-auto" onClick={discoverSpine} disabled={!owner}>
                 <RefreshCcw className="h-4 w-4" />
-                {owner ? "Discover Dropbox spine" : "Connector disabled in demo"}
+                {owner ? "Discover Dropbox spine" : "Administrator permission required"}
               </Button>
               <Button
                 className="h-11 w-full gap-2 bg-[#0a0a0a] hover:bg-[#1a1a1a] sm:w-auto"

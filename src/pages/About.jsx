@@ -108,7 +108,7 @@ export default function About() {
             <div className="max-w-3xl">
               <h2 className="text-3xl font-bold tracking-tight">Current public posture</h2>
               <p className="mt-4 text-sm leading-6 text-white/55">
-                CANONICAL is currently in private operator buildout. Public materials shown here are overview-level only. Demo mode intentionally avoids private Dropbox paths, raw PRISM notes, source internals, credentials, backend logs, and live connector actions.
+                CANONICAL helps instructors browse teaching materials and prepare the next class. Design Thinking teaching modules are available in the curriculum library. Private notes and connected-service administration remain separate.
               </p>
             </div>
           </section>
