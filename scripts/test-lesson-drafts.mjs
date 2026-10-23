@@ -32,7 +32,8 @@ test("authenticated payload includes all six original outlines and keeps the own
   const originals = readFileSync(new URL("../canonical_spine/02_PROJECTS/PRISM/programs/design-thinking-for-a-joyful-life/04_CURRICULUM/MODULE_SEQUENCE.md", import.meta.url), "utf8")
     .split(/^## Module \d+: /m).slice(1).map((section) => section.slice(section.indexOf("\n")).replace(/\n---\s*$/, "").trim());
   assert.equal(originals.length, 6);
-  assert.deepEqual(modules.filter((module) => module.sequence_order > 0).map((module) => module.teaching_outline), originals);
+  const normalizeLines = (text) => text.replace(/\r\n/g, "\n");
+  assert.deepEqual(modules.filter((module) => module.sequence_order > 0).map((module) => normalizeLines(module.teaching_outline)), originals.map(normalizeLines));
   assert.ok(source.indexOf("await requireOwnerAdmin(base44)") < source.indexOf('if (programKey === "PRISM_DTJL")'));
 });
 
