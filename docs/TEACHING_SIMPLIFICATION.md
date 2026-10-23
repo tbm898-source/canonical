@@ -29,7 +29,7 @@ Teaching outlines ship with the frontend so they do not fail when an owner-only 
 
 ## Integration and release
 
-This is a local review candidate. Source authority remains `tbm898-source/canonical`. The original Dropbox checkout has unfinished tracked work including `src/App.jsx`, `.gitignore`, `package.json` and two docs; none was overwritten. The mesh policy is `PRESERVE_ONLY_UNTIL_WIP_REVIEW`, so these commits have not been pushed or merged.
+Source authority remains `tbm898-source/canonical`. On October 23, the user approved publishing this version. The original Dropbox checkout has unfinished tracked work including `src/App.jsx`, `.gitignore`, `package.json` and two docs; none was overwritten. Review found the App edit adds a post-login redirect already provided by the new HomeRoute; the other edits concern unrelated local backup tooling and remain in the original checkout. The remote main was refreshed and still matched the branch base before publication.
 
 Before release, reconcile routing and package-script additions with that work, run release checks, then use the existing GitHub sync and Base44 Publish path. The unlocked teaching library requires only the frontend update; it no longer needs a backend deployment to become readable. Confirm the published curriculum and old bookmarks on the live domain.
 
