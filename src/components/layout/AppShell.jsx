@@ -30,6 +30,7 @@ export default function AppShell() {
   const location = useLocation();
   const nav = useNavModel();
   const isProgramHelper = location.pathname === "/ProgramHelper";
+  const isTeachingPage = ["/start", "/curriculum", "/plan"].includes(location.pathname);
 
   return (
     <div className="min-h-screen bg-[#fafafa]">
@@ -38,7 +39,7 @@ export default function AppShell() {
         className={
           isProgramHelper
             ? ""
-            : "canonical-page-top canonical-page-with-bottom-nav mx-auto max-w-6xl px-4 pb-6 sm:px-6"
+            : `canonical-page-top canonical-page-with-bottom-nav mx-auto max-w-6xl px-4 pb-6 sm:px-6 ${isTeachingPage ? "teaching-shell" : ""}`
         }
       >
         <Outlet context={{ inAppShell: true, nav }} />

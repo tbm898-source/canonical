@@ -24,36 +24,27 @@ export function useNavModel() {
       : "Signed out";
 
   const primaryAction = {
-    label: "Open today's class",
-    to: "/ProgramHelper?mode=demo",
+    label: "Plan the next class",
+    to: "/plan",
   };
 
   const tabs = useMemo(() => {
     const base = [
-      { id: TAB_IDS.START, label: "Start", to: "/start", match: ["/start", "/Home"] },
+      { id: TAB_IDS.START, label: "Home", to: "/start", match: ["/start", "/Home"] },
       {
         id: TAB_IDS.PROGRAMS,
-        label: "Programs",
-        to: "/ProgramHelper?mode=demo",
-        match: ["/ProgramHelper"],
+        label: "Curriculum",
+        to: "/curriculum",
+        match: ["/curriculum", "/Curriculum"],
       },
       {
         id: TAB_IDS.EXAMPLES,
-        label: "Examples",
-        to: "/field-proof-week1",
-        match: ["/field-proof-week1", "/FieldProofWeek1"],
+        label: "Plan a class",
+        to: "/plan",
+        match: ["/plan"],
       },
-      { id: TAB_IDS.MORE, label: "More", to: "/more", match: ["/more", "/About", "/portfolio", "/HowItWorks", "/Integrations", "/Proof", "/Docs", "/WorkspaceSetup"] },
+      { id: TAB_IDS.MORE, label: "More", to: "/more", match: ["/more", "/About", "/portfolio", "/HowItWorks", "/Integrations", "/Proof", "/Docs", "/WorkspaceSetup", "/ProgramHelper", "/field-proof-week1", "/FieldProofWeek1", "/admin", "/Dashboard", "/OwnerAssistant", "/Settings", "/CommandCenter"] },
     ];
-
-    if (ownerAccess.allowed) {
-      base.push({
-        id: TAB_IDS.ADMIN,
-        label: "Admin",
-        to: "/admin",
-        match: ["/admin", "/Dashboard", "/OwnerAssistant", "/Settings"],
-      });
-    }
 
     return base;
   }, [ownerAccess.allowed]);

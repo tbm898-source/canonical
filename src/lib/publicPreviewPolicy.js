@@ -14,6 +14,8 @@ export const PUBLIC_PREVIEW_PATHS = [
   "/Docs",
   "/WorkspaceSetup",
   "/start",
+  "/curriculum",
+  "/plan",
   "/admin",
   "/more",
 ];

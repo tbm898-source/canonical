@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+.teaching-markdown h3 { margin-top: 1rem; font-weight: 700; }
+.teaching-markdown h1 { font-size: 1.5rem; font-weight: 700; }
+.teaching-markdown h2 { margin-top: 1.5rem; font-size: 1.125rem; font-weight: 700; }
+.teaching-markdown ul { list-style: disc; padding-left: 1.5rem; }
+.teaching-markdown p { margin-top: .5rem; }
+.canonical-page-top.teaching-shell { padding-top: calc(var(--canonical-nav-height) + var(--safe-top) + 1.5rem); }
+
+@media print {
+  body:has(.lesson-planner) nav,
+  body:has(.lesson-planner) .lesson-controls { display: none !important; }
+  body:has(.lesson-planner) .canonical-page-top { padding: 0 !important; }
+  .lesson-print { border: 0 !important; margin: 0 !important; padding: 0 !important; }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

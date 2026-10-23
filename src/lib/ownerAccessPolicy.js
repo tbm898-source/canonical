@@ -49,6 +49,7 @@ export function collectUserRoles(user) {
   return [...new Set(roles.map((role) => String(role || "").toLowerCase()).filter(Boolean))];
 }
 
+/** @param {{ user?: any, isAuthenticated?: boolean, allowLocalPreview?: boolean, hostname?: string }} [options] */
 export function getOwnerAccessState({
   user,
   isAuthenticated = false,

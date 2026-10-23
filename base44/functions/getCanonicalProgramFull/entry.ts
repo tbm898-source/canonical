@@ -159,7 +159,7 @@ const PRISM_DTJL_PROGRAM = {
   "owner_only_notes_path": "CANONICAL://02_PROJECTS/PRISM/programs/design-thinking-for-a-joyful-life/90_REVIEW/NEXT_ACTIONS.md",
   "created_from_import_id": "import_prism_dtjl_2026_05_25_v0_1",
   "created_at": "2026-05-25T00:00:00.000Z",
-  "updated_at": "2026-06-03T06:12:13.954Z"
+  "updated_at": "2026-10-23T17:32:47.292Z"
 };
 
 const PRISM_DTJL_MODULES = [
@@ -187,7 +187,8 @@ const PRISM_DTJL_MODULES = [
     "source_version": "v0.1",
     "created_from_import_id": "import_prism_dtjl_2026_05_25_v0_1",
     "sequence_order": 1,
-    "description": "Curriculum module 1 of 6 in the Catalyst Blueprint sequence."
+    "description": "Curriculum module 1 of 6 in the Catalyst Blueprint sequence.",
+    "teaching_outline": "**Core question:** Who or what have I authorized to shape my reality?\r\n\r\n### Concepts\r\n- Information glut\r\n- Fact vs argument\r\n- Persuasion filter\r\n- Intentional authority\r\n- Curiosity with skepticism\r\n- Opportunity noticing\r\n\r\n### Student outputs\r\n- Fact vs argument sort\r\n- Authority audit\r\n- Media/input inventory\r\n- Persuasion filter reflection"
   },
   {
     "program_key": "PRISM_DTJL",
@@ -200,7 +201,8 @@ const PRISM_DTJL_MODULES = [
     "source_version": "v0.1",
     "created_from_import_id": "import_prism_dtjl_2026_05_25_v0_1",
     "sequence_order": 2,
-    "description": "Curriculum module 2 of 6 in the Catalyst Blueprint sequence."
+    "description": "Curriculum module 2 of 6 in the Catalyst Blueprint sequence.",
+    "teaching_outline": "**Core question:** What parts of my life are designable, and what parts are gravity?\r\n\r\n### Concepts\r\n- Design thinking\r\n- Curiosity\r\n- Reframing\r\n- Radical collaboration\r\n- Bias to action\r\n- Gravity problems\r\n- Work View and Life View\r\n\r\n### Student outputs\r\n- Work View reflection\r\n- Life View reflection\r\n- Gravity problem sort\r\n- Reframe map"
   },
   {
     "program_key": "PRISM_DTJL",
@@ -213,7 +215,8 @@ const PRISM_DTJL_MODULES = [
     "source_version": "v0.1",
     "created_from_import_id": "import_prism_dtjl_2026_05_25_v0_1",
     "sequence_order": 3,
-    "description": "Curriculum module 3 of 6 in the Catalyst Blueprint sequence."
+    "description": "Curriculum module 3 of 6 in the Catalyst Blueprint sequence.",
+    "teaching_outline": "**Core question:** What are three lives I could build from here?\r\n\r\n### Concepts\r\n- Three parallel futures\r\n- Current path improved\r\n- Pivot path\r\n- Wild-card path\r\n- Prototype conversations\r\n- Prototype experiences\r\n- Narrative resonance\r\n\r\n### Student outputs\r\n- Three futures worksheet\r\n- Prototype conversation plan\r\n- Prototype experience plan\r\n- Alignment scorecard"
   },
   {
     "program_key": "PRISM_DTJL",
@@ -226,7 +229,8 @@ const PRISM_DTJL_MODULES = [
     "source_version": "v0.1",
     "created_from_import_id": "import_prism_dtjl_2026_05_25_v0_1",
     "sequence_order": 4,
-    "description": "Curriculum module 4 of 6 in the Catalyst Blueprint sequence."
+    "description": "Curriculum module 4 of 6 in the Catalyst Blueprint sequence.",
+    "teaching_outline": "**Core question:** How do I start before my brain talks me out of starting?\r\n\r\n### Concepts\r\n- Activation energy\r\n- 5-second start\r\n- Two-minute entry\r\n- 20-hour skill sprint\r\n- Frustration barrier\r\n- Self-correction\r\n\r\n### Student outputs\r\n- Five-second action log\r\n- Skill sprint plan\r\n- Practice barrier removal sheet\r\n- Frustration reflection"
   },
   {
     "program_key": "PRISM_DTJL",
@@ -239,7 +243,8 @@ const PRISM_DTJL_MODULES = [
     "source_version": "v0.1",
     "created_from_import_id": "import_prism_dtjl_2026_05_25_v0_1",
     "sequence_order": 5,
-    "description": "Curriculum module 5 of 6 in the Catalyst Blueprint sequence."
+    "description": "Curriculum module 5 of 6 in the Catalyst Blueprint sequence.",
+    "teaching_outline": "**Core question:** What around me is shaping who I become?\r\n\r\n### Concepts\r\n- Environment over willpower\r\n- Peer group audit\r\n- Media diet\r\n- Input streams\r\n- Support anchors\r\n- Midwives to dreams\r\n\r\n### Student outputs\r\n- Environment audit\r\n- Peer group map\r\n- Media cleanup plan\r\n- Support anchor plan"
   },
   {
     "program_key": "PRISM_DTJL",
@@ -252,7 +257,8 @@ const PRISM_DTJL_MODULES = [
     "source_version": "v0.1",
     "created_from_import_id": "import_prism_dtjl_2026_05_25_v0_1",
     "sequence_order": 6,
-    "description": "Curriculum module 6 of 6 in the Catalyst Blueprint sequence."
+    "description": "Curriculum module 6 of 6 in the Catalyst Blueprint sequence.",
+    "teaching_outline": "**Core question:** How do I choose without getting trapped in endless options?\r\n\r\n### Concepts\r\n- Choice overload\r\n- Rule of five\r\n- Gut check after choice\r\n- Commitment after prototyping\r\n- FOMO reduction\r\n- Decision log\r\n\r\n### Student outputs\r\n- Choice narrowing sheet\r\n- Top five options\r\n- Decision commitment plan\r\n- Post-choice reflection"
   }
 ];
 
