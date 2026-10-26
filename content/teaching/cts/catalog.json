@@ -1,0 +1,3477 @@
+{
+  "schemaVersion": 1,
+  "program": {
+    "title": "CTS teaching program",
+    "totalDays": 40,
+    "weeks": 10,
+    "daysPerWeek": 4,
+    "daysPerCourse": 8
+  },
+  "referenceCohort": "Cohort 6",
+  "courses": [
+    {
+      "code": "PV101",
+      "title": "Solar and electrical foundations",
+      "weeks": 2,
+      "days": [
+        {
+          "id": "pv101-01",
+          "courseCode": "PV101",
+          "courseDay": 1,
+          "programDay": 1,
+          "title": "First Day Orientation",
+          "referenceDate": "2026-07-06",
+          "status": "materials_available",
+          "resources": [
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/dad7b1038dad51610dc5ecd1.docx",
+              "bytes": 38601,
+              "sha256": "dad7b1038dad51610dc5ecd17f6bd9d97ba76ccd1e1ab243708d89e72104beb6"
+            },
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/8a05b8e713f3099ccf49fde4.pdf",
+              "bytes": 55243,
+              "sha256": "8a05b8e713f3099ccf49fde455d7770e2a2b3241faa7acfeb84065d8fdcbec12"
+            },
+            {
+              "kind": "instructor_packet",
+              "label": "Instructor packet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/20b73c149ddf23cd57e36fad.docx",
+              "bytes": 41516,
+              "sha256": "20b73c149ddf23cd57e36fad6b0fa379910e20f1552b371a015028381479fa9e"
+            },
+            {
+              "kind": "instructor_packet",
+              "label": "Instructor packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/5d1bb62bd75380ddd4628a66.pdf",
+              "bytes": 119137,
+              "sha256": "5d1bb62bd75380ddd4628a6615677fb6bf0694c71003f452ad494a2b6b675ae3"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/3f536196e4025ae73227a846.docx",
+              "bytes": 38792,
+              "sha256": "3f536196e4025ae73227a84648585637abaa0b17e1f95ff05a3dcede851b129c"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/acf93128913f1d4adb5f4b0a.pdf",
+              "bytes": 70552,
+              "sha256": "acf93128913f1d4adb5f4b0a85b8fb8c566fd9a498b9088a3857f97f92417cd1"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/22f02f194bbbc2845b04e7ad.docx",
+              "bytes": 39578,
+              "sha256": "22f02f194bbbc2845b04e7ad171cc88e820499cca0a46fee6c9857d7f147cfe4"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/b35e0f5321e079cc14a271f2.pdf",
+              "bytes": 81319,
+              "sha256": "b35e0f5321e079cc14a271f25b62f01565a67f778c6b85623f7abcfc356ef546"
+            },
+            {
+              "kind": "whiteboard",
+              "label": "Whiteboard plan",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/5e97e1decc3290faa5873693.docx",
+              "bytes": 38499,
+              "sha256": "5e97e1decc3290faa5873693e0c0ae6f1b43718e652fdc646bb8ac7179300b05"
+            },
+            {
+              "kind": "whiteboard",
+              "label": "Whiteboard plan",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/c4e091ec9636eb7b64b59cd9.pdf",
+              "bytes": 49024,
+              "sha256": "c4e091ec9636eb7b64b59cd9c1005bb328d82a04671fc54825403fd3658af5a3"
+            }
+          ],
+          "additionalResources": [],
+          "lessonUrl": "/teaching/cts/lessons/pv101-01.json"
+        },
+        {
+          "id": "pv101-02",
+          "courseCode": "PV101",
+          "courseDay": 2,
+          "programDay": 2,
+          "title": "Electricity Basics",
+          "referenceDate": "2026-07-07",
+          "status": "materials_available",
+          "resources": [
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/215612a6c9f11315b64011c9.docx",
+              "bytes": 37434,
+              "sha256": "215612a6c9f11315b64011c91df2856959598d7c2c984bb2c6a5274b800c65c7"
+            },
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/233abaaf8775332a33b534b2.pdf",
+              "bytes": 48225,
+              "sha256": "233abaaf8775332a33b534b211f0f4b9a067fa3a8ba4db3a1221d4747c01567d"
+            },
+            {
+              "kind": "instructor_packet",
+              "label": "Instructor packet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/ff8b990674ab9d2553730020.docx",
+              "bytes": 41783,
+              "sha256": "ff8b990674ab9d255373002090b2a69d240215b3a23c2c8acd88de2df90fd2a5"
+            },
+            {
+              "kind": "instructor_packet",
+              "label": "Instructor packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/12098049f3236077ea3c2bf1.pdf",
+              "bytes": 179891,
+              "sha256": "12098049f3236077ea3c2bf19f31cbb2af713268a16a40a5f8c7f37b0f85264d"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/a1181740e684348d93565dff.docx",
+              "bytes": 37641,
+              "sha256": "a1181740e684348d93565dffa14b5d342e7b2c7bb2670de41ab9b59ed1d7941e"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/e6051dc17a7f3cd8a6001571.pdf",
+              "bytes": 63851,
+              "sha256": "e6051dc17a7f3cd8a6001571fe59fbbafb6b74529eb21234c9d9e55837ad0f1a"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/80f824b17399f4d9bf17998c.docx",
+              "bytes": 38138,
+              "sha256": "80f824b17399f4d9bf17998c443c5546a13b10f0c6df2982cf46c926066639be"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/db6e95bc7bd8b209c37804c1.pdf",
+              "bytes": 88372,
+              "sha256": "db6e95bc7bd8b209c37804c10f38dafb379b0ab4688b41ecf38e2bc3f65405d8"
+            }
+          ],
+          "additionalResources": [],
+          "lessonUrl": "/teaching/cts/lessons/pv101-02.json"
+        },
+        {
+          "id": "pv101-03",
+          "courseCode": "PV101",
+          "courseDay": 3,
+          "programDay": 3,
+          "title": "Wire Practice",
+          "referenceDate": "2026-07-08",
+          "status": "materials_available",
+          "resources": [
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/124a76d13da2db586b2a9bf4.docx",
+              "bytes": 38829,
+              "sha256": "124a76d13da2db586b2a9bf48db5b2e7d127f5df094ab9a6f90d350d8b265d8e"
+            },
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/8aa434d0ee8f45b4c499d189.pdf",
+              "bytes": 59528,
+              "sha256": "8aa434d0ee8f45b4c499d18933acebfbe608fcf3624de0df4e3a8fe824afd3ff"
+            },
+            {
+              "kind": "instructor_packet",
+              "label": "Instructor packet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/a5b559ba9c615bc6c7043475.docx",
+              "bytes": 41825,
+              "sha256": "a5b559ba9c615bc6c7043475c2546b7a4df57e6f56accea1f0d5861e256732ba"
+            },
+            {
+              "kind": "instructor_packet",
+              "label": "Instructor packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/72d51402a154688e61e3aa42.pdf",
+              "bytes": 134987,
+              "sha256": "72d51402a154688e61e3aa422a2d07527f68d4a2948272ba024dceebd83dd344"
+            },
+            {
+              "kind": "lab",
+              "label": "Lab activity",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/8603d0997056d71c6cebf311.docx",
+              "bytes": 39508,
+              "sha256": "8603d0997056d71c6cebf31138b5d6ba9d5c27972ea41e6ff159c1d989bc0ece"
+            },
+            {
+              "kind": "lab",
+              "label": "Lab activity",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/189e163ff830de1cad521a91.pdf",
+              "bytes": 78344,
+              "sha256": "189e163ff830de1cad521a91d47f89df5c2b976a13704754e330dea06078c1cd"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/95d84ec45c6c8e20eb0e2687.docx",
+              "bytes": 38544,
+              "sha256": "95d84ec45c6c8e20eb0e2687311f792a79dd45138419100a135c5d1f65abe1af"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/5c2785640ee85ceeda4e5069.pdf",
+              "bytes": 51756,
+              "sha256": "5c2785640ee85ceeda4e50695864db4567770b1268707138adb3befd44b157d7"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/74655b353ab3a33b76d3e6ba.pdf",
+              "bytes": 120360,
+              "sha256": "74655b353ab3a33b76d3e6baf021e7aacd32168840ddd0907ae06fc1e6c802c1"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PPTX",
+              "url": "/teaching/cts/assets/755d274dc255f81c930f9f37.pptx",
+              "bytes": 45949,
+              "sha256": "755d274dc255f81c930f9f37af2672354d46eecf27c1b87f1fa7156136f25c3a"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/82e945f100d635005815f89a.docx",
+              "bytes": 40280,
+              "sha256": "82e945f100d635005815f89a60d50aa5562d33fb9a245f54ab2931c23085df08"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/5171d961e03fff1e67693119.pdf",
+              "bytes": 101107,
+              "sha256": "5171d961e03fff1e67693119259442347da11f4dfc9772b1e3f6f3f1a44ad284"
+            },
+            {
+              "kind": "whiteboard",
+              "label": "Whiteboard plan",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/be48fb96e9885c36f86eb02a.docx",
+              "bytes": 38709,
+              "sha256": "be48fb96e9885c36f86eb02a23b2624c6a37968b908cea9ce9a073c63d2b721f"
+            },
+            {
+              "kind": "whiteboard",
+              "label": "Whiteboard plan",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/7a57202bbdfdf72a3c0f90e9.pdf",
+              "bytes": 60176,
+              "sha256": "7a57202bbdfdf72a3c0f90e9d4da975082a43ced2c7aa3b43b471e13ed318d05"
+            }
+          ],
+          "additionalResources": [],
+          "lessonUrl": "/teaching/cts/lessons/pv101-03.json"
+        },
+        {
+          "id": "pv101-04",
+          "courseCode": "PV101",
+          "courseDay": 4,
+          "programDay": 4,
+          "title": "Wire Practice",
+          "referenceDate": "2026-07-09",
+          "status": "materials_available",
+          "resources": [
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/6b82b81e81570a95a14abd57.docx",
+              "bytes": 37760,
+              "sha256": "6b82b81e81570a95a14abd57f88ad8db4db3bf62a24bd123a8864b5f620d5ed2"
+            },
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/7e725f6c4eb2d58d00c36c8a.pdf",
+              "bytes": 43013,
+              "sha256": "7e725f6c4eb2d58d00c36c8a310c97487b402d6d55c1576254a5ce8097f73bcc"
+            },
+            {
+              "kind": "instructor_packet",
+              "label": "Instructor packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/e91dda3bb09c4877443d2cc8.pdf",
+              "bytes": 136440,
+              "sha256": "e91dda3bb09c4877443d2cc86f970cc660dcd0d3b3a0591ebbea7c8a9aea5ced"
+            },
+            {
+              "kind": "lab",
+              "label": "Lab activity",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/1326c23f2f675bc6d15a7fda.docx",
+              "bytes": 39069,
+              "sha256": "1326c23f2f675bc6d15a7fda62c8892b610286f10f445ac3bb7ca9fd37534487"
+            },
+            {
+              "kind": "lab",
+              "label": "Lab activity",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/3649d03076dfdffd25517ce6.pdf",
+              "bytes": 80351,
+              "sha256": "3649d03076dfdffd25517ce6445955c04ccdc103414dc63dc7f5d3ec9e2b6d47"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/6fe5f4acb409cf7063ac336e.docx",
+              "bytes": 37460,
+              "sha256": "6fe5f4acb409cf7063ac336e5a00b99a9ee9205c6997ea8c14b15dbbf30f53d4"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/b1e07368556b2cc8facf1bf9.pdf",
+              "bytes": 37340,
+              "sha256": "b1e07368556b2cc8facf1bf90d189af20da46fa7e7cd2c5389f0b726beeb7ca0"
+            },
+            {
+              "kind": "run_sheet",
+              "label": "Instructor run sheet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/400d775431d396cba3747cdc.docx",
+              "bytes": 39594,
+              "sha256": "400d775431d396cba3747cdc26ae21132f358ddbecabdb5e10ebf77581c0d3ce"
+            },
+            {
+              "kind": "run_sheet",
+              "label": "Instructor run sheet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/59ca2fd2b320467bb7fb3b59.pdf",
+              "bytes": 93183,
+              "sha256": "59ca2fd2b320467bb7fb3b593d0731e9af5198f1996f1147423913356784cff1"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/041f4e21a59cc00edbf8a31a.pdf",
+              "bytes": 125115,
+              "sha256": "041f4e21a59cc00edbf8a31a00bdf529422b4737da9044cc5e66c2464fc972da"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PPTX",
+              "url": "/teaching/cts/assets/e4e8d86323f6b38cbc7720e3.pptx",
+              "bytes": 263251,
+              "sha256": "e4e8d86323f6b38cbc7720e349f803d1380495aa421574cf0c5ea5a2cdda5fbe"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/1f48be56afd952986df70737.pdf",
+              "bytes": 65786,
+              "sha256": "1f48be56afd952986df707372a7483761dc28c2105acbb5948ae75952dd9378a"
+            }
+          ],
+          "additionalResources": [],
+          "lessonUrl": "/teaching/cts/lessons/pv101-04.json"
+        },
+        {
+          "id": "pv101-05",
+          "courseCode": "PV101",
+          "courseDay": 5,
+          "programDay": 5,
+          "title": "Electrical Protection and Wire Sizing",
+          "referenceDate": "2026-07-13",
+          "status": "materials_available",
+          "resources": [
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/fac170d3cb0f8cac2772dae3.docx",
+              "bytes": 39014,
+              "sha256": "fac170d3cb0f8cac2772dae3755fd9aa588f523fd90bedd00dc2d9696aa371d6"
+            },
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/1af86da3b6b9076a1534f054.pdf",
+              "bytes": 49350,
+              "sha256": "1af86da3b6b9076a1534f0542395ebc840f90d74979fcd01f1511b709c60b148"
+            },
+            {
+              "kind": "lab",
+              "label": "Lab activity",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/2cdbe87808a6bd373d3ba8d4.docx",
+              "bytes": 38489,
+              "sha256": "2cdbe87808a6bd373d3ba8d4b5a266c854613f2fa333a1ea8a998e45e3e24af1"
+            },
+            {
+              "kind": "lab",
+              "label": "Lab activity",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/1a1a32f732fc1b03fc4a9cb5.pdf",
+              "bytes": 74481,
+              "sha256": "1a1a32f732fc1b03fc4a9cb51ed5744ce605bce7b5b89fecdf7f348edb3b179c"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/ce5eb9e41ec689fae0a6d601.docx",
+              "bytes": 38485,
+              "sha256": "ce5eb9e41ec689fae0a6d60131d0642b611bcaad5ab9e02d84695f0120990e67"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/8ccdbec69de1bac2c1bee703.pdf",
+              "bytes": 47947,
+              "sha256": "8ccdbec69de1bac2c1bee7035ecc5fdf896196b197f04395d2c08a3683220a3d"
+            },
+            {
+              "kind": "run_sheet",
+              "label": "Instructor run sheet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/e582b6e0e91ffbbd19093feb.docx",
+              "bytes": 38885,
+              "sha256": "e582b6e0e91ffbbd19093feb2014cdde9a77aa05e4b6a3566fb8eececa81197e"
+            },
+            {
+              "kind": "run_sheet",
+              "label": "Instructor run sheet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/7903f98972ff59c09694616a.pdf",
+              "bytes": 76064,
+              "sha256": "7903f98972ff59c09694616a0b3d99adc3f22c8355c6c6b73f4cd087ee88297a"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/382fa698b24ef80706568e98.pdf",
+              "bytes": 120508,
+              "sha256": "382fa698b24ef80706568e98ebfb41d4c11e6acb344446400fd6f1d5f23dbe23"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PPTX",
+              "url": "/teaching/cts/assets/c9136b19a1360901e838f34d.pptx",
+              "bytes": 43468,
+              "sha256": "c9136b19a1360901e838f34dd17d84584ddf13c0a93f4445e83ad5362fe43b21"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/03f06d3293298daadc96d931.docx",
+              "bytes": 37678,
+              "sha256": "03f06d3293298daadc96d9315318e56cb613e66cbfffe9448f542eb93e4185b4"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/8d1c514d18b870d0e5f9c1da.pdf",
+              "bytes": 50243,
+              "sha256": "8d1c514d18b870d0e5f9c1da5b8b901e3dd0e723380efa92ae6e6fef7359212b"
+            }
+          ],
+          "additionalResources": [],
+          "lessonUrl": "/teaching/cts/lessons/pv101-05.json"
+        },
+        {
+          "id": "pv101-06",
+          "courseCode": "PV101",
+          "courseDay": 6,
+          "programDay": 6,
+          "title": "Troubleshooting and Hidden Fuses",
+          "referenceDate": "2026-07-14",
+          "status": "materials_available",
+          "resources": [
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/14a9af5537b8bb3b73382a96.docx",
+              "bytes": 37650,
+              "sha256": "14a9af5537b8bb3b73382a96fcc32e454eec5cc89ed3b7f2638918674b69d465"
+            },
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/0228726f0ee959ec4a0d6019.pdf",
+              "bytes": 2081,
+              "sha256": "0228726f0ee959ec4a0d601971018117388be93f3bb53eeba27bc2209ab6794e"
+            },
+            {
+              "kind": "lab",
+              "label": "Lab activity",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/7119efe1e87b8cd1dc6ef807.docx",
+              "bytes": 37583,
+              "sha256": "7119efe1e87b8cd1dc6ef807922e4b24d40c125bbb63098e065aa98c7c823568"
+            },
+            {
+              "kind": "lab",
+              "label": "Lab activity",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/27c807da81501a1dc5f3e56f.pdf",
+              "bytes": 2118,
+              "sha256": "27c807da81501a1dc5f3e56f3d9fed9122662a55f36724660c6d769e99d83509"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/d330735b73943ab2ece1c369.docx",
+              "bytes": 38079,
+              "sha256": "d330735b73943ab2ece1c3699e7f7b8610d98efd35bb7e7a0b3f66a3a54eb4b3"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/653f40b0f736e294e8d97df1.pdf",
+              "bytes": 3808,
+              "sha256": "653f40b0f736e294e8d97df189d52b05d3a01516634eaf57620b6ae446af56f3"
+            },
+            {
+              "kind": "run_sheet",
+              "label": "Instructor run sheet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/6e7786c58f884a8f8f5fc55e.docx",
+              "bytes": 38266,
+              "sha256": "6e7786c58f884a8f8f5fc55ec2444bec3757f6e2b3c1b6497070c8421459a237"
+            },
+            {
+              "kind": "run_sheet",
+              "label": "Instructor run sheet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/1dc55fafbaa90fdc224582b3.pdf",
+              "bytes": 3017,
+              "sha256": "1dc55fafbaa90fdc224582b3c0a39708a503e85c6961f87a840dac5f2cbcdf12"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/0cbde6972eb8cebb6db919b6.pdf",
+              "bytes": 16417,
+              "sha256": "0cbde6972eb8cebb6db919b6207d93b30cb3d13db2a4f877df8e562f1d1fffcb"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PPTX",
+              "url": "/teaching/cts/assets/4d9b209c19b7d48a53127e13.pptx",
+              "bytes": 63262,
+              "sha256": "4d9b209c19b7d48a53127e1314e79d5b76c05926b59b038b29c6c4f20a47d672"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/cb0e5ac6f780b616f18dace7.docx",
+              "bytes": 37574,
+              "sha256": "cb0e5ac6f780b616f18dace70a5baeef72b00c18e0a3c5c62036b49caef9fc0a"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/054c433ded3a46b904cf5bf2.pdf",
+              "bytes": 3528,
+              "sha256": "054c433ded3a46b904cf5bf2dc27a98558cc9830e2a0823f97d389ac23ec4c8c"
+            }
+          ],
+          "additionalResources": [],
+          "lessonUrl": "/teaching/cts/lessons/pv101-06.json"
+        },
+        {
+          "id": "pv101-07",
+          "courseCode": "PV101",
+          "courseDay": 7,
+          "programDay": 7,
+          "title": "Load Assessment and System Sizing",
+          "referenceDate": "2026-07-15",
+          "status": "materials_available",
+          "resources": [
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/d492c707d80847067506e7ff.docx",
+              "bytes": 38252,
+              "sha256": "d492c707d80847067506e7fffdcdca6c9aaf1776d2f28e38414bc1add5b0c456"
+            },
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/fae4905ed92a3e30da1e141c.pdf",
+              "bytes": 59640,
+              "sha256": "fae4905ed92a3e30da1e141c05acac623c8628742fc327170be09cc845cc64e4"
+            },
+            {
+              "kind": "instructor_packet",
+              "label": "Instructor packet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/08ee6d5b90c6b1b8bc4b65a8.docx",
+              "bytes": 44743,
+              "sha256": "08ee6d5b90c6b1b8bc4b65a83bd761311ac399795b4d0e8a810f14e2e8cd115c"
+            },
+            {
+              "kind": "instructor_packet",
+              "label": "Instructor packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/878d23b882a9f8e06c015c2a.pdf",
+              "bytes": 243908,
+              "sha256": "878d23b882a9f8e06c015c2a1fb3a5d2b47ef19564b85bb7a9588cbe62c7f3ab"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/f61d00414ac275c9dc85373e.docx",
+              "bytes": 37894,
+              "sha256": "f61d00414ac275c9dc85373e929232a06c719d185202fccff35fea1c0d191611"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/fdf7d5c8bd044cdcbd7de3c0.pdf",
+              "bytes": 54935,
+              "sha256": "fdf7d5c8bd044cdcbd7de3c0261e8c7c3ab38100736a012e281e463026dd9c31"
+            },
+            {
+              "kind": "run_sheet",
+              "label": "Instructor run sheet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/ae0d01c1363c2656f34d99dc.docx",
+              "bytes": 40308,
+              "sha256": "ae0d01c1363c2656f34d99dc12eef4e8c914e9c3188d5bb3e6e61f2a58b8b629"
+            },
+            {
+              "kind": "run_sheet",
+              "label": "Instructor run sheet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/54fe9f885f7908d0849f5720.pdf",
+              "bytes": 117954,
+              "sha256": "54fe9f885f7908d0849f572023067eb56e32c40219f1fbc39100a56f41f9ef88"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/fa270c3ddaab4e95cb7cb5d6.pdf",
+              "bytes": 284774,
+              "sha256": "fa270c3ddaab4e95cb7cb5d6498fca0ceb19238a2cd0d32ef3672510664f1d88"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PPTX",
+              "url": "/teaching/cts/assets/3a50e86069c2acf413ce625a.pptx",
+              "bytes": 245308,
+              "sha256": "3a50e86069c2acf413ce625a88cffe2aab87c28cf58e6037e4db51da6a5cf40c"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/a37e5379ab9f0a047ab0fc90.docx",
+              "bytes": 40329,
+              "sha256": "a37e5379ab9f0a047ab0fc90ec5554e40c74ac89fea599ff183d51568368aed6"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/0a2d42b6049b8d8e7db33b6e.pdf",
+              "bytes": 133887,
+              "sha256": "0a2d42b6049b8d8e7db33b6ee188470ed76d793a668fd6f8c1c408011e4b4396"
+            },
+            {
+              "kind": "whiteboard",
+              "label": "Whiteboard plan",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/d1fd241e4ddb137df6c2f1b4.docx",
+              "bytes": 37967,
+              "sha256": "d1fd241e4ddb137df6c2f1b4b1ee2e67bb14ffa2cfdae577e4046bfee83cdd16"
+            },
+            {
+              "kind": "whiteboard",
+              "label": "Whiteboard plan",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/8c2bf0d7222d38a3fa4edddb.pdf",
+              "bytes": 70554,
+              "sha256": "8c2bf0d7222d38a3fa4edddbbacfb19715b3e0efc27cf82397ee6f1cf0508aa8"
+            },
+            {
+              "kind": "worksheet",
+              "label": "Worksheet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/091f6a039382e6a1e12acb57.docx",
+              "bytes": 39095,
+              "sha256": "091f6a039382e6a1e12acb5798edb5f80a77e2af4d36b96adddf489a41fcba1f"
+            },
+            {
+              "kind": "worksheet",
+              "label": "Worksheet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/37358497f07f9354c7fe4fb2.pdf",
+              "bytes": 101298,
+              "sha256": "37358497f07f9354c7fe4fb2407005778a527cd6f75081b6ec16c9de5327ea6a"
+            }
+          ],
+          "additionalResources": [
+            {
+              "kind": "worksheet",
+              "label": "Day 07 PV101 Battery Storage Solar and Wire Sizing 2026-07-15 Student Worksheet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/7151bfc8a658f85072045682.docx",
+              "bytes": 40878,
+              "sha256": "7151bfc8a658f85072045682fc2894045b91186e2d2c31d03c04dd3ce6309bee"
+            },
+            {
+              "kind": "worksheet",
+              "label": "Day 07 PV101 Battery Storage Solar and Wire Sizing 2026-07-15 Student Worksheet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/8a91f50cf38e448cb203d261.pdf",
+              "bytes": 128328,
+              "sha256": "8a91f50cf38e448cb203d26163d6adbc90f4875c677c78bc797e9f5da87cd3d1"
+            },
+            {
+              "kind": "answers",
+              "label": "Day 07 PV101 Load Assessment and System Sizing 2026-07-15 Student Worksheet Answer Key",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/f6bfd3b85ff17cd7ce3dd3ab.docx",
+              "bytes": 38595,
+              "sha256": "f6bfd3b85ff17cd7ce3dd3ab55b29f2ace1e7175260b861aa60c11fa971438c0"
+            },
+            {
+              "kind": "answers",
+              "label": "Day 07 PV101 Load Assessment and System Sizing 2026-07-15 Student Worksheet Answer Key",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/583d57ced1f395ca2713ee0a.pdf",
+              "bytes": 79659,
+              "sha256": "583d57ced1f395ca2713ee0ab4851b864f43bf0d039ae5370b927fc00c40b313"
+            }
+          ],
+          "lessonUrl": "/teaching/cts/lessons/pv101-07.json"
+        },
+        {
+          "id": "pv101-08",
+          "courseCode": "PV101",
+          "courseDay": 8,
+          "programDay": 8,
+          "title": "Final Review and Assessment",
+          "referenceDate": "2026-07-16",
+          "status": "materials_available",
+          "resources": [
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/696f81cc2eff429ea8e94d24.docx",
+              "bytes": 39356,
+              "sha256": "696f81cc2eff429ea8e94d24feceab57bff062283de68d474b7f84fbe191c560"
+            },
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/46e064de116919e83db00171.pdf",
+              "bytes": 107053,
+              "sha256": "46e064de116919e83db0017105f5f47301fb3f15f43de89ab54d1ab921020191"
+            },
+            {
+              "kind": "instructor_packet",
+              "label": "Instructor packet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/d26a6496de5ba17d84ecb5a9.docx",
+              "bytes": 46888,
+              "sha256": "d26a6496de5ba17d84ecb5a937b907906749a143ef91376fd97df82607d62c9d"
+            },
+            {
+              "kind": "instructor_packet",
+              "label": "Instructor packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/311a069517b04c0ac3045ee2.pdf",
+              "bytes": 333354,
+              "sha256": "311a069517b04c0ac3045ee24e7398810e50e5a705b17b34be326bf10cb636d6"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/da9b17269530ac9f759a046e.docx",
+              "bytes": 37736,
+              "sha256": "da9b17269530ac9f759a046e7d47b085be831ff4ce8cda1075411f474cf60a9e"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/f1bb9a10e45709dcd8b9abbb.pdf",
+              "bytes": 52569,
+              "sha256": "f1bb9a10e45709dcd8b9abbbca416a10fa7728eb33bd19f35de7b5233585785d"
+            },
+            {
+              "kind": "run_sheet",
+              "label": "Instructor run sheet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/09f86e97bcc28a5a882e4d89.docx",
+              "bytes": 40275,
+              "sha256": "09f86e97bcc28a5a882e4d892262f3d0242ddbee3281d59a772f93640a1668f8"
+            },
+            {
+              "kind": "run_sheet",
+              "label": "Instructor run sheet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/1b3b3f0af078cd578d0962ad.pdf",
+              "bytes": 116902,
+              "sha256": "1b3b3f0af078cd578d0962adef790b0856479f1cc120388bb453328d0723507a"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/4f2996b4aa2df75af0fc8180.pdf",
+              "bytes": 299942,
+              "sha256": "4f2996b4aa2df75af0fc8180cfb6454d9a23ad13c45df170acfbbca15620701d"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PPTX",
+              "url": "/teaching/cts/assets/224be5b4d0d12e62abb40d7b.pptx",
+              "bytes": 273163,
+              "sha256": "224be5b4d0d12e62abb40d7b6bf496e5b3fd7518bee64cb2a1ef3a450592eda7"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/6303fa0ede7632af8fc64d49.docx",
+              "bytes": 41218,
+              "sha256": "6303fa0ede7632af8fc64d49082c1fa38db76ee34fab7dee35e8e1324a596c1c"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/420846fa8651679d6aa52845.pdf",
+              "bytes": 178379,
+              "sha256": "420846fa8651679d6aa5284517fdb1e351dd34ada05f0237b32173bb34acf427"
+            },
+            {
+              "kind": "whiteboard",
+              "label": "Whiteboard plan",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/f097fb85e0bbc4cb7850f0d4.docx",
+              "bytes": 37932,
+              "sha256": "f097fb85e0bbc4cb7850f0d42483629ace4bb3ad4b096ba05f4bc9e2180bb26b"
+            },
+            {
+              "kind": "whiteboard",
+              "label": "Whiteboard plan",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/3120db90b786b7249d3124cb.pdf",
+              "bytes": 73132,
+              "sha256": "3120db90b786b7249d3124cb5566437941f2710c15864be4844681b13812c1cd"
+            },
+            {
+              "kind": "worksheet",
+              "label": "Worksheet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/29499be5c48680c9ed6c4c83.docx",
+              "bytes": 37903,
+              "sha256": "29499be5c48680c9ed6c4c83002866447b24ed5f67df513dfbc507df987d6312"
+            },
+            {
+              "kind": "worksheet",
+              "label": "Worksheet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/bacaac46ef1293b0d893c959.pdf",
+              "bytes": 63071,
+              "sha256": "bacaac46ef1293b0d893c9593b87da32189b9d16a9d0098615407b8ab054ed9c"
+            }
+          ],
+          "additionalResources": [
+            {
+              "kind": "run_sheet",
+              "label": "D08 Rich RunSheet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/b7843a0f4869ff3feb6e5942.docx",
+              "bytes": 39830,
+              "sha256": "b7843a0f4869ff3feb6e5942fc009082595822e805bab60c27be633f38958971"
+            },
+            {
+              "kind": "run_sheet",
+              "label": "D08 Rich RunSheet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/feb0028e3628b8e4a08e0a3c.pdf",
+              "bytes": 76926,
+              "sha256": "feb0028e3628b8e4a08e0a3c4c65c73dc0777063cc424125375f6ee77fc1e240"
+            },
+            {
+              "kind": "worksheet",
+              "label": "D08 Student Worksheet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/0cab5c17fe7db358cd6c7432.docx",
+              "bytes": 39601,
+              "sha256": "0cab5c17fe7db358cd6c743254701457f644674c6708b9e5fda5a7ffc3a3e778"
+            },
+            {
+              "kind": "worksheet",
+              "label": "D08 Student Worksheet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/95e53b8e8e78f73e5bc02733.pdf",
+              "bytes": 84486,
+              "sha256": "95e53b8e8e78f73e5bc02733a15f61c1f55b042f1f22d466451497499729af52"
+            },
+            {
+              "kind": "answers",
+              "label": "Day 08 PV101 Final Review and Assessment 2026-07-16 Morning Quiz Answer Key",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/bbeed059198a63c0c7aa2927.docx",
+              "bytes": 37853,
+              "sha256": "bbeed059198a63c0c7aa2927db801c584835a77c86de0bc8664ea10d9641d8de"
+            },
+            {
+              "kind": "answers",
+              "label": "Day 08 PV101 Final Review and Assessment 2026-07-16 Morning Quiz Answer Key",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/d2f477c40e6341c1c116b0e2.pdf",
+              "bytes": 55999,
+              "sha256": "d2f477c40e6341c1c116b0e2599c3f209f0f494677605b188f315dbe5f40b6e0"
+            },
+            {
+              "kind": "answers",
+              "label": "Day 08 PV101 Final Review and Assessment 2026-07-16 Student Worksheet Answer Key",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/e2b5814a101eb2182de8318d.docx",
+              "bytes": 38461,
+              "sha256": "e2b5814a101eb2182de8318ddeba216d6e627ec4c47b4b906040e7b91add9b55"
+            },
+            {
+              "kind": "answers",
+              "label": "Day 08 PV101 Final Review and Assessment 2026-07-16 Student Worksheet Answer Key",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/424084c8f54469e8eb5991a7.pdf",
+              "bytes": 74736,
+              "sha256": "424084c8f54469e8eb5991a7be4d4049009394b9f2a29b9c61c9751b755b8298"
+            }
+          ],
+          "lessonUrl": "/teaching/cts/lessons/pv101-08.json"
+        }
+      ]
+    },
+    {
+      "code": "RCS",
+      "title": "Residential construction systems",
+      "weeks": 2,
+      "days": [
+        {
+          "id": "rcs-01",
+          "courseCode": "RCS",
+          "courseDay": 1,
+          "programDay": 9,
+          "title": "Residential Systems & Shop Safety",
+          "referenceDate": "2026-07-20",
+          "status": "materials_available",
+          "resources": [
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/30603dbffae39fdc3c43812b.docx",
+              "bytes": 37811,
+              "sha256": "30603dbffae39fdc3c43812be05d4e5b1d90bf13c52a82711e80d557e4ff98ab"
+            },
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/26583249639d2519b36dc465.pdf",
+              "bytes": 41320,
+              "sha256": "26583249639d2519b36dc4655b265bb96ff1113018e9d1ce86b35e94f69801e4"
+            },
+            {
+              "kind": "exit_ticket",
+              "label": "Exit ticket",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/ad930756b54ed3199ab9d9ff.docx",
+              "bytes": 37536,
+              "sha256": "ad930756b54ed3199ab9d9ff311a57255ab94d7ee45ed476db9104de4ec5be8d"
+            },
+            {
+              "kind": "exit_ticket",
+              "label": "Exit ticket",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/0d41676c55778d6d0fadce60.pdf",
+              "bytes": 32012,
+              "sha256": "0d41676c55778d6d0fadce60d81f7313fcfb39256f1ba54b6a86b7b2f1682d12"
+            },
+            {
+              "kind": "instructor_packet",
+              "label": "Instructor packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/c2f3559ff3de5ac9c3770d50.pdf",
+              "bytes": 399786,
+              "sha256": "c2f3559ff3de5ac9c3770d50d8d90a415e5e5bf8cdc1505f77b3fc81a537c12e"
+            },
+            {
+              "kind": "lab",
+              "label": "Lab activity",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/5b38e46d9a4b555dd7b0d755.docx",
+              "bytes": 38902,
+              "sha256": "5b38e46d9a4b555dd7b0d755cf85d2cae84fad84fd1add684ac7c040ee124764"
+            },
+            {
+              "kind": "lab",
+              "label": "Lab activity",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/223d48d639762643464cd64a.pdf",
+              "bytes": 75222,
+              "sha256": "223d48d639762643464cd64ace6c05fd9802ad7afd33547b0daa374420a37291"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/ec392f0a8e9cbf796f8ee3c9.docx",
+              "bytes": 38272,
+              "sha256": "ec392f0a8e9cbf796f8ee3c9ffadc28848996ceaf4a02488e2a91e3fa621f04a"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/84533c94406acd05de8738e0.pdf",
+              "bytes": 56873,
+              "sha256": "84533c94406acd05de8738e04c27ebc551f89148cc8fa73fc9d1276acc8e95a1"
+            },
+            {
+              "kind": "run_sheet",
+              "label": "Instructor run sheet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/98245e223852073cf6f82105.docx",
+              "bytes": 40478,
+              "sha256": "98245e223852073cf6f82105373f470abb778606e518a3ce19bd1e5392dea82a"
+            },
+            {
+              "kind": "run_sheet",
+              "label": "Instructor run sheet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/e933be7004cf2ae92d7ceb9a.pdf",
+              "bytes": 103994,
+              "sha256": "e933be7004cf2ae92d7ceb9a87fa4516aa188574af575460c75dbfae7cf7beca"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/39d43dc81fa2f75ae6bb17b0.pdf",
+              "bytes": 175176,
+              "sha256": "39d43dc81fa2f75ae6bb17b025c7d44b96f203e5427c68fbd154092266b1f7d1"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PPTX",
+              "url": "/teaching/cts/assets/664c79729545ac759caa6a42.pptx",
+              "bytes": 400476,
+              "sha256": "664c79729545ac759caa6a42db26d5ba1a8fd017418e7e0037c059baf5a3c9af"
+            },
+            {
+              "kind": "student_guide",
+              "label": "Student guide",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/a2d7f64ad026febf6b1bd476.docx",
+              "bytes": 38726,
+              "sha256": "a2d7f64ad026febf6b1bd476ce68bc8b395e1b6c3f6583476611dc86411c569b"
+            },
+            {
+              "kind": "student_guide",
+              "label": "Student guide",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/70abf6f746454d1d6ffcf8a5.pdf",
+              "bytes": 58567,
+              "sha256": "70abf6f746454d1d6ffcf8a5c83be2a1ffb57d9e96d8e3b5e70da5889a5509a8"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/eece39fae8ed65eee30c7c00.pdf",
+              "bytes": 158933,
+              "sha256": "eece39fae8ed65eee30c7c002362e658662c3e8c9fac0fd5691fa4d7192aa4ac"
+            },
+            {
+              "kind": "verification",
+              "label": "Verification log",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/415d4ca57984a7df3d1b5672.docx",
+              "bytes": 37995,
+              "sha256": "415d4ca57984a7df3d1b5672aa7f2859625e63ad85fa6889ba1eae44ddddc482"
+            },
+            {
+              "kind": "verification",
+              "label": "Verification log",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/2c6c3cb314f283c09779af54.pdf",
+              "bytes": 44859,
+              "sha256": "2c6c3cb314f283c09779af545d2522f18d08e5f9860493ebdad6491d98d80272"
+            },
+            {
+              "kind": "whiteboard",
+              "label": "Whiteboard plan",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/b3af68b47fa43c439f8a7047.docx",
+              "bytes": 38056,
+              "sha256": "b3af68b47fa43c439f8a7047bca49ec9b453bea7b5dae7808224c75aa4c73b1f"
+            },
+            {
+              "kind": "whiteboard",
+              "label": "Whiteboard plan",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/51ba5910c0ab4eb5cc81a9e0.pdf",
+              "bytes": 46219,
+              "sha256": "51ba5910c0ab4eb5cc81a9e04ad5a7eb5a19b2306fadc775b62457883a1030d7"
+            }
+          ],
+          "additionalResources": [],
+          "lessonUrl": "/teaching/cts/lessons/rcs-01.json"
+        },
+        {
+          "id": "rcs-02",
+          "courseCode": "RCS",
+          "courseDay": 2,
+          "programDay": 10,
+          "title": "Residential Framing Basics: Measure, Layout, Build",
+          "referenceDate": "2026-07-21",
+          "status": "materials_available",
+          "resources": [
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/9908a6103651ec1fb99ee5bb.docx",
+              "bytes": 38757,
+              "sha256": "9908a6103651ec1fb99ee5bb54f47800a0d074b074623be4467f856455c06fb2"
+            },
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/6375b7f5143d7bd700853104.pdf",
+              "bytes": 64589,
+              "sha256": "6375b7f5143d7bd70085310407688228af97f7f34b869c404fddf73643049230"
+            },
+            {
+              "kind": "instructor_packet",
+              "label": "Instructor packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/408d08450cab89db1ea8b5c9.pdf",
+              "bytes": 243678,
+              "sha256": "408d08450cab89db1ea8b5c91b63045afcc52e803f6d03db1dfcff1f09d8672a"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/0c92b9d231c938d086972fb4.docx",
+              "bytes": 38500,
+              "sha256": "0c92b9d231c938d086972fb4d6af54415dbdff5e4d2a5f7cd27a6e557d0ca659"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/0b7fee9e3dc1d4f9d0dcad43.pdf",
+              "bytes": 58586,
+              "sha256": "0b7fee9e3dc1d4f9d0dcad4316c6f108e8ff4dfec371bde4581c11c87169e7d3"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/ea3f611c69656fa2e29a9a69.pdf",
+              "bytes": 1323512,
+              "sha256": "ea3f611c69656fa2e29a9a694de0f97ab15ac47175ffb846576dd0388dc037b9"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PPTX",
+              "url": "/teaching/cts/assets/bf1fccce6fd435eb2cbc6698.pptx",
+              "bytes": 66126,
+              "sha256": "bf1fccce6fd435eb2cbc669849ea9bef62f4aad5dafb286809b34850243ef2e4"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/843dda68388da7eec7b0a1bb.docx",
+              "bytes": 39770,
+              "sha256": "843dda68388da7eec7b0a1bb74b1a407ea8cf2479bde3b6f1cb0d27fd2121110"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/d7d7d9789fbbe950b7145c16.pdf",
+              "bytes": 92962,
+              "sha256": "d7d7d9789fbbe950b7145c165e9cc20dc8fa15ca9bb596840774fb756049ed1a"
+            }
+          ],
+          "additionalResources": [
+            {
+              "kind": "student_packet",
+              "label": "RCS02 StudentPrintPacket",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/b6ff85b6047237f5c5425014.pdf",
+              "bytes": 113558,
+              "sha256": "b6ff85b6047237f5c54250146c3e9426b661818458e1f7155d313a16eb54b94b"
+            }
+          ],
+          "lessonUrl": "/teaching/cts/lessons/rcs-02.json"
+        },
+        {
+          "id": "rcs-03",
+          "courseCode": "RCS",
+          "courseDay": 3,
+          "programDay": 11,
+          "title": "Electrical Fundamentals: Receptacles and Box Layout",
+          "referenceDate": "2026-07-22",
+          "status": "materials_available",
+          "resources": [
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/25538ba048b69f2370bbfcd2.docx",
+              "bytes": 38788,
+              "sha256": "25538ba048b69f2370bbfcd23d0afa921dc0cba36ef718de32cf5e3d8573330d"
+            },
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/f7ba2bbe8185f96dac5f0122.pdf",
+              "bytes": 65052,
+              "sha256": "f7ba2bbe8185f96dac5f0122371fe56b860b7d4b88308014536179c3745d33d5"
+            },
+            {
+              "kind": "instructor_packet",
+              "label": "Instructor packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/30ff005119c18c722ef07b10.pdf",
+              "bytes": 245130,
+              "sha256": "30ff005119c18c722ef07b10c0b70b0f989a4c876f485dc91c1fae4489d713db"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/b730578ab7f3582180c370e3.docx",
+              "bytes": 38550,
+              "sha256": "b730578ab7f3582180c370e3479c93d7c031099f8da05af27c1174d34dd295ae"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/769e345cbc8b0967ea008873.pdf",
+              "bytes": 59464,
+              "sha256": "769e345cbc8b0967ea0088733aef97425785366bc3fad0c125246bac4b7a85e9"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/fb7a2e90e7244f56f6d51e0e.pdf",
+              "bytes": 1340647,
+              "sha256": "fb7a2e90e7244f56f6d51e0ed05e5ab7cd6e953717e563d085b76b38042a281c"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PPTX",
+              "url": "/teaching/cts/assets/219beb4760e8b137d0278cb3.pptx",
+              "bytes": 66226,
+              "sha256": "219beb4760e8b137d0278cb318016d138c2b2fa275bae1948053331a8955a853"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/c379239872b7421ee111707b.docx",
+              "bytes": 39675,
+              "sha256": "c379239872b7421ee111707b8c4d41823b9fb760b87923d06b3aac4f8be10f2a"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/d0497dbcd5d95701d13b7096.pdf",
+              "bytes": 92332,
+              "sha256": "d0497dbcd5d95701d13b709647320604f35b963bd299a71965e47cb2e19f77d4"
+            }
+          ],
+          "additionalResources": [
+            {
+              "kind": "student_packet",
+              "label": "RCS03 StudentPrintPacket",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/be8c24fcc45f8fa367f7fcd6.pdf",
+              "bytes": 113627,
+              "sha256": "be8c24fcc45f8fa367f7fcd675d82ef90f844b96720725bb493aceaf318eae01"
+            }
+          ],
+          "lessonUrl": "/teaching/cts/lessons/rcs-03.json"
+        },
+        {
+          "id": "rcs-04",
+          "courseCode": "RCS",
+          "courseDay": 4,
+          "programDay": 12,
+          "title": "Plumbing Basics: Supply, Drainage, and Dry Verification",
+          "referenceDate": "2026-07-23",
+          "status": "materials_available",
+          "resources": [
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/5bf58982458594b302bca0cc.docx",
+              "bytes": 38787,
+              "sha256": "5bf58982458594b302bca0cc23ba1690dbe3e7db61d1503d3d13aa5ac4e0875d"
+            },
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/2baeebaac84b7acb5904b61e.pdf",
+              "bytes": 65622,
+              "sha256": "2baeebaac84b7acb5904b61e2106010d02cd6439191b34a42587ec0b36a56376"
+            },
+            {
+              "kind": "instructor_packet",
+              "label": "Instructor packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/50c4f24eec12b901d5556a9d.pdf",
+              "bytes": 247149,
+              "sha256": "50c4f24eec12b901d5556a9d3521f26af798a0102ad781c5ec8f88f2cbdf19e5"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/6beec49fde74ce29ee292b6c.docx",
+              "bytes": 38527,
+              "sha256": "6beec49fde74ce29ee292b6c58f119edbe9026b7c9e82a5871a7a4a9b69fdf30"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/b0fb8574773631f2f2dc4024.pdf",
+              "bytes": 60059,
+              "sha256": "b0fb8574773631f2f2dc4024152faf717071e85e31064f8179cc0e26e1110e4d"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/c490d7bdd860fba1db749b59.pdf",
+              "bytes": 1334924,
+              "sha256": "c490d7bdd860fba1db749b59fcac43c3691fc87f78379ae7e3c85263e16a3fe2"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PPTX",
+              "url": "/teaching/cts/assets/70391b7ed2f039e32de85cd7.pptx",
+              "bytes": 66128,
+              "sha256": "70391b7ed2f039e32de85cd772758c4c3797abd3a784faad73d697b3e06d0c7e"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/f71282a24da6fbc414c7a3e6.docx",
+              "bytes": 39656,
+              "sha256": "f71282a24da6fbc414c7a3e6faacd810da5214c22fca28fe0abcda017d4d6578"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/1b54c158a5156050f09b4c9c.pdf",
+              "bytes": 92454,
+              "sha256": "1b54c158a5156050f09b4c9c946ee5302c6ac5e10722d1dd7108dcd83b9941d5"
+            }
+          ],
+          "additionalResources": [
+            {
+              "kind": "student_packet",
+              "label": "RCS04 StudentPrintPacket",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/01c816eb385027c395d95efb.pdf",
+              "bytes": 114674,
+              "sha256": "01c816eb385027c395d95efb4e9a5d4a789dd12ff5c146aa2d637a411d7830b2"
+            }
+          ],
+          "lessonUrl": "/teaching/cts/lessons/rcs-04.json"
+        },
+        {
+          "id": "rcs-05",
+          "courseCode": "RCS",
+          "courseDay": 5,
+          "programDay": 13,
+          "title": "Advanced Electrical: Switch, Light, and Troubleshooting",
+          "referenceDate": "2026-07-27",
+          "status": "materials_available",
+          "resources": [
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/1b0d327f20a590dec5d4df7d.docx",
+              "bytes": 38783,
+              "sha256": "1b0d327f20a590dec5d4df7df8bdbab42dfa23231ba07e50ea3f8879257792ca"
+            },
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/eadee4049024eb8534520b89.pdf",
+              "bytes": 64967,
+              "sha256": "eadee4049024eb8534520b89582e864e322bda2bb3cce6b24f8f2a4217410920"
+            },
+            {
+              "kind": "instructor_packet",
+              "label": "Instructor packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/63180b78e3f0258cba4b9d35.pdf",
+              "bytes": 244492,
+              "sha256": "63180b78e3f0258cba4b9d356fc5c6f0e9f3850fc361ad5fafd2b7423c7f583f"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/c63d51bb282824742783305c.docx",
+              "bytes": 38463,
+              "sha256": "c63d51bb282824742783305c2e38ca6c87e49a8a7927d5b2b307f27465b4ae3c"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/6f9851e0afbb6e2614ee584a.pdf",
+              "bytes": 59026,
+              "sha256": "6f9851e0afbb6e2614ee584a5874e7ea87ae0800fd510d89d37d2a2f96016985"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/9f0db30329ec53708c2a87b4.pdf",
+              "bytes": 1315797,
+              "sha256": "9f0db30329ec53708c2a87b47f0791a09b7873388f9d35a378962f20fe4233f3"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PPTX",
+              "url": "/teaching/cts/assets/6b4195174eceaea47c24cd66.pptx",
+              "bytes": 66110,
+              "sha256": "6b4195174eceaea47c24cd66193e323c4deba12a568ba0eff688e459c7c9a583"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/f48daeae12f94088fc7eebc8.docx",
+              "bytes": 39680,
+              "sha256": "f48daeae12f94088fc7eebc8017abb19c8265743829d1bf97fa2883d9b7bc112"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/0b6c70ed23b66f7331734cb4.pdf",
+              "bytes": 92773,
+              "sha256": "0b6c70ed23b66f7331734cb4be4712be820db79aaf313c8f43382fe7118a3af3"
+            }
+          ],
+          "additionalResources": [
+            {
+              "kind": "student_packet",
+              "label": "RCS05 StudentPrintPacket",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/389b439eef5c44b9367c50c2.pdf",
+              "bytes": 113461,
+              "sha256": "389b439eef5c44b9367c50c25fc045cf882b4655ff55b687d797ccb339daa483"
+            }
+          ],
+          "lessonUrl": "/teaching/cts/lessons/rcs-05.json"
+        },
+        {
+          "id": "rcs-06",
+          "courseCode": "RCS",
+          "courseDay": 6,
+          "programDay": 14,
+          "title": "Drywall Installation and Finish Readiness",
+          "referenceDate": "2026-07-28",
+          "status": "materials_available",
+          "resources": [
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/c1f2f2920f11888e325628fb.docx",
+              "bytes": 38833,
+              "sha256": "c1f2f2920f11888e325628fbd1c695be1ac8ff4fa8557248b94f27bc6c8bfa2f"
+            },
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/dc88a1f40474d2fc20849455.pdf",
+              "bytes": 64219,
+              "sha256": "dc88a1f40474d2fc20849455758e9a408da6b1bbdc18ead9be4337f3f726ae42"
+            },
+            {
+              "kind": "instructor_packet",
+              "label": "Instructor packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/a9384ae6ed21003f1919374b.pdf",
+              "bytes": 240595,
+              "sha256": "a9384ae6ed21003f1919374b0ed85954b69ee927bbd96b2602016756fba3210f"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/13b0a97c496a6b614fc476fa.docx",
+              "bytes": 38454,
+              "sha256": "13b0a97c496a6b614fc476fa0727dda012a1bbaa48afd2f573cc724d62510d99"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/2b43e54ae9e8d6e8938f71d9.pdf",
+              "bytes": 57864,
+              "sha256": "2b43e54ae9e8d6e8938f71d92d26714be100aaf50080656b2c324526e8be7263"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/0ed69eb10840c751e9adcd49.pdf",
+              "bytes": 1303099,
+              "sha256": "0ed69eb10840c751e9adcd4972d30d123cd108c5d53c25d3f72844fbc6674d2e"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PPTX",
+              "url": "/teaching/cts/assets/24e4482d11ba17e0a97b4c13.pptx",
+              "bytes": 66073,
+              "sha256": "24e4482d11ba17e0a97b4c13951f80e028d91e23240f8f58e494d508ba8fe753"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/fc62b1e9ca8ca5a541d72089.docx",
+              "bytes": 39679,
+              "sha256": "fc62b1e9ca8ca5a541d72089d0a14ef8dc5ef153dca0caaa72c650db70ecedb1"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/308b93d163e0fe1bd08c7513.pdf",
+              "bytes": 91613,
+              "sha256": "308b93d163e0fe1bd08c7513ae29ebe596f1cda30f5e001d8606b2db0ae2bef1"
+            }
+          ],
+          "additionalResources": [
+            {
+              "kind": "student_packet",
+              "label": "RCS06 StudentPrintPacket",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/5962c2937721f06d030cb348.pdf",
+              "bytes": 111149,
+              "sha256": "5962c2937721f06d030cb3481fd640af92fb30b71ebc898c632c0067d5a97cb2"
+            }
+          ],
+          "lessonUrl": "/teaching/cts/lessons/rcs-06.json"
+        },
+        {
+          "id": "rcs-07",
+          "courseCode": "RCS",
+          "courseDay": 7,
+          "programDay": 15,
+          "title": "Integrated Wall Build: Correct, Complete, Prove",
+          "referenceDate": "2026-07-29",
+          "status": "materials_available",
+          "resources": [
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/c2e7b704eef539f8cf56abd5.docx",
+              "bytes": 38814,
+              "sha256": "c2e7b704eef539f8cf56abd5082cbf5b1f923162fbed21a00bb873a6f33b64eb"
+            },
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/7b06bc2ed7538295faa4cb28.pdf",
+              "bytes": 64656,
+              "sha256": "7b06bc2ed7538295faa4cb282a8adc7ce209604c31d6fd220b8d196f0651f3e4"
+            },
+            {
+              "kind": "instructor_packet",
+              "label": "Instructor packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/49004aaa717c60bb53780d29.pdf",
+              "bytes": 243192,
+              "sha256": "49004aaa717c60bb53780d2935d618422850342ab86d2ccfe0a0b4f94bcc83cf"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/10f88a57247620eb50b013f3.docx",
+              "bytes": 38456,
+              "sha256": "10f88a57247620eb50b013f344ae2eb394c968c3a83d9ee35f4060d57b6888a4"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/49045cd62bbbbcae2ad40fca.pdf",
+              "bytes": 58720,
+              "sha256": "49045cd62bbbbcae2ad40fca57083179bd41213d875ffaed255102cf8be104d2"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/6dbcb66c7ed2a760927b1ae8.pdf",
+              "bytes": 1335632,
+              "sha256": "6dbcb66c7ed2a760927b1ae8840090b9728285cdd74594b9ec568b7c92aad78a"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PPTX",
+              "url": "/teaching/cts/assets/4b9a98818c73234aff8dc4b5.pptx",
+              "bytes": 66126,
+              "sha256": "4b9a98818c73234aff8dc4b54fa3eb8ddc8a23b59a1f4e637bcf04d2fbe10f82"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/6d63718859a80af7695b3cfe.docx",
+              "bytes": 39609,
+              "sha256": "6d63718859a80af7695b3cfe52240bd522e8194e7d62992440efe038670cfc97"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/9138ccbf2482d24c79495318.pdf",
+              "bytes": 92175,
+              "sha256": "9138ccbf2482d24c7949531839de98742c71654a0fd4594d92789f7e54cc6ac5"
+            }
+          ],
+          "additionalResources": [
+            {
+              "kind": "student_packet",
+              "label": "RCS07 StudentPrintPacket",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/5d68a156779d85ff02cfde80.pdf",
+              "bytes": 112885,
+              "sha256": "5d68a156779d85ff02cfde80386f295a35f5f493488e245b0cacc35808aca5dd"
+            }
+          ],
+          "lessonUrl": "/teaching/cts/lessons/rcs-07.json"
+        },
+        {
+          "id": "rcs-08",
+          "courseCode": "RCS",
+          "courseDay": 8,
+          "programDay": 16,
+          "title": "Final Practical, Handoff, and RCS Closeout",
+          "referenceDate": "2026-07-30",
+          "status": "materials_available",
+          "resources": [
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/cdc21b90da36e14c316bb313.docx",
+              "bytes": 38820,
+              "sha256": "cdc21b90da36e14c316bb3130a1f03af6b36cdac80943cd5179a0ed5377af3c7"
+            },
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/4bdb08b0344e8b63405ab0e8.pdf",
+              "bytes": 65018,
+              "sha256": "4bdb08b0344e8b63405ab0e83c198f5e7bd44a416ba8e9d1a87acff6cfff6db5"
+            },
+            {
+              "kind": "instructor_packet",
+              "label": "Instructor packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/0dc6404d34e91b65d005d4d4.pdf",
+              "bytes": 243473,
+              "sha256": "0dc6404d34e91b65d005d4d41775525acac38778bd6e214ef6d0e289fada8ca7"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/9bcac5ba5cad6d5a0bc6ff26.docx",
+              "bytes": 38502,
+              "sha256": "9bcac5ba5cad6d5a0bc6ff26b1fe924b03424d2b921f12e8d722268a4b36a7ae"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/1aa62459d749398cdb59ab0b.pdf",
+              "bytes": 59550,
+              "sha256": "1aa62459d749398cdb59ab0b5c10f03bdbb039819d2281d77e05e268788b98f0"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/edac7b40f0cdc1b13af213aa.pdf",
+              "bytes": 1355987,
+              "sha256": "edac7b40f0cdc1b13af213aa7545e55c2aa326d2f0b9b9d00865dc14a463b5df"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PPTX",
+              "url": "/teaching/cts/assets/d020f863d91b55853b49eb95.pptx",
+              "bytes": 66194,
+              "sha256": "d020f863d91b55853b49eb956b2aad171882fe351a8b4d906376d2fc272400f7"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/a0544c1b72f7e1c5deb13279.docx",
+              "bytes": 39513,
+              "sha256": "a0544c1b72f7e1c5deb13279f344dfc66b60996096d166476f2a59decdf34da2"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/dbfc92bff2bd4281fd8fae41.pdf",
+              "bytes": 91127,
+              "sha256": "dbfc92bff2bd4281fd8fae4172861979f7c8ab7b21cb21dc8c0800487b3da585"
+            }
+          ],
+          "additionalResources": [
+            {
+              "kind": "student_packet",
+              "label": "RCS08 StudentPrintPacket",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/07fc314781d4616bcbde3337.pdf",
+              "bytes": 113005,
+              "sha256": "07fc314781d4616bcbde3337e313a79b304df8c9d3a8d67702b38ad049555025"
+            }
+          ],
+          "lessonUrl": "/teaching/cts/lessons/rcs-08.json"
+        }
+      ]
+    },
+    {
+      "code": "PV102",
+      "title": "Solar applications and design",
+      "weeks": 2,
+      "days": [
+        {
+          "id": "pv102-01",
+          "courseCode": "PV102",
+          "courseDay": 1,
+          "programDay": 17,
+          "title": "Applications and Design",
+          "referenceDate": "2026-08-03",
+          "status": "materials_available",
+          "resources": [
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/76f147e3bf8f2d48114000a4.docx",
+              "bytes": 39851,
+              "sha256": "76f147e3bf8f2d48114000a4e6c84bb9deecec193f854cbfa1ad0ebb668e853e"
+            },
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/2af839f3baf40492285ea8e6.pdf",
+              "bytes": 91217,
+              "sha256": "2af839f3baf40492285ea8e671011ec6b68360bb62965e2115c3713b7158e836"
+            },
+            {
+              "kind": "instructor_packet",
+              "label": "Instructor packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/2f5f3bd594a0e8acd4bfebb4.pdf",
+              "bytes": 387960,
+              "sha256": "2f5f3bd594a0e8acd4bfebb4bac189411e9889d62abae08ae0b789d23832bb4d"
+            },
+            {
+              "kind": "lab",
+              "label": "Lab activity",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/7c5af96a3abac5dc06eef660.docx",
+              "bytes": 40445,
+              "sha256": "7c5af96a3abac5dc06eef66064d652a5d962e8627b62635882cf7063cea97b27"
+            },
+            {
+              "kind": "lab",
+              "label": "Lab activity",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/23116fd924352b29c7632e7f.pdf",
+              "bytes": 139279,
+              "sha256": "23116fd924352b29c7632e7f3d6b1cb5983e8c401be558bc428e81a0d1abfe7f"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/ee768735b3b4a2080888370b.docx",
+              "bytes": 39444,
+              "sha256": "ee768735b3b4a2080888370b88b535cc827ba6f9d19e3c2535ecd72439c7ebdc"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/56277e7d4f40ff7f66d8eccc.pdf",
+              "bytes": 83362,
+              "sha256": "56277e7d4f40ff7f66d8ecccb8039c1dbaab28b7915c500bb2833e385a54e19f"
+            },
+            {
+              "kind": "run_sheet",
+              "label": "Instructor run sheet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/4b8de4faa965ab409bc47057.docx",
+              "bytes": 42931,
+              "sha256": "4b8de4faa965ab409bc470579b553ec7adea127ab67cf0edada4f5b73939080a"
+            },
+            {
+              "kind": "run_sheet",
+              "label": "Instructor run sheet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/afcaf3ab824b4a031cceaacd.pdf",
+              "bytes": 174130,
+              "sha256": "afcaf3ab824b4a031cceaacd287137056523a631369a80efc91efbbc310fbfb3"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/83b4e55c49f11d26cb6baa0d.pdf",
+              "bytes": 146364,
+              "sha256": "83b4e55c49f11d26cb6baa0d5a59326b55c2a07d43f79b7153cf09d4afc17cff"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PPTX",
+              "url": "/teaching/cts/assets/0c31ed81de1653853a41055f.pptx",
+              "bytes": 101343,
+              "sha256": "0c31ed81de1653853a41055fa2ae07313536d6a2f96e1886f5efb0fff0772b3a"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/fca3455f954de3e95db7fbb8.docx",
+              "bytes": 42109,
+              "sha256": "fca3455f954de3e95db7fbb8cdf27e900c922d6e5e03fdd6b01fff531b5a5ae4"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/9f048fc4c6eb145cd2d3d810.pdf",
+              "bytes": 176751,
+              "sha256": "9f048fc4c6eb145cd2d3d81014a33134887b4014086eef0a9b44fe7132e396d9"
+            },
+            {
+              "kind": "whiteboard",
+              "label": "Whiteboard plan",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/8cbf798e694d8ce5d31ec20c.docx",
+              "bytes": 39300,
+              "sha256": "8cbf798e694d8ce5d31ec20c2e8314829f692b4c1f4f7878d550762ea0ed5276"
+            },
+            {
+              "kind": "whiteboard",
+              "label": "Whiteboard plan",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/27c768dc9c860621314eac06.pdf",
+              "bytes": 95562,
+              "sha256": "27c768dc9c860621314eac06f47ceae296586595bb036eab8043b3d8b9ef7717"
+            }
+          ],
+          "additionalResources": [],
+          "lessonUrl": "/teaching/cts/lessons/pv102-01.json"
+        },
+        {
+          "id": "pv102-02",
+          "courseCode": "PV102",
+          "courseDay": 2,
+          "programDay": 18,
+          "title": "Site Assessment",
+          "referenceDate": "2026-08-04",
+          "status": "materials_available",
+          "resources": [
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/e14625a9876023e056693926.docx",
+              "bytes": 38788,
+              "sha256": "e14625a9876023e056693926a506a1367ce12e5700bbfccf7b0db8dae4a3c4fd"
+            },
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/91910edf2e49e1b081fbbcdc.pdf",
+              "bytes": 62877,
+              "sha256": "91910edf2e49e1b081fbbcdc092ab2b6c5149dd1942c2d204a93c6a6777e2b3e"
+            },
+            {
+              "kind": "instructor_packet",
+              "label": "Instructor packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/3bc21157730ca2d0d654a272.pdf",
+              "bytes": 202646,
+              "sha256": "3bc21157730ca2d0d654a272fb1161433bdf12235c325ccf5276955ab2abd0b1"
+            },
+            {
+              "kind": "lab",
+              "label": "Lab activity",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/b25739938042f2e58dbf2a8d.docx",
+              "bytes": 38420,
+              "sha256": "b25739938042f2e58dbf2a8d8c21f34c9f995fcd2c4961655bf40ab7a174b302"
+            },
+            {
+              "kind": "lab",
+              "label": "Lab activity",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/67a073814643b25a2a35e9f3.pdf",
+              "bytes": 53402,
+              "sha256": "67a073814643b25a2a35e9f357b3d0ed8681ea4a6350140f24c55af7f3239c4d"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/bb9d0aaf0c9af92a99e67d7a.docx",
+              "bytes": 38256,
+              "sha256": "bb9d0aaf0c9af92a99e67d7ad3004158a2ba460fa86b2867fdda396d9dc1f7de"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/ece30ff24e4ad1f843f3bfae.pdf",
+              "bytes": 55341,
+              "sha256": "ece30ff24e4ad1f843f3bfae4b2b94e734f5afb4185bcc1416d14e346bdefb0a"
+            },
+            {
+              "kind": "run_sheet",
+              "label": "Instructor run sheet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/75da850a7ede8715182a9394.docx",
+              "bytes": 40212,
+              "sha256": "75da850a7ede8715182a93947101b2368d062cbe44ca1c8cacfaee0c8cb49649"
+            },
+            {
+              "kind": "run_sheet",
+              "label": "Instructor run sheet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/ed4a9812dc403b9486ab9609.pdf",
+              "bytes": 79979,
+              "sha256": "ed4a9812dc403b9486ab9609e5442a880f9ebac1bdbec04b65556e2bc0da9dc2"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/7efe14a4d459666758c20eaa.pdf",
+              "bytes": 365689,
+              "sha256": "7efe14a4d459666758c20eaad9ca21248b6e253bbe615bf4f4ac97c260bb6eee"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PPTX",
+              "url": "/teaching/cts/assets/10b48a22dae9d9d123143dd9.pptx",
+              "bytes": 4871453,
+              "sha256": "10b48a22dae9d9d123143dd9e9f60833486b4b34b96e8d6aa704129d61503cff"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/988ee2a1191818daf43ab183.docx",
+              "bytes": 39345,
+              "sha256": "988ee2a1191818daf43ab18354724a454f724d08c526a754b9d845c325b87843"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/fdb83646ecd92650a4af9be0.pdf",
+              "bytes": 85579,
+              "sha256": "fdb83646ecd92650a4af9be01900c8678635eca6c3167fed30bdc7d7f8dd2e96"
+            },
+            {
+              "kind": "whiteboard",
+              "label": "Whiteboard plan",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/36dd41f6fba7e8a12fc99728.docx",
+              "bytes": 38037,
+              "sha256": "36dd41f6fba7e8a12fc9972848aa6a11e5168b1c893d35d8e802ec579f1e6313"
+            },
+            {
+              "kind": "whiteboard",
+              "label": "Whiteboard plan",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/410bb0a9392d25449e966fe8.pdf",
+              "bytes": 42053,
+              "sha256": "410bb0a9392d25449e966fe8113162b5e1a7cc77cee56709ecb17502ad3dfef7"
+            }
+          ],
+          "additionalResources": [],
+          "lessonUrl": "/teaching/cts/lessons/pv102-02.json"
+        },
+        {
+          "id": "pv102-03",
+          "courseCode": "PV102",
+          "courseDay": 3,
+          "programDay": 19,
+          "title": "Loads Energy Budget",
+          "referenceDate": "2026-08-05",
+          "status": "materials_available",
+          "resources": [
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/eef73298e2e4ad79b71512ac.docx",
+              "bytes": 38614,
+              "sha256": "eef73298e2e4ad79b71512acf4c7f545efc04b32d3bf27b220a2497963fd30d2"
+            },
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/337bad8dcc033e0d49766ad7.pdf",
+              "bytes": 63062,
+              "sha256": "337bad8dcc033e0d49766ad7a2bf530797178a7bb415c98d5129112b6caa0076"
+            },
+            {
+              "kind": "instructor_packet",
+              "label": "Instructor packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/442587b633a12afe0a54daaa.pdf",
+              "bytes": 204601,
+              "sha256": "442587b633a12afe0a54daaabf0fba469a36847c7fec7ca97cf098bd5604f79e"
+            },
+            {
+              "kind": "lab",
+              "label": "Lab activity",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/672981f029e7b6c8ece948e2.docx",
+              "bytes": 38461,
+              "sha256": "672981f029e7b6c8ece948e2f6d52f0aa65a1c50b63ab1ebfb89c91b6581bd04"
+            },
+            {
+              "kind": "lab",
+              "label": "Lab activity",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/f5ec0fe04e537f80720cdfdc.pdf",
+              "bytes": 53971,
+              "sha256": "f5ec0fe04e537f80720cdfdc90450c6fbb3d6df3ff78c477827408796613335c"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/3a42a4c940208de9c25049e9.docx",
+              "bytes": 38203,
+              "sha256": "3a42a4c940208de9c25049e9804db076b0e599fd42dbc0cef59e8eed64dc3c67"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/7f3a005772a969684eabff01.pdf",
+              "bytes": 55795,
+              "sha256": "7f3a005772a969684eabff014f94d1632dcba4e2c5a96fd07d31b9b1784aedf9"
+            },
+            {
+              "kind": "run_sheet",
+              "label": "Instructor run sheet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/9bd246fe596a3fc9dbd47d05.docx",
+              "bytes": 40109,
+              "sha256": "9bd246fe596a3fc9dbd47d05e4c8fc8bf81bc742fa5525a63eabaf3af3921199"
+            },
+            {
+              "kind": "run_sheet",
+              "label": "Instructor run sheet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/06d7a7e5b2b4a9b07b0787ae.pdf",
+              "bytes": 80879,
+              "sha256": "06d7a7e5b2b4a9b07b0787ae2177c660da8dac0324f4daf4afbf64c14306cb78"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/5159784d9a8c7ce8c0b35c95.pdf",
+              "bytes": 321570,
+              "sha256": "5159784d9a8c7ce8c0b35c95e034e0924204b53e6520c0d47b1743c45bcfe192"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PPTX",
+              "url": "/teaching/cts/assets/81d0de8344bbe412a864b7f4.pptx",
+              "bytes": 4035740,
+              "sha256": "81d0de8344bbe412a864b7f4e6316aa505fcd5c76bb0e47f2b1146c2997cb266"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/27e278c38558508d8ea9197d.docx",
+              "bytes": 39305,
+              "sha256": "27e278c38558508d8ea9197d5446c0fe9082df8aa2e3c788dc8b929ef6b38ce6"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/092d8271e0f23cc985768228.pdf",
+              "bytes": 85917,
+              "sha256": "092d8271e0f23cc985768228f0d04cb81d275ba23b3f67565241c7754b60ef36"
+            },
+            {
+              "kind": "whiteboard",
+              "label": "Whiteboard plan",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/b305ff59e8e5c956aefd5f81.docx",
+              "bytes": 38066,
+              "sha256": "b305ff59e8e5c956aefd5f8130aa4d8ed58c8190882213222ea12fe6325fa2a2"
+            },
+            {
+              "kind": "whiteboard",
+              "label": "Whiteboard plan",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/07f0c178dae95cec1bf0bc21.pdf",
+              "bytes": 42462,
+              "sha256": "07f0c178dae95cec1bf0bc21e7f73c4f4389942019b871849d2891fad949b5b2"
+            }
+          ],
+          "additionalResources": [],
+          "lessonUrl": "/teaching/cts/lessons/pv102-03.json"
+        },
+        {
+          "id": "pv102-04",
+          "courseCode": "PV102",
+          "courseDay": 4,
+          "programDay": 20,
+          "title": "Modules Strings Shade",
+          "referenceDate": "2026-08-06",
+          "status": "materials_available",
+          "resources": [
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/47c4c338256fb31bfa31c783.docx",
+              "bytes": 38677,
+              "sha256": "47c4c338256fb31bfa31c783f7cdb4849a1c5c4fea89c87845f37d2709971eb0"
+            },
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/87b7a61a8bb1f431082be4c2.pdf",
+              "bytes": 62789,
+              "sha256": "87b7a61a8bb1f431082be4c25d1ba922aca9f00ad260fcb50fce5dcfe8092c71"
+            },
+            {
+              "kind": "instructor_packet",
+              "label": "Instructor packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/131f0e57d3d156c28370fb8b.pdf",
+              "bytes": 202377,
+              "sha256": "131f0e57d3d156c28370fb8b02d9052e9b4569845d11c853ace4b727b5e18333"
+            },
+            {
+              "kind": "lab",
+              "label": "Lab activity",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/60a1474ee838986ea4b395da.docx",
+              "bytes": 38405,
+              "sha256": "60a1474ee838986ea4b395dae31900b0172586543d4a1f00bbbd5d6e7d787d06"
+            },
+            {
+              "kind": "lab",
+              "label": "Lab activity",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/77735b6c53d0e75619cc0588.pdf",
+              "bytes": 53687,
+              "sha256": "77735b6c53d0e75619cc058878f8cc232fee654336efe8125a6c4b733e74f284"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/3c991a9e1dd7c3baaea5657f.docx",
+              "bytes": 38272,
+              "sha256": "3c991a9e1dd7c3baaea5657f26a0173858c7aa4bb7c714858d75bb647b4843af"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/2e114b92afeb9aceecdbed67.pdf",
+              "bytes": 55672,
+              "sha256": "2e114b92afeb9aceecdbed6741dbe9af3b0f8f9f426feb8bdca90cd2768153d8"
+            },
+            {
+              "kind": "run_sheet",
+              "label": "Instructor run sheet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/c6a0d67bb722652e9a074d3f.docx",
+              "bytes": 40140,
+              "sha256": "c6a0d67bb722652e9a074d3ff645b958fcad90e4938cbde3e349b0835f9db13d"
+            },
+            {
+              "kind": "run_sheet",
+              "label": "Instructor run sheet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/9d31d2e0f1956622a5db3396.pdf",
+              "bytes": 80783,
+              "sha256": "9d31d2e0f1956622a5db33966e4ad9923523476d03c23d82ec7820c5beae8739"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/b0865752a36c78295f3b3c73.pdf",
+              "bytes": 386132,
+              "sha256": "b0865752a36c78295f3b3c73782186128b0164412c212291f607fd1f958116b8"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PPTX",
+              "url": "/teaching/cts/assets/6a7dd8445b4fa2e51212c940.pptx",
+              "bytes": 5280990,
+              "sha256": "6a7dd8445b4fa2e51212c940ae05a1195436d53780b18f57675316cfb0213110"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/37da8d78a1e253b64c71af6a.docx",
+              "bytes": 39338,
+              "sha256": "37da8d78a1e253b64c71af6acf9f0dabcc10fd13035c5c0a2336f4d8ddbeed38"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/9632c83fb936ba057229b03f.pdf",
+              "bytes": 85444,
+              "sha256": "9632c83fb936ba057229b03f1126ddcecb195e9464c1c3c65f14f042c14107e0"
+            },
+            {
+              "kind": "whiteboard",
+              "label": "Whiteboard plan",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/adc4908699bad9c246d00ad9.docx",
+              "bytes": 38032,
+              "sha256": "adc4908699bad9c246d00ad9d43fb7f2c0dfa0b5ae0d5d80db036cc1875c801e"
+            },
+            {
+              "kind": "whiteboard",
+              "label": "Whiteboard plan",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/f77b84b2ceb951dd7a5181cb.pdf",
+              "bytes": 42012,
+              "sha256": "f77b84b2ceb951dd7a5181cb356c19941a394311751d3b034a4400fe9689c9e2"
+            }
+          ],
+          "additionalResources": [],
+          "lessonUrl": "/teaching/cts/lessons/pv102-04.json"
+        },
+        {
+          "id": "pv102-05",
+          "courseCode": "PV102",
+          "courseDay": 5,
+          "programDay": 21,
+          "title": "Battery Autonomy",
+          "referenceDate": "2026-08-10",
+          "status": "materials_available",
+          "resources": [
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/4aef264a4292491ece3a9022.docx",
+              "bytes": 38796,
+              "sha256": "4aef264a4292491ece3a902251dc26eae7490a18482f47c25cb4ccab5b2710b6"
+            },
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/39bbbf6c5f6fe62f0f0746e5.pdf",
+              "bytes": 62936,
+              "sha256": "39bbbf6c5f6fe62f0f0746e5c0c1000658a0a4e9ce4ddf284e82df4c999f358e"
+            },
+            {
+              "kind": "instructor_packet",
+              "label": "Instructor packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/6e1098c205f168518223698b.pdf",
+              "bytes": 203674,
+              "sha256": "6e1098c205f168518223698b55419b55827a23ebf4401a2fb2b56ff1418a50d9"
+            },
+            {
+              "kind": "lab",
+              "label": "Lab activity",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/c83decfd873ba53d48972816.docx",
+              "bytes": 38456,
+              "sha256": "c83decfd873ba53d48972816cd8394e06770afa19bdc64b507e95fdcad1c9f90"
+            },
+            {
+              "kind": "lab",
+              "label": "Lab activity",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/ff1b00aa07fcec5fd25893e2.pdf",
+              "bytes": 53783,
+              "sha256": "ff1b00aa07fcec5fd25893e2d8d4f4426db490298b0e19ab519f6bcf13fa8d41"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/65fae780aacaa2fdf74a147c.docx",
+              "bytes": 38308,
+              "sha256": "65fae780aacaa2fdf74a147c0d9f572503e3add0854f0739a05c3d4b7378bdb7"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/e3d44fdbca846452531f3f04.pdf",
+              "bytes": 55800,
+              "sha256": "e3d44fdbca846452531f3f042062cbaf24d9b2f6f23805115e35ae9536277f3b"
+            },
+            {
+              "kind": "run_sheet",
+              "label": "Instructor run sheet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/57b411a7a75f883aa68eaace.docx",
+              "bytes": 40158,
+              "sha256": "57b411a7a75f883aa68eaace8cb39b17f737328349464a99bce7bce87e915426"
+            },
+            {
+              "kind": "run_sheet",
+              "label": "Instructor run sheet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/0b52a4ccb19a0f031e266d09.pdf",
+              "bytes": 80870,
+              "sha256": "0b52a4ccb19a0f031e266d09cab0c02aa46a47723d0d1f694756729367f9fb99"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/8fe3f374c1b188cf1e605810.pdf",
+              "bytes": 316367,
+              "sha256": "8fe3f374c1b188cf1e6058100713e1026c7d43121d3792196c08c284bf0b2c6d"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PPTX",
+              "url": "/teaching/cts/assets/2a14b67566d7b411e6a1b1f6.pptx",
+              "bytes": 3934005,
+              "sha256": "2a14b67566d7b411e6a1b1f643f0336b3df1e2d101d4d061cd8a53601c11487d"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/fa6384837140c9852a7758b8.docx",
+              "bytes": 39439,
+              "sha256": "fa6384837140c9852a7758b881c31551ebf9b04df31cdcb8f1be4e513d0a0037"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/8dfebad6c0f983069557ddec.pdf",
+              "bytes": 85926,
+              "sha256": "8dfebad6c0f983069557ddec500ede0fcaea05bc30c763083dade9700d068796"
+            },
+            {
+              "kind": "whiteboard",
+              "label": "Whiteboard plan",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/b07829b8488963130075adde.docx",
+              "bytes": 38082,
+              "sha256": "b07829b8488963130075addeedadd42f039f842d46011510e99413de0b32d544"
+            },
+            {
+              "kind": "whiteboard",
+              "label": "Whiteboard plan",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/476b6088c7adfdc4142ca31f.pdf",
+              "bytes": 42116,
+              "sha256": "476b6088c7adfdc4142ca31fe17f387c32fcfddb4eb9b7ca5c4c0f3543fb11c5"
+            }
+          ],
+          "additionalResources": [],
+          "lessonUrl": "/teaching/cts/lessons/pv102-05.json"
+        },
+        {
+          "id": "pv102-06",
+          "courseCode": "PV102",
+          "courseDay": 6,
+          "programDay": 22,
+          "title": "Inverter Controller Protection",
+          "referenceDate": "2026-08-11",
+          "status": "materials_available",
+          "resources": [
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/9ba223ee555742ca4d111e6f.docx",
+              "bytes": 38750,
+              "sha256": "9ba223ee555742ca4d111e6f85c7b7fa0a3bbfaa68f23009dc433b475be20f5b"
+            },
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/db45fd9dc1cb3dc95e2668ce.pdf",
+              "bytes": 61792,
+              "sha256": "db45fd9dc1cb3dc95e2668cea4bdfbffea1538ea4df85ffd610e11cb2366d106"
+            },
+            {
+              "kind": "instructor_packet",
+              "label": "Instructor packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/45b0c238adfe8c767b7c8b1b.pdf",
+              "bytes": 202117,
+              "sha256": "45b0c238adfe8c767b7c8b1b45efa85e4069212dfe19f733e48b807a965cfe3b"
+            },
+            {
+              "kind": "lab",
+              "label": "Lab activity",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/19c9876025442ed8d66e38b0.docx",
+              "bytes": 38467,
+              "sha256": "19c9876025442ed8d66e38b0fcd92a748df25e00f55cd4051121fbadfd7f0cef"
+            },
+            {
+              "kind": "lab",
+              "label": "Lab activity",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/5d98d53004235338efc37ab7.pdf",
+              "bytes": 54176,
+              "sha256": "5d98d53004235338efc37ab7d0d0d23d88edd475ee70f81e4509d6cf2e0fc600"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/4fc62d7774976d8795d309ac.docx",
+              "bytes": 38259,
+              "sha256": "4fc62d7774976d8795d309acf57fcb8abda1c7ca3ddbc3772f21e2d0829c080e"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/9cc36442c51bb792e1a63fc4.pdf",
+              "bytes": 54344,
+              "sha256": "9cc36442c51bb792e1a63fc480aaa9fecf7ccf4f0a29067d8ef7a6ff36618f69"
+            },
+            {
+              "kind": "run_sheet",
+              "label": "Instructor run sheet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/a70a3e7d4f14ba3bd780c047.docx",
+              "bytes": 40191,
+              "sha256": "a70a3e7d4f14ba3bd780c04773d90da7c90ee580ebb383ab39b70b0a915f33d6"
+            },
+            {
+              "kind": "run_sheet",
+              "label": "Instructor run sheet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/68a8ec829b2ab9c8c3775f07.pdf",
+              "bytes": 81005,
+              "sha256": "68a8ec829b2ab9c8c3775f07aaeec16b3484edb24eb2ef1928d00cc6cba7406a"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/9518f37864b6aac51026381a.pdf",
+              "bytes": 385838,
+              "sha256": "9518f37864b6aac51026381a8f826c96196eaccb31244f65ae3c5301c0b1a492"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PPTX",
+              "url": "/teaching/cts/assets/c0c54498c86f8665448b6642.pptx",
+              "bytes": 5272582,
+              "sha256": "c0c54498c86f8665448b664248d473e886b4d84d3e707ed076ae770e30255de3"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/01be703568e4672160629174.docx",
+              "bytes": 39370,
+              "sha256": "01be703568e467216062917475bdca94ac787a388029f5a32e2e8e7a5805bc8b"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/27d3c96e582e65d5a2976484.pdf",
+              "bytes": 85295,
+              "sha256": "27d3c96e582e65d5a29764847fe96e7dbf74ad18b1e1a3faf1d764c3dd1fe2c9"
+            },
+            {
+              "kind": "whiteboard",
+              "label": "Whiteboard plan",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/4512941561e42705ee9d17ce.docx",
+              "bytes": 38048,
+              "sha256": "4512941561e42705ee9d17ce769356d5ecda0a74d6719b9d80690171ef5735a1"
+            },
+            {
+              "kind": "whiteboard",
+              "label": "Whiteboard plan",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/4ceb7807ed8bbbf2058b59db.pdf",
+              "bytes": 42326,
+              "sha256": "4ceb7807ed8bbbf2058b59dbe96f3dbd6e018f407101835f61942039a1a9d7b3"
+            }
+          ],
+          "additionalResources": [],
+          "lessonUrl": "/teaching/cts/lessons/pv102-06.json"
+        },
+        {
+          "id": "pv102-07",
+          "courseCode": "PV102",
+          "courseDay": 7,
+          "programDay": 23,
+          "title": "Install Planning JHA",
+          "referenceDate": "2026-08-12",
+          "status": "materials_available",
+          "resources": [
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/318bd6c99d538d3c136eb4cb.docx",
+              "bytes": 38720,
+              "sha256": "318bd6c99d538d3c136eb4cbc8f1a20cd19eae1dfd51714369c92a0fdebc5ff4"
+            },
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/173174cb2c08b04d5f710500.pdf",
+              "bytes": 62815,
+              "sha256": "173174cb2c08b04d5f7105009697c1eea85f7b15a9643186f44dc838f4664048"
+            },
+            {
+              "kind": "instructor_packet",
+              "label": "Instructor packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/85e3ac33c5fe2acfc124eb2f.pdf",
+              "bytes": 203315,
+              "sha256": "85e3ac33c5fe2acfc124eb2fa8e6a4a085ec3ab4e8c7130bf4c436abd74467a0"
+            },
+            {
+              "kind": "lab",
+              "label": "Lab activity",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/238582f3013140a829d98e89.docx",
+              "bytes": 38478,
+              "sha256": "238582f3013140a829d98e899dc797a9f2707fa23b342092ce29867b7a67b416"
+            },
+            {
+              "kind": "lab",
+              "label": "Lab activity",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/f612714eb85c3e0ecd925fa8.pdf",
+              "bytes": 53913,
+              "sha256": "f612714eb85c3e0ecd925fa871acddeec4ec46f0b04b9ff16249cd8de4a22485"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/2481f84dee35ac6a645e8520.docx",
+              "bytes": 38246,
+              "sha256": "2481f84dee35ac6a645e8520f42c8158e805c9a3bd0b4a1218f1e7061dda2962"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/c05e799cc9dc277565150ee0.pdf",
+              "bytes": 55293,
+              "sha256": "c05e799cc9dc277565150ee085992f9a993046e7ae084e04e20f6b084c504191"
+            },
+            {
+              "kind": "run_sheet",
+              "label": "Instructor run sheet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/72ebc3e4843b03e969dbf2b3.docx",
+              "bytes": 40158,
+              "sha256": "72ebc3e4843b03e969dbf2b38c0f22c27cc524c2febca9133477e17be5332a7b"
+            },
+            {
+              "kind": "run_sheet",
+              "label": "Instructor run sheet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/976f262a5f97005e031abeb3.pdf",
+              "bytes": 80840,
+              "sha256": "976f262a5f97005e031abeb34af4aff696e4eab4b147e853bd29f6abd6ce2c9f"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/bd44d66e76d6aa8724396277.pdf",
+              "bytes": 378877,
+              "sha256": "bd44d66e76d6aa8724396277cef775897595c96a3b982eb386fd4c1570d39268"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PPTX",
+              "url": "/teaching/cts/assets/80dc490e53a77359f61adfc9.pptx",
+              "bytes": 5141966,
+              "sha256": "80dc490e53a77359f61adfc9a745e178146b89910c840e7f5795b416630965eb"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/0dbac975e3c5a8cb20933caf.docx",
+              "bytes": 39360,
+              "sha256": "0dbac975e3c5a8cb20933cafce43ce1cebc70d6b99db8e780c7c68b8a1086bdc"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/2743bc158039bad3205dbb1c.pdf",
+              "bytes": 85501,
+              "sha256": "2743bc158039bad3205dbb1ca102a58626e8e4a590820c811931799b666fb6a7"
+            },
+            {
+              "kind": "whiteboard",
+              "label": "Whiteboard plan",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/61eb9549a3010fc2f1c4f75e.docx",
+              "bytes": 38052,
+              "sha256": "61eb9549a3010fc2f1c4f75e609aa35ab2d0190cee007a1f4fb6b20123c4a592"
+            },
+            {
+              "kind": "whiteboard",
+              "label": "Whiteboard plan",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/02fc299b46a7b730e387bb01.pdf",
+              "bytes": 42424,
+              "sha256": "02fc299b46a7b730e387bb01822760be5764fe626b04a8e8a81f2bceb1233125"
+            }
+          ],
+          "additionalResources": [],
+          "lessonUrl": "/teaching/cts/lessons/pv102-07.json"
+        },
+        {
+          "id": "pv102-08",
+          "courseCode": "PV102",
+          "courseDay": 8,
+          "programDay": 24,
+          "title": "Commissioning Handoff",
+          "referenceDate": "2026-08-13",
+          "status": "materials_available",
+          "resources": [
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/c99d126deb2a994c2d2b077a.docx",
+              "bytes": 38752,
+              "sha256": "c99d126deb2a994c2d2b077a0968a358b6139eeeae4a40622e8d052705daa7cd"
+            },
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/3a28c2d00da308f7632726e7.pdf",
+              "bytes": 63275,
+              "sha256": "3a28c2d00da308f7632726e754894db741e7af5a739a4632bacff47566c3406f"
+            },
+            {
+              "kind": "instructor_packet",
+              "label": "Instructor packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/a471a640b65833ed257b6cbb.pdf",
+              "bytes": 205002,
+              "sha256": "a471a640b65833ed257b6cbb7f431dbdbfb4aac80c09e6ce00277141803eefe6"
+            },
+            {
+              "kind": "lab",
+              "label": "Lab activity",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/b8e8311a6d72be8458c4a01c.docx",
+              "bytes": 38429,
+              "sha256": "b8e8311a6d72be8458c4a01c5d9893ff81f88309faf7f4f590be8b1fb815d166"
+            },
+            {
+              "kind": "lab",
+              "label": "Lab activity",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/8450c2a7349b69bceba21f02.pdf",
+              "bytes": 54032,
+              "sha256": "8450c2a7349b69bceba21f02e041982db4949c224d6d945f02ba218bdceff6da"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/44d40b9bf1ca8e98e196c226.docx",
+              "bytes": 38320,
+              "sha256": "44d40b9bf1ca8e98e196c226754b364a947ce97d5610a30ddaf9d1817e0cf48a"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/2d0c8913c33bfeef37b9fe89.pdf",
+              "bytes": 56086,
+              "sha256": "2d0c8913c33bfeef37b9fe89238ca4545be64766603a0a86bf33451059a80fc7"
+            },
+            {
+              "kind": "run_sheet",
+              "label": "Instructor run sheet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/64005788a49898f39c764ab3.docx",
+              "bytes": 40168,
+              "sha256": "64005788a49898f39c764ab3d8d318871a0e9b536e2ac1ca62e567c6680f06ef"
+            },
+            {
+              "kind": "run_sheet",
+              "label": "Instructor run sheet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/6dfb7b21b8e714defa7283d3.pdf",
+              "bytes": 81079,
+              "sha256": "6dfb7b21b8e714defa7283d31db7a21932dd550845af1ddaf5ad1662ed421986"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/b902ca71e3cda085dc6c3108.pdf",
+              "bytes": 267907,
+              "sha256": "b902ca71e3cda085dc6c31087734df1ba3f12c05dfe008637d2888f95f2071d7"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PPTX",
+              "url": "/teaching/cts/assets/43b454ea0b13c6367531bffa.pptx",
+              "bytes": 3003192,
+              "sha256": "43b454ea0b13c6367531bffaab9c1aa25586e4775732e9d3d6571f3a0a07008d"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/771d56c28e39448b6e95c297.docx",
+              "bytes": 39414,
+              "sha256": "771d56c28e39448b6e95c297daf0a4767f1c57c96350b48adaa3ea090a493e0a"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/5d0704d1d0d06d388d2c0b9f.pdf",
+              "bytes": 86417,
+              "sha256": "5d0704d1d0d06d388d2c0b9fbe490f24b44b6054d6dd6ce4e4eb31c2cd7e7123"
+            },
+            {
+              "kind": "whiteboard",
+              "label": "Whiteboard plan",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/6b239712d6a445ce992757cd.docx",
+              "bytes": 38046,
+              "sha256": "6b239712d6a445ce992757cd8f68af156a65e00f2499a89459a7222f2087f895"
+            },
+            {
+              "kind": "whiteboard",
+              "label": "Whiteboard plan",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/7cab62734079b50914ec76eb.pdf",
+              "bytes": 42373,
+              "sha256": "7cab62734079b50914ec76ebb614817e2be835631fcf63319c289c5946bced2c"
+            }
+          ],
+          "additionalResources": [],
+          "lessonUrl": "/teaching/cts/lessons/pv102-08.json"
+        }
+      ]
+    },
+    {
+      "code": "EDM101",
+      "title": "Sound, lighting and fabrication",
+      "weeks": 2,
+      "days": [
+        {
+          "id": "edm101-01",
+          "courseCode": "EDM101",
+          "courseDay": 1,
+          "programDay": 25,
+          "title": "Intro Laser Safety",
+          "referenceDate": "2026-08-17",
+          "status": "materials_available",
+          "resources": [
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/7743f26ea2470a091dfa755a.docx",
+              "bytes": 40351,
+              "sha256": "7743f26ea2470a091dfa755ad173d3dd0cdfe8e0f2b7d84fc245159755d7d93f"
+            },
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/825edb6ebf98c62857a7a12a.pdf",
+              "bytes": 83021,
+              "sha256": "825edb6ebf98c62857a7a12aebebc61cac5eb0155673c4edf16abcbc8eae4974"
+            },
+            {
+              "kind": "instructor_packet",
+              "label": "Instructor packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/c18f0e207440edeb602c7c29.pdf",
+              "bytes": 247922,
+              "sha256": "c18f0e207440edeb602c7c29a08a6cf7a5d9500c775fb4b81d85c6b743dc157d"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/103ad5eb368abf970ac27e96.docx",
+              "bytes": 39696,
+              "sha256": "103ad5eb368abf970ac27e96f9498f3e0f6c11cf25624dd05ebfc1fb97c5fc0b"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/6fdc6a821eac2a64a51c13a0.pdf",
+              "bytes": 71618,
+              "sha256": "6fdc6a821eac2a64a51c13a0f0d518334ae19dea13b76afb232f8fa87ba4a81a"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PPTX",
+              "url": "/teaching/cts/assets/8cfeda8e7f557861baa8b18d.pptx",
+              "bytes": 23996341,
+              "sha256": "8cfeda8e7f557861baa8b18d6ccb8157aeb8abfaa2788bdc220cd87d721fb56e"
+            }
+          ],
+          "additionalResources": [],
+          "lessonUrl": "/teaching/cts/lessons/edm101-01.json",
+          "sourceNote": "Includes backfilled source; review before reuse."
+        },
+        {
+          "id": "edm101-02",
+          "courseCode": "EDM101",
+          "courseDay": 2,
+          "programDay": 26,
+          "title": "Frequency Wavelength SPL and Cabinet Geometry",
+          "referenceDate": "2026-08-18",
+          "status": "source_only",
+          "resources": [],
+          "additionalResources": [],
+          "lessonUrl": "/teaching/cts/lessons/edm101-02.json",
+          "sourceNote": "Includes backfilled source; review before reuse."
+        },
+        {
+          "id": "edm101-03",
+          "courseCode": "EDM101",
+          "courseDay": 3,
+          "programDay": 27,
+          "title": "Plan Reading Cut Lists and Material Layout",
+          "referenceDate": "2026-08-19",
+          "status": "source_only",
+          "resources": [],
+          "additionalResources": [],
+          "lessonUrl": "/teaching/cts/lessons/edm101-03.json",
+          "sourceNote": "Includes backfilled source; review before reuse."
+        },
+        {
+          "id": "edm101-04",
+          "courseCode": "EDM101",
+          "courseDay": 4,
+          "programDay": 28,
+          "title": "Tool Safety Panel Fabrication and Quality Control",
+          "referenceDate": "2026-08-20",
+          "status": "source_only",
+          "resources": [],
+          "additionalResources": [],
+          "lessonUrl": "/teaching/cts/lessons/edm101-04.json",
+          "sourceNote": "Includes backfilled source; review before reuse."
+        },
+        {
+          "id": "edm101-05",
+          "courseCode": "EDM101",
+          "courseDay": 5,
+          "programDay": 29,
+          "title": "Dry Fit Fitment and Cabinet Assembly",
+          "referenceDate": "2026-08-24",
+          "status": "source_only",
+          "resources": [],
+          "additionalResources": [],
+          "lessonUrl": "/teaching/cts/lessons/edm101-05.json",
+          "sourceNote": "Includes backfilled source; review before reuse."
+        },
+        {
+          "id": "edm101-06",
+          "courseCode": "EDM101",
+          "courseDay": 6,
+          "programDay": 30,
+          "title": "Driver Wiring Impedance Jack Plates and Polarity",
+          "referenceDate": "2026-08-25",
+          "status": "source_only",
+          "resources": [],
+          "additionalResources": [],
+          "lessonUrl": "/teaching/cts/lessons/edm101-06.json",
+          "sourceNote": "Includes backfilled source; review before reuse."
+        },
+        {
+          "id": "edm101-07",
+          "courseCode": "EDM101",
+          "courseDay": 7,
+          "programDay": 31,
+          "title": "Final Assembly Sealing and System Setup",
+          "referenceDate": "2026-08-26",
+          "status": "source_only",
+          "resources": [],
+          "additionalResources": [],
+          "lessonUrl": "/teaching/cts/lessons/edm101-07.json",
+          "sourceNote": "Includes backfilled source; review before reuse."
+        },
+        {
+          "id": "edm101-08",
+          "courseCode": "EDM101",
+          "courseDay": 8,
+          "programDay": 32,
+          "title": "Commissioning DSP Tuning and Final Quality Control",
+          "referenceDate": "2026-08-27",
+          "status": "source_only",
+          "resources": [],
+          "additionalResources": [],
+          "lessonUrl": "/teaching/cts/lessons/edm101-08.json",
+          "sourceNote": "Includes backfilled source; review before reuse."
+        }
+      ]
+    },
+    {
+      "code": "EBIKE101",
+      "title": "Bicycle and e-bike systems",
+      "weeks": 2,
+      "days": [
+        {
+          "id": "ebike101-01",
+          "courseCode": "EBIKE101",
+          "courseDay": 1,
+          "programDay": 33,
+          "title": "Introduction Rider Safety and System Inspection",
+          "referenceDate": "2026-08-31",
+          "status": "materials_available",
+          "resources": [
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/9b0e093d2f1806204c9a29f6.docx",
+              "bytes": 37649,
+              "sha256": "9b0e093d2f1806204c9a29f65081ba96510670bd5ae90d6bd27fb7b663158598"
+            },
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/4dcbdd7e62a9f7ea470cad0c.pdf",
+              "bytes": 44758,
+              "sha256": "4dcbdd7e62a9f7ea470cad0c7a7bcb3672b706e46f2d70e4f65d67c306cbe400"
+            },
+            {
+              "kind": "instructor_packet",
+              "label": "Instructor packet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/1667060fe251034730b7ecb7.docx",
+              "bytes": 47097,
+              "sha256": "1667060fe251034730b7ecb7e026023b85d04a7f10a178a7c264bb265751a2f4"
+            },
+            {
+              "kind": "instructor_packet",
+              "label": "Instructor packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/c5df1c5c957ebe8afeea8389.pdf",
+              "bytes": 273503,
+              "sha256": "c5df1c5c957ebe8afeea8389a0ec8be9c6fb5314def07e84aa6aa623330be5aa"
+            },
+            {
+              "kind": "lab",
+              "label": "Lab activity",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/ce17a6a500c518f7e6a23b87.docx",
+              "bytes": 38694,
+              "sha256": "ce17a6a500c518f7e6a23b87abd63982a553b261dcd008338ca519e365a89c8e"
+            },
+            {
+              "kind": "lab",
+              "label": "Lab activity",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/9d5a0857f207b613fb5f73d4.pdf",
+              "bytes": 80862,
+              "sha256": "9d5a0857f207b613fb5f73d4b306f23bb22cff49db7e5e83707cdba87df52f7e"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/4650e5a86c86e0e839194a8b.docx",
+              "bytes": 38757,
+              "sha256": "4650e5a86c86e0e839194a8b84243800b67f74e1f7129178d30f86f9a8045250"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/25469fc4527898ff48580f79.pdf",
+              "bytes": 58359,
+              "sha256": "25469fc4527898ff48580f7903329c88cf4c5195173c566b31209210e1ac5d1a"
+            },
+            {
+              "kind": "run_sheet",
+              "label": "Instructor run sheet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/420ad24a75a60070e07b9276.docx",
+              "bytes": 40038,
+              "sha256": "420ad24a75a60070e07b9276f8ce0e6dc314a3943aeb81d1d4d644206e47d33b"
+            },
+            {
+              "kind": "run_sheet",
+              "label": "Instructor run sheet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/17b0723d43b3e086058bc301.pdf",
+              "bytes": 90158,
+              "sha256": "17b0723d43b3e086058bc301871d36bb8e34a9846aff973fd7a2ef2ec7b85ce5"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/5f16e81c387fc61eb0dc0929.pdf",
+              "bytes": 65248,
+              "sha256": "5f16e81c387fc61eb0dc0929022d528a6f51545070c9497cb8bd5d3d650192a6"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PPTX",
+              "url": "/teaching/cts/assets/e4abd115d30981195f08eb50.pptx",
+              "bytes": 201702,
+              "sha256": "e4abd115d30981195f08eb50c5f8ee7eb7ee67526483d3d1fcbf72c375159573"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/dcf606e95f8d5fe02dc18782.docx",
+              "bytes": 38562,
+              "sha256": "dcf606e95f8d5fe02dc18782dbcadc568e9d442ca80f53ca63f6fdbd2732ee7e"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/97500691b9d60d0aa89132a8.pdf",
+              "bytes": 92852,
+              "sha256": "97500691b9d60d0aa89132a852e90b34e729bba8683444b4af288dc7380461fe"
+            }
+          ],
+          "additionalResources": [],
+          "lessonUrl": "/teaching/cts/lessons/ebike101-01.json"
+        },
+        {
+          "id": "ebike101-02",
+          "courseCode": "EBIKE101",
+          "courseDay": 2,
+          "programDay": 34,
+          "title": "Bicycle Mechanics Foundations",
+          "referenceDate": "2026-09-01",
+          "status": "source_only",
+          "resources": [],
+          "additionalResources": [],
+          "lessonUrl": "/teaching/cts/lessons/ebike101-02.json"
+        },
+        {
+          "id": "ebike101-03",
+          "courseCode": "EBIKE101",
+          "courseDay": 3,
+          "programDay": 35,
+          "title": "Motors Controllers and Signal Flow",
+          "referenceDate": "2026-09-02",
+          "status": "materials_available",
+          "resources": [
+            {
+              "kind": "instructor_packet",
+              "label": "Instructor packet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/63b3114f684806178bdd3bc3.docx",
+              "bytes": 42184,
+              "sha256": "63b3114f684806178bdd3bc38c0de3e99db5b1a2e5a439cfb9068bc4f005db3e"
+            },
+            {
+              "kind": "instructor_packet",
+              "label": "Instructor packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/0ff9cc00e9bf4f314f4e122c.pdf",
+              "bytes": 185854,
+              "sha256": "0ff9cc00e9bf4f314f4e122ceae9cdad06bd390b32e84921f80b3210a223da4f"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PPTX",
+              "url": "/teaching/cts/assets/7ac0212184e228bf0be4ab07.pptx",
+              "bytes": 65664,
+              "sha256": "7ac0212184e228bf0be4ab07bfb701d23ca1b0c4efb17482fde70c8067fad867"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/ee17893f8ed285938bee9297.docx",
+              "bytes": 42065,
+              "sha256": "ee17893f8ed285938bee9297b7c9441a0a7588bacc34e6c51fe95c380818a46b"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/deded2cf4259ba65c06d2c63.pdf",
+              "bytes": 180050,
+              "sha256": "deded2cf4259ba65c06d2c6357c3b0089c39d775c1e6808d7648c0f50ad497b9"
+            }
+          ],
+          "additionalResources": [],
+          "lessonUrl": "/teaching/cts/lessons/ebike101-03.json"
+        },
+        {
+          "id": "ebike101-04",
+          "courseCode": "EBIKE101",
+          "courseDay": 4,
+          "programDay": 36,
+          "title": "Material not found",
+          "referenceDate": null,
+          "status": "missing",
+          "resources": [],
+          "additionalResources": [],
+          "lessonUrl": null
+        },
+        {
+          "id": "ebike101-05",
+          "courseCode": "EBIKE101",
+          "courseDay": 5,
+          "programDay": 37,
+          "title": "Material not found",
+          "referenceDate": null,
+          "status": "missing",
+          "resources": [],
+          "additionalResources": [],
+          "lessonUrl": null
+        },
+        {
+          "id": "ebike101-06",
+          "courseCode": "EBIKE101",
+          "courseDay": 6,
+          "programDay": 38,
+          "title": "Ebike Homunculous Diagnosis and Finish Work",
+          "referenceDate": "2026-09-08",
+          "status": "materials_available",
+          "resources": [
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/19e57b51e0e8278f9b81cde2.docx",
+              "bytes": 39661,
+              "sha256": "19e57b51e0e8278f9b81cde217fabdc8d687448be49fac0f038a7537f6bb5a5a"
+            },
+            {
+              "kind": "answers",
+              "label": "Quiz answer key",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/76f0e40efb31c2fbcc226522.pdf",
+              "bytes": 55834,
+              "sha256": "76f0e40efb31c2fbcc226522bd0af89cc07e307a71cfce806b09ec890a9fabcb"
+            },
+            {
+              "kind": "instructor_packet",
+              "label": "Instructor packet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/81834de30fffa628ae544f80.docx",
+              "bytes": 42689,
+              "sha256": "81834de30fffa628ae544f80b7d1d6827a504c3b4a6c540b76b77364d9a57ea3"
+            },
+            {
+              "kind": "instructor_packet",
+              "label": "Instructor packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/898bfeac38ce7ad0019dc765.pdf",
+              "bytes": 167798,
+              "sha256": "898bfeac38ce7ad0019dc7652561b5b503c0066ddb5d9fc4f9e664264bff7d0f"
+            },
+            {
+              "kind": "lab",
+              "label": "Lab activity",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/b0a00eaa4c535eec6dc80338.docx",
+              "bytes": 39974,
+              "sha256": "b0a00eaa4c535eec6dc8033804e5389608238d92c00cea6a7728a21add483de8"
+            },
+            {
+              "kind": "lab",
+              "label": "Lab activity",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/5ebbac905e51041bfc44ce09.pdf",
+              "bytes": 91192,
+              "sha256": "5ebbac905e51041bfc44ce094867ebbf1cef02131555201ca8a49dc2a86fc444"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/bd8415459a65d03e9faaca28.docx",
+              "bytes": 40796,
+              "sha256": "bd8415459a65d03e9faaca28c7bbdf2435039ac465e681cb1b2447abda79f65e"
+            },
+            {
+              "kind": "quiz",
+              "label": "Quiz",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/2b05fa9ad5c8c0d817e423ec.pdf",
+              "bytes": 79642,
+              "sha256": "2b05fa9ad5c8c0d817e423eceb830316f6d118b04917f79e452034194d0bf9e5"
+            },
+            {
+              "kind": "run_sheet",
+              "label": "Instructor run sheet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/588a60cf60015fa5deb4b2d2.docx",
+              "bytes": 40688,
+              "sha256": "588a60cf60015fa5deb4b2d2db4e0676565ddaab6c2e565085f09992f81fa760"
+            },
+            {
+              "kind": "run_sheet",
+              "label": "Instructor run sheet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/8e56a17c28550cdc0f2cece8.pdf",
+              "bytes": 102731,
+              "sha256": "8e56a17c28550cdc0f2cece88c2593fa48a83ead213626c934bd37700b2b6b27"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/c10000a1fb4f1a1f425b204e.pdf",
+              "bytes": 69183,
+              "sha256": "c10000a1fb4f1a1f425b204eaafcbc5bf3b2686da5290b027dce69af91784680"
+            },
+            {
+              "kind": "slides",
+              "label": "Slide deck",
+              "format": "PPTX",
+              "url": "/teaching/cts/assets/272b76a2824ca21e74c1c0a9.pptx",
+              "bytes": 43384,
+              "sha256": "272b76a2824ca21e74c1c0a96e1554142366c21cbc92cad99e9e37b444ae6bd6"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/d858c7adc769bf0e3ab2f5a3.docx",
+              "bytes": 41654,
+              "sha256": "d858c7adc769bf0e3ab2f5a3b287fe96d292d880aecb9f887bbefcf1411d1721"
+            },
+            {
+              "kind": "student_packet",
+              "label": "Student packet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/321934a2524a65b158426590.pdf",
+              "bytes": 132246,
+              "sha256": "321934a2524a65b158426590941149fa69bc8c8af56d518c9cf38dd17accc610"
+            },
+            {
+              "kind": "worksheet",
+              "label": "Worksheet",
+              "format": "DOCX",
+              "url": "/teaching/cts/assets/c8cb18b0140e4423a6afc68d.docx",
+              "bytes": 39642,
+              "sha256": "c8cb18b0140e4423a6afc68dcf17e803d38a04e9fa1ddd0d9c99629a0eb3a5d0"
+            },
+            {
+              "kind": "worksheet",
+              "label": "Worksheet",
+              "format": "PDF",
+              "url": "/teaching/cts/assets/ee81c1d804e7a1574e940503.pdf",
+              "bytes": 104641,
+              "sha256": "ee81c1d804e7a1574e9405035171ce19de54ecfabc9811dc8fa26727aa62fd48"
+            }
+          ],
+          "additionalResources": [],
+          "lessonUrl": "/teaching/cts/lessons/ebike101-06.json"
+        },
+        {
+          "id": "ebike101-07",
+          "courseCode": "EBIKE101",
+          "courseDay": 7,
+          "programDay": 39,
+          "title": "Material not found",
+          "referenceDate": null,
+          "status": "missing",
+          "resources": [],
+          "additionalResources": [],
+          "lessonUrl": null
+        },
+        {
+          "id": "ebike101-08",
+          "courseCode": "EBIKE101",
+          "courseDay": 8,
+          "programDay": 40,
+          "title": "Material not found",
+          "referenceDate": null,
+          "status": "missing",
+          "resources": [],
+          "additionalResources": [],
+          "lessonUrl": null
+        }
+      ]
+    }
+  ]
+}

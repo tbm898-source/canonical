@@ -22,5 +22,5 @@ export const PUBLIC_PREVIEW_PATHS = [
 
 export function isPublicPreviewPath(pathname = "") {
   if (PUBLIC_PREVIEW_PATHS.includes(pathname)) return true;
-  return pathname.startsWith("/Packages/") || pathname.startsWith("/Docs/");
+  return pathname.startsWith("/Packages/") || pathname.startsWith("/Docs/") || pathname.startsWith("/courses/");
 }

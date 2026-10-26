@@ -7,6 +7,9 @@
 .teaching-markdown h2 { margin-top: 1.5rem; font-size: 1.125rem; font-weight: 700; }
 .teaching-markdown ul { list-style: disc; padding-left: 1.5rem; }
 .teaching-markdown p { margin-top: .5rem; }
+.teaching-markdown table { margin-top: 1rem; border-collapse: collapse; width: 100%; }
+.teaching-markdown th, .teaching-markdown td { border: 1px solid #cbd5e1; padding: .5rem; text-align: left; vertical-align: top; }
+.teaching-markdown ol { list-style: decimal; padding-left: 1.5rem; }
 .canonical-page-top.teaching-shell { padding-top: calc(var(--canonical-nav-height) + var(--safe-top) + 1.5rem); }
 
 @media print {

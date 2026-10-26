@@ -44,6 +44,8 @@ Runs teaching checks, production build, then privacy QA against the fresh bundle
 |-------|-----|
 | `/start` | Teaching home |
 | `/curriculum` | Curriculum library, including all six Design Thinking outlines |
+| `/courses/:courseCode` | Five CTS courses, each with eight reserved teaching days |
+| `/courses/:courseCode/lessons/:courseDay` | Lesson notes, real teaching files, and a date-independent planning link |
 | `/plan` | Lesson drafts, chosen dates, download and print |
 | `/ProgramHelper` | Legacy bookmarks redirect to the new teaching pages; mode flags are ignored |
 | `/connections` | Administrator service connection tools |
@@ -63,6 +65,8 @@ Runs teaching checks, production build, then privacy QA against the fresh bundle
 | `npm run sync:prism-inline` | Update inline `getCanonicalProgramFull` mirror (operator) |
 
 ## Docs index
+
+- [CTS course library](docs/CTS_COURSE_LIBRARY.md)
 
 - [Mobile platform readiness](docs/CANONICAL_Mobile_Platform_Readiness_v0_1.md)
 - [Integration matrix](docs/CANONICAL_Integration_Matrix.md)
