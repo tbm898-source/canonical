@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/prepare-site-artifacts.mjs",
     "generate:cts-proof": "node scripts/generate-cts-package-proof.mjs",
     "generate:cts-slides-proof": "node scripts/generate-cts-slides-proof.mjs",
     "canonical:scan-inbox:dry-run": "node scripts/scan-inbox-dry-run.mjs",

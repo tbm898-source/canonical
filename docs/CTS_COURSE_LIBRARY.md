@@ -25,3 +25,7 @@ Focused tests verify all 40 positions, course numbering, four missing days, sour
 This imports and presents existing instruction; it does not validate or rewrite technical/safety content, fill missing lessons, infer completed work, or add AI generation. Backfilled notes and historical equipment/date assumptions remain visible for instructor review. Drafts still save only in the current browser; cross-device storage remains future work. Site-level sign-in and connected-service permissions remain unchanged.
 
 Publication receipts and hosted checks are recorded in the coordination board and task evidence after release.
+
+## Document hosting
+
+Base44 rejects site archives above 50 MB. Original teaching documents remain in GitHub and the lesson screen resolves their catalog paths to raw.githubusercontent.com, pinned to reviewed import commit b3027aedaf6f76323f33bba196709955ce6733f7. A build preparation step removes only generated dist/teaching/cts/assets copies; source documents remain untouched. Lesson notes and the interface ship in the Base44 site. A representative hosted PDF was fetched and matched its source SHA256. This is a dependency on GitHub availability; refreshing document content requires updating and verifying the pinned revision.

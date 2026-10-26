@@ -30,3 +30,7 @@ Schema version 1 changes are additive. Stable lesson IDs and position mappings m
 Legacy lesson drafts remain readable. New optional string fields (`lessonId`, `courseCode`, `courseDay`, `programDay`) preserve source references without changing the existing browser storage key. The existing sign-in, private method access and connected-service permissions are not modified.
 
 Release checks verify 40 unique positions, eight days per course, known missing days, source payload identities, original asset signatures/checksums, date/reference separation, saved-draft migration, and unchanged source identity after rescheduling. No external provider writes are part of this contract.
+
+## Document hosting
+
+Base44 rejects site archives above 50 MB. Original teaching documents remain in GitHub and the lesson screen resolves their catalog paths to raw.githubusercontent.com, pinned to reviewed import commit b3027aedaf6f76323f33bba196709955ce6733f7. A build preparation step removes only generated dist/teaching/cts/assets copies; source documents remain untouched. Lesson notes and the interface ship in the Base44 site. A representative hosted PDF was fetched and matched its source SHA256. This is a dependency on GitHub availability; refreshing document content requires updating and verifying the pinned revision.

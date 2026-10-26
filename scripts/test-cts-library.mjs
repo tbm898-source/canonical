@@ -1,3 +1,4 @@
+import { ctsMaterialUrl } from "../src/lib/ctsAssets.js";
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
@@ -100,4 +101,13 @@ test("lesson text payloads match their routes and contain no operator filesystem
   }
   assert.equal(count, 36);
   assert.ok(lessons.some((lesson) => lesson.status === "source_only"));
+});
+
+test("teaching downloads use the immutable reviewed GitHub document archive", () => {
+  for (const lesson of lessons) for (const file of [...lesson.resources, ...lesson.additionalResources]) {
+    const url = new URL(ctsMaterialUrl(file.url));
+    assert.equal(url.hostname, "raw.githubusercontent.com");
+    assert.ok(url.pathname.includes("/b3027aedaf6f76323f33bba196709955ce6733f7/public/teaching/cts/assets/"));
+  }
+  assert.throws(() => ctsMaterialUrl("/unexpected/file.pdf"));
 });
