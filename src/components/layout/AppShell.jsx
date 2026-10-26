@@ -30,7 +30,7 @@ export default function AppShell() {
   const location = useLocation();
   const nav = useNavModel();
   const isProgramHelper = location.pathname === "/ProgramHelper";
-  const isTeachingPage = ["/start", "/curriculum", "/plan"].includes(location.pathname);
+  const isTeachingPage = ["/start", "/curriculum", "/plan"].includes(location.pathname) || location.pathname.startsWith("/courses/");
 
   return (
     <div className="min-h-screen bg-[#fafafa]">

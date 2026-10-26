@@ -12,6 +12,8 @@ import Start from './pages/Start';
 import TeachingLibrary from './pages/TeachingLibrary';
 import LessonPlanner from './pages/LessonPlanner';
 import ConnectionTools from './pages/ConnectionTools';
+import CTSCourse from './pages/CTSCourse';
+import CTSLesson from './pages/CTSLesson';
 import AdminHub from './pages/AdminHub';
 import More from './pages/More';
 import About from './pages/About';
@@ -60,6 +62,8 @@ const AuthenticatedApp = () => {
       <Route element={<AppShell />}>
         <Route path="/start" element={<Start />} />
         <Route path="/curriculum" element={<TeachingLibrary />} />
+        <Route path="/courses/:courseCode" element={<CTSCourse />} />
+        <Route path="/courses/:courseCode/lessons/:courseDay" element={<CTSLesson />} />
         <Route path="/plan" element={<LessonPlanner />} />
         <Route path="/connections" element={<ConnectionTools />} />
         <Route path="/" element={<HomeRoute />} />

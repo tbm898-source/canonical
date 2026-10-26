@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import { useAuth } from "@/lib/AuthContext";
-import { lessonMarkdown, newDraft, readDrafts, saveDraft } from "@/lib/lessonDrafts";
+import { lessonMarkdown, newDraft, initialDraft, readDrafts, saveDraft } from "@/lib/lessonDrafts";
 
 const fieldClass = "mt-2 min-h-11 w-full rounded-xl border border-slate-300 bg-white p-3 text-base text-slate-950 focus:border-indigo-600 focus:outline focus:outline-2 focus:outline-indigo-200";
 
@@ -20,7 +20,7 @@ function Planner({ storageKey, seed }) {
     catch { return { drafts: [], error: "Saved drafts could not be read. Your existing browser data has been left untouched. You can still write and download a plan." }; }
   });
   const [drafts, setDrafts] = useState(initial.drafts);
-  const [draft, setDraft] = useState(() => seed.topic ? newDraft(seed) : initial.drafts[0] || newDraft());
+  const [draft, setDraft] = useState(() => initialDraft(initial.drafts, seed));
   const [message, setMessage] = useState(initial.error);
   const [dirty, setDirty] = useState(false);
   const [showPreview, setShowPreview] = useState(false);
@@ -91,6 +91,7 @@ function Planner({ storageKey, seed }) {
         <h1 className="text-3xl font-bold tracking-tight text-slate-950">Plan the next class</h1>
         <p className="mt-3 leading-7 text-slate-600">Start from where the class stopped. Keep the useful pieces, choose the next date, and write a plan you can teach from.</p>
         <p className="mt-2 text-sm leading-6 text-slate-600">Drafts save automatically on this browser only. Download a copy to keep elsewhere. Use lesson and activity notes; keep student names and records out.</p>
+        {draft.lessonId && <p className="mt-4 rounded-xl bg-indigo-50 p-4 text-sm leading-6 text-indigo-950">Based on {draft.courseCode} · Course day {draft.courseDay} of 8 · Program day {draft.programDay} of 40. <Link to={`/courses/${draft.courseCode}/lessons/${draft.courseDay}`} className="font-semibold underline">Open source lesson</Link>. Your session date is separate.</p>}
         <form onSubmit={(event) => { event.preventDefault(); save(); }} className="mt-6 rounded-2xl border border-slate-200 bg-white p-5 sm:p-7">
           <div className="grid gap-5 sm:grid-cols-2">
             <label className="text-sm font-semibold text-slate-800">Class name <span className="font-normal text-slate-500">(required)</span><input required maxLength={160} className={fieldClass} value={draft.className} onChange={(event) => update("className", event.target.value)} placeholder="e.g. Tuesday life design" /></label>

@@ -1,0 +1,2159 @@
+{
+  "contract": "cts.teaching-library.v1",
+  "sourceContext": "aya-curriculum",
+  "consumer": "canonical-program-os",
+  "containsStudentRecords": false,
+  "scope": "Human-approved reusable teaching material; original cohort files preserved",
+  "lessons": [
+    {
+      "id": "pv101-01",
+      "sourceFolder": "03_DAILY/Day_01_PV101_First_Day_Orientation_2026-07-06",
+      "sourceFile": "03_DAILY/Day_01_PV101_First_Day_Orientation_2026-07-06/PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Downloads/PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Source.md",
+      "sourceSha256": "d1e2f7083f647bd98e63e72eb99c41e0486c013deb23222caede3b1be7642ec2",
+      "sourceStatus": "materials_available",
+      "assets": [
+        {
+          "relativePath": "03_DAILY/Day_01_PV101_First_Day_Orientation_2026-07-06/PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Downloads/PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Answer_Key.docx",
+          "sha256": "dad7b1038dad51610dc5ecd17f6bd9d97ba76ccd1e1ab243708d89e72104beb6",
+          "url": "/teaching/cts/assets/dad7b1038dad51610dc5ecd1.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_01_PV101_First_Day_Orientation_2026-07-06/PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Downloads/PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Answer_Key.pdf",
+          "sha256": "8a05b8e713f3099ccf49fde455d7770e2a2b3241faa7acfeb84065d8fdcbec12",
+          "url": "/teaching/cts/assets/8a05b8e713f3099ccf49fde4.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_01_PV101_First_Day_Orientation_2026-07-06/PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Downloads/PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Master_Print_Packet.docx",
+          "sha256": "20b73c149ddf23cd57e36fad6b0fa379910e20f1552b371a015028381479fa9e",
+          "url": "/teaching/cts/assets/20b73c149ddf23cd57e36fad.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_01_PV101_First_Day_Orientation_2026-07-06/PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Downloads/PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Master_Print_Packet.pdf",
+          "sha256": "5d1bb62bd75380ddd4628a6615677fb6bf0694c71003f452ad494a2b6b675ae3",
+          "url": "/teaching/cts/assets/5d1bb62bd75380ddd4628a66.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_01_PV101_First_Day_Orientation_2026-07-06/PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Downloads/PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Quiz.docx",
+          "sha256": "3f536196e4025ae73227a84648585637abaa0b17e1f95ff05a3dcede851b129c",
+          "url": "/teaching/cts/assets/3f536196e4025ae73227a846.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_01_PV101_First_Day_Orientation_2026-07-06/PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Downloads/PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Quiz.pdf",
+          "sha256": "acf93128913f1d4adb5f4b0a85b8fb8c566fd9a498b9088a3857f97f92417cd1",
+          "url": "/teaching/cts/assets/acf93128913f1d4adb5f4b0a.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_01_PV101_First_Day_Orientation_2026-07-06/PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Downloads/PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Student_Packet.docx",
+          "sha256": "22f02f194bbbc2845b04e7ad171cc88e820499cca0a46fee6c9857d7f147cfe4",
+          "url": "/teaching/cts/assets/22f02f194bbbc2845b04e7ad.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_01_PV101_First_Day_Orientation_2026-07-06/PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Downloads/PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Student_Packet.pdf",
+          "sha256": "b35e0f5321e079cc14a271f25b62f01565a67f778c6b85623f7abcfc356ef546",
+          "url": "/teaching/cts/assets/b35e0f5321e079cc14a271f2.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_01_PV101_First_Day_Orientation_2026-07-06/PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Downloads/PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Whiteboard_Plan.docx",
+          "sha256": "5e97e1decc3290faa5873693e0c0ae6f1b43718e652fdc646bb8ac7179300b05",
+          "url": "/teaching/cts/assets/5e97e1decc3290faa5873693.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_01_PV101_First_Day_Orientation_2026-07-06/PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Downloads/PV101_Cohort06_Day01_2026-07-06_First_Day_Orientation_Whiteboard_Plan.pdf",
+          "sha256": "c4e091ec9636eb7b64b59cd9c1005bb328d82a04671fc54825403fd3658af5a3",
+          "url": "/teaching/cts/assets/c4e091ec9636eb7b64b59cd9.pdf"
+        }
+      ]
+    },
+    {
+      "id": "pv101-02",
+      "sourceFolder": "03_DAILY/Day_02_PV101_Electricity_Basics_2026-07-07",
+      "sourceFile": "03_DAILY/Day_02_PV101_Electricity_Basics_2026-07-07/PV101_Cohort06_Day02_2026-07-07_Print_Downloads/PV101_Cohort06_Day02_2026-07-07_Source.md",
+      "sourceSha256": "f086c235be58bfb05a9659c1dc6741db1aaac652ff624f2ebe5ba8709b9a6262",
+      "sourceStatus": "materials_available",
+      "assets": [
+        {
+          "relativePath": "03_DAILY/Day_02_PV101_Electricity_Basics_2026-07-07/PV101_Cohort06_Day02_2026-07-07_Print_Downloads/PV101_Cohort06_Day02_2026-07-07_Answer_Key.docx",
+          "sha256": "215612a6c9f11315b64011c91df2856959598d7c2c984bb2c6a5274b800c65c7",
+          "url": "/teaching/cts/assets/215612a6c9f11315b64011c9.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_02_PV101_Electricity_Basics_2026-07-07/PV101_Cohort06_Day02_2026-07-07_Print_Downloads/PV101_Cohort06_Day02_2026-07-07_Answer_Key.pdf",
+          "sha256": "233abaaf8775332a33b534b211f0f4b9a067fa3a8ba4db3a1221d4747c01567d",
+          "url": "/teaching/cts/assets/233abaaf8775332a33b534b2.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_02_PV101_Electricity_Basics_2026-07-07/PV101_Cohort06_Day02_2026-07-07_Print_Downloads/PV101_Cohort06_Day02_2026-07-07_Master_Print_Packet.docx",
+          "sha256": "ff8b990674ab9d255373002090b2a69d240215b3a23c2c8acd88de2df90fd2a5",
+          "url": "/teaching/cts/assets/ff8b990674ab9d2553730020.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_02_PV101_Electricity_Basics_2026-07-07/PV101_Cohort06_Day02_2026-07-07_Print_Downloads/PV101_Cohort06_Day02_2026-07-07_Master_Print_Packet.pdf",
+          "sha256": "12098049f3236077ea3c2bf19f31cbb2af713268a16a40a5f8c7f37b0f85264d",
+          "url": "/teaching/cts/assets/12098049f3236077ea3c2bf1.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_02_PV101_Electricity_Basics_2026-07-07/PV101_Cohort06_Day02_2026-07-07_Print_Downloads/PV101_Cohort06_Day02_2026-07-07_Quiz.docx",
+          "sha256": "a1181740e684348d93565dffa14b5d342e7b2c7bb2670de41ab9b59ed1d7941e",
+          "url": "/teaching/cts/assets/a1181740e684348d93565dff.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_02_PV101_Electricity_Basics_2026-07-07/PV101_Cohort06_Day02_2026-07-07_Print_Downloads/PV101_Cohort06_Day02_2026-07-07_Quiz.pdf",
+          "sha256": "e6051dc17a7f3cd8a6001571fe59fbbafb6b74529eb21234c9d9e55837ad0f1a",
+          "url": "/teaching/cts/assets/e6051dc17a7f3cd8a6001571.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_02_PV101_Electricity_Basics_2026-07-07/PV101_Cohort06_Day02_2026-07-07_Print_Downloads/PV101_Cohort06_Day02_2026-07-07_Student_Packet.docx",
+          "sha256": "80f824b17399f4d9bf17998c443c5546a13b10f0c6df2982cf46c926066639be",
+          "url": "/teaching/cts/assets/80f824b17399f4d9bf17998c.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_02_PV101_Electricity_Basics_2026-07-07/PV101_Cohort06_Day02_2026-07-07_Print_Downloads/PV101_Cohort06_Day02_2026-07-07_Student_Packet.pdf",
+          "sha256": "db6e95bc7bd8b209c37804c10f38dafb379b0ab4688b41ecf38e2bc3f65405d8",
+          "url": "/teaching/cts/assets/db6e95bc7bd8b209c37804c1.pdf"
+        }
+      ]
+    },
+    {
+      "id": "pv101-03",
+      "sourceFolder": "03_DAILY/Day_03_PV101_Wire_Practice_2026-07-08",
+      "sourceFile": "03_DAILY/Day_03_PV101_Wire_Practice_2026-07-08/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Source.md",
+      "sourceSha256": "685e76578e055a428fbe1d73ef9b427d82c5756d65b2393d852669f6c567f9fe",
+      "sourceStatus": "materials_available",
+      "assets": [
+        {
+          "relativePath": "03_DAILY/Day_03_PV101_Wire_Practice_2026-07-08/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Morning_Quiz_Answer_Key.docx",
+          "sha256": "124a76d13da2db586b2a9bf48db5b2e7d127f5df094ab9a6f90d350d8b265d8e",
+          "url": "/teaching/cts/assets/124a76d13da2db586b2a9bf4.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_03_PV101_Wire_Practice_2026-07-08/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Morning_Quiz_Answer_Key.pdf",
+          "sha256": "8aa434d0ee8f45b4c499d18933acebfbe608fcf3624de0df4e3a8fe824afd3ff",
+          "url": "/teaching/cts/assets/8aa434d0ee8f45b4c499d189.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_03_PV101_Wire_Practice_2026-07-08/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Master_Print_Packet.docx",
+          "sha256": "a5b559ba9c615bc6c7043475c2546b7a4df57e6f56accea1f0d5861e256732ba",
+          "url": "/teaching/cts/assets/a5b559ba9c615bc6c7043475.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_03_PV101_Wire_Practice_2026-07-08/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Master_Print_Packet.pdf",
+          "sha256": "72d51402a154688e61e3aa422a2d07527f68d4a2948272ba024dceebd83dd344",
+          "url": "/teaching/cts/assets/72d51402a154688e61e3aa42.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_03_PV101_Wire_Practice_2026-07-08/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Wire_Stripping_Crimping_Lab.docx",
+          "sha256": "8603d0997056d71c6cebf31138b5d6ba9d5c27972ea41e6ff159c1d989bc0ece",
+          "url": "/teaching/cts/assets/8603d0997056d71c6cebf311.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_03_PV101_Wire_Practice_2026-07-08/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Wire_Stripping_Crimping_Lab.pdf",
+          "sha256": "189e163ff830de1cad521a91d47f89df5c2b976a13704754e330dea06078c1cd",
+          "url": "/teaching/cts/assets/189e163ff830de1cad521a91.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_03_PV101_Wire_Practice_2026-07-08/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Morning_Quiz.docx",
+          "sha256": "95d84ec45c6c8e20eb0e2687311f792a79dd45138419100a135c5d1f65abe1af",
+          "url": "/teaching/cts/assets/95d84ec45c6c8e20eb0e2687.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_03_PV101_Wire_Practice_2026-07-08/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Morning_Quiz.pdf",
+          "sha256": "5c2785640ee85ceeda4e50695864db4567770b1268707138adb3befd44b157d7",
+          "url": "/teaching/cts/assets/5c2785640ee85ceeda4e5069.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_03_PV101_Wire_Practice_2026-07-08/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Slides.pdf",
+          "sha256": "74655b353ab3a33b76d3e6baf021e7aacd32168840ddd0907ae06fc1e6c802c1",
+          "url": "/teaching/cts/assets/74655b353ab3a33b76d3e6ba.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_03_PV101_Wire_Practice_2026-07-08/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Slides.pptx",
+          "sha256": "755d274dc255f81c930f9f37af2672354d46eecf27c1b87f1fa7156136f25c3a",
+          "url": "/teaching/cts/assets/755d274dc255f81c930f9f37.pptx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_03_PV101_Wire_Practice_2026-07-08/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Student_Packet.docx",
+          "sha256": "82e945f100d635005815f89a60d50aa5562d33fb9a245f54ab2931c23085df08",
+          "url": "/teaching/cts/assets/82e945f100d635005815f89a.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_03_PV101_Wire_Practice_2026-07-08/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Student_Packet.pdf",
+          "sha256": "5171d961e03fff1e67693119259442347da11f4dfc9772b1e3f6f3f1a44ad284",
+          "url": "/teaching/cts/assets/5171d961e03fff1e67693119.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_03_PV101_Wire_Practice_2026-07-08/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Whiteboard_Plan.docx",
+          "sha256": "be48fb96e9885c36f86eb02a23b2624c6a37968b908cea9ce9a073c63d2b721f",
+          "url": "/teaching/cts/assets/be48fb96e9885c36f86eb02a.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_03_PV101_Wire_Practice_2026-07-08/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Downloads/PV101_Cohort06_Day03_2026-07-08_Wiring_Crimping_Lab_Whiteboard_Plan.pdf",
+          "sha256": "7a57202bbdfdf72a3c0f90e9d4da975082a43ced2c7aa3b43b471e13ed318d05",
+          "url": "/teaching/cts/assets/7a57202bbdfdf72a3c0f90e9.pdf"
+        }
+      ]
+    },
+    {
+      "id": "pv101-04",
+      "sourceFolder": "03_DAILY/Day_04_PV101_Wire_Practice_2026-07-09",
+      "sourceFile": "03_DAILY/Day_04_PV101_Wire_Practice_2026-07-09/docs/CTS_C6_PV101_Day04_2026-07-09_Daily_Run_Sheet.docx",
+      "sourceSha256": "400d775431d396cba3747cdc26ae21132f358ddbecabdb5e10ebf77581c0d3ce",
+      "sourceStatus": "materials_available",
+      "assets": [
+        {
+          "relativePath": "03_DAILY/Day_04_PV101_Wire_Practice_2026-07-09/docs/CTS_C6_PV101_Day04_2026-07-09_Morning_Quiz_KEY.docx",
+          "sha256": "6b82b81e81570a95a14abd57f88ad8db4db3bf62a24bd123a8864b5f620d5ed2",
+          "url": "/teaching/cts/assets/6b82b81e81570a95a14abd57.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_04_PV101_Wire_Practice_2026-07-09/print/CTS_C6_PV101_Day04_2026-07-09_Morning_Quiz_KEY.pdf",
+          "sha256": "7e725f6c4eb2d58d00c36c8a310c97487b402d6d55c1576254a5ce8097f73bcc",
+          "url": "/teaching/cts/assets/7e725f6c4eb2d58d00c36c8a.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_04_PV101_Wire_Practice_2026-07-09/print/CTS_C6_PV101_Day04_2026-07-09_Master_Print_Packet.pdf",
+          "sha256": "e91dda3bb09c4877443d2cc86f970cc660dcd0d3b3a0591ebbea7c8a9aea5ced",
+          "url": "/teaching/cts/assets/e91dda3bb09c4877443d2cc8.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_04_PV101_Wire_Practice_2026-07-09/docs/CTS_C6_PV101_Day04_2026-07-09_Afternoon_Lab.docx",
+          "sha256": "1326c23f2f675bc6d15a7fda62c8892b610286f10f445ac3bb7ca9fd37534487",
+          "url": "/teaching/cts/assets/1326c23f2f675bc6d15a7fda.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_04_PV101_Wire_Practice_2026-07-09/print/CTS_C6_PV101_Day04_2026-07-09_Afternoon_Lab.pdf",
+          "sha256": "3649d03076dfdffd25517ce6445955c04ccdc103414dc63dc7f5d3ec9e2b6d47",
+          "url": "/teaching/cts/assets/3649d03076dfdffd25517ce6.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_04_PV101_Wire_Practice_2026-07-09/docs/CTS_C6_PV101_Day04_2026-07-09_Morning_Quiz_Student.docx",
+          "sha256": "6fe5f4acb409cf7063ac336e5a00b99a9ee9205c6997ea8c14b15dbbf30f53d4",
+          "url": "/teaching/cts/assets/6fe5f4acb409cf7063ac336e.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_04_PV101_Wire_Practice_2026-07-09/print/CTS_C6_PV101_Day04_2026-07-09_Morning_Quiz_Student.pdf",
+          "sha256": "b1e07368556b2cc8facf1bf90d189af20da46fa7e7cd2c5389f0b726beeb7ca0",
+          "url": "/teaching/cts/assets/b1e07368556b2cc8facf1bf9.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_04_PV101_Wire_Practice_2026-07-09/docs/CTS_C6_PV101_Day04_2026-07-09_Daily_Run_Sheet.docx",
+          "sha256": "400d775431d396cba3747cdc26ae21132f358ddbecabdb5e10ebf77581c0d3ce",
+          "url": "/teaching/cts/assets/400d775431d396cba3747cdc.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_04_PV101_Wire_Practice_2026-07-09/print/CTS_C6_PV101_Day04_2026-07-09_Daily_Run_Sheet.pdf",
+          "sha256": "59ca2fd2b320467bb7fb3b593d0731e9af5198f1996f1147423913356784cff1",
+          "url": "/teaching/cts/assets/59ca2fd2b320467bb7fb3b59.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_04_PV101_Wire_Practice_2026-07-09/print/CTS_C6_PV101_Day04_2026-07-09_Daily_Slide_Deck.pdf",
+          "sha256": "041f4e21a59cc00edbf8a31a00bdf529422b4737da9044cc5e66c2464fc972da",
+          "url": "/teaching/cts/assets/041f4e21a59cc00edbf8a31a.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_04_PV101_Wire_Practice_2026-07-09/slides/CTS_C6_PV101_Day04_2026-07-09_Daily_Slide_Deck.pptx",
+          "sha256": "e4e8d86323f6b38cbc7720e349f803d1380495aa421574cf0c5ea5a2cdda5fbe",
+          "url": "/teaching/cts/assets/e4e8d86323f6b38cbc7720e3.pptx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_04_PV101_Wire_Practice_2026-07-09/print/CTS_C6_PV101_Day04_2026-07-09_Student_Print_Packet.pdf",
+          "sha256": "1f48be56afd952986df707372a7483761dc28c2105acbb5948ae75952dd9378a",
+          "url": "/teaching/cts/assets/1f48be56afd952986df70737.pdf"
+        }
+      ]
+    },
+    {
+      "id": "pv101-05",
+      "sourceFolder": "03_DAILY/Day_05_PV101_Electrical_Protection_and_Wire_Sizing_2026-07-13",
+      "sourceFile": "03_DAILY/Day_05_PV101_Electrical_Protection_and_Wire_Sizing_2026-07-13/CTS_Cohort6_PV101_Day05_Electrical_Protection_WireSizing_2026-07-13_Instructor_Run_Sheet.docx",
+      "sourceSha256": "e582b6e0e91ffbbd19093feb2014cdde9a77aa05e4b6a3566fb8eececa81197e",
+      "sourceStatus": "materials_available",
+      "assets": [
+        {
+          "relativePath": "03_DAILY/Day_05_PV101_Electrical_Protection_and_Wire_Sizing_2026-07-13/CTS_Cohort6_PV101_Day05_Electrical_Protection_WireSizing_2026-07-13_Morning_Quiz_Answer_Key.docx",
+          "sha256": "fac170d3cb0f8cac2772dae3755fd9aa588f523fd90bedd00dc2d9696aa371d6",
+          "url": "/teaching/cts/assets/fac170d3cb0f8cac2772dae3.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_05_PV101_Electrical_Protection_and_Wire_Sizing_2026-07-13/CTS_Cohort6_PV101_Day05_Electrical_Protection_WireSizing_2026-07-13_Morning_Quiz_Answer_Key.pdf",
+          "sha256": "1af86da3b6b9076a1534f0542395ebc840f90d74979fcd01f1511b709c60b148",
+          "url": "/teaching/cts/assets/1af86da3b6b9076a1534f054.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_05_PV101_Electrical_Protection_and_Wire_Sizing_2026-07-13/CTS_Cohort6_PV101_Day05_Electrical_Protection_WireSizing_2026-07-13_Afternoon_Lab.docx",
+          "sha256": "2cdbe87808a6bd373d3ba8d4b5a266c854613f2fa333a1ea8a998e45e3e24af1",
+          "url": "/teaching/cts/assets/2cdbe87808a6bd373d3ba8d4.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_05_PV101_Electrical_Protection_and_Wire_Sizing_2026-07-13/CTS_Cohort6_PV101_Day05_Electrical_Protection_WireSizing_2026-07-13_Afternoon_Lab.pdf",
+          "sha256": "1a1a32f732fc1b03fc4a9cb51ed5744ce605bce7b5b89fecdf7f348edb3b179c",
+          "url": "/teaching/cts/assets/1a1a32f732fc1b03fc4a9cb5.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_05_PV101_Electrical_Protection_and_Wire_Sizing_2026-07-13/CTS_Cohort6_PV101_Day05_Electrical_Protection_WireSizing_2026-07-13_Morning_Quiz_Student.docx",
+          "sha256": "ce5eb9e41ec689fae0a6d60131d0642b611bcaad5ab9e02d84695f0120990e67",
+          "url": "/teaching/cts/assets/ce5eb9e41ec689fae0a6d601.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_05_PV101_Electrical_Protection_and_Wire_Sizing_2026-07-13/CTS_Cohort6_PV101_Day05_Electrical_Protection_WireSizing_2026-07-13_Morning_Quiz_Student.pdf",
+          "sha256": "8ccdbec69de1bac2c1bee7035ecc5fdf896196b197f04395d2c08a3683220a3d",
+          "url": "/teaching/cts/assets/8ccdbec69de1bac2c1bee703.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_05_PV101_Electrical_Protection_and_Wire_Sizing_2026-07-13/CTS_Cohort6_PV101_Day05_Electrical_Protection_WireSizing_2026-07-13_Instructor_Run_Sheet.docx",
+          "sha256": "e582b6e0e91ffbbd19093feb2014cdde9a77aa05e4b6a3566fb8eececa81197e",
+          "url": "/teaching/cts/assets/e582b6e0e91ffbbd19093feb.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_05_PV101_Electrical_Protection_and_Wire_Sizing_2026-07-13/CTS_Cohort6_PV101_Day05_Electrical_Protection_WireSizing_2026-07-13_Instructor_Run_Sheet.pdf",
+          "sha256": "7903f98972ff59c09694616a0b3d99adc3f22c8355c6c6b73f4cd087ee88297a",
+          "url": "/teaching/cts/assets/7903f98972ff59c09694616a.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_05_PV101_Electrical_Protection_and_Wire_Sizing_2026-07-13/CTS_Cohort6_PV101_Day05_Electrical_Protection_WireSizing_2026-07-13_Slide_Deck.pdf",
+          "sha256": "382fa698b24ef80706568e98ebfb41d4c11e6acb344446400fd6f1d5f23dbe23",
+          "url": "/teaching/cts/assets/382fa698b24ef80706568e98.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_05_PV101_Electrical_Protection_and_Wire_Sizing_2026-07-13/CTS_Cohort6_PV101_Day05_Electrical_Protection_WireSizing_2026-07-13_Slide_Deck.pptx",
+          "sha256": "c9136b19a1360901e838f34dd17d84584ddf13c0a93f4445e83ad5362fe43b21",
+          "url": "/teaching/cts/assets/c9136b19a1360901e838f34d.pptx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_05_PV101_Electrical_Protection_and_Wire_Sizing_2026-07-13/CTS_Cohort6_PV101_Day05_Electrical_Protection_WireSizing_2026-07-13_Student_Print_Packet.docx",
+          "sha256": "03f06d3293298daadc96d9315318e56cb613e66cbfffe9448f542eb93e4185b4",
+          "url": "/teaching/cts/assets/03f06d3293298daadc96d931.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_05_PV101_Electrical_Protection_and_Wire_Sizing_2026-07-13/CTS_Cohort6_PV101_Day05_Electrical_Protection_WireSizing_2026-07-13_Student_Print_Packet.pdf",
+          "sha256": "8d1c514d18b870d0e5f9c1da5b8b901e3dd0e723380efa92ae6e6fef7359212b",
+          "url": "/teaching/cts/assets/8d1c514d18b870d0e5f9c1da.pdf"
+        }
+      ]
+    },
+    {
+      "id": "pv101-06",
+      "sourceFolder": "03_DAILY/Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14",
+      "sourceFile": "03_DAILY/Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14/Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14_Instructor_Run_Sheet.docx",
+      "sourceSha256": "6e7786c58f884a8f8f5fc55ec2444bec3757f6e2b3c1b6497070c8421459a237",
+      "sourceStatus": "materials_available",
+      "assets": [
+        {
+          "relativePath": "03_DAILY/Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14/Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14_Morning_Quiz_Answer_Key.docx",
+          "sha256": "14a9af5537b8bb3b73382a96fcc32e454eec5cc89ed3b7f2638918674b69d465",
+          "url": "/teaching/cts/assets/14a9af5537b8bb3b73382a96.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14/Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14_Morning_Quiz_Answer_Key.pdf",
+          "sha256": "0228726f0ee959ec4a0d601971018117388be93f3bb53eeba27bc2209ab6794e",
+          "url": "/teaching/cts/assets/0228726f0ee959ec4a0d6019.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14/Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14_Afternoon_Lab.docx",
+          "sha256": "7119efe1e87b8cd1dc6ef807922e4b24d40c125bbb63098e065aa98c7c823568",
+          "url": "/teaching/cts/assets/7119efe1e87b8cd1dc6ef807.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14/Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14_Afternoon_Lab.pdf",
+          "sha256": "27c807da81501a1dc5f3e56f3d9fed9122662a55f36724660c6d769e99d83509",
+          "url": "/teaching/cts/assets/27c807da81501a1dc5f3e56f.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14/Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14_Morning_Quiz_Student.docx",
+          "sha256": "d330735b73943ab2ece1c3699e7f7b8610d98efd35bb7e7a0b3f66a3a54eb4b3",
+          "url": "/teaching/cts/assets/d330735b73943ab2ece1c369.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14/Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14_Morning_Quiz_Student.pdf",
+          "sha256": "653f40b0f736e294e8d97df189d52b05d3a01516634eaf57620b6ae446af56f3",
+          "url": "/teaching/cts/assets/653f40b0f736e294e8d97df1.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14/Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14_Instructor_Run_Sheet.docx",
+          "sha256": "6e7786c58f884a8f8f5fc55ec2444bec3757f6e2b3c1b6497070c8421459a237",
+          "url": "/teaching/cts/assets/6e7786c58f884a8f8f5fc55e.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14/Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14_Instructor_Run_Sheet.pdf",
+          "sha256": "1dc55fafbaa90fdc224582b3c0a39708a503e85c6961f87a840dac5f2cbcdf12",
+          "url": "/teaching/cts/assets/1dc55fafbaa90fdc224582b3.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14/Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14_Slide_Deck.pdf",
+          "sha256": "0cbde6972eb8cebb6db919b6207d93b30cb3d13db2a4f877df8e562f1d1fffcb",
+          "url": "/teaching/cts/assets/0cbde6972eb8cebb6db919b6.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14/Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14_Slide_Deck.pptx",
+          "sha256": "4d9b209c19b7d48a53127e1314e79d5b76c05926b59b038b29c6c4f20a47d672",
+          "url": "/teaching/cts/assets/4d9b209c19b7d48a53127e13.pptx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14/Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14_Student_Print_Packet.docx",
+          "sha256": "cb0e5ac6f780b616f18dace70a5baeef72b00c18e0a3c5c62036b49caef9fc0a",
+          "url": "/teaching/cts/assets/cb0e5ac6f780b616f18dace7.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14/Day_06_PV101_Troubleshooting_and_Hidden_Fuses_2026-07-14_Student_Print_Packet.pdf",
+          "sha256": "054c433ded3a46b904cf5bf2dc27a98558cc9830e2a0823f97d389ac23ec4c8c",
+          "url": "/teaching/cts/assets/054c433ded3a46b904cf5bf2.pdf"
+        }
+      ]
+    },
+    {
+      "id": "pv101-07",
+      "sourceFolder": "03_DAILY/Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15",
+      "sourceFile": "03_DAILY/Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15/Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Instructor_Run_Sheet.docx",
+      "sourceSha256": "ae0d01c1363c2656f34d99dc12eef4e8c914e9c3188d5bb3e6e61f2a58b8b629",
+      "sourceStatus": "materials_available",
+      "assets": [
+        {
+          "relativePath": "03_DAILY/Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15/Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Morning_Quiz_Answer_Key.docx",
+          "sha256": "d492c707d80847067506e7fffdcdca6c9aaf1776d2f28e38414bc1add5b0c456",
+          "url": "/teaching/cts/assets/d492c707d80847067506e7ff.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15/Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Morning_Quiz_Answer_Key.pdf",
+          "sha256": "fae4905ed92a3e30da1e141c05acac623c8628742fc327170be09cc845cc64e4",
+          "url": "/teaching/cts/assets/fae4905ed92a3e30da1e141c.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15/Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Master_Print_Packet.docx",
+          "sha256": "08ee6d5b90c6b1b8bc4b65a83bd761311ac399795b4d0e8a810f14e2e8cd115c",
+          "url": "/teaching/cts/assets/08ee6d5b90c6b1b8bc4b65a8.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15/Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Master_Print_Packet.pdf",
+          "sha256": "878d23b882a9f8e06c015c2a1fb3a5d2b47ef19564b85bb7a9588cbe62c7f3ab",
+          "url": "/teaching/cts/assets/878d23b882a9f8e06c015c2a.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15/Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Morning_Quiz_Student.docx",
+          "sha256": "f61d00414ac275c9dc85373e929232a06c719d185202fccff35fea1c0d191611",
+          "url": "/teaching/cts/assets/f61d00414ac275c9dc85373e.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15/Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Morning_Quiz_Student.pdf",
+          "sha256": "fdf7d5c8bd044cdcbd7de3c0261e8c7c3ab38100736a012e281e463026dd9c31",
+          "url": "/teaching/cts/assets/fdf7d5c8bd044cdcbd7de3c0.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15/Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Instructor_Run_Sheet.docx",
+          "sha256": "ae0d01c1363c2656f34d99dc12eef4e8c914e9c3188d5bb3e6e61f2a58b8b629",
+          "url": "/teaching/cts/assets/ae0d01c1363c2656f34d99dc.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15/Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Instructor_Run_Sheet.pdf",
+          "sha256": "54fe9f885f7908d0849f572023067eb56e32c40219f1fbc39100a56f41f9ef88",
+          "url": "/teaching/cts/assets/54fe9f885f7908d0849f5720.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15/Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Daily_Slide_Deck.pdf",
+          "sha256": "fa270c3ddaab4e95cb7cb5d6498fca0ceb19238a2cd0d32ef3672510664f1d88",
+          "url": "/teaching/cts/assets/fa270c3ddaab4e95cb7cb5d6.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15/Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Daily_Slide_Deck.pptx",
+          "sha256": "3a50e86069c2acf413ce625a88cffe2aab87c28cf58e6037e4db51da6a5cf40c",
+          "url": "/teaching/cts/assets/3a50e86069c2acf413ce625a.pptx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15/Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Student_Print_Packet.docx",
+          "sha256": "a37e5379ab9f0a047ab0fc90ec5554e40c74ac89fea599ff183d51568368aed6",
+          "url": "/teaching/cts/assets/a37e5379ab9f0a047ab0fc90.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15/Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Student_Print_Packet.pdf",
+          "sha256": "0a2d42b6049b8d8e7db33b6ee188470ed76d793a668fd6f8c1c408011e4b4396",
+          "url": "/teaching/cts/assets/0a2d42b6049b8d8e7db33b6e.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15/Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Whiteboard_Outline.docx",
+          "sha256": "d1fd241e4ddb137df6c2f1b4b1ee2e67bb14ffa2cfdae577e4046bfee83cdd16",
+          "url": "/teaching/cts/assets/d1fd241e4ddb137df6c2f1b4.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15/Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Whiteboard_Outline.pdf",
+          "sha256": "8c2bf0d7222d38a3fa4edddbbacfb19715b3e0efc27cf82397ee6f1cf0508aa8",
+          "url": "/teaching/cts/assets/8c2bf0d7222d38a3fa4edddb.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15/Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Student_Worksheet.docx",
+          "sha256": "091f6a039382e6a1e12acb5798edb5f80a77e2af4d36b96adddf489a41fcba1f",
+          "url": "/teaching/cts/assets/091f6a039382e6a1e12acb57.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15/Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Student_Worksheet.pdf",
+          "sha256": "37358497f07f9354c7fe4fb2407005778a527cd6f75081b6ec16c9de5327ea6a",
+          "url": "/teaching/cts/assets/37358497f07f9354c7fe4fb2.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15/Day_07_PV101_Battery_Storage_Solar_and_Wire_Sizing_2026-07-15_Student_Worksheet.docx",
+          "sha256": "7151bfc8a658f85072045682fc2894045b91186e2d2c31d03c04dd3ce6309bee",
+          "url": "/teaching/cts/assets/7151bfc8a658f85072045682.docx",
+          "alternate": true
+        },
+        {
+          "relativePath": "03_DAILY/Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15/Day_07_PV101_Battery_Storage_Solar_and_Wire_Sizing_2026-07-15_Student_Worksheet.pdf",
+          "sha256": "8a91f50cf38e448cb203d26163d6adbc90f4875c677c78bc797e9f5da87cd3d1",
+          "url": "/teaching/cts/assets/8a91f50cf38e448cb203d261.pdf",
+          "alternate": true
+        },
+        {
+          "relativePath": "03_DAILY/Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15/Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Student_Worksheet_Answer_Key.docx",
+          "sha256": "f6bfd3b85ff17cd7ce3dd3ab55b29f2ace1e7175260b861aa60c11fa971438c0",
+          "url": "/teaching/cts/assets/f6bfd3b85ff17cd7ce3dd3ab.docx",
+          "alternate": true
+        },
+        {
+          "relativePath": "03_DAILY/Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15/Day_07_PV101_Load_Assessment_and_System_Sizing_2026-07-15_Student_Worksheet_Answer_Key.pdf",
+          "sha256": "583d57ced1f395ca2713ee0ab4851b864f43bf0d039ae5370b927fc00c40b313",
+          "url": "/teaching/cts/assets/583d57ced1f395ca2713ee0a.pdf",
+          "alternate": true
+        }
+      ]
+    },
+    {
+      "id": "pv101-08",
+      "sourceFolder": "03_DAILY/Day_08_PV101_Final_Review_and_Assessment_2026-07-16",
+      "sourceFile": "03_DAILY/Day_08_PV101_Final_Review_and_Assessment_2026-07-16/Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Instructor_Run_Sheet.docx",
+      "sourceSha256": "09f86e97bcc28a5a882e4d892262f3d0242ddbee3281d59a772f93640a1668f8",
+      "sourceStatus": "materials_available",
+      "assets": [
+        {
+          "relativePath": "03_DAILY/Day_08_PV101_Final_Review_and_Assessment_2026-07-16/Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Final_Test_Answer_Key.docx",
+          "sha256": "696f81cc2eff429ea8e94d24feceab57bff062283de68d474b7f84fbe191c560",
+          "url": "/teaching/cts/assets/696f81cc2eff429ea8e94d24.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_08_PV101_Final_Review_and_Assessment_2026-07-16/Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Final_Test_Answer_Key.pdf",
+          "sha256": "46e064de116919e83db0017105f5f47301fb3f15f43de89ab54d1ab921020191",
+          "url": "/teaching/cts/assets/46e064de116919e83db00171.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_08_PV101_Final_Review_and_Assessment_2026-07-16/Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Master_Print_Packet.docx",
+          "sha256": "d26a6496de5ba17d84ecb5a937b907906749a143ef91376fd97df82607d62c9d",
+          "url": "/teaching/cts/assets/d26a6496de5ba17d84ecb5a9.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_08_PV101_Final_Review_and_Assessment_2026-07-16/Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Master_Print_Packet.pdf",
+          "sha256": "311a069517b04c0ac3045ee24e7398810e50e5a705b17b34be326bf10cb636d6",
+          "url": "/teaching/cts/assets/311a069517b04c0ac3045ee2.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_08_PV101_Final_Review_and_Assessment_2026-07-16/Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Morning_Quiz_Student.docx",
+          "sha256": "da9b17269530ac9f759a046e7d47b085be831ff4ce8cda1075411f474cf60a9e",
+          "url": "/teaching/cts/assets/da9b17269530ac9f759a046e.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_08_PV101_Final_Review_and_Assessment_2026-07-16/Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Morning_Quiz_Student.pdf",
+          "sha256": "f1bb9a10e45709dcd8b9abbbca416a10fa7728eb33bd19f35de7b5233585785d",
+          "url": "/teaching/cts/assets/f1bb9a10e45709dcd8b9abbb.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_08_PV101_Final_Review_and_Assessment_2026-07-16/Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Instructor_Run_Sheet.docx",
+          "sha256": "09f86e97bcc28a5a882e4d892262f3d0242ddbee3281d59a772f93640a1668f8",
+          "url": "/teaching/cts/assets/09f86e97bcc28a5a882e4d89.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_08_PV101_Final_Review_and_Assessment_2026-07-16/Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Instructor_Run_Sheet.pdf",
+          "sha256": "1b3b3f0af078cd578d0962adef790b0856479f1cc120388bb453328d0723507a",
+          "url": "/teaching/cts/assets/1b3b3f0af078cd578d0962ad.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_08_PV101_Final_Review_and_Assessment_2026-07-16/Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Daily_Slide_Deck.pdf",
+          "sha256": "4f2996b4aa2df75af0fc8180cfb6454d9a23ad13c45df170acfbbca15620701d",
+          "url": "/teaching/cts/assets/4f2996b4aa2df75af0fc8180.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_08_PV101_Final_Review_and_Assessment_2026-07-16/Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Daily_Slide_Deck.pptx",
+          "sha256": "224be5b4d0d12e62abb40d7b6bf496e5b3fd7518bee64cb2a1ef3a450592eda7",
+          "url": "/teaching/cts/assets/224be5b4d0d12e62abb40d7b.pptx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_08_PV101_Final_Review_and_Assessment_2026-07-16/Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Student_Print_Packet.docx",
+          "sha256": "6303fa0ede7632af8fc64d49082c1fa38db76ee34fab7dee35e8e1324a596c1c",
+          "url": "/teaching/cts/assets/6303fa0ede7632af8fc64d49.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_08_PV101_Final_Review_and_Assessment_2026-07-16/Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Student_Print_Packet.pdf",
+          "sha256": "420846fa8651679d6aa5284517fdb1e351dd34ada05f0237b32173bb34acf427",
+          "url": "/teaching/cts/assets/420846fa8651679d6aa52845.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_08_PV101_Final_Review_and_Assessment_2026-07-16/Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Whiteboard_Outline.docx",
+          "sha256": "f097fb85e0bbc4cb7850f0d42483629ace4bb3ad4b096ba05f4bc9e2180bb26b",
+          "url": "/teaching/cts/assets/f097fb85e0bbc4cb7850f0d4.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_08_PV101_Final_Review_and_Assessment_2026-07-16/Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Whiteboard_Outline.pdf",
+          "sha256": "3120db90b786b7249d3124cb5566437941f2710c15864be4844681b13812c1cd",
+          "url": "/teaching/cts/assets/3120db90b786b7249d3124cb.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_08_PV101_Final_Review_and_Assessment_2026-07-16/Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Student_Worksheet.docx",
+          "sha256": "29499be5c48680c9ed6c4c83002866447b24ed5f67df513dfbc507df987d6312",
+          "url": "/teaching/cts/assets/29499be5c48680c9ed6c4c83.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_08_PV101_Final_Review_and_Assessment_2026-07-16/Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Student_Worksheet.pdf",
+          "sha256": "bacaac46ef1293b0d893c9593b87da32189b9d16a9d0098615407b8ab054ed9c",
+          "url": "/teaching/cts/assets/bacaac46ef1293b0d893c959.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_08_PV101_Final_Review_and_Assessment_2026-07-16/D08_PV101_HangoutRoom_2026-07-16/D08_Rich_RunSheet.docx",
+          "sha256": "b7843a0f4869ff3feb6e5942fc009082595822e805bab60c27be633f38958971",
+          "url": "/teaching/cts/assets/b7843a0f4869ff3feb6e5942.docx",
+          "alternate": true
+        },
+        {
+          "relativePath": "03_DAILY/Day_08_PV101_Final_Review_and_Assessment_2026-07-16/D08_PV101_HangoutRoom_2026-07-16/D08_Rich_RunSheet.pdf",
+          "sha256": "feb0028e3628b8e4a08e0a3c4c65c73dc0777063cc424125375f6ee77fc1e240",
+          "url": "/teaching/cts/assets/feb0028e3628b8e4a08e0a3c.pdf",
+          "alternate": true
+        },
+        {
+          "relativePath": "03_DAILY/Day_08_PV101_Final_Review_and_Assessment_2026-07-16/D08_PV101_HangoutRoom_2026-07-16/D08_Student_Worksheet.docx",
+          "sha256": "0cab5c17fe7db358cd6c743254701457f644674c6708b9e5fda5a7ffc3a3e778",
+          "url": "/teaching/cts/assets/0cab5c17fe7db358cd6c7432.docx",
+          "alternate": true
+        },
+        {
+          "relativePath": "03_DAILY/Day_08_PV101_Final_Review_and_Assessment_2026-07-16/D08_PV101_HangoutRoom_2026-07-16/D08_Student_Worksheet.pdf",
+          "sha256": "95e53b8e8e78f73e5bc02733a15f61c1f55b042f1f22d466451497499729af52",
+          "url": "/teaching/cts/assets/95e53b8e8e78f73e5bc02733.pdf",
+          "alternate": true
+        },
+        {
+          "relativePath": "03_DAILY/Day_08_PV101_Final_Review_and_Assessment_2026-07-16/Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Morning_Quiz_Answer_Key.docx",
+          "sha256": "bbeed059198a63c0c7aa2927db801c584835a77c86de0bc8664ea10d9641d8de",
+          "url": "/teaching/cts/assets/bbeed059198a63c0c7aa2927.docx",
+          "alternate": true
+        },
+        {
+          "relativePath": "03_DAILY/Day_08_PV101_Final_Review_and_Assessment_2026-07-16/Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Morning_Quiz_Answer_Key.pdf",
+          "sha256": "d2f477c40e6341c1c116b0e2599c3f209f0f494677605b188f315dbe5f40b6e0",
+          "url": "/teaching/cts/assets/d2f477c40e6341c1c116b0e2.pdf",
+          "alternate": true
+        },
+        {
+          "relativePath": "03_DAILY/Day_08_PV101_Final_Review_and_Assessment_2026-07-16/Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Student_Worksheet_Answer_Key.docx",
+          "sha256": "e2b5814a101eb2182de8318ddeba216d6e627ec4c47b4b906040e7b91add9b55",
+          "url": "/teaching/cts/assets/e2b5814a101eb2182de8318d.docx",
+          "alternate": true
+        },
+        {
+          "relativePath": "03_DAILY/Day_08_PV101_Final_Review_and_Assessment_2026-07-16/Day_08_PV101_Final_Review_and_Assessment_2026-07-16_Student_Worksheet_Answer_Key.pdf",
+          "sha256": "424084c8f54469e8eb5991a7be4d4049009394b9f2a29b9c61c9751b755b8298",
+          "url": "/teaching/cts/assets/424084c8f54469e8eb5991a7.pdf",
+          "alternate": true
+        }
+      ]
+    },
+    {
+      "id": "rcs-01",
+      "sourceFolder": "03_DAILY/Day_09_RCS01_2026-07-20",
+      "sourceFile": "03_DAILY/Day_09_RCS01_2026-07-20/Source/lesson.md",
+      "sourceSha256": "d5bed45722b509bdab093e32ce368340b5695e1cbc04c90d3c6c2ed4e3c43d63",
+      "sourceStatus": "materials_available",
+      "assets": [
+        {
+          "relativePath": "03_DAILY/Day_09_RCS01_2026-07-20/Instructor/RCS01_AnswerKey.docx",
+          "sha256": "30603dbffae39fdc3c43812be05d4e5b1d90bf13c52a82711e80d557e4ff98ab",
+          "url": "/teaching/cts/assets/30603dbffae39fdc3c43812b.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_09_RCS01_2026-07-20/Instructor/RCS01_AnswerKey.pdf",
+          "sha256": "26583249639d2519b36dc4655b265bb96ff1113018e9d1ce86b35e94f69801e4",
+          "url": "/teaching/cts/assets/26583249639d2519b36dc465.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_09_RCS01_2026-07-20/Student/RCS01_ExitTicket.docx",
+          "sha256": "ad930756b54ed3199ab9d9ff311a57255ab94d7ee45ed476db9104de4ec5be8d",
+          "url": "/teaching/cts/assets/ad930756b54ed3199ab9d9ff.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_09_RCS01_2026-07-20/Student/RCS01_ExitTicket.pdf",
+          "sha256": "0d41676c55778d6d0fadce60d81f7313fcfb39256f1ba54b6a86b7b2f1682d12",
+          "url": "/teaching/cts/assets/0d41676c55778d6d0fadce60.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_09_RCS01_2026-07-20/Print/RCS01_MasterPacket.pdf",
+          "sha256": "c2f3559ff3de5ac9c3770d50d8d90a415e5e5bf8cdc1505f77b3fc81a537c12e",
+          "url": "/teaching/cts/assets/c2f3559ff3de5ac9c3770d50.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_09_RCS01_2026-07-20/Student/RCS01_Lab.docx",
+          "sha256": "5b38e46d9a4b555dd7b0d755cf85d2cae84fad84fd1add684ac7c040ee124764",
+          "url": "/teaching/cts/assets/5b38e46d9a4b555dd7b0d755.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_09_RCS01_2026-07-20/Student/RCS01_Lab.pdf",
+          "sha256": "223d48d639762643464cd64ace6c05fd9802ad7afd33547b0daa374420a37291",
+          "url": "/teaching/cts/assets/223d48d639762643464cd64a.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_09_RCS01_2026-07-20/Student/RCS01_Quiz.docx",
+          "sha256": "ec392f0a8e9cbf796f8ee3c9ffadc28848996ceaf4a02488e2a91e3fa621f04a",
+          "url": "/teaching/cts/assets/ec392f0a8e9cbf796f8ee3c9.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_09_RCS01_2026-07-20/Student/RCS01_Quiz.pdf",
+          "sha256": "84533c94406acd05de8738e04c27ebc551f89148cc8fa73fc9d1276acc8e95a1",
+          "url": "/teaching/cts/assets/84533c94406acd05de8738e0.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_09_RCS01_2026-07-20/Instructor/RCS01_RunSheet.docx",
+          "sha256": "98245e223852073cf6f82105373f470abb778606e518a3ce19bd1e5392dea82a",
+          "url": "/teaching/cts/assets/98245e223852073cf6f82105.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_09_RCS01_2026-07-20/Instructor/RCS01_RunSheet.pdf",
+          "sha256": "e933be7004cf2ae92d7ceb9a87fa4516aa188574af575460c75dbfae7cf7beca",
+          "url": "/teaching/cts/assets/e933be7004cf2ae92d7ceb9a.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_09_RCS01_2026-07-20/Slides/RCS01_Slides.pdf",
+          "sha256": "39d43dc81fa2f75ae6bb17b025c7d44b96f203e5427c68fbd154092266b1f7d1",
+          "url": "/teaching/cts/assets/39d43dc81fa2f75ae6bb17b0.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_09_RCS01_2026-07-20/Slides/RCS01_Slides.pptx",
+          "sha256": "664c79729545ac759caa6a42db26d5ba1a8fd017418e7e0037c059baf5a3c9af",
+          "url": "/teaching/cts/assets/664c79729545ac759caa6a42.pptx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_09_RCS01_2026-07-20/Student/RCS01_StudentGuide.docx",
+          "sha256": "a2d7f64ad026febf6b1bd476ce68bc8b395e1b6c3f6583476611dc86411c569b",
+          "url": "/teaching/cts/assets/a2d7f64ad026febf6b1bd476.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_09_RCS01_2026-07-20/Student/RCS01_StudentGuide.pdf",
+          "sha256": "70abf6f746454d1d6ffcf8a5c83be2a1ffb57d9e96d8e3b5e70da5889a5509a8",
+          "url": "/teaching/cts/assets/70abf6f746454d1d6ffcf8a5.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_09_RCS01_2026-07-20/Print/RCS01_StudentPacket.pdf",
+          "sha256": "eece39fae8ed65eee30c7c002362e658662c3e8c9fac0fd5691fa4d7192aa4ac",
+          "url": "/teaching/cts/assets/eece39fae8ed65eee30c7c00.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_09_RCS01_2026-07-20/Student/RCS01_VerificationLog.docx",
+          "sha256": "415d4ca57984a7df3d1b5672aa7f2859625e63ad85fa6889ba1eae44ddddc482",
+          "url": "/teaching/cts/assets/415d4ca57984a7df3d1b5672.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_09_RCS01_2026-07-20/Student/RCS01_VerificationLog.pdf",
+          "sha256": "2c6c3cb314f283c09779af545d2522f18d08e5f9860493ebdad6491d98d80272",
+          "url": "/teaching/cts/assets/2c6c3cb314f283c09779af54.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_09_RCS01_2026-07-20/Instructor/RCS01_WhiteboardPlan.docx",
+          "sha256": "b3af68b47fa43c439f8a7047bca49ec9b453bea7b5dae7808224c75aa4c73b1f",
+          "url": "/teaching/cts/assets/b3af68b47fa43c439f8a7047.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_09_RCS01_2026-07-20/Instructor/RCS01_WhiteboardPlan.pdf",
+          "sha256": "51ba5910c0ab4eb5cc81a9e04ad5a7eb5a19b2306fadc775b62457883a1030d7",
+          "url": "/teaching/cts/assets/51ba5910c0ab4eb5cc81a9e0.pdf"
+        }
+      ]
+    },
+    {
+      "id": "rcs-02",
+      "sourceFolder": "03_DAILY/Day_10_RCS02_2026-07-21",
+      "sourceFile": "03_DAILY/Day_10_RCS02_2026-07-21/Source/lesson.md",
+      "sourceSha256": "239aad2ccbc1aa1114f23793a12cbd7a5e3518f3f3bf4144cf38b86d7862e265",
+      "sourceStatus": "materials_available",
+      "assets": [
+        {
+          "relativePath": "03_DAILY/Day_10_RCS02_2026-07-21/Instructor/RCS02_AnswerKey.docx",
+          "sha256": "9908a6103651ec1fb99ee5bb54f47800a0d074b074623be4467f856455c06fb2",
+          "url": "/teaching/cts/assets/9908a6103651ec1fb99ee5bb.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_10_RCS02_2026-07-21/Instructor/RCS02_AnswerKey.pdf",
+          "sha256": "6375b7f5143d7bd70085310407688228af97f7f34b869c404fddf73643049230",
+          "url": "/teaching/cts/assets/6375b7f5143d7bd700853104.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_10_RCS02_2026-07-21/Print/RCS02_MasterPrintPacket.pdf",
+          "sha256": "408d08450cab89db1ea8b5c91b63045afcc52e803f6d03db1dfcff1f09d8672a",
+          "url": "/teaching/cts/assets/408d08450cab89db1ea8b5c9.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_10_RCS02_2026-07-21/Student/RCS02_Quiz.docx",
+          "sha256": "0c92b9d231c938d086972fb4d6af54415dbdff5e4d2a5f7cd27a6e557d0ca659",
+          "url": "/teaching/cts/assets/0c92b9d231c938d086972fb4.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_10_RCS02_2026-07-21/Student/RCS02_Quiz.pdf",
+          "sha256": "0b7fee9e3dc1d4f9d0dcad4316c6f108e8ff4dfec371bde4581c11c87169e7d3",
+          "url": "/teaching/cts/assets/0b7fee9e3dc1d4f9d0dcad43.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_10_RCS02_2026-07-21/Slides/RCS02_Slides.pdf",
+          "sha256": "ea3f611c69656fa2e29a9a694de0f97ab15ac47175ffb846576dd0388dc037b9",
+          "url": "/teaching/cts/assets/ea3f611c69656fa2e29a9a69.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_10_RCS02_2026-07-21/Slides/RCS02_DailySlideDeck.pptx",
+          "sha256": "bf1fccce6fd435eb2cbc669849ea9bef62f4aad5dafb286809b34850243ef2e4",
+          "url": "/teaching/cts/assets/bf1fccce6fd435eb2cbc6698.pptx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_10_RCS02_2026-07-21/Student/RCS02_StudentPacket.docx",
+          "sha256": "843dda68388da7eec7b0a1bb74b1a407ea8cf2479bde3b6f1cb0d27fd2121110",
+          "url": "/teaching/cts/assets/843dda68388da7eec7b0a1bb.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_10_RCS02_2026-07-21/Student/RCS02_StudentPacket.pdf",
+          "sha256": "d7d7d9789fbbe950b7145c165e9cc20dc8fa15ca9bb596840774fb756049ed1a",
+          "url": "/teaching/cts/assets/d7d7d9789fbbe950b7145c16.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_10_RCS02_2026-07-21/Print/RCS02_StudentPrintPacket.pdf",
+          "sha256": "b6ff85b6047237f5c54250146c3e9426b661818458e1f7155d313a16eb54b94b",
+          "url": "/teaching/cts/assets/b6ff85b6047237f5c5425014.pdf",
+          "alternate": true
+        }
+      ]
+    },
+    {
+      "id": "rcs-03",
+      "sourceFolder": "03_DAILY/Day_11_RCS03_2026-07-22",
+      "sourceFile": "03_DAILY/Day_11_RCS03_2026-07-22/Source/lesson.md",
+      "sourceSha256": "76530e92e8707ff6db713fb7da142f20534f915bcdccb9bdb9cf8e9942e3547c",
+      "sourceStatus": "materials_available",
+      "assets": [
+        {
+          "relativePath": "03_DAILY/Day_11_RCS03_2026-07-22/Instructor/RCS03_AnswerKey.docx",
+          "sha256": "25538ba048b69f2370bbfcd23d0afa921dc0cba36ef718de32cf5e3d8573330d",
+          "url": "/teaching/cts/assets/25538ba048b69f2370bbfcd2.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_11_RCS03_2026-07-22/Instructor/RCS03_AnswerKey.pdf",
+          "sha256": "f7ba2bbe8185f96dac5f0122371fe56b860b7d4b88308014536179c3745d33d5",
+          "url": "/teaching/cts/assets/f7ba2bbe8185f96dac5f0122.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_11_RCS03_2026-07-22/Print/RCS03_MasterPrintPacket.pdf",
+          "sha256": "30ff005119c18c722ef07b10c0b70b0f989a4c876f485dc91c1fae4489d713db",
+          "url": "/teaching/cts/assets/30ff005119c18c722ef07b10.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_11_RCS03_2026-07-22/Student/RCS03_Quiz.docx",
+          "sha256": "b730578ab7f3582180c370e3479c93d7c031099f8da05af27c1174d34dd295ae",
+          "url": "/teaching/cts/assets/b730578ab7f3582180c370e3.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_11_RCS03_2026-07-22/Student/RCS03_Quiz.pdf",
+          "sha256": "769e345cbc8b0967ea0088733aef97425785366bc3fad0c125246bac4b7a85e9",
+          "url": "/teaching/cts/assets/769e345cbc8b0967ea008873.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_11_RCS03_2026-07-22/Slides/RCS03_Slides.pdf",
+          "sha256": "fb7a2e90e7244f56f6d51e0ed05e5ab7cd6e953717e563d085b76b38042a281c",
+          "url": "/teaching/cts/assets/fb7a2e90e7244f56f6d51e0e.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_11_RCS03_2026-07-22/Slides/RCS03_DailySlideDeck.pptx",
+          "sha256": "219beb4760e8b137d0278cb318016d138c2b2fa275bae1948053331a8955a853",
+          "url": "/teaching/cts/assets/219beb4760e8b137d0278cb3.pptx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_11_RCS03_2026-07-22/Student/RCS03_StudentPacket.docx",
+          "sha256": "c379239872b7421ee111707b8c4d41823b9fb760b87923d06b3aac4f8be10f2a",
+          "url": "/teaching/cts/assets/c379239872b7421ee111707b.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_11_RCS03_2026-07-22/Student/RCS03_StudentPacket.pdf",
+          "sha256": "d0497dbcd5d95701d13b709647320604f35b963bd299a71965e47cb2e19f77d4",
+          "url": "/teaching/cts/assets/d0497dbcd5d95701d13b7096.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_11_RCS03_2026-07-22/Print/RCS03_StudentPrintPacket.pdf",
+          "sha256": "be8c24fcc45f8fa367f7fcd675d82ef90f844b96720725bb493aceaf318eae01",
+          "url": "/teaching/cts/assets/be8c24fcc45f8fa367f7fcd6.pdf",
+          "alternate": true
+        }
+      ]
+    },
+    {
+      "id": "rcs-04",
+      "sourceFolder": "03_DAILY/Day_12_RCS04_2026-07-23",
+      "sourceFile": "03_DAILY/Day_12_RCS04_2026-07-23/Source/lesson.md",
+      "sourceSha256": "e434989cb9be8838b11e43b4a95efaec49417ef77ecf6c978f59b761db691e02",
+      "sourceStatus": "materials_available",
+      "assets": [
+        {
+          "relativePath": "03_DAILY/Day_12_RCS04_2026-07-23/Instructor/RCS04_AnswerKey.docx",
+          "sha256": "5bf58982458594b302bca0cc23ba1690dbe3e7db61d1503d3d13aa5ac4e0875d",
+          "url": "/teaching/cts/assets/5bf58982458594b302bca0cc.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_12_RCS04_2026-07-23/Instructor/RCS04_AnswerKey.pdf",
+          "sha256": "2baeebaac84b7acb5904b61e2106010d02cd6439191b34a42587ec0b36a56376",
+          "url": "/teaching/cts/assets/2baeebaac84b7acb5904b61e.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_12_RCS04_2026-07-23/Print/RCS04_MasterPrintPacket.pdf",
+          "sha256": "50c4f24eec12b901d5556a9d3521f26af798a0102ad781c5ec8f88f2cbdf19e5",
+          "url": "/teaching/cts/assets/50c4f24eec12b901d5556a9d.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_12_RCS04_2026-07-23/Student/RCS04_Quiz.docx",
+          "sha256": "6beec49fde74ce29ee292b6c58f119edbe9026b7c9e82a5871a7a4a9b69fdf30",
+          "url": "/teaching/cts/assets/6beec49fde74ce29ee292b6c.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_12_RCS04_2026-07-23/Student/RCS04_Quiz.pdf",
+          "sha256": "b0fb8574773631f2f2dc4024152faf717071e85e31064f8179cc0e26e1110e4d",
+          "url": "/teaching/cts/assets/b0fb8574773631f2f2dc4024.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_12_RCS04_2026-07-23/Slides/RCS04_Slides.pdf",
+          "sha256": "c490d7bdd860fba1db749b59fcac43c3691fc87f78379ae7e3c85263e16a3fe2",
+          "url": "/teaching/cts/assets/c490d7bdd860fba1db749b59.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_12_RCS04_2026-07-23/Slides/RCS04_DailySlideDeck.pptx",
+          "sha256": "70391b7ed2f039e32de85cd772758c4c3797abd3a784faad73d697b3e06d0c7e",
+          "url": "/teaching/cts/assets/70391b7ed2f039e32de85cd7.pptx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_12_RCS04_2026-07-23/Student/RCS04_StudentPacket.docx",
+          "sha256": "f71282a24da6fbc414c7a3e6faacd810da5214c22fca28fe0abcda017d4d6578",
+          "url": "/teaching/cts/assets/f71282a24da6fbc414c7a3e6.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_12_RCS04_2026-07-23/Student/RCS04_StudentPacket.pdf",
+          "sha256": "1b54c158a5156050f09b4c9c946ee5302c6ac5e10722d1dd7108dcd83b9941d5",
+          "url": "/teaching/cts/assets/1b54c158a5156050f09b4c9c.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_12_RCS04_2026-07-23/Print/RCS04_StudentPrintPacket.pdf",
+          "sha256": "01c816eb385027c395d95efb4e9a5d4a789dd12ff5c146aa2d637a411d7830b2",
+          "url": "/teaching/cts/assets/01c816eb385027c395d95efb.pdf",
+          "alternate": true
+        }
+      ]
+    },
+    {
+      "id": "rcs-05",
+      "sourceFolder": "03_DAILY/Day_13_RCS05_2026-07-27",
+      "sourceFile": "03_DAILY/Day_13_RCS05_2026-07-27/Source/lesson.md",
+      "sourceSha256": "2e4b62b1e67cd8ce14df6fec913a5ec515053684e93be2534bfe5ea3f946aadc",
+      "sourceStatus": "materials_available",
+      "assets": [
+        {
+          "relativePath": "03_DAILY/Day_13_RCS05_2026-07-27/Instructor/RCS05_AnswerKey.docx",
+          "sha256": "1b0d327f20a590dec5d4df7df8bdbab42dfa23231ba07e50ea3f8879257792ca",
+          "url": "/teaching/cts/assets/1b0d327f20a590dec5d4df7d.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_13_RCS05_2026-07-27/Instructor/RCS05_AnswerKey.pdf",
+          "sha256": "eadee4049024eb8534520b89582e864e322bda2bb3cce6b24f8f2a4217410920",
+          "url": "/teaching/cts/assets/eadee4049024eb8534520b89.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_13_RCS05_2026-07-27/Print/RCS05_MasterPrintPacket.pdf",
+          "sha256": "63180b78e3f0258cba4b9d356fc5c6f0e9f3850fc361ad5fafd2b7423c7f583f",
+          "url": "/teaching/cts/assets/63180b78e3f0258cba4b9d35.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_13_RCS05_2026-07-27/Student/RCS05_Quiz.docx",
+          "sha256": "c63d51bb282824742783305c2e38ca6c87e49a8a7927d5b2b307f27465b4ae3c",
+          "url": "/teaching/cts/assets/c63d51bb282824742783305c.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_13_RCS05_2026-07-27/Student/RCS05_Quiz.pdf",
+          "sha256": "6f9851e0afbb6e2614ee584a5874e7ea87ae0800fd510d89d37d2a2f96016985",
+          "url": "/teaching/cts/assets/6f9851e0afbb6e2614ee584a.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_13_RCS05_2026-07-27/Slides/RCS05_Slides.pdf",
+          "sha256": "9f0db30329ec53708c2a87b47f0791a09b7873388f9d35a378962f20fe4233f3",
+          "url": "/teaching/cts/assets/9f0db30329ec53708c2a87b4.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_13_RCS05_2026-07-27/Slides/RCS05_DailySlideDeck.pptx",
+          "sha256": "6b4195174eceaea47c24cd66193e323c4deba12a568ba0eff688e459c7c9a583",
+          "url": "/teaching/cts/assets/6b4195174eceaea47c24cd66.pptx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_13_RCS05_2026-07-27/Student/RCS05_StudentPacket.docx",
+          "sha256": "f48daeae12f94088fc7eebc8017abb19c8265743829d1bf97fa2883d9b7bc112",
+          "url": "/teaching/cts/assets/f48daeae12f94088fc7eebc8.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_13_RCS05_2026-07-27/Student/RCS05_StudentPacket.pdf",
+          "sha256": "0b6c70ed23b66f7331734cb4be4712be820db79aaf313c8f43382fe7118a3af3",
+          "url": "/teaching/cts/assets/0b6c70ed23b66f7331734cb4.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_13_RCS05_2026-07-27/Print/RCS05_StudentPrintPacket.pdf",
+          "sha256": "389b439eef5c44b9367c50c25fc045cf882b4655ff55b687d797ccb339daa483",
+          "url": "/teaching/cts/assets/389b439eef5c44b9367c50c2.pdf",
+          "alternate": true
+        }
+      ]
+    },
+    {
+      "id": "rcs-06",
+      "sourceFolder": "03_DAILY/Day_14_RCS06_2026-07-28",
+      "sourceFile": "03_DAILY/Day_14_RCS06_2026-07-28/Source/lesson.md",
+      "sourceSha256": "98010282c875c9f751adf015bb0eda32afdab2544a1b72de7eae1417976f58e6",
+      "sourceStatus": "materials_available",
+      "assets": [
+        {
+          "relativePath": "03_DAILY/Day_14_RCS06_2026-07-28/Instructor/RCS06_AnswerKey.docx",
+          "sha256": "c1f2f2920f11888e325628fbd1c695be1ac8ff4fa8557248b94f27bc6c8bfa2f",
+          "url": "/teaching/cts/assets/c1f2f2920f11888e325628fb.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_14_RCS06_2026-07-28/Instructor/RCS06_AnswerKey.pdf",
+          "sha256": "dc88a1f40474d2fc20849455758e9a408da6b1bbdc18ead9be4337f3f726ae42",
+          "url": "/teaching/cts/assets/dc88a1f40474d2fc20849455.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_14_RCS06_2026-07-28/Print/RCS06_MasterPrintPacket.pdf",
+          "sha256": "a9384ae6ed21003f1919374b0ed85954b69ee927bbd96b2602016756fba3210f",
+          "url": "/teaching/cts/assets/a9384ae6ed21003f1919374b.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_14_RCS06_2026-07-28/Student/RCS06_Quiz.docx",
+          "sha256": "13b0a97c496a6b614fc476fa0727dda012a1bbaa48afd2f573cc724d62510d99",
+          "url": "/teaching/cts/assets/13b0a97c496a6b614fc476fa.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_14_RCS06_2026-07-28/Student/RCS06_Quiz.pdf",
+          "sha256": "2b43e54ae9e8d6e8938f71d92d26714be100aaf50080656b2c324526e8be7263",
+          "url": "/teaching/cts/assets/2b43e54ae9e8d6e8938f71d9.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_14_RCS06_2026-07-28/Slides/RCS06_Slides.pdf",
+          "sha256": "0ed69eb10840c751e9adcd4972d30d123cd108c5d53c25d3f72844fbc6674d2e",
+          "url": "/teaching/cts/assets/0ed69eb10840c751e9adcd49.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_14_RCS06_2026-07-28/Slides/RCS06_DailySlideDeck.pptx",
+          "sha256": "24e4482d11ba17e0a97b4c13951f80e028d91e23240f8f58e494d508ba8fe753",
+          "url": "/teaching/cts/assets/24e4482d11ba17e0a97b4c13.pptx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_14_RCS06_2026-07-28/Student/RCS06_StudentPacket.docx",
+          "sha256": "fc62b1e9ca8ca5a541d72089d0a14ef8dc5ef153dca0caaa72c650db70ecedb1",
+          "url": "/teaching/cts/assets/fc62b1e9ca8ca5a541d72089.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_14_RCS06_2026-07-28/Student/RCS06_StudentPacket.pdf",
+          "sha256": "308b93d163e0fe1bd08c7513ae29ebe596f1cda30f5e001d8606b2db0ae2bef1",
+          "url": "/teaching/cts/assets/308b93d163e0fe1bd08c7513.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_14_RCS06_2026-07-28/Print/RCS06_StudentPrintPacket.pdf",
+          "sha256": "5962c2937721f06d030cb3481fd640af92fb30b71ebc898c632c0067d5a97cb2",
+          "url": "/teaching/cts/assets/5962c2937721f06d030cb348.pdf",
+          "alternate": true
+        }
+      ]
+    },
+    {
+      "id": "rcs-07",
+      "sourceFolder": "03_DAILY/Day_15_RCS07_2026-07-29",
+      "sourceFile": "03_DAILY/Day_15_RCS07_2026-07-29/Source/lesson.md",
+      "sourceSha256": "83be4e9110003af5dda8895e6c983903c1a007091ed7e9dce54eecbd336937c8",
+      "sourceStatus": "materials_available",
+      "assets": [
+        {
+          "relativePath": "03_DAILY/Day_15_RCS07_2026-07-29/Instructor/RCS07_AnswerKey.docx",
+          "sha256": "c2e7b704eef539f8cf56abd5082cbf5b1f923162fbed21a00bb873a6f33b64eb",
+          "url": "/teaching/cts/assets/c2e7b704eef539f8cf56abd5.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_15_RCS07_2026-07-29/Instructor/RCS07_AnswerKey.pdf",
+          "sha256": "7b06bc2ed7538295faa4cb282a8adc7ce209604c31d6fd220b8d196f0651f3e4",
+          "url": "/teaching/cts/assets/7b06bc2ed7538295faa4cb28.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_15_RCS07_2026-07-29/Print/RCS07_MasterPrintPacket.pdf",
+          "sha256": "49004aaa717c60bb53780d2935d618422850342ab86d2ccfe0a0b4f94bcc83cf",
+          "url": "/teaching/cts/assets/49004aaa717c60bb53780d29.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_15_RCS07_2026-07-29/Student/RCS07_Quiz.docx",
+          "sha256": "10f88a57247620eb50b013f344ae2eb394c968c3a83d9ee35f4060d57b6888a4",
+          "url": "/teaching/cts/assets/10f88a57247620eb50b013f3.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_15_RCS07_2026-07-29/Student/RCS07_Quiz.pdf",
+          "sha256": "49045cd62bbbbcae2ad40fca57083179bd41213d875ffaed255102cf8be104d2",
+          "url": "/teaching/cts/assets/49045cd62bbbbcae2ad40fca.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_15_RCS07_2026-07-29/Slides/RCS07_Slides.pdf",
+          "sha256": "6dbcb66c7ed2a760927b1ae8840090b9728285cdd74594b9ec568b7c92aad78a",
+          "url": "/teaching/cts/assets/6dbcb66c7ed2a760927b1ae8.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_15_RCS07_2026-07-29/Slides/RCS07_DailySlideDeck.pptx",
+          "sha256": "4b9a98818c73234aff8dc4b54fa3eb8ddc8a23b59a1f4e637bcf04d2fbe10f82",
+          "url": "/teaching/cts/assets/4b9a98818c73234aff8dc4b5.pptx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_15_RCS07_2026-07-29/Student/RCS07_StudentPacket.docx",
+          "sha256": "6d63718859a80af7695b3cfe52240bd522e8194e7d62992440efe038670cfc97",
+          "url": "/teaching/cts/assets/6d63718859a80af7695b3cfe.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_15_RCS07_2026-07-29/Student/RCS07_StudentPacket.pdf",
+          "sha256": "9138ccbf2482d24c7949531839de98742c71654a0fd4594d92789f7e54cc6ac5",
+          "url": "/teaching/cts/assets/9138ccbf2482d24c79495318.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_15_RCS07_2026-07-29/Print/RCS07_StudentPrintPacket.pdf",
+          "sha256": "5d68a156779d85ff02cfde80386f295a35f5f493488e245b0cacc35808aca5dd",
+          "url": "/teaching/cts/assets/5d68a156779d85ff02cfde80.pdf",
+          "alternate": true
+        }
+      ]
+    },
+    {
+      "id": "rcs-08",
+      "sourceFolder": "03_DAILY/Day_16_RCS08_2026-07-30",
+      "sourceFile": "03_DAILY/Day_16_RCS08_2026-07-30/Source/lesson.md",
+      "sourceSha256": "8996f973055ad97d37d00f9bdb3a6b49d3bc18ec31a87fc712030cfc531ed62e",
+      "sourceStatus": "materials_available",
+      "assets": [
+        {
+          "relativePath": "03_DAILY/Day_16_RCS08_2026-07-30/Instructor/RCS08_AnswerKey.docx",
+          "sha256": "cdc21b90da36e14c316bb3130a1f03af6b36cdac80943cd5179a0ed5377af3c7",
+          "url": "/teaching/cts/assets/cdc21b90da36e14c316bb313.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_16_RCS08_2026-07-30/Instructor/RCS08_AnswerKey.pdf",
+          "sha256": "4bdb08b0344e8b63405ab0e83c198f5e7bd44a416ba8e9d1a87acff6cfff6db5",
+          "url": "/teaching/cts/assets/4bdb08b0344e8b63405ab0e8.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_16_RCS08_2026-07-30/Print/RCS08_MasterPrintPacket.pdf",
+          "sha256": "0dc6404d34e91b65d005d4d41775525acac38778bd6e214ef6d0e289fada8ca7",
+          "url": "/teaching/cts/assets/0dc6404d34e91b65d005d4d4.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_16_RCS08_2026-07-30/Student/RCS08_Quiz.docx",
+          "sha256": "9bcac5ba5cad6d5a0bc6ff26b1fe924b03424d2b921f12e8d722268a4b36a7ae",
+          "url": "/teaching/cts/assets/9bcac5ba5cad6d5a0bc6ff26.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_16_RCS08_2026-07-30/Student/RCS08_Quiz.pdf",
+          "sha256": "1aa62459d749398cdb59ab0b5c10f03bdbb039819d2281d77e05e268788b98f0",
+          "url": "/teaching/cts/assets/1aa62459d749398cdb59ab0b.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_16_RCS08_2026-07-30/Slides/RCS08_Slides.pdf",
+          "sha256": "edac7b40f0cdc1b13af213aa7545e55c2aa326d2f0b9b9d00865dc14a463b5df",
+          "url": "/teaching/cts/assets/edac7b40f0cdc1b13af213aa.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_16_RCS08_2026-07-30/Slides/RCS08_DailySlideDeck.pptx",
+          "sha256": "d020f863d91b55853b49eb956b2aad171882fe351a8b4d906376d2fc272400f7",
+          "url": "/teaching/cts/assets/d020f863d91b55853b49eb95.pptx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_16_RCS08_2026-07-30/Student/RCS08_StudentPacket.docx",
+          "sha256": "a0544c1b72f7e1c5deb13279f344dfc66b60996096d166476f2a59decdf34da2",
+          "url": "/teaching/cts/assets/a0544c1b72f7e1c5deb13279.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_16_RCS08_2026-07-30/Student/RCS08_StudentPacket.pdf",
+          "sha256": "dbfc92bff2bd4281fd8fae4172861979f7c8ab7b21cb21dc8c0800487b3da585",
+          "url": "/teaching/cts/assets/dbfc92bff2bd4281fd8fae41.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_16_RCS08_2026-07-30/Print/RCS08_StudentPrintPacket.pdf",
+          "sha256": "07fc314781d4616bcbde3337e313a79b304df8c9d3a8d67702b38ad049555025",
+          "url": "/teaching/cts/assets/07fc314781d4616bcbde3337.pdf",
+          "alternate": true
+        }
+      ]
+    },
+    {
+      "id": "pv102-01",
+      "sourceFolder": "03_DAILY/Day_17_PV102_Applications_and_Design_2026-08-03",
+      "sourceFile": "03_DAILY/Day_17_PV102_Applications_and_Design_2026-08-03/Day_17_PV102_Applications_and_Design_2026-08-03_Instructor_Run_Sheet.docx",
+      "sourceSha256": "4b8de4faa965ab409bc470579b553ec7adea127ab67cf0edada4f5b73939080a",
+      "sourceStatus": "materials_available",
+      "assets": [
+        {
+          "relativePath": "03_DAILY/Day_17_PV102_Applications_and_Design_2026-08-03/Day_17_PV102_Applications_and_Design_2026-08-03_Morning_Quiz_Answer_Key.docx",
+          "sha256": "76f147e3bf8f2d48114000a4e6c84bb9deecec193f854cbfa1ad0ebb668e853e",
+          "url": "/teaching/cts/assets/76f147e3bf8f2d48114000a4.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_17_PV102_Applications_and_Design_2026-08-03/Day_17_PV102_Applications_and_Design_2026-08-03_Morning_Quiz_Answer_Key.pdf",
+          "sha256": "2af839f3baf40492285ea8e671011ec6b68360bb62965e2115c3713b7158e836",
+          "url": "/teaching/cts/assets/2af839f3baf40492285ea8e6.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_17_PV102_Applications_and_Design_2026-08-03/Day_17_PV102_Applications_and_Design_2026-08-03_Master_Print_Packet.pdf",
+          "sha256": "2f5f3bd594a0e8acd4bfebb4bac189411e9889d62abae08ae0b789d23832bb4d",
+          "url": "/teaching/cts/assets/2f5f3bd594a0e8acd4bfebb4.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_17_PV102_Applications_and_Design_2026-08-03/Day_17_PV102_Applications_and_Design_2026-08-03_Afternoon_Lab.docx",
+          "sha256": "7c5af96a3abac5dc06eef66064d652a5d962e8627b62635882cf7063cea97b27",
+          "url": "/teaching/cts/assets/7c5af96a3abac5dc06eef660.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_17_PV102_Applications_and_Design_2026-08-03/Day_17_PV102_Applications_and_Design_2026-08-03_Afternoon_Lab.pdf",
+          "sha256": "23116fd924352b29c7632e7f3d6b1cb5983e8c401be558bc428e81a0d1abfe7f",
+          "url": "/teaching/cts/assets/23116fd924352b29c7632e7f.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_17_PV102_Applications_and_Design_2026-08-03/Day_17_PV102_Applications_and_Design_2026-08-03_Morning_Quiz_Student.docx",
+          "sha256": "ee768735b3b4a2080888370b88b535cc827ba6f9d19e3c2535ecd72439c7ebdc",
+          "url": "/teaching/cts/assets/ee768735b3b4a2080888370b.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_17_PV102_Applications_and_Design_2026-08-03/Day_17_PV102_Applications_and_Design_2026-08-03_Morning_Quiz_Student.pdf",
+          "sha256": "56277e7d4f40ff7f66d8ecccb8039c1dbaab28b7915c500bb2833e385a54e19f",
+          "url": "/teaching/cts/assets/56277e7d4f40ff7f66d8eccc.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_17_PV102_Applications_and_Design_2026-08-03/Day_17_PV102_Applications_and_Design_2026-08-03_Instructor_Run_Sheet.docx",
+          "sha256": "4b8de4faa965ab409bc470579b553ec7adea127ab67cf0edada4f5b73939080a",
+          "url": "/teaching/cts/assets/4b8de4faa965ab409bc47057.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_17_PV102_Applications_and_Design_2026-08-03/Day_17_PV102_Applications_and_Design_2026-08-03_Instructor_Run_Sheet.pdf",
+          "sha256": "afcaf3ab824b4a031cceaacd287137056523a631369a80efc91efbbc310fbfb3",
+          "url": "/teaching/cts/assets/afcaf3ab824b4a031cceaacd.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_17_PV102_Applications_and_Design_2026-08-03/Day_17_PV102_Applications_and_Design_2026-08-03_Slide_Deck.pdf",
+          "sha256": "83b4e55c49f11d26cb6baa0d5a59326b55c2a07d43f79b7153cf09d4afc17cff",
+          "url": "/teaching/cts/assets/83b4e55c49f11d26cb6baa0d.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_17_PV102_Applications_and_Design_2026-08-03/Day_17_PV102_Applications_and_Design_2026-08-03_Slide_Deck.pptx",
+          "sha256": "0c31ed81de1653853a41055fa2ae07313536d6a2f96e1886f5efb0fff0772b3a",
+          "url": "/teaching/cts/assets/0c31ed81de1653853a41055f.pptx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_17_PV102_Applications_and_Design_2026-08-03/Day_17_PV102_Applications_and_Design_2026-08-03_Student_Print_Packet.docx",
+          "sha256": "fca3455f954de3e95db7fbb8cdf27e900c922d6e5e03fdd6b01fff531b5a5ae4",
+          "url": "/teaching/cts/assets/fca3455f954de3e95db7fbb8.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_17_PV102_Applications_and_Design_2026-08-03/Day_17_PV102_Applications_and_Design_2026-08-03_Student_Print_Packet.pdf",
+          "sha256": "9f048fc4c6eb145cd2d3d81014a33134887b4014086eef0a9b44fe7132e396d9",
+          "url": "/teaching/cts/assets/9f048fc4c6eb145cd2d3d810.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_17_PV102_Applications_and_Design_2026-08-03/Day_17_PV102_Applications_and_Design_2026-08-03_Whiteboard_Outline.docx",
+          "sha256": "8cbf798e694d8ce5d31ec20c2e8314829f692b4c1f4f7878d550762ea0ed5276",
+          "url": "/teaching/cts/assets/8cbf798e694d8ce5d31ec20c.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_17_PV102_Applications_and_Design_2026-08-03/Day_17_PV102_Applications_and_Design_2026-08-03_Whiteboard_Outline.pdf",
+          "sha256": "27c768dc9c860621314eac06f47ceae296586595bb036eab8043b3d8b9ef7717",
+          "url": "/teaching/cts/assets/27c768dc9c860621314eac06.pdf"
+        }
+      ]
+    },
+    {
+      "id": "pv102-02",
+      "sourceFolder": "03_DAILY/Day_18_PV102_Site_Assessment_2026-08-04",
+      "sourceFile": "03_DAILY/Day_18_PV102_Site_Assessment_2026-08-04/Day_18_PV102_Instructor_Run_Sheet.docx",
+      "sourceSha256": "75da850a7ede8715182a93947101b2368d062cbe44ca1c8cacfaee0c8cb49649",
+      "sourceStatus": "materials_available",
+      "assets": [
+        {
+          "relativePath": "03_DAILY/Day_18_PV102_Site_Assessment_2026-08-04/Day_18_PV102_Quiz_Answer_Key.docx",
+          "sha256": "e14625a9876023e056693926a506a1367ce12e5700bbfccf7b0db8dae4a3c4fd",
+          "url": "/teaching/cts/assets/e14625a9876023e056693926.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_18_PV102_Site_Assessment_2026-08-04/Day_18_PV102_Quiz_Answer_Key.pdf",
+          "sha256": "91910edf2e49e1b081fbbcdc092ab2b6c5149dd1942c2d204a93c6a6777e2b3e",
+          "url": "/teaching/cts/assets/91910edf2e49e1b081fbbcdc.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_18_PV102_Site_Assessment_2026-08-04/Day_18_PV102_Master_Print_Packet.pdf",
+          "sha256": "3bc21157730ca2d0d654a272fb1161433bdf12235c325ccf5276955ab2abd0b1",
+          "url": "/teaching/cts/assets/3bc21157730ca2d0d654a272.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_18_PV102_Site_Assessment_2026-08-04/Day_18_PV102_Afternoon_Lab.docx",
+          "sha256": "b25739938042f2e58dbf2a8d8c21f34c9f995fcd2c4961655bf40ab7a174b302",
+          "url": "/teaching/cts/assets/b25739938042f2e58dbf2a8d.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_18_PV102_Site_Assessment_2026-08-04/Day_18_PV102_Afternoon_Lab.pdf",
+          "sha256": "67a073814643b25a2a35e9f357b3d0ed8681ea4a6350140f24c55af7f3239c4d",
+          "url": "/teaching/cts/assets/67a073814643b25a2a35e9f3.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_18_PV102_Site_Assessment_2026-08-04/Day_18_PV102_Quiz_Student.docx",
+          "sha256": "bb9d0aaf0c9af92a99e67d7ad3004158a2ba460fa86b2867fdda396d9dc1f7de",
+          "url": "/teaching/cts/assets/bb9d0aaf0c9af92a99e67d7a.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_18_PV102_Site_Assessment_2026-08-04/Day_18_PV102_Quiz_Student.pdf",
+          "sha256": "ece30ff24e4ad1f843f3bfae4b2b94e734f5afb4185bcc1416d14e346bdefb0a",
+          "url": "/teaching/cts/assets/ece30ff24e4ad1f843f3bfae.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_18_PV102_Site_Assessment_2026-08-04/Day_18_PV102_Instructor_Run_Sheet.docx",
+          "sha256": "75da850a7ede8715182a93947101b2368d062cbe44ca1c8cacfaee0c8cb49649",
+          "url": "/teaching/cts/assets/75da850a7ede8715182a9394.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_18_PV102_Site_Assessment_2026-08-04/Day_18_PV102_Instructor_Run_Sheet.pdf",
+          "sha256": "ed4a9812dc403b9486ab9609e5442a880f9ebac1bdbec04b65556e2bc0da9dc2",
+          "url": "/teaching/cts/assets/ed4a9812dc403b9486ab9609.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_18_PV102_Site_Assessment_2026-08-04/Day_18_PV102_Slide_Deck.pdf",
+          "sha256": "7efe14a4d459666758c20eaad9ca21248b6e253bbe615bf4f4ac97c260bb6eee",
+          "url": "/teaching/cts/assets/7efe14a4d459666758c20eaa.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_18_PV102_Site_Assessment_2026-08-04/Day_18_PV102_Slide_Deck.pptx",
+          "sha256": "10b48a22dae9d9d123143dd9e9f60833486b4b34b96e8d6aa704129d61503cff",
+          "url": "/teaching/cts/assets/10b48a22dae9d9d123143dd9.pptx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_18_PV102_Site_Assessment_2026-08-04/Day_18_PV102_Student_Print_Packet.docx",
+          "sha256": "988ee2a1191818daf43ab18354724a454f724d08c526a754b9d845c325b87843",
+          "url": "/teaching/cts/assets/988ee2a1191818daf43ab183.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_18_PV102_Site_Assessment_2026-08-04/Day_18_PV102_Student_Print_Packet.pdf",
+          "sha256": "fdb83646ecd92650a4af9be01900c8678635eca6c3167fed30bdc7d7f8dd2e96",
+          "url": "/teaching/cts/assets/fdb83646ecd92650a4af9be0.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_18_PV102_Site_Assessment_2026-08-04/Day_18_PV102_Whiteboard_Outline.docx",
+          "sha256": "36dd41f6fba7e8a12fc9972848aa6a11e5168b1c893d35d8e802ec579f1e6313",
+          "url": "/teaching/cts/assets/36dd41f6fba7e8a12fc99728.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_18_PV102_Site_Assessment_2026-08-04/Day_18_PV102_Whiteboard_Outline.pdf",
+          "sha256": "410bb0a9392d25449e966fe8113162b5e1a7cc77cee56709ecb17502ad3dfef7",
+          "url": "/teaching/cts/assets/410bb0a9392d25449e966fe8.pdf"
+        }
+      ]
+    },
+    {
+      "id": "pv102-03",
+      "sourceFolder": "03_DAILY/Day_19_PV102_Loads_Energy_Budget_2026-08-05",
+      "sourceFile": "03_DAILY/Day_19_PV102_Loads_Energy_Budget_2026-08-05/Day_19_PV102_Instructor_Run_Sheet.docx",
+      "sourceSha256": "9bd246fe596a3fc9dbd47d05e4c8fc8bf81bc742fa5525a63eabaf3af3921199",
+      "sourceStatus": "materials_available",
+      "assets": [
+        {
+          "relativePath": "03_DAILY/Day_19_PV102_Loads_Energy_Budget_2026-08-05/Day_19_PV102_Quiz_Answer_Key.docx",
+          "sha256": "eef73298e2e4ad79b71512acf4c7f545efc04b32d3bf27b220a2497963fd30d2",
+          "url": "/teaching/cts/assets/eef73298e2e4ad79b71512ac.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_19_PV102_Loads_Energy_Budget_2026-08-05/Day_19_PV102_Quiz_Answer_Key.pdf",
+          "sha256": "337bad8dcc033e0d49766ad7a2bf530797178a7bb415c98d5129112b6caa0076",
+          "url": "/teaching/cts/assets/337bad8dcc033e0d49766ad7.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_19_PV102_Loads_Energy_Budget_2026-08-05/Day_19_PV102_Master_Print_Packet.pdf",
+          "sha256": "442587b633a12afe0a54daaabf0fba469a36847c7fec7ca97cf098bd5604f79e",
+          "url": "/teaching/cts/assets/442587b633a12afe0a54daaa.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_19_PV102_Loads_Energy_Budget_2026-08-05/Day_19_PV102_Afternoon_Lab.docx",
+          "sha256": "672981f029e7b6c8ece948e2f6d52f0aa65a1c50b63ab1ebfb89c91b6581bd04",
+          "url": "/teaching/cts/assets/672981f029e7b6c8ece948e2.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_19_PV102_Loads_Energy_Budget_2026-08-05/Day_19_PV102_Afternoon_Lab.pdf",
+          "sha256": "f5ec0fe04e537f80720cdfdc90450c6fbb3d6df3ff78c477827408796613335c",
+          "url": "/teaching/cts/assets/f5ec0fe04e537f80720cdfdc.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_19_PV102_Loads_Energy_Budget_2026-08-05/Day_19_PV102_Quiz_Student.docx",
+          "sha256": "3a42a4c940208de9c25049e9804db076b0e599fd42dbc0cef59e8eed64dc3c67",
+          "url": "/teaching/cts/assets/3a42a4c940208de9c25049e9.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_19_PV102_Loads_Energy_Budget_2026-08-05/Day_19_PV102_Quiz_Student.pdf",
+          "sha256": "7f3a005772a969684eabff014f94d1632dcba4e2c5a96fd07d31b9b1784aedf9",
+          "url": "/teaching/cts/assets/7f3a005772a969684eabff01.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_19_PV102_Loads_Energy_Budget_2026-08-05/Day_19_PV102_Instructor_Run_Sheet.docx",
+          "sha256": "9bd246fe596a3fc9dbd47d05e4c8fc8bf81bc742fa5525a63eabaf3af3921199",
+          "url": "/teaching/cts/assets/9bd246fe596a3fc9dbd47d05.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_19_PV102_Loads_Energy_Budget_2026-08-05/Day_19_PV102_Instructor_Run_Sheet.pdf",
+          "sha256": "06d7a7e5b2b4a9b07b0787ae2177c660da8dac0324f4daf4afbf64c14306cb78",
+          "url": "/teaching/cts/assets/06d7a7e5b2b4a9b07b0787ae.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_19_PV102_Loads_Energy_Budget_2026-08-05/Day_19_PV102_Slide_Deck.pdf",
+          "sha256": "5159784d9a8c7ce8c0b35c95e034e0924204b53e6520c0d47b1743c45bcfe192",
+          "url": "/teaching/cts/assets/5159784d9a8c7ce8c0b35c95.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_19_PV102_Loads_Energy_Budget_2026-08-05/Day_19_PV102_Slide_Deck.pptx",
+          "sha256": "81d0de8344bbe412a864b7f4e6316aa505fcd5c76bb0e47f2b1146c2997cb266",
+          "url": "/teaching/cts/assets/81d0de8344bbe412a864b7f4.pptx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_19_PV102_Loads_Energy_Budget_2026-08-05/Day_19_PV102_Student_Print_Packet.docx",
+          "sha256": "27e278c38558508d8ea9197d5446c0fe9082df8aa2e3c788dc8b929ef6b38ce6",
+          "url": "/teaching/cts/assets/27e278c38558508d8ea9197d.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_19_PV102_Loads_Energy_Budget_2026-08-05/Day_19_PV102_Student_Print_Packet.pdf",
+          "sha256": "092d8271e0f23cc985768228f0d04cb81d275ba23b3f67565241c7754b60ef36",
+          "url": "/teaching/cts/assets/092d8271e0f23cc985768228.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_19_PV102_Loads_Energy_Budget_2026-08-05/Day_19_PV102_Whiteboard_Outline.docx",
+          "sha256": "b305ff59e8e5c956aefd5f8130aa4d8ed58c8190882213222ea12fe6325fa2a2",
+          "url": "/teaching/cts/assets/b305ff59e8e5c956aefd5f81.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_19_PV102_Loads_Energy_Budget_2026-08-05/Day_19_PV102_Whiteboard_Outline.pdf",
+          "sha256": "07f0c178dae95cec1bf0bc21e7f73c4f4389942019b871849d2891fad949b5b2",
+          "url": "/teaching/cts/assets/07f0c178dae95cec1bf0bc21.pdf"
+        }
+      ]
+    },
+    {
+      "id": "pv102-04",
+      "sourceFolder": "03_DAILY/Day_20_PV102_Modules_Strings_Shade_2026-08-06",
+      "sourceFile": "03_DAILY/Day_20_PV102_Modules_Strings_Shade_2026-08-06/Day_20_PV102_Instructor_Run_Sheet.docx",
+      "sourceSha256": "c6a0d67bb722652e9a074d3ff645b958fcad90e4938cbde3e349b0835f9db13d",
+      "sourceStatus": "materials_available",
+      "assets": [
+        {
+          "relativePath": "03_DAILY/Day_20_PV102_Modules_Strings_Shade_2026-08-06/Day_20_PV102_Quiz_Answer_Key.docx",
+          "sha256": "47c4c338256fb31bfa31c783f7cdb4849a1c5c4fea89c87845f37d2709971eb0",
+          "url": "/teaching/cts/assets/47c4c338256fb31bfa31c783.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_20_PV102_Modules_Strings_Shade_2026-08-06/Day_20_PV102_Quiz_Answer_Key.pdf",
+          "sha256": "87b7a61a8bb1f431082be4c25d1ba922aca9f00ad260fcb50fce5dcfe8092c71",
+          "url": "/teaching/cts/assets/87b7a61a8bb1f431082be4c2.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_20_PV102_Modules_Strings_Shade_2026-08-06/Day_20_PV102_Master_Print_Packet.pdf",
+          "sha256": "131f0e57d3d156c28370fb8b02d9052e9b4569845d11c853ace4b727b5e18333",
+          "url": "/teaching/cts/assets/131f0e57d3d156c28370fb8b.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_20_PV102_Modules_Strings_Shade_2026-08-06/Day_20_PV102_Afternoon_Lab.docx",
+          "sha256": "60a1474ee838986ea4b395dae31900b0172586543d4a1f00bbbd5d6e7d787d06",
+          "url": "/teaching/cts/assets/60a1474ee838986ea4b395da.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_20_PV102_Modules_Strings_Shade_2026-08-06/Day_20_PV102_Afternoon_Lab.pdf",
+          "sha256": "77735b6c53d0e75619cc058878f8cc232fee654336efe8125a6c4b733e74f284",
+          "url": "/teaching/cts/assets/77735b6c53d0e75619cc0588.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_20_PV102_Modules_Strings_Shade_2026-08-06/Day_20_PV102_Quiz_Student.docx",
+          "sha256": "3c991a9e1dd7c3baaea5657f26a0173858c7aa4bb7c714858d75bb647b4843af",
+          "url": "/teaching/cts/assets/3c991a9e1dd7c3baaea5657f.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_20_PV102_Modules_Strings_Shade_2026-08-06/Day_20_PV102_Quiz_Student.pdf",
+          "sha256": "2e114b92afeb9aceecdbed6741dbe9af3b0f8f9f426feb8bdca90cd2768153d8",
+          "url": "/teaching/cts/assets/2e114b92afeb9aceecdbed67.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_20_PV102_Modules_Strings_Shade_2026-08-06/Day_20_PV102_Instructor_Run_Sheet.docx",
+          "sha256": "c6a0d67bb722652e9a074d3ff645b958fcad90e4938cbde3e349b0835f9db13d",
+          "url": "/teaching/cts/assets/c6a0d67bb722652e9a074d3f.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_20_PV102_Modules_Strings_Shade_2026-08-06/Day_20_PV102_Instructor_Run_Sheet.pdf",
+          "sha256": "9d31d2e0f1956622a5db33966e4ad9923523476d03c23d82ec7820c5beae8739",
+          "url": "/teaching/cts/assets/9d31d2e0f1956622a5db3396.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_20_PV102_Modules_Strings_Shade_2026-08-06/Day_20_PV102_Slide_Deck.pdf",
+          "sha256": "b0865752a36c78295f3b3c73782186128b0164412c212291f607fd1f958116b8",
+          "url": "/teaching/cts/assets/b0865752a36c78295f3b3c73.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_20_PV102_Modules_Strings_Shade_2026-08-06/Day_20_PV102_Slide_Deck.pptx",
+          "sha256": "6a7dd8445b4fa2e51212c940ae05a1195436d53780b18f57675316cfb0213110",
+          "url": "/teaching/cts/assets/6a7dd8445b4fa2e51212c940.pptx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_20_PV102_Modules_Strings_Shade_2026-08-06/Day_20_PV102_Student_Print_Packet.docx",
+          "sha256": "37da8d78a1e253b64c71af6acf9f0dabcc10fd13035c5c0a2336f4d8ddbeed38",
+          "url": "/teaching/cts/assets/37da8d78a1e253b64c71af6a.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_20_PV102_Modules_Strings_Shade_2026-08-06/Day_20_PV102_Student_Print_Packet.pdf",
+          "sha256": "9632c83fb936ba057229b03f1126ddcecb195e9464c1c3c65f14f042c14107e0",
+          "url": "/teaching/cts/assets/9632c83fb936ba057229b03f.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_20_PV102_Modules_Strings_Shade_2026-08-06/Day_20_PV102_Whiteboard_Outline.docx",
+          "sha256": "adc4908699bad9c246d00ad9d43fb7f2c0dfa0b5ae0d5d80db036cc1875c801e",
+          "url": "/teaching/cts/assets/adc4908699bad9c246d00ad9.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_20_PV102_Modules_Strings_Shade_2026-08-06/Day_20_PV102_Whiteboard_Outline.pdf",
+          "sha256": "f77b84b2ceb951dd7a5181cb356c19941a394311751d3b034a4400fe9689c9e2",
+          "url": "/teaching/cts/assets/f77b84b2ceb951dd7a5181cb.pdf"
+        }
+      ]
+    },
+    {
+      "id": "pv102-05",
+      "sourceFolder": "03_DAILY/Day_21_PV102_Battery_Autonomy_2026-08-10",
+      "sourceFile": "03_DAILY/Day_21_PV102_Battery_Autonomy_2026-08-10/Day_21_PV102_Instructor_Run_Sheet.docx",
+      "sourceSha256": "57b411a7a75f883aa68eaace8cb39b17f737328349464a99bce7bce87e915426",
+      "sourceStatus": "materials_available",
+      "assets": [
+        {
+          "relativePath": "03_DAILY/Day_21_PV102_Battery_Autonomy_2026-08-10/Day_21_PV102_Quiz_Answer_Key.docx",
+          "sha256": "4aef264a4292491ece3a902251dc26eae7490a18482f47c25cb4ccab5b2710b6",
+          "url": "/teaching/cts/assets/4aef264a4292491ece3a9022.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_21_PV102_Battery_Autonomy_2026-08-10/Day_21_PV102_Quiz_Answer_Key.pdf",
+          "sha256": "39bbbf6c5f6fe62f0f0746e5c0c1000658a0a4e9ce4ddf284e82df4c999f358e",
+          "url": "/teaching/cts/assets/39bbbf6c5f6fe62f0f0746e5.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_21_PV102_Battery_Autonomy_2026-08-10/Day_21_PV102_Master_Print_Packet.pdf",
+          "sha256": "6e1098c205f168518223698b55419b55827a23ebf4401a2fb2b56ff1418a50d9",
+          "url": "/teaching/cts/assets/6e1098c205f168518223698b.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_21_PV102_Battery_Autonomy_2026-08-10/Day_21_PV102_Afternoon_Lab.docx",
+          "sha256": "c83decfd873ba53d48972816cd8394e06770afa19bdc64b507e95fdcad1c9f90",
+          "url": "/teaching/cts/assets/c83decfd873ba53d48972816.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_21_PV102_Battery_Autonomy_2026-08-10/Day_21_PV102_Afternoon_Lab.pdf",
+          "sha256": "ff1b00aa07fcec5fd25893e2d8d4f4426db490298b0e19ab519f6bcf13fa8d41",
+          "url": "/teaching/cts/assets/ff1b00aa07fcec5fd25893e2.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_21_PV102_Battery_Autonomy_2026-08-10/Day_21_PV102_Quiz_Student.docx",
+          "sha256": "65fae780aacaa2fdf74a147c0d9f572503e3add0854f0739a05c3d4b7378bdb7",
+          "url": "/teaching/cts/assets/65fae780aacaa2fdf74a147c.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_21_PV102_Battery_Autonomy_2026-08-10/Day_21_PV102_Quiz_Student.pdf",
+          "sha256": "e3d44fdbca846452531f3f042062cbaf24d9b2f6f23805115e35ae9536277f3b",
+          "url": "/teaching/cts/assets/e3d44fdbca846452531f3f04.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_21_PV102_Battery_Autonomy_2026-08-10/Day_21_PV102_Instructor_Run_Sheet.docx",
+          "sha256": "57b411a7a75f883aa68eaace8cb39b17f737328349464a99bce7bce87e915426",
+          "url": "/teaching/cts/assets/57b411a7a75f883aa68eaace.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_21_PV102_Battery_Autonomy_2026-08-10/Day_21_PV102_Instructor_Run_Sheet.pdf",
+          "sha256": "0b52a4ccb19a0f031e266d09cab0c02aa46a47723d0d1f694756729367f9fb99",
+          "url": "/teaching/cts/assets/0b52a4ccb19a0f031e266d09.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_21_PV102_Battery_Autonomy_2026-08-10/Day_21_PV102_Slide_Deck.pdf",
+          "sha256": "8fe3f374c1b188cf1e6058100713e1026c7d43121d3792196c08c284bf0b2c6d",
+          "url": "/teaching/cts/assets/8fe3f374c1b188cf1e605810.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_21_PV102_Battery_Autonomy_2026-08-10/Day_21_PV102_Slide_Deck.pptx",
+          "sha256": "2a14b67566d7b411e6a1b1f643f0336b3df1e2d101d4d061cd8a53601c11487d",
+          "url": "/teaching/cts/assets/2a14b67566d7b411e6a1b1f6.pptx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_21_PV102_Battery_Autonomy_2026-08-10/Day_21_PV102_Student_Print_Packet.docx",
+          "sha256": "fa6384837140c9852a7758b881c31551ebf9b04df31cdcb8f1be4e513d0a0037",
+          "url": "/teaching/cts/assets/fa6384837140c9852a7758b8.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_21_PV102_Battery_Autonomy_2026-08-10/Day_21_PV102_Student_Print_Packet.pdf",
+          "sha256": "8dfebad6c0f983069557ddec500ede0fcaea05bc30c763083dade9700d068796",
+          "url": "/teaching/cts/assets/8dfebad6c0f983069557ddec.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_21_PV102_Battery_Autonomy_2026-08-10/Day_21_PV102_Whiteboard_Outline.docx",
+          "sha256": "b07829b8488963130075addeedadd42f039f842d46011510e99413de0b32d544",
+          "url": "/teaching/cts/assets/b07829b8488963130075adde.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_21_PV102_Battery_Autonomy_2026-08-10/Day_21_PV102_Whiteboard_Outline.pdf",
+          "sha256": "476b6088c7adfdc4142ca31fe17f387c32fcfddb4eb9b7ca5c4c0f3543fb11c5",
+          "url": "/teaching/cts/assets/476b6088c7adfdc4142ca31f.pdf"
+        }
+      ]
+    },
+    {
+      "id": "pv102-06",
+      "sourceFolder": "03_DAILY/Day_22_PV102_Inverter_Controller_Protection_2026-08-11",
+      "sourceFile": "03_DAILY/Day_22_PV102_Inverter_Controller_Protection_2026-08-11/Day_22_PV102_Instructor_Run_Sheet.docx",
+      "sourceSha256": "a70a3e7d4f14ba3bd780c04773d90da7c90ee580ebb383ab39b70b0a915f33d6",
+      "sourceStatus": "materials_available",
+      "assets": [
+        {
+          "relativePath": "03_DAILY/Day_22_PV102_Inverter_Controller_Protection_2026-08-11/Day_22_PV102_Quiz_Answer_Key.docx",
+          "sha256": "9ba223ee555742ca4d111e6f85c7b7fa0a3bbfaa68f23009dc433b475be20f5b",
+          "url": "/teaching/cts/assets/9ba223ee555742ca4d111e6f.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_22_PV102_Inverter_Controller_Protection_2026-08-11/Day_22_PV102_Quiz_Answer_Key.pdf",
+          "sha256": "db45fd9dc1cb3dc95e2668cea4bdfbffea1538ea4df85ffd610e11cb2366d106",
+          "url": "/teaching/cts/assets/db45fd9dc1cb3dc95e2668ce.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_22_PV102_Inverter_Controller_Protection_2026-08-11/Day_22_PV102_Master_Print_Packet.pdf",
+          "sha256": "45b0c238adfe8c767b7c8b1b45efa85e4069212dfe19f733e48b807a965cfe3b",
+          "url": "/teaching/cts/assets/45b0c238adfe8c767b7c8b1b.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_22_PV102_Inverter_Controller_Protection_2026-08-11/Day_22_PV102_Afternoon_Lab.docx",
+          "sha256": "19c9876025442ed8d66e38b0fcd92a748df25e00f55cd4051121fbadfd7f0cef",
+          "url": "/teaching/cts/assets/19c9876025442ed8d66e38b0.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_22_PV102_Inverter_Controller_Protection_2026-08-11/Day_22_PV102_Afternoon_Lab.pdf",
+          "sha256": "5d98d53004235338efc37ab7d0d0d23d88edd475ee70f81e4509d6cf2e0fc600",
+          "url": "/teaching/cts/assets/5d98d53004235338efc37ab7.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_22_PV102_Inverter_Controller_Protection_2026-08-11/Day_22_PV102_Quiz_Student.docx",
+          "sha256": "4fc62d7774976d8795d309acf57fcb8abda1c7ca3ddbc3772f21e2d0829c080e",
+          "url": "/teaching/cts/assets/4fc62d7774976d8795d309ac.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_22_PV102_Inverter_Controller_Protection_2026-08-11/Day_22_PV102_Quiz_Student.pdf",
+          "sha256": "9cc36442c51bb792e1a63fc480aaa9fecf7ccf4f0a29067d8ef7a6ff36618f69",
+          "url": "/teaching/cts/assets/9cc36442c51bb792e1a63fc4.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_22_PV102_Inverter_Controller_Protection_2026-08-11/Day_22_PV102_Instructor_Run_Sheet.docx",
+          "sha256": "a70a3e7d4f14ba3bd780c04773d90da7c90ee580ebb383ab39b70b0a915f33d6",
+          "url": "/teaching/cts/assets/a70a3e7d4f14ba3bd780c047.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_22_PV102_Inverter_Controller_Protection_2026-08-11/Day_22_PV102_Instructor_Run_Sheet.pdf",
+          "sha256": "68a8ec829b2ab9c8c3775f07aaeec16b3484edb24eb2ef1928d00cc6cba7406a",
+          "url": "/teaching/cts/assets/68a8ec829b2ab9c8c3775f07.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_22_PV102_Inverter_Controller_Protection_2026-08-11/Day_22_PV102_Slide_Deck.pdf",
+          "sha256": "9518f37864b6aac51026381a8f826c96196eaccb31244f65ae3c5301c0b1a492",
+          "url": "/teaching/cts/assets/9518f37864b6aac51026381a.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_22_PV102_Inverter_Controller_Protection_2026-08-11/Day_22_PV102_Slide_Deck.pptx",
+          "sha256": "c0c54498c86f8665448b664248d473e886b4d84d3e707ed076ae770e30255de3",
+          "url": "/teaching/cts/assets/c0c54498c86f8665448b6642.pptx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_22_PV102_Inverter_Controller_Protection_2026-08-11/Day_22_PV102_Student_Print_Packet.docx",
+          "sha256": "01be703568e467216062917475bdca94ac787a388029f5a32e2e8e7a5805bc8b",
+          "url": "/teaching/cts/assets/01be703568e4672160629174.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_22_PV102_Inverter_Controller_Protection_2026-08-11/Day_22_PV102_Student_Print_Packet.pdf",
+          "sha256": "27d3c96e582e65d5a29764847fe96e7dbf74ad18b1e1a3faf1d764c3dd1fe2c9",
+          "url": "/teaching/cts/assets/27d3c96e582e65d5a2976484.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_22_PV102_Inverter_Controller_Protection_2026-08-11/Day_22_PV102_Whiteboard_Outline.docx",
+          "sha256": "4512941561e42705ee9d17ce769356d5ecda0a74d6719b9d80690171ef5735a1",
+          "url": "/teaching/cts/assets/4512941561e42705ee9d17ce.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_22_PV102_Inverter_Controller_Protection_2026-08-11/Day_22_PV102_Whiteboard_Outline.pdf",
+          "sha256": "4ceb7807ed8bbbf2058b59dbe96f3dbd6e018f407101835f61942039a1a9d7b3",
+          "url": "/teaching/cts/assets/4ceb7807ed8bbbf2058b59db.pdf"
+        }
+      ]
+    },
+    {
+      "id": "pv102-07",
+      "sourceFolder": "03_DAILY/Day_23_PV102_Install_Planning_JHA_2026-08-12",
+      "sourceFile": "03_DAILY/Day_23_PV102_Install_Planning_JHA_2026-08-12/Day_23_PV102_Instructor_Run_Sheet.docx",
+      "sourceSha256": "72ebc3e4843b03e969dbf2b38c0f22c27cc524c2febca9133477e17be5332a7b",
+      "sourceStatus": "materials_available",
+      "assets": [
+        {
+          "relativePath": "03_DAILY/Day_23_PV102_Install_Planning_JHA_2026-08-12/Day_23_PV102_Quiz_Answer_Key.docx",
+          "sha256": "318bd6c99d538d3c136eb4cbc8f1a20cd19eae1dfd51714369c92a0fdebc5ff4",
+          "url": "/teaching/cts/assets/318bd6c99d538d3c136eb4cb.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_23_PV102_Install_Planning_JHA_2026-08-12/Day_23_PV102_Quiz_Answer_Key.pdf",
+          "sha256": "173174cb2c08b04d5f7105009697c1eea85f7b15a9643186f44dc838f4664048",
+          "url": "/teaching/cts/assets/173174cb2c08b04d5f710500.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_23_PV102_Install_Planning_JHA_2026-08-12/Day_23_PV102_Master_Print_Packet.pdf",
+          "sha256": "85e3ac33c5fe2acfc124eb2fa8e6a4a085ec3ab4e8c7130bf4c436abd74467a0",
+          "url": "/teaching/cts/assets/85e3ac33c5fe2acfc124eb2f.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_23_PV102_Install_Planning_JHA_2026-08-12/Day_23_PV102_Afternoon_Lab.docx",
+          "sha256": "238582f3013140a829d98e899dc797a9f2707fa23b342092ce29867b7a67b416",
+          "url": "/teaching/cts/assets/238582f3013140a829d98e89.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_23_PV102_Install_Planning_JHA_2026-08-12/Day_23_PV102_Afternoon_Lab.pdf",
+          "sha256": "f612714eb85c3e0ecd925fa871acddeec4ec46f0b04b9ff16249cd8de4a22485",
+          "url": "/teaching/cts/assets/f612714eb85c3e0ecd925fa8.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_23_PV102_Install_Planning_JHA_2026-08-12/Day_23_PV102_Quiz_Student.docx",
+          "sha256": "2481f84dee35ac6a645e8520f42c8158e805c9a3bd0b4a1218f1e7061dda2962",
+          "url": "/teaching/cts/assets/2481f84dee35ac6a645e8520.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_23_PV102_Install_Planning_JHA_2026-08-12/Day_23_PV102_Quiz_Student.pdf",
+          "sha256": "c05e799cc9dc277565150ee085992f9a993046e7ae084e04e20f6b084c504191",
+          "url": "/teaching/cts/assets/c05e799cc9dc277565150ee0.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_23_PV102_Install_Planning_JHA_2026-08-12/Day_23_PV102_Instructor_Run_Sheet.docx",
+          "sha256": "72ebc3e4843b03e969dbf2b38c0f22c27cc524c2febca9133477e17be5332a7b",
+          "url": "/teaching/cts/assets/72ebc3e4843b03e969dbf2b3.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_23_PV102_Install_Planning_JHA_2026-08-12/Day_23_PV102_Instructor_Run_Sheet.pdf",
+          "sha256": "976f262a5f97005e031abeb34af4aff696e4eab4b147e853bd29f6abd6ce2c9f",
+          "url": "/teaching/cts/assets/976f262a5f97005e031abeb3.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_23_PV102_Install_Planning_JHA_2026-08-12/Day_23_PV102_Slide_Deck.pdf",
+          "sha256": "bd44d66e76d6aa8724396277cef775897595c96a3b982eb386fd4c1570d39268",
+          "url": "/teaching/cts/assets/bd44d66e76d6aa8724396277.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_23_PV102_Install_Planning_JHA_2026-08-12/Day_23_PV102_Slide_Deck.pptx",
+          "sha256": "80dc490e53a77359f61adfc9a745e178146b89910c840e7f5795b416630965eb",
+          "url": "/teaching/cts/assets/80dc490e53a77359f61adfc9.pptx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_23_PV102_Install_Planning_JHA_2026-08-12/Day_23_PV102_Student_Print_Packet.docx",
+          "sha256": "0dbac975e3c5a8cb20933cafce43ce1cebc70d6b99db8e780c7c68b8a1086bdc",
+          "url": "/teaching/cts/assets/0dbac975e3c5a8cb20933caf.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_23_PV102_Install_Planning_JHA_2026-08-12/Day_23_PV102_Student_Print_Packet.pdf",
+          "sha256": "2743bc158039bad3205dbb1ca102a58626e8e4a590820c811931799b666fb6a7",
+          "url": "/teaching/cts/assets/2743bc158039bad3205dbb1c.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_23_PV102_Install_Planning_JHA_2026-08-12/Day_23_PV102_Whiteboard_Outline.docx",
+          "sha256": "61eb9549a3010fc2f1c4f75e609aa35ab2d0190cee007a1f4fb6b20123c4a592",
+          "url": "/teaching/cts/assets/61eb9549a3010fc2f1c4f75e.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_23_PV102_Install_Planning_JHA_2026-08-12/Day_23_PV102_Whiteboard_Outline.pdf",
+          "sha256": "02fc299b46a7b730e387bb01822760be5764fe626b04a8e8a81f2bceb1233125",
+          "url": "/teaching/cts/assets/02fc299b46a7b730e387bb01.pdf"
+        }
+      ]
+    },
+    {
+      "id": "pv102-08",
+      "sourceFolder": "03_DAILY/Day_24_PV102_Commissioning_Handoff_2026-08-13",
+      "sourceFile": "03_DAILY/Day_24_PV102_Commissioning_Handoff_2026-08-13/Day_24_PV102_Instructor_Run_Sheet.docx",
+      "sourceSha256": "64005788a49898f39c764ab3d8d318871a0e9b536e2ac1ca62e567c6680f06ef",
+      "sourceStatus": "materials_available",
+      "assets": [
+        {
+          "relativePath": "03_DAILY/Day_24_PV102_Commissioning_Handoff_2026-08-13/Day_24_PV102_Quiz_Answer_Key.docx",
+          "sha256": "c99d126deb2a994c2d2b077a0968a358b6139eeeae4a40622e8d052705daa7cd",
+          "url": "/teaching/cts/assets/c99d126deb2a994c2d2b077a.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_24_PV102_Commissioning_Handoff_2026-08-13/Day_24_PV102_Quiz_Answer_Key.pdf",
+          "sha256": "3a28c2d00da308f7632726e754894db741e7af5a739a4632bacff47566c3406f",
+          "url": "/teaching/cts/assets/3a28c2d00da308f7632726e7.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_24_PV102_Commissioning_Handoff_2026-08-13/Day_24_PV102_Master_Print_Packet.pdf",
+          "sha256": "a471a640b65833ed257b6cbb7f431dbdbfb4aac80c09e6ce00277141803eefe6",
+          "url": "/teaching/cts/assets/a471a640b65833ed257b6cbb.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_24_PV102_Commissioning_Handoff_2026-08-13/Day_24_PV102_Afternoon_Lab.docx",
+          "sha256": "b8e8311a6d72be8458c4a01c5d9893ff81f88309faf7f4f590be8b1fb815d166",
+          "url": "/teaching/cts/assets/b8e8311a6d72be8458c4a01c.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_24_PV102_Commissioning_Handoff_2026-08-13/Day_24_PV102_Afternoon_Lab.pdf",
+          "sha256": "8450c2a7349b69bceba21f02e041982db4949c224d6d945f02ba218bdceff6da",
+          "url": "/teaching/cts/assets/8450c2a7349b69bceba21f02.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_24_PV102_Commissioning_Handoff_2026-08-13/Day_24_PV102_Quiz_Student.docx",
+          "sha256": "44d40b9bf1ca8e98e196c226754b364a947ce97d5610a30ddaf9d1817e0cf48a",
+          "url": "/teaching/cts/assets/44d40b9bf1ca8e98e196c226.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_24_PV102_Commissioning_Handoff_2026-08-13/Day_24_PV102_Quiz_Student.pdf",
+          "sha256": "2d0c8913c33bfeef37b9fe89238ca4545be64766603a0a86bf33451059a80fc7",
+          "url": "/teaching/cts/assets/2d0c8913c33bfeef37b9fe89.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_24_PV102_Commissioning_Handoff_2026-08-13/Day_24_PV102_Instructor_Run_Sheet.docx",
+          "sha256": "64005788a49898f39c764ab3d8d318871a0e9b536e2ac1ca62e567c6680f06ef",
+          "url": "/teaching/cts/assets/64005788a49898f39c764ab3.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_24_PV102_Commissioning_Handoff_2026-08-13/Day_24_PV102_Instructor_Run_Sheet.pdf",
+          "sha256": "6dfb7b21b8e714defa7283d31db7a21932dd550845af1ddaf5ad1662ed421986",
+          "url": "/teaching/cts/assets/6dfb7b21b8e714defa7283d3.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_24_PV102_Commissioning_Handoff_2026-08-13/Day_24_PV102_Slide_Deck.pdf",
+          "sha256": "b902ca71e3cda085dc6c31087734df1ba3f12c05dfe008637d2888f95f2071d7",
+          "url": "/teaching/cts/assets/b902ca71e3cda085dc6c3108.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_24_PV102_Commissioning_Handoff_2026-08-13/Day_24_PV102_Slide_Deck.pptx",
+          "sha256": "43b454ea0b13c6367531bffaab9c1aa25586e4775732e9d3d6571f3a0a07008d",
+          "url": "/teaching/cts/assets/43b454ea0b13c6367531bffa.pptx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_24_PV102_Commissioning_Handoff_2026-08-13/Day_24_PV102_Student_Print_Packet.docx",
+          "sha256": "771d56c28e39448b6e95c297daf0a4767f1c57c96350b48adaa3ea090a493e0a",
+          "url": "/teaching/cts/assets/771d56c28e39448b6e95c297.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_24_PV102_Commissioning_Handoff_2026-08-13/Day_24_PV102_Student_Print_Packet.pdf",
+          "sha256": "5d0704d1d0d06d388d2c0b9fbe490f24b44b6054d6dd6ce4e4eb31c2cd7e7123",
+          "url": "/teaching/cts/assets/5d0704d1d0d06d388d2c0b9f.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_24_PV102_Commissioning_Handoff_2026-08-13/Day_24_PV102_Whiteboard_Outline.docx",
+          "sha256": "6b239712d6a445ce992757cd8f68af156a65e00f2499a89459a7222f2087f895",
+          "url": "/teaching/cts/assets/6b239712d6a445ce992757cd.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_24_PV102_Commissioning_Handoff_2026-08-13/Day_24_PV102_Whiteboard_Outline.pdf",
+          "sha256": "7cab62734079b50914ec76ebb614817e2be835631fcf63319c289c5946bced2c",
+          "url": "/teaching/cts/assets/7cab62734079b50914ec76eb.pdf"
+        }
+      ]
+    },
+    {
+      "id": "edm101-01",
+      "sourceFolder": "03_DAILY/Day_25_EDM101_Intro_Laser_Safety_2026-08-17",
+      "sourceFile": "03_DAILY/Day_25_EDM101_Intro_Laser_Safety_2026-08-17/Day_25_EDM101_Introduction_Laser_Safety_and_Production_Systems_2026-08-17_CTS_Package_Backfill_Source.md",
+      "sourceSha256": "219fbaaa98de36f6a333643a1c9a2cfb36c52380f4499e7283f05a559f86d72c",
+      "sourceStatus": "materials_available",
+      "assets": [
+        {
+          "relativePath": "03_DAILY/Day_25_EDM101_Intro_Laser_Safety_2026-08-17/Day_25_EDM101_Morning_Quiz_Answer_Key.docx",
+          "sha256": "7743f26ea2470a091dfa755ad173d3dd0cdfe8e0f2b7d84fc245159755d7d93f",
+          "url": "/teaching/cts/assets/7743f26ea2470a091dfa755a.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_25_EDM101_Intro_Laser_Safety_2026-08-17/Day_25_EDM101_Morning_Quiz_Answer_Key.pdf",
+          "sha256": "825edb6ebf98c62857a7a12aebebc61cac5eb0155673c4edf16abcbc8eae4974",
+          "url": "/teaching/cts/assets/825edb6ebf98c62857a7a12a.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_25_EDM101_Intro_Laser_Safety_2026-08-17/Day_25_EDM101_Introduction_Laser_Safety_and_Type_O_Project_2026-08-17_Master_Print_Packet.pdf",
+          "sha256": "c18f0e207440edeb602c7c29a08a6cf7a5d9500c775fb4b81d85c6b743dc157d",
+          "url": "/teaching/cts/assets/c18f0e207440edeb602c7c29.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_25_EDM101_Intro_Laser_Safety_2026-08-17/Day_25_EDM101_Morning_Quiz_Student.docx",
+          "sha256": "103ad5eb368abf970ac27e96f9498f3e0f6c11cf25624dd05ebfc1fb97c5fc0b",
+          "url": "/teaching/cts/assets/103ad5eb368abf970ac27e96.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_25_EDM101_Intro_Laser_Safety_2026-08-17/Day_25_EDM101_Morning_Quiz_Student.pdf",
+          "sha256": "6fdc6a821eac2a64a51c13a0f0d518334ae19dea13b76afb232f8fa87ba4a81a",
+          "url": "/teaching/cts/assets/6fdc6a821eac2a64a51c13a0.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_25_EDM101_Intro_Laser_Safety_2026-08-17/Day_25_EDM101_Introduction_Laser_Safety_and_Type_O_Project_2026-08-17_Slide_Deck.pptx",
+          "sha256": "8cfeda8e7f557861baa8b18d6ccb8157aeb8abfaa2788bdc220cd87d721fb56e",
+          "url": "/teaching/cts/assets/8cfeda8e7f557861baa8b18d.pptx"
+        }
+      ]
+    },
+    {
+      "id": "edm101-02",
+      "sourceFolder": "03_DAILY/Day_26_EDM101_Frequency_Wavelength_SPL_and_Cabinet_Geometry_2026-08-18",
+      "sourceFile": "03_DAILY/Day_26_EDM101_Frequency_Wavelength_SPL_and_Cabinet_Geometry_2026-08-18/Day_26_EDM101_Frequency_Wavelength_SPL_and_Cabinet_Geometry_2026-08-18_Master_Curriculum_Source.md",
+      "sourceSha256": "ed3fc85508d27d91f7998fc60686e181b0f92749d159d05a010f4e60dbbe9500",
+      "sourceStatus": "source_only",
+      "assets": []
+    },
+    {
+      "id": "edm101-03",
+      "sourceFolder": "03_DAILY/Day_27_EDM101_Plan_Reading_Cut_Lists_and_Material_Layout_2026-08-19",
+      "sourceFile": "03_DAILY/Day_27_EDM101_Plan_Reading_Cut_Lists_and_Material_Layout_2026-08-19/Day_27_EDM101_Plan_Reading_Cut_Lists_and_Material_Layout_2026-08-19_Master_Curriculum_Source.md",
+      "sourceSha256": "6517e8d2473adac1fa43b1db18355f1d1b45b027c59ecbf83946fa78f40ea438",
+      "sourceStatus": "source_only",
+      "assets": []
+    },
+    {
+      "id": "edm101-04",
+      "sourceFolder": "03_DAILY/Day_28_EDM101_Tool_Safety_Panel_Fabrication_and_Quality_Control_2026-08-20",
+      "sourceFile": "03_DAILY/Day_28_EDM101_Tool_Safety_Panel_Fabrication_and_Quality_Control_2026-08-20/Day_28_EDM101_Tool_Safety_Panel_Fabrication_and_Quality_Control_2026-08-20_Master_Curriculum_Source.md",
+      "sourceSha256": "e73377ccb58d93fc002f96a7720f77a43bff602ac6f8fedd5888dd46e8d4a68a",
+      "sourceStatus": "source_only",
+      "assets": []
+    },
+    {
+      "id": "edm101-05",
+      "sourceFolder": "03_DAILY/Day_29_EDM101_Dry_Fit_Fitment_and_Cabinet_Assembly_2026-08-24",
+      "sourceFile": "03_DAILY/Day_29_EDM101_Dry_Fit_Fitment_and_Cabinet_Assembly_2026-08-24/Day_29_EDM101_Dry_Fit_Fitment_and_Cabinet_Assembly_2026-08-24_Master_Curriculum_Source.md",
+      "sourceSha256": "30797c0cbc6b044b8930c694c210ef07fc8de161eea743d372a6284e5947d5f7",
+      "sourceStatus": "source_only",
+      "assets": []
+    },
+    {
+      "id": "edm101-06",
+      "sourceFolder": "03_DAILY/Day_30_EDM101_Driver_Wiring_Impedance_Jack_Plates_and_Polarity_2026-08-25",
+      "sourceFile": "03_DAILY/Day_30_EDM101_Driver_Wiring_Impedance_Jack_Plates_and_Polarity_2026-08-25/Day_30_EDM101_Driver_Wiring_Impedance_Jack_Plates_and_Polarity_2026-08-25_Master_Curriculum_Source.md",
+      "sourceSha256": "e64d6bfa7149193e6ae8c5340afb8795b5a400ef3368467b2ffa60c9bb8ec5f9",
+      "sourceStatus": "source_only",
+      "assets": []
+    },
+    {
+      "id": "edm101-07",
+      "sourceFolder": "03_DAILY/Day_31_EDM101_Final_Assembly_Sealing_and_System_Setup_2026-08-26",
+      "sourceFile": "03_DAILY/Day_31_EDM101_Final_Assembly_Sealing_and_System_Setup_2026-08-26/Day_31_EDM101_Final_Assembly_Sealing_and_System_Setup_2026-08-26_Master_Curriculum_Source.md",
+      "sourceSha256": "567d2e98cddc0c74b6c9c8a0371a0e55288f0ded1a72485f7d198037cf072480",
+      "sourceStatus": "source_only",
+      "assets": []
+    },
+    {
+      "id": "edm101-08",
+      "sourceFolder": "03_DAILY/Day_32_EDM101_Commissioning_DSP_Tuning_and_Final_Quality_Control_2026-08-27",
+      "sourceFile": "03_DAILY/Day_32_EDM101_Commissioning_DSP_Tuning_and_Final_Quality_Control_2026-08-27/Day_32_EDM101_Commissioning_DSP_Tuning_and_Final_Quality_Control_2026-08-27_Master_Curriculum_Source.md",
+      "sourceSha256": "6eee0cf7c63157ee35f01d3506fc5549e017cbc7a324eefda2ca601babe93624",
+      "sourceStatus": "source_only",
+      "assets": []
+    },
+    {
+      "id": "ebike101-01",
+      "sourceFolder": "03_DAILY/Day_33_EBIKE101_Introduction_Rider_Safety_and_System_Inspection_2026-08-31",
+      "sourceFile": "03_DAILY/Day_33_EBIKE101_Introduction_Rider_Safety_and_System_Inspection_2026-08-31/Day_33_EBIKE101_Introduction_Rider_Safety_and_System_Inspection_2026-08-31_Instructor_Run_Sheet.md",
+      "sourceSha256": "e4948cc7f526e7cd90a9bf8b5e5737c916ef59605e7f6b8f0938c0fd2f734acd",
+      "sourceStatus": "materials_available",
+      "assets": [
+        {
+          "relativePath": "03_DAILY/Day_33_EBIKE101_Introduction_Rider_Safety_and_System_Inspection_2026-08-31/Day_33_EBIKE101_Introduction_Rider_Safety_and_System_Inspection_2026-08-31_Morning_Quiz_Answer_Key.docx",
+          "sha256": "9b0e093d2f1806204c9a29f65081ba96510670bd5ae90d6bd27fb7b663158598",
+          "url": "/teaching/cts/assets/9b0e093d2f1806204c9a29f6.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_33_EBIKE101_Introduction_Rider_Safety_and_System_Inspection_2026-08-31/pdf/Day_33_EBIKE101_Introduction_Rider_Safety_and_System_Inspection_2026-08-31_Morning_Quiz_Answer_Key.pdf",
+          "sha256": "4dcbdd7e62a9f7ea470cad0c7a7bcb3672b706e46f2d70e4f65d67c306cbe400",
+          "url": "/teaching/cts/assets/4dcbdd7e62a9f7ea470cad0c.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_33_EBIKE101_Introduction_Rider_Safety_and_System_Inspection_2026-08-31/Day_33_EBIKE101_Introduction_Rider_Safety_and_System_Inspection_2026-08-31_Master_Print_Packet.docx",
+          "sha256": "1667060fe251034730b7ecb7e026023b85d04a7f10a178a7c264bb265751a2f4",
+          "url": "/teaching/cts/assets/1667060fe251034730b7ecb7.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_33_EBIKE101_Introduction_Rider_Safety_and_System_Inspection_2026-08-31/pdf/Day_33_EBIKE101_Introduction_Rider_Safety_and_System_Inspection_2026-08-31_Master_Print_Packet.pdf",
+          "sha256": "c5df1c5c957ebe8afeea8389a0ec8be9c6fb5314def07e84aa6aa623330be5aa",
+          "url": "/teaching/cts/assets/c5df1c5c957ebe8afeea8389.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_33_EBIKE101_Introduction_Rider_Safety_and_System_Inspection_2026-08-31/Day_33_EBIKE101_Introduction_Rider_Safety_and_System_Inspection_2026-08-31_Afternoon_Lab.docx",
+          "sha256": "ce17a6a500c518f7e6a23b87abd63982a553b261dcd008338ca519e365a89c8e",
+          "url": "/teaching/cts/assets/ce17a6a500c518f7e6a23b87.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_33_EBIKE101_Introduction_Rider_Safety_and_System_Inspection_2026-08-31/pdf/Day_33_EBIKE101_Introduction_Rider_Safety_and_System_Inspection_2026-08-31_Afternoon_Lab.pdf",
+          "sha256": "9d5a0857f207b613fb5f73d4b306f23bb22cff49db7e5e83707cdba87df52f7e",
+          "url": "/teaching/cts/assets/9d5a0857f207b613fb5f73d4.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_33_EBIKE101_Introduction_Rider_Safety_and_System_Inspection_2026-08-31/Day_33_EBIKE101_Introduction_Rider_Safety_and_System_Inspection_2026-08-31_Morning_Quiz_Student.docx",
+          "sha256": "4650e5a86c86e0e839194a8b84243800b67f74e1f7129178d30f86f9a8045250",
+          "url": "/teaching/cts/assets/4650e5a86c86e0e839194a8b.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_33_EBIKE101_Introduction_Rider_Safety_and_System_Inspection_2026-08-31/pdf/Day_33_EBIKE101_Introduction_Rider_Safety_and_System_Inspection_2026-08-31_Morning_Quiz_Student.pdf",
+          "sha256": "25469fc4527898ff48580f7903329c88cf4c5195173c566b31209210e1ac5d1a",
+          "url": "/teaching/cts/assets/25469fc4527898ff48580f79.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_33_EBIKE101_Introduction_Rider_Safety_and_System_Inspection_2026-08-31/Day_33_EBIKE101_Introduction_Rider_Safety_and_System_Inspection_2026-08-31_Instructor_Run_Sheet.docx",
+          "sha256": "420ad24a75a60070e07b9276f8ce0e6dc314a3943aeb81d1d4d644206e47d33b",
+          "url": "/teaching/cts/assets/420ad24a75a60070e07b9276.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_33_EBIKE101_Introduction_Rider_Safety_and_System_Inspection_2026-08-31/pdf/Day_33_EBIKE101_Introduction_Rider_Safety_and_System_Inspection_2026-08-31_Instructor_Run_Sheet.pdf",
+          "sha256": "17b0723d43b3e086058bc301871d36bb8e34a9846aff973fd7a2ef2ec7b85ce5",
+          "url": "/teaching/cts/assets/17b0723d43b3e086058bc301.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_33_EBIKE101_Introduction_Rider_Safety_and_System_Inspection_2026-08-31/pdf/Day_33_EBIKE101_Introduction_Rider_Safety_and_System_Inspection_2026-08-31_Slide_Deck.pdf",
+          "sha256": "5f16e81c387fc61eb0dc0929022d528a6f51545070c9497cb8bd5d3d650192a6",
+          "url": "/teaching/cts/assets/5f16e81c387fc61eb0dc0929.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_33_EBIKE101_Introduction_Rider_Safety_and_System_Inspection_2026-08-31/Day_33_EBIKE101_Introduction_Rider_Safety_and_System_Inspection_2026-08-31_Slide_Deck.pptx",
+          "sha256": "e4abd115d30981195f08eb50c5f8ee7eb7ee67526483d3d1fcbf72c375159573",
+          "url": "/teaching/cts/assets/e4abd115d30981195f08eb50.pptx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_33_EBIKE101_Introduction_Rider_Safety_and_System_Inspection_2026-08-31/Day_33_EBIKE101_Introduction_Rider_Safety_and_System_Inspection_2026-08-31_Student_Print_Packet.docx",
+          "sha256": "dcf606e95f8d5fe02dc18782dbcadc568e9d442ca80f53ca63f6fdbd2732ee7e",
+          "url": "/teaching/cts/assets/dcf606e95f8d5fe02dc18782.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_33_EBIKE101_Introduction_Rider_Safety_and_System_Inspection_2026-08-31/pdf/Day_33_EBIKE101_Introduction_Rider_Safety_and_System_Inspection_2026-08-31_Student_Print_Packet.pdf",
+          "sha256": "97500691b9d60d0aa89132a852e90b34e729bba8683444b4af288dc7380461fe",
+          "url": "/teaching/cts/assets/97500691b9d60d0aa89132a8.pdf"
+        }
+      ]
+    },
+    {
+      "id": "ebike101-02",
+      "sourceFolder": "03_DAILY/Day_34_EBIKE101_Bicycle_Mechanics_Foundations_2026-09-01",
+      "sourceFile": "03_DAILY/Day_34_EBIKE101_Bicycle_Mechanics_Foundations_2026-09-01/Day_34_EBIKE101_Bicycle_Mechanics_Foundations_2026-09-01_Master_Curriculum_Source.md",
+      "sourceSha256": "6d523d0a852a95db5ee9b3d534b18d29734c88af96ed62fbbc7dc66228857b82",
+      "sourceStatus": "source_only",
+      "assets": []
+    },
+    {
+      "id": "ebike101-03",
+      "sourceFolder": "03_DAILY/Day_35_EBIKE101_Motors_Controllers_and_Signal_Flow_2026-09-02",
+      "sourceFile": "03_DAILY/Day_35_EBIKE101_Motors_Controllers_and_Signal_Flow_2026-09-02/Day_35_EBIKE101_Motors_Controllers_and_Signal_Flow_2026-09-02_Master_Curriculum_Source.md",
+      "sourceSha256": "45a4e1a7f41dea06f8ead8c5f482270f1d51762d04c87fb8fd35364d2c7b1316",
+      "sourceStatus": "materials_available",
+      "assets": [
+        {
+          "relativePath": "03_DAILY/Day_35_EBIKE101_Motors_Controllers_and_Signal_Flow_2026-09-02/Day_35_EBIKE101_Motors_Controllers_and_Signal_Flow_2026-09-02_Instructor_Packet.docx",
+          "sha256": "63b3114f684806178bdd3bc38c0de3e99db5b1a2e5a439cfb9068bc4f005db3e",
+          "url": "/teaching/cts/assets/63b3114f684806178bdd3bc3.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_35_EBIKE101_Motors_Controllers_and_Signal_Flow_2026-09-02/Day_35_EBIKE101_Motors_Controllers_and_Signal_Flow_2026-09-02_Instructor_Packet.pdf",
+          "sha256": "0ff9cc00e9bf4f314f4e122ceae9cdad06bd390b32e84921f80b3210a223da4f",
+          "url": "/teaching/cts/assets/0ff9cc00e9bf4f314f4e122c.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_35_EBIKE101_Motors_Controllers_and_Signal_Flow_2026-09-02/Day_35_EBIKE101_Motors_Controllers_and_Signal_Flow_2026-09-02_Slide_Deck.pptx",
+          "sha256": "7ac0212184e228bf0be4ab07bfb701d23ca1b0c4efb17482fde70c8067fad867",
+          "url": "/teaching/cts/assets/7ac0212184e228bf0be4ab07.pptx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_35_EBIKE101_Motors_Controllers_and_Signal_Flow_2026-09-02/Day_35_EBIKE101_Motors_Controllers_and_Signal_Flow_2026-09-02_Student_Print_Packet.docx",
+          "sha256": "ee17893f8ed285938bee9297b7c9441a0a7588bacc34e6c51fe95c380818a46b",
+          "url": "/teaching/cts/assets/ee17893f8ed285938bee9297.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_35_EBIKE101_Motors_Controllers_and_Signal_Flow_2026-09-02/Day_35_EBIKE101_Motors_Controllers_and_Signal_Flow_2026-09-02_Student_Print_Packet.pdf",
+          "sha256": "deded2cf4259ba65c06d2c6357c3b0089c39d775c1e6808d7648c0f50ad497b9",
+          "url": "/teaching/cts/assets/deded2cf4259ba65c06d2c63.pdf"
+        }
+      ]
+    },
+    {
+      "id": "ebike101-06",
+      "sourceFolder": "03_DAILY/Day_38_EBIKE101_Ebike_Homunculous_Diagnosis_and_Finish_Work_2026-09-08",
+      "sourceFile": "03_DAILY/Day_38_EBIKE101_Ebike_Homunculous_Diagnosis_and_Finish_Work_2026-09-08/Day_38_EBIKE101_Ebike_Homunculous_Diagnosis_and_Finish_Work_2026-09-08_Instructor_Run_Sheet.md",
+      "sourceSha256": "a7bf630ff9ca5e9cb2eb21badb790378724cfe53b8d336e3b4562e9aafdcddb3",
+      "sourceStatus": "materials_available",
+      "assets": [
+        {
+          "relativePath": "03_DAILY/Day_38_EBIKE101_Ebike_Homunculous_Diagnosis_and_Finish_Work_2026-09-08/Day_38_EBIKE101_Ebike_Homunculous_Diagnosis_and_Finish_Work_2026-09-08_Morning_Quiz_Answer_Key.docx",
+          "sha256": "19e57b51e0e8278f9b81cde217fabdc8d687448be49fac0f038a7537f6bb5a5a",
+          "url": "/teaching/cts/assets/19e57b51e0e8278f9b81cde2.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_38_EBIKE101_Ebike_Homunculous_Diagnosis_and_Finish_Work_2026-09-08/Day_38_EBIKE101_Ebike_Homunculous_Diagnosis_and_Finish_Work_2026-09-08_Morning_Quiz_Answer_Key.pdf",
+          "sha256": "76f0e40efb31c2fbcc226522bd0af89cc07e307a71cfce806b09ec890a9fabcb",
+          "url": "/teaching/cts/assets/76f0e40efb31c2fbcc226522.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_38_EBIKE101_Ebike_Homunculous_Diagnosis_and_Finish_Work_2026-09-08/Day_38_EBIKE101_Ebike_Homunculous_Diagnosis_and_Finish_Work_2026-09-08_Instructor_Packet.docx",
+          "sha256": "81834de30fffa628ae544f80b7d1d6827a504c3b4a6c540b76b77364d9a57ea3",
+          "url": "/teaching/cts/assets/81834de30fffa628ae544f80.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_38_EBIKE101_Ebike_Homunculous_Diagnosis_and_Finish_Work_2026-09-08/Day_38_EBIKE101_Ebike_Homunculous_Diagnosis_and_Finish_Work_2026-09-08_Instructor_Packet.pdf",
+          "sha256": "898bfeac38ce7ad0019dc7652561b5b503c0066ddb5d9fc4f9e664264bff7d0f",
+          "url": "/teaching/cts/assets/898bfeac38ce7ad0019dc765.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_38_EBIKE101_Ebike_Homunculous_Diagnosis_and_Finish_Work_2026-09-08/Day_38_EBIKE101_Ebike_Homunculous_Diagnosis_and_Finish_Work_2026-09-08_Afternoon_Lab.docx",
+          "sha256": "b0a00eaa4c535eec6dc8033804e5389608238d92c00cea6a7728a21add483de8",
+          "url": "/teaching/cts/assets/b0a00eaa4c535eec6dc80338.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_38_EBIKE101_Ebike_Homunculous_Diagnosis_and_Finish_Work_2026-09-08/Day_38_EBIKE101_Ebike_Homunculous_Diagnosis_and_Finish_Work_2026-09-08_Afternoon_Lab.pdf",
+          "sha256": "5ebbac905e51041bfc44ce094867ebbf1cef02131555201ca8a49dc2a86fc444",
+          "url": "/teaching/cts/assets/5ebbac905e51041bfc44ce09.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_38_EBIKE101_Ebike_Homunculous_Diagnosis_and_Finish_Work_2026-09-08/Day_38_EBIKE101_Ebike_Homunculous_Diagnosis_and_Finish_Work_2026-09-08_Morning_Quiz_Student.docx",
+          "sha256": "bd8415459a65d03e9faaca28c7bbdf2435039ac465e681cb1b2447abda79f65e",
+          "url": "/teaching/cts/assets/bd8415459a65d03e9faaca28.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_38_EBIKE101_Ebike_Homunculous_Diagnosis_and_Finish_Work_2026-09-08/Day_38_EBIKE101_Ebike_Homunculous_Diagnosis_and_Finish_Work_2026-09-08_Morning_Quiz_Student.pdf",
+          "sha256": "2b05fa9ad5c8c0d817e423eceb830316f6d118b04917f79e452034194d0bf9e5",
+          "url": "/teaching/cts/assets/2b05fa9ad5c8c0d817e423ec.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_38_EBIKE101_Ebike_Homunculous_Diagnosis_and_Finish_Work_2026-09-08/Day_38_EBIKE101_Ebike_Homunculous_Diagnosis_and_Finish_Work_2026-09-08_Instructor_Run_Sheet.docx",
+          "sha256": "588a60cf60015fa5deb4b2d2db4e0676565ddaab6c2e565085f09992f81fa760",
+          "url": "/teaching/cts/assets/588a60cf60015fa5deb4b2d2.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_38_EBIKE101_Ebike_Homunculous_Diagnosis_and_Finish_Work_2026-09-08/Day_38_EBIKE101_Ebike_Homunculous_Diagnosis_and_Finish_Work_2026-09-08_Instructor_Run_Sheet.pdf",
+          "sha256": "8e56a17c28550cdc0f2cece88c2593fa48a83ead213626c934bd37700b2b6b27",
+          "url": "/teaching/cts/assets/8e56a17c28550cdc0f2cece8.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_38_EBIKE101_Ebike_Homunculous_Diagnosis_and_Finish_Work_2026-09-08/Day_38_EBIKE101_Ebike_Homunculous_Diagnosis_and_Finish_Work_2026-09-08_Slide_Deck.pdf",
+          "sha256": "c10000a1fb4f1a1f425b204eaafcbc5bf3b2686da5290b027dce69af91784680",
+          "url": "/teaching/cts/assets/c10000a1fb4f1a1f425b204e.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_38_EBIKE101_Ebike_Homunculous_Diagnosis_and_Finish_Work_2026-09-08/Day_38_EBIKE101_Ebike_Homunculous_Diagnosis_and_Finish_Work_2026-09-08_Slide_Deck.pptx",
+          "sha256": "272b76a2824ca21e74c1c0a96e1554142366c21cbc92cad99e9e37b444ae6bd6",
+          "url": "/teaching/cts/assets/272b76a2824ca21e74c1c0a9.pptx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_38_EBIKE101_Ebike_Homunculous_Diagnosis_and_Finish_Work_2026-09-08/Day_38_EBIKE101_Ebike_Homunculous_Diagnosis_and_Finish_Work_2026-09-08_Student_Print_Packet.docx",
+          "sha256": "d858c7adc769bf0e3ab2f5a3b287fe96d292d880aecb9f887bbefcf1411d1721",
+          "url": "/teaching/cts/assets/d858c7adc769bf0e3ab2f5a3.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_38_EBIKE101_Ebike_Homunculous_Diagnosis_and_Finish_Work_2026-09-08/Day_38_EBIKE101_Ebike_Homunculous_Diagnosis_and_Finish_Work_2026-09-08_Student_Print_Packet.pdf",
+          "sha256": "321934a2524a65b158426590941149fa69bc8c8af56d518c9cf38dd17accc610",
+          "url": "/teaching/cts/assets/321934a2524a65b158426590.pdf"
+        },
+        {
+          "relativePath": "03_DAILY/Day_38_EBIKE101_Ebike_Homunculous_Diagnosis_and_Finish_Work_2026-09-08/Day_38_EBIKE101_Ebike_Homunculous_Diagnosis_and_Finish_Work_2026-09-08_Diagnostic_Worksheet.docx",
+          "sha256": "c8cb18b0140e4423a6afc68dcf17e803d38a04e9fa1ddd0d9c99629a0eb3a5d0",
+          "url": "/teaching/cts/assets/c8cb18b0140e4423a6afc68d.docx"
+        },
+        {
+          "relativePath": "03_DAILY/Day_38_EBIKE101_Ebike_Homunculous_Diagnosis_and_Finish_Work_2026-09-08/Day_38_EBIKE101_Ebike_Homunculous_Diagnosis_and_Finish_Work_2026-09-08_Diagnostic_Worksheet.pdf",
+          "sha256": "ee81c1d804e7a1574e9405035171ce19de54ecfabc9811dc8fa26727aa62fd48",
+          "url": "/teaching/cts/assets/ee81c1d804e7a1574e940503.pdf"
+        }
+      ]
+    }
+  ]
+}

@@ -35,7 +35,7 @@ export function useNavModel() {
         id: TAB_IDS.PROGRAMS,
         label: "Curriculum",
         to: "/curriculum",
-        match: ["/curriculum", "/Curriculum"],
+        match: ["/curriculum", "/Curriculum", "/courses"],
       },
       {
         id: TAB_IDS.EXAMPLES,

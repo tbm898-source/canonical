@@ -18,7 +18,7 @@ export default function Start() {
         <Link to="/curriculum" className="rounded-2xl border border-slate-200 bg-white p-6 transition hover:border-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-indigo-600">
           <BookOpen className="h-7 w-7 text-indigo-700" aria-hidden="true" />
           <h2 className="mt-5 text-xl font-semibold text-slate-950">Browse curriculum</h2>
-          <p className="mt-2 leading-6 text-slate-600">Design Thinking for a Joyful Life, solar instruction, and construction materials.</p>
+          <p className="mt-2 leading-6 text-slate-600">Solar, construction, sound and lighting, e-bikes, and Design Thinking for a Joyful Life.</p>
           <span className="mt-6 inline-flex items-center gap-2 font-semibold text-indigo-700">Open curriculum library <ArrowRight className="h-4 w-4" /></span>
         </Link>
       </div>
